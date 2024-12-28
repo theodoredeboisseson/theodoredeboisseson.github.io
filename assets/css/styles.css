@@ -1,0 +1,65 @@
+:root {
+    --main-text-color: #F4E5C2;
+    --primary-color: #0B8457;
+    --secondary-color: #096C47;
+    --background-color: #323232;
+}
+
+* {
+    color: var(--main-text-color);
+}
+/************ Fonts ************/
+
+@font-face {
+    font-family: 'Nomad';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Nomad'), url('../fonts/Nomad.woff') format('woff');
+}
+
+/*******************************/
+
+#titre {
+    font-family: 'Nomad', sans-serif;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    /*background-color: #f4f4f9;*/
+    /*color: #333;*/
+}
+
+header {
+    /*background: #0078d7;*/
+    background-color: var(--primary-color);
+    /*color: #fff;*/
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 100px;
+}
+
+nav ul li a {
+    /*color: #fff;*/
+    text-decoration: none;
+}
+
+#logo {
+    border-radius: 5px;
+    width: 100px;
+}
