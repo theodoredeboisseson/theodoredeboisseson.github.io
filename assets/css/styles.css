@@ -5,9 +5,6 @@
     --background-color: #323232;
 }
 
-* {
-    color: var(--main-text-color);
-}
 /************ Fonts ************/
 
 @font-face {
@@ -17,10 +14,30 @@
     src: local('Nomad'), url('../fonts/Nomad.woff') format('woff');
 }
 
-/*******************************/
+@font-face {
+    font-family: 'Beckan';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Beckan'), url('../fonts/Beckan.otf') format('woff');
+}
 
-#titre {
-    font-family: 'Nomad', sans-serif;
+@font-face {
+    font-family: 'Bropella';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Bropella'), url('../fonts/Bropella.otf') format('woff');
+}
+
+/************** Règles générales *****************/
+
+* {
+    color: var(--main-text-color);
+    transition: all ease-in-out .3s;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
 }
 
 body {
@@ -29,37 +46,116 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
-    /*background-color: #f4f4f9;*/
-    /*color: #333;*/
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: cornflowerblue;
+}
+
+/***************** Header ************/
+
 header {
-    /*background: #0078d7;*/
-    background-color: var(--primary-color);
-    /*color: #fff;*/
-    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    width: 80%;
+    border: 3px solid whitesmoke;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-top: none;
+    margin: auto;
 
-header h1 {
-    margin: 0;
-}
+    nav {
+        border-bottom: 2px solid var(--main-text-color);
+        padding: 0 20px;
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 100px;
-}
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 100px;
 
-nav ul li a {
-    /*color: #fff;*/
-    text-decoration: none;
+            li a {
+                /*color: #fff;*/
+                font-size: 1.2em;
+            }
+        }
+    }
+
+    #titre {
+        font-family: 'Bropella', sans-serif;
+        font-size: 4em;
+        margin: 0;
+    }
 }
 
 #logo {
     border-radius: 5px;
     width: 100px;
+}
+
+
+
+main {
+    padding: 20px;
+    flex: 1;
+}
+
+footer {
+    display: block;
+    text-align: center;
+}
+
+.focusable{
+    border-radius: 5px;
+    padding: 0.5rem;
+    &:hover {
+        background: #4b4b4b;
+    }
+}
+
+.icon {
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+    stroke: var(--main-text-color);
+}
+
+.progressive-stroke {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 1s ease;
+
+    &:hover {
+        stroke-dashoffset: 0; /* Affiche progressivement le contour */
+    }
+}
+
+.btn-with-icon {
+    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover .icon {
+        stroke: cornflowerblue;
+        transform: scale(1.1);
+        transition: transform 0.2s ease;
+    }
+}
+
+#socials {
+    display: inline-flex;
+    justify-content: center;
+    gap: 5rem;
+    width: 100%;
 }

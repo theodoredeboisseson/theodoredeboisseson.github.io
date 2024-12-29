@@ -10,19 +10,33 @@
 </head>
 <body>
 <header>
-    <img src="images/logo.jpg" alt="logo" id="logo">
     <nav>
         <ul>
-            <li><a href="#">À propos</a></li>
+            <li><a href="#apropos">À propos</a></li>
             <li><a href="#">Projets</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
+<!--        <img src="images/logo.jpg" alt="logo" id="logo">-->
+    <h1 id="titre">Théodore de Boisseson</h1>
 </header>
 <main>
-    <section>
+    <section id="apropos">
         <h2>Bonjour, je suis Théodore !</h2>
         <p>Développeur passionné par la création de sites web modernes et interactifs.</p>
+        <div id="socials">
+            <a class="focusable btn-with-icon" href="documents/MonCV.pdf" download>
+                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H12M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"/>
+                    <path d="M17.5 15V21M17.5 21L15 18.5M17.5 21L20 18.5"/>
+                </svg>
+                Télécharger mon CV
+            </a>
+            <a class="focusable btn-with-icon" href="https://www.linkedin.com/in/th%C3%A9odore-de-boisseson-bb03aa2aa/" target="_blank">
+                <img class="icon" src="images/linkedin.svg" alt="LinkedIn">
+                Mon profil LinkedIn
+            </a>
+        </div>
     </section>
 </main>
 <footer>
