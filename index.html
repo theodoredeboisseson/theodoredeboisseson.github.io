@@ -6,41 +6,75 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Theodore de Boisseson</title>
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/presentation.css">
+    <link rel="stylesheet" href="assets/css/skills.css">
     <link rel="icon" href="images/logo.webp" type="image/webp">
+<!--"Outfit" Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
 <header>
     <nav>
         <ul>
-            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#presentation">À propos</a></li>
             <li><a href="#">Projets</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
 <!--        <img src="images/logo.jpg" alt="logo" id="logo">-->
-    <h1 id="titre">Théodore de Boisseson</h1>
 </header>
+
 <main>
-    <section id="apropos">
-        <h2>Bonjour, je suis Théodore !</h2>
-        <p>Développeur passionné par la création de sites web modernes et interactifs.</p>
+    <h1 id="titre">Bonjour, je suis Théodore de Boisseson !</h1>
+    <section id="presentation">
+        <h1>À PROPOS DE MOI</h1>
+        <div class="content-box floating-animation">
+            <h4>Présentation</h4>
+            <p>
+                Actuellement, je suis étudiant en informatique à l’IUT Montpellier-Sète. Convaincu que le front-end et le back-end sont deux facettes indissociables d’une expérience utilisateur réussie, j’accorde autant d’importance à la qualité visuelle qu’à la qualité fonctionnelle de mes travaux.
+                Ma curiosité me pousse à explorer au-delà de ce qui m’est enseigné, approfondissant mes connaissances en frameworks CSS, Blender, JavaScript... Cette polyvalence me permet de me positionner comme un profil généraliste avec des compétences dans plusieurs domaines.
+                Mon code reflète mon engagement envers la propreté et la qualité, tout en répondant aux exigences d’ergonomie et de modernité. La difficulté est un facteur qui me motive à apprendre et à collaborer sur des projets ambitieux.
+            </p>
+        </div>
+        <div class="content-box floating-animation" style="animation-delay: 1s; align-self: flex-end;">
+            <h4>Centres d’Intérêts</h4>
+            <p>
+                L’humain est une espèce à plusieurs facettes, c’est pourquoi mes passions et loisirs sont divers et variés. J’aime écouter de la musique, mais comme j’apprécie également créer ce que je consomme, je pratique le solfège et le piano par moi-même et en club.
+                J’ai aussi passionné par les jeux vidéos et la puissance artistique qu’ils détiennent ainsi que par la culture Nippone aussi moderne que traditionnelle.
+                Me permettant de maintenir un équilibre dans mon style de vie, je pratique la musculation et la course à pied. Mon côté artistique se façonne notamment à travers le dessin, tandis que ma soif d’ouverture sur le monde me pousse à apprendre de nouvelles langues.
+                Bien sûr, ce ne sont là que mes principaux Hobbies, je suis souvent en train d’essayer de nouvelles choses.
+            </p>
+        </div>
+
+        <hr>
         <div id="socials">
-            <a class="focusable btn-with-icon" href="documents/MonCV.pdf" download>
-                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a class="btn-with-icon" href="documents/CV%20Théodore%20de%20Boisseson.pdf" target="_blank">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M13.5 3H12H8C6.34315 3 5 4.34315 5 6V18C5 19.6569 6.34315 21 8 21H12M13.5 3L19 8.625M13.5 3V7.625C13.5 8.17728 13.9477 8.625 14.5 8.625H19M19 8.625V11.8125"/>
                     <path d="M17.5 15V21M17.5 21L15 18.5M17.5 21L20 18.5"/>
                 </svg>
-                Télécharger mon CV
+                Mon CV
             </a>
-            <a class="focusable btn-with-icon" href="https://www.linkedin.com/in/th%C3%A9odore-de-boisseson-bb03aa2aa/" target="_blank">
-                <img class="icon" src="images/linkedin.svg" alt="LinkedIn">
-                Mon profil LinkedIn
+            <a class="btn-with-icon linkedin" href="https://www.linkedin.com/in/th%C3%A9odore-de-boisseson-bb03aa2aa/" target="_blank">
+                <svg class="icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#0A66C2" stroke="none" d="M12.225 12.225h-1.778V9.44c0-.664-.012-1.519-.925-1.519-.926 0-1.068.724-1.068 1.47v2.834H6.676V6.498h1.707v.783h.024c.348-.594.996-.95 1.684-.925 1.802 0 2.135 1.185 2.135 2.728l-.001 3.14zM4.67 5.715a1.037 1.037 0 01-1.032-1.031c0-.566.466-1.032 1.032-1.032.566 0 1.031.466 1.032 1.032 0 .566-.466 1.032-1.032 1.032zm.889 6.51h-1.78V6.498h1.78v5.727zM13.11 2H2.885A.88.88 0 002 2.866v10.268a.88.88 0 00.885.866h10.226a.882.882 0 00.889-.866V2.865a.88.88 0 00-.889-.864z"/>
+                </svg>
+                LinkedIn
+            </a>
+            <a class="btn-with-icon github" href="https://github.com/TheodoreDeBoisseson" target="_blank">
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                    <path stroke="none" d="M15,3C8.373,3,3,8.373,3,15c0,5.623,3.872,10.328,9.092,11.63C12.036,26.468,12,26.28,12,26.047v-2.051 c-0.487,0-1.303,0-1.508,0c-0.821,0-1.551-0.353-1.905-1.009c-0.393-0.729-0.461-1.844-1.435-2.526 c-0.289-0.227-0.069-0.486,0.264-0.451c0.615,0.174,1.125,0.596,1.605,1.222c0.478,0.627,0.703,0.769,1.596,0.769 c0.433,0,1.081-0.025,1.691-0.121c0.328-0.833,0.895-1.6,1.588-1.962c-3.996-0.411-5.903-2.399-5.903-5.098 c0-1.162,0.495-2.286,1.336-3.233C9.053,10.647,8.706,8.73,9.435,8c1.798,0,2.885,1.166,3.146,1.481C13.477,9.174,14.461,9,15.495,9 c1.036,0,2.024,0.174,2.922,0.483C18.675,9.17,19.763,8,21.565,8c0.732,0.731,0.381,2.656,0.102,3.594 c0.836,0.945,1.328,2.066,1.328,3.226c0,2.697-1.904,4.684-5.894,5.097C18.199,20.49,19,22.1,19,23.313v2.734 c0,0.104-0.023,0.179-0.035,0.268C23.641,24.676,27,20.236,27,15C27,8.373,21.627,3,15,3z"/>
+                </svg>
+                GitHub
             </a>
         </div>
+        <hr>
     </section>
 </main>
 <footer>
-    <p>© 2024 Théodore de Boisseson</p>
+    <p>© 2024-2024 Théodore de Boisseson | version 0</p>
 </footer>
 <script src="assets/js/script.js"></script>
 </body>

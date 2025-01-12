@@ -1,0 +1,87 @@
+#presentation {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .content-box {margin-bottom: 2rem;}
+}
+
+
+#socials {
+    display: inline-flex;
+    justify-content: center;
+    gap: 5rem;
+    width: 100%;
+}
+
+.btn-with-icon {
+    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1;
+    font-weight: bold;
+    box-sizing: border-box;
+    width: 10%;
+    border-radius: 5px;
+
+    &:hover {
+        background-color: #4b4b4b;
+        .icon {
+            stroke: cornflowerblue;
+            transform: scale(1.2);
+            transition: transform 0.8s ease-out;
+        }
+    }
+}
+
+.linkedin:hover {
+    background-color: #eaeaea;
+    color: #0A66C2;
+}
+
+.github:hover {
+    background-color: black;
+    fill:white;
+    color: white;
+}
+
+.icon {
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    stroke: var(--main-text-color);
+    transition: stroke 0.3s ease, fill 0.3s ease;
+}
+
+.progressive-stroke { /* Sert à afficher progressivement un .svg */
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 1s ease;
+
+    &:hover {
+        stroke-dashoffset: 0;
+    }
+}
+
+.content-box {
+    width: 50%;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: #342f38;
+    h4, p {
+        margin: 0;
+    }
+
+    p{
+        padding: 0 1rem;
+    }
+}
+
+.separator {
+    border-left: 3px black solid;
+    border-radius: 5px;
+    height: 30vw;
+    margin: 0 20px;
+}
