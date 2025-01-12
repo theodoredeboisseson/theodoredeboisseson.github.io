@@ -19,16 +19,18 @@
 
     .title {
         display: flex;
-        flex-direction: row;
-        flex-shrink: 0;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 5vw;
     }
 
     h1 {
         font-size: 3em;
         margin: 0;
-        line-height: 1.5;
-        rotate: -90deg;
+        transform: rotate(-90deg);
         white-space: nowrap;
+        letter-spacing: 25px;
     }
 
     #skills-div {
@@ -114,8 +116,15 @@
         position: absolute;
         width: 64px;
         height: 64px;
-        background-color: whitesmoke;
+        background-color: var(--skill-background);
         border-radius: 50%;
         z-index: 1;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #skills-div {
+        flex-direction: column;
+        align-items: center !important;
     }
 }
