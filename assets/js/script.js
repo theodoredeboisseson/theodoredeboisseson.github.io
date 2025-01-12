@@ -1,7 +1,3 @@
-// document.addEventListener("DOMContentLoaded", () => {
-//     alert("Bienvenue sur mon portfolio !");
-// });
-
 document.querySelectorAll('.circle').forEach(circle => {
     const percentage = circle.getAttribute('data-percentage');
 
@@ -11,8 +7,7 @@ document.querySelectorAll('.circle').forEach(circle => {
     const backgroundColor = styles.getPropertyValue('--skill-background-color').trim();
 
     //Met à jour le progression du "cercle"
-    const conicGradient = `conic-gradient(${progressColor} ${percentage}%, ${backgroundColor} ${percentage}%)`;
-    circle.style.background = conicGradient;
+    circle.style.background = `conic-gradient(${progressColor} ${percentage}%, ${backgroundColor} ${percentage}%)`;
 });
 
 
@@ -95,3 +90,23 @@ window.addEventListener('scroll', () => {
         ticking = true;
     }
 });
+
+function sendMail(event){
+    event.preventDefault();
+
+    let params = {
+        first_name: document.getElementById('first-name').value,
+        last_name: document.getElementById('last_name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    }
+
+    emailjs.send('service_nsw9fpa', 'template_zclnavi', params)
+        .then(function(response) {
+            alert("E-mail envoyé!");
+        })
+        .catch(function(error) {
+            alert("L'E-mail n'as pas pu être envoyé...");
+        });
+}

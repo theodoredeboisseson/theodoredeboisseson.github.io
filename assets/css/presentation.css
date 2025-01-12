@@ -85,3 +85,15 @@
     height: 30vw;
     margin: 0 20px;
 }
+
+@media screen and (max-width: 1200px){
+    .content-box{
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .content-box{
+        width: 90%;
+    }
+}
