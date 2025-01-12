@@ -59,3 +59,39 @@ document.addEventListener('DOMContentLoaded', () => {
         "retina_detect": true
     });
 })
+
+let lastScrollY = window.scrollY;
+let ticking = false;
+
+// Fonction pour gérer le comportement du header
+function updateHeader() {
+    const header = document.querySelector('header');
+    const currentScrollY = window.scrollY;
+
+    // Si on est tout en haut de la page, afficher le header
+    if (currentScrollY <= 0) {
+        header.classList.remove('header-hidden');
+        lastScrollY = currentScrollY;
+        ticking = false;
+        return;
+    }
+
+    if (currentScrollY > lastScrollY) {
+        header.classList.add('header-hidden');
+    } else {
+        header.classList.remove('header-hidden');
+    }
+
+    lastScrollY = currentScrollY;
+    ticking = false;
+}
+
+// Écouteur d'événement avec requestAnimationFrame pour de meilleures performances
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            updateHeader();
+        });
+        ticking = true;
+    }
+});

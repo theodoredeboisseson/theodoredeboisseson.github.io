@@ -34,13 +34,14 @@
 * {
     color: var(--main-text-color);
     transition: .3s,
-                stroke .1s linear, fill 0s linear;
+                stroke .1s linear, fill 0s linear,
+                width 0s, height 0s;
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-}
+html {scroll-behavior: smooth;}
+
+html, body {height: 100%;}
 
 body {
     font-family: Arial, sans-serif;
@@ -55,10 +56,7 @@ body {
 
 a {
     text-decoration: none;
-    &:hover {
-        color: cornflowerblue;
-
-    }
+    &:hover {color: cornflowerblue;}
 }
 
 h1, h2 {
@@ -67,22 +65,48 @@ h1, h2 {
 
 /***************** Header ************/
 header {
-    background-color: var(--secondary-color);
-    padding: 0 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 80%;
-    border: 3px solid var(--main-text-color);
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-top: none;
-    margin: auto;
+    justify-content: space-evenly;
+    padding-bottom: 5vh;
+    pointer-events: none;
+
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+
+    .header-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(50px);
+        mask-image: linear-gradient(to bottom, black 10%, transparent 80%);
+        z-index: -1; /* Pour que le contenu reste au-dessus */
+    }
+
+    #me {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        img {
+            height: 80px;
+            border-radius: 100%;
+        }
+    }
+
+
 
     nav {
-        border-bottom: 2px solid var(--main-text-color);
+        pointer-events: auto;
+        position: relative;
+        z-index: 1;
         padding: 0 20px;
-        margin: 2em;
+        margin: 1em;
 
         ul {
             list-style: none;
@@ -91,21 +115,23 @@ header {
             gap: 100px;
 
             li a {
-                /*color: #fff;*/
                 font-size: 1.2em;
+                color: var(--main-text-color);
+                text-decoration: none;
             }
         }
     }
-
-    #titre {
-        /*font-family: 'Bropella', sans-serif;*/
-        font-size: 3em;
-        margin: 0;
-    }
 }
 
+
+/* Classe pour cacher le header */
+.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* Ajouter un padding au main pour compenser le header fixed */
 main {
-    padding: 20px 50px;
+    padding: 120px 50px 20px; /* Ajuster selon la hauteur de votre header */
     flex: 1;
 }
 
@@ -148,9 +174,6 @@ footer {
     100% {transform: translate(0);}
 }
 
-
-
-
 #stars-animation {
     position: fixed;
     top: 0;
@@ -158,4 +181,10 @@ footer {
     width: 100vw;
     height: 100vh;
     z-index: -1;
+}
+
+@media screen and (max-width: 1024px) {
+    header{
+        flex-direction: column;
+    }
 }
