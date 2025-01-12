@@ -1,0 +1,121 @@
+/* CSS Skills section */
+:root {
+    --skill-progress-color: #1e1f22;
+    --skill-background-color: #9d9d9d;
+    --skill-background: whitesmoke;
+}
+
+#skills {
+    display: flex;
+    align-items: center;
+    background-color: var(--skill-background);
+    border-radius: 15px;
+    padding: 20px;
+    margin: 50px;
+
+    h1, h2, p {
+        color: black;
+    }
+
+    .title {
+        display: flex;
+        flex-direction: row;
+        flex-shrink: 0;
+    }
+
+    h1 {
+        font-size: 3em;
+        margin: 0;
+        line-height: 1.5;
+        rotate: -90deg;
+        white-space: nowrap;
+    }
+
+    #skills-div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-evenly;
+        gap: 50px;
+        flex-grow: 1;
+        overflow: auto;
+    }
+}
+
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+
+    h2 {
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    .skills-list {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+        max-height: 50vh;
+        width: 100%;
+
+        li {
+            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            max-width: 250px;
+            flex-shrink: 0;
+            position: relative;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: translateY(-3px);
+            }
+
+            .circle {
+                position: relative;
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-shrink: 0;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                transition: background 0.8s ease-out;
+                background: conic-gradient(
+                        var(--skill-progress-color) 0%,
+                        var(--skill-background-color) 0%
+                );
+
+
+                img {
+                    width: 65%;
+                    z-index: 1;
+                    border-radius: 10%;
+                }
+            }
+
+            p {
+                margin-left: 15px;
+                font-size: 1.2em;
+                font-weight: bold;
+                white-space: nowrap;
+            }
+        }
+    }
+
+    .circle::before {
+        content: "";
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        background-color: whitesmoke;
+        border-radius: 50%;
+        z-index: 1;
+    }
+}
