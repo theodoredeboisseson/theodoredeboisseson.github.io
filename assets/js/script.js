@@ -95,7 +95,7 @@ function sendMail(event){
     event.preventDefault();
 
     let params = {
-        first_name: document.getElementById('first-name').value,
+        first_name: document.getElementById('first_name').value,
         last_name: document.getElementById('last_name').value,
         email: document.getElementById('email').value,
         subject: document.getElementById('subject').value,
