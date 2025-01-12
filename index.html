@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/presentation.css">
     <link rel="stylesheet" href="assets/css/skills.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="icon" href="images/logo.webp" type="image/webp">
 <!--"Outfit" Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,10 +152,51 @@
             </div>
         </div>
     </section>
+    <section id="contact">
+            <h2>Contactez-moi</h2>
+            <p>Envoyez-moi un message ou contactez-moi directement par e-mail :
+                <a href="mailto:theodoredeboisseson@gmail.com" id="email-link">theodoredeboisseson@gmail.com</a>
+            </p>
 
-    <div id="stars-animation">
 
-    </div>
+            <form id="contact-form" onsubmit="sendMail(event)">
+                <div id="input-div">
+                    <div>
+                        <div>
+                            <div class="textfield">
+                                <input type="text" id="first_name" name="first_name" placeholder="" required>
+                                <label for="first_name">Prénom</label>
+                            </div>
+                            <div class="textfield">
+                                <input type="text" id="last_name" name="last_name" placeholder="" required>
+                                <label for="last_name">Nom</label>
+                            </div>
+                        </div>
+
+                        <div class="textfield">
+                            <input type="text" id="subject" name="subject" placeholder="" required>
+                            <label for="subject">Objet</label>
+                        </div>
+
+                        <div class="textfield">
+                            <input type="email" id="email" name="email" placeholder="" required>
+                            <label for="email">E-mail</label>
+                        </div>
+                    </div>
+
+                    <div class="textfield">
+                        <textarea id="message" name="message" rows="5" placeholder="" required></textarea>
+                        <label for="message">Votre Message</label>
+                    </div>
+                </div>
+
+                <button type="submit">Envoyer</button>
+            </form>
+
+            <p id="status-message" style="display: none;"></p>
+    </section>
+
+    <div id="stars-animation"></div>
 
 </main>
 <footer>
@@ -162,5 +204,15 @@
 </footer>
 <script src="assets/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "OiseTFJUzxTT7_XpX",
+        });
+    })();
+</script>
 </body>
 </html>
