@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--SEO-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Theodore de Boisseson</title>
+    <meta name="description" content="Portfolio de Théodore de Boisseson, étudiant en informatique à l'IUT Montpellier-Sète. Découvrez mes projets, compétences, parcours et contactez-moi pour toute collaboration." />
+    <meta name="keywords" content="Théodore de Boisseson, portfolio, développeur informatique, projets, compétences, IUT Montpellier-Sète" />
+    <meta name="author" content="Théodore de Boisseson"/>
+    <title>Théodore de Boisseson</title>
+    <!--Open Graph pour le partage sur les réseaux-->
+    <meta property="og:title" content="Portfolio de Théodore de Boisseson" />
+    <meta property="og:description" content="Découvrez mon portfolio, mes projets et mes compétences en informatique." />
+    <meta property="og:image" content="media/photo-de-profil.webp" />
+    <meta property="og:url" content="https://theodoredeboisseson.github.io" />
+    <meta property="og:type" content="website" />
+    <!--Stylesheets et favicon-->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/presentation.css">
     <link rel="stylesheet" href="assets/css/projets.css">
     <link rel="stylesheet" href="assets/css/skills.css">
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="icon" href="media/logo.webp" type="image/webp">
-<!--"Outfit" Font-->
+    <!--"Outfit" Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
@@ -20,7 +31,7 @@
 <header>
     <div class="header-background"></div>
     <div id="me">
-        <img src="media/photo-de-profil.webp" alt="logo" id="logo">
+        <img src="media/photo-de-profil.webp" loading="lazy" alt="logo" id="logo">
         <h1>Théodore de Boisseson</h1>
     </div>
 
@@ -121,7 +132,7 @@
             <p>
 
             </p>
-            <img src="media/projets/screenshot-jicursum.webp" alt="Capture d'écran de JiCursum">
+            <img src="media/projets/screenshot-jicursum.webp" loading="lazy" alt="Capture d'écran de JiCursum">
         </div>
 
     </section>
@@ -221,28 +232,28 @@
                     <div>
                         <div>
                             <div class="textfield">
-                                <input type="text" id="first_name" name="first_name" placeholder="" required>
+                                <input type="text" id="first_name" name="first_name" placeholder="" aria-label="Votre Prénom" required>
                                 <label for="first_name">Prénom</label>
                             </div>
                             <div class="textfield">
-                                <input type="text" id="last_name" name="last_name" placeholder="" required>
+                                <input type="text" id="last_name" name="last_name" placeholder="" aria-label="Votre Nom" required>
                                 <label for="last_name">Nom</label>
                             </div>
                         </div>
 
                         <div class="textfield">
-                            <input type="text" id="subject" name="subject" placeholder="" required>
+                            <input type="text" id="subject" name="subject" placeholder="" aria-label="Objet du Mail" required>
                             <label for="subject">Objet</label>
                         </div>
 
                         <div class="textfield">
-                            <input type="email" id="email" name="email" placeholder="" required>
+                            <input type="email" id="email" name="email" placeholder="" aria-label="Votre e-mail pour vous recontacter" required>
                             <label for="email">Votre E-mail</label>
                         </div>
                     </div>
 
                     <div class="textfield">
-                        <textarea id="message" name="message" rows="5" placeholder="" required></textarea>
+                        <textarea id="message" name="message" rows="5" placeholder="" aria-label="Le contenu du mail que vous envoyez" required></textarea>
                         <label for="message">Votre Message</label>
                     </div>
                 </div>
@@ -258,11 +269,9 @@
 </footer>
 <div id="stars-animation"></div>
 <script src="assets/js/script.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+<script type="text/javascript" defer>
     (function(){
         emailjs.init({
             publicKey: "OiseTFJUzxTT7_XpX",
