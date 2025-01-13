@@ -44,7 +44,10 @@
         </ul>
     </nav>
 </header>
+<div id="toggle-header" class="hidden shadow">&#9776;</div>
+
 <main>
+    <hr>
     <section id="presentation">
         <h1>À PROPOS DE MOI</h1>
         <div class="content-box floating-animation">
@@ -140,6 +143,8 @@
         <div class="title">
             <h1>SKILLS</h1>
         </div>
+
+        <div class="separator"></div>
 
         <div id="skills-div">
             <div class="skills-container">
@@ -260,8 +265,6 @@
 
                 <button type="submit">Envoyer</button>
             </form>
-
-            <p id="status-message" style="display: none;"></p>
     </section>
 </main>
 <footer>
@@ -270,7 +273,7 @@
 <div id="stars-animation"></div>
 <script src="assets/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript" defer>
     (function(){
         emailjs.init({

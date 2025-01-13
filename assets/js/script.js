@@ -57,37 +57,72 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let lastScrollY = window.scrollY;
 let ticking = false;
+const header = document.querySelector('header');
+const burgerButton = document.querySelector('#toggle-header');
 
-// Fonction pour gérer le comportement du header
+function isResponsive() {
+    return window.innerWidth <= 1024; // Limite max-width
+}
+
+// Fonction pour gérer le comportement du header et de la flèche
 function updateHeader() {
-    const header = document.querySelector('header');
     const currentScrollY = window.scrollY;
 
-    // Si on est tout en haut de la page, afficher le header
-    if (currentScrollY <= 0) {
+    if (currentScrollY <= 100) {
         header.classList.remove('header-hidden');
+        burgerButton.classList.add('hidden');
         lastScrollY = currentScrollY;
         ticking = false;
         return;
     }
 
-    if (currentScrollY > lastScrollY) {
-        header.classList.add('header-hidden');
+    if (isResponsive()) {
+        // Mode responsive
+        if (currentScrollY > lastScrollY) {
+            // Scrolling vers le bas
+            header.classList.add('header-hidden');
+            burgerButton.classList.remove('hidden');
+        } else {
+            header.classList.add('header-hidden');
+            burgerButton.classList.remove('hidden');
+        }
     } else {
-        header.classList.remove('header-hidden');
+        // Mode normal
+        if (currentScrollY > lastScrollY) {
+            header.classList.add('header-hidden');
+        } else {
+            header.classList.remove('header-hidden');
+        }
+
+        burgerButton.classList.add('hidden');
     }
 
     lastScrollY = currentScrollY;
     ticking = false;
 }
 
-// Écouteur d'événement avec requestAnimationFrame pour de meilleures performances
+// Fonction pour toggler le header quand on clique sur la flèche
+burgerButton.addEventListener('click', () => {
+    header.classList.toggle('header-hidden');
+    burgerButton.classList.toggle('hidden');
+});
+
+// Écouteur d'événement pour le scroll
 window.addEventListener('scroll', () => {
     if (!ticking) {
         requestAnimationFrame(() => {
             updateHeader();
         });
         ticking = true;
+    }
+});
+
+// Mise à jour du comportement lors d'un redimensionnement de la fenêtre
+window.addEventListener('resize', () => {
+    if (!isResponsive()) {
+        // En mode desktop, réinitialiser le header
+        header.classList.remove('header-hidden');
+        burgerButton.classList.add('hidden');
     }
 });
 

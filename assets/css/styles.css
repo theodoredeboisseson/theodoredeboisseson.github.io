@@ -8,27 +8,6 @@
 
 /************ Fonts ************/
 
-@font-face {
-    font-family: 'Nomad';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Nomad'), url('../fonts/Nomad.woff') format('woff');
-}
-
-@font-face {
-    font-family: 'Beckan';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Beckan'), url('../fonts/Beckan.otf') format('woff');
-}
-
-@font-face {
-    font-family: 'Bropella';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Bropella'), url('../fonts/Bropella.otf') format('woff');
-}
-
 /************** Règles générales *****************/
 
 * {
@@ -41,7 +20,10 @@
 
 html {scroll-behavior: smooth;}
 
-html, body {height: 100%;}
+html, body {
+    height: 100%;
+    width: 100%;
+}
 
 body {
     font-family: Arial, sans-serif;
@@ -129,9 +111,35 @@ header {
     transform: translateY(-100%);
 }
 
-/* Ajouter un padding au main pour compenser le header fixed */
+#toggle-header {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 0;
+    transform: translateX(-30%);
+    font-size: 2em;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: var(--background-color);
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+#toggle-header.hidden {
+    transform: translateX(100%);
+}
+
+header.header-hidden + #toggle-header {
+    display: flex;
+}
+
+
+/****************************/
+
 main {
-    padding: 120px 50px 20px; /* Ajuster selon la hauteur de votre header */
+    padding: 120px 50px 20px; /* 120px pour le décalage avec le header. */
     flex: 1;
 }
 
@@ -180,6 +188,13 @@ footer {
     animation: floating-animation 5s linear infinite both;
 }
 
+.separator {
+    border: 3px black solid;
+    border-radius: 5px;
+    height: 30vw;
+    margin: 0 20px;
+}
+
 @keyframes floating-animation {
     0% {transform: translate(0);}
     20% {transform: translate(2px, -2px);}
@@ -210,8 +225,31 @@ footer {
 }
 
 @media screen and (max-width: 1024px) {
+    main{padding-top: 350px}
+
+    #toggle-header {
+        display: flex;
+    }
+
     header{
         flex-direction: column;
+
+        nav{width: 100%}
+
+        ul{
+            flex-direction: column;
+            gap: 10px !important;
+            text-align: center;
+
+            a{
+                display: block;
+                font-size: 2em !important;
+            }
+        }
+
+        h1{
+            font-size: 1.5em;
+        }
     }
 }
 

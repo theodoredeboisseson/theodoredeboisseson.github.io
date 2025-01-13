@@ -134,3 +134,24 @@
         }
     }
 }
+
+@media screen and (max-width: 1024px) {
+    #contact{
+        margin:0;
+        padding: 1em;
+
+        #contact-form{padding: 1em;}
+
+        #input-div {
+            flex-direction: column;
+            & > div {
+                width: unset;
+            }
+
+            .textfield {
+                width: 100%;
+            }
+        }
+    }
+
+}

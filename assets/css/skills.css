@@ -68,7 +68,7 @@
             text-align: center;
             display: inline-flex;
             align-items: center;
-            max-width: 250px;
+            max-width: 50%;
             flex-shrink: 0;
             position: relative;
             transition: transform 0.3s ease;
@@ -105,7 +105,6 @@
                 margin-left: 15px;
                 font-size: 1.2em;
                 font-weight: bold;
-                white-space: nowrap;
             }
         }
     }
@@ -122,10 +121,28 @@
 }
 
 @media screen and (max-width: 1024px) {
-    #skills {margin: 50px 0;}
+    #skills {
+        margin: 50px 0;
+        flex-direction: column;
+
+        h1{
+            transform: unset;
+        }
+
+        .separator{
+            height: unset;
+            width: 75%;
+        }
+
+
+    }
 
     #skills-div {
         flex-direction: column;
         align-items: center !important;
+    }
+
+    .skills-container {
+        font-size: .8em !important;
     }
 }

@@ -8,8 +8,9 @@
 
 
 #socials {
-    display: inline-flex;
+    display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 5rem;
     width: 100%;
 
@@ -22,7 +23,17 @@
         font-weight: bold;
         box-sizing: border-box;
         width: 10%;
+        min-width: 150px;
         border-radius: 5px;
+
+        .icon {
+            max-height: 50px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            stroke: var(--main-text-color);
+            transition: stroke 0.3s ease, fill 0.3s ease;
+        }
 
         &:hover {
             background-color: #4b4b4b;
@@ -30,7 +41,7 @@
             .icon {
                 stroke: cornflowerblue;
                 transform: scale(1.2);
-                transition: transform 0.8s ease-out;
+                transition: transform 0.4s ease-out;
             }
         }
     }
@@ -45,31 +56,31 @@
         fill: white;
         color: white;
     }
+}
 
-    .icon {
-        max-height: 50px;
-        width: auto;
-        object-fit: contain;
-        flex-shrink: 0;
-        stroke: var(--main-text-color);
-        transition: stroke 0.3s ease, fill 0.3s ease;
+@media screen and (max-width: 1024px){
+    #socials {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        .btn-with-icon {
+            width: 90%;
+            max-width: 300px;
+            justify-content: center;
+        }
     }
-}
 
-.separator {
-    border-left: 3px black solid;
-    border-radius: 5px;
-    height: 30vw;
-    margin: 0 20px;
-}
-
-@media screen and (max-width: 1200px){
     .content-box{
         width: 70%;
     }
+
+    #socials{
+        /*gap: 1rem;*/
+    }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 768px){
     .content-box{
         width: 90%;
     }
