@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="assets/css/presentation.css">
     <link rel="stylesheet" href="assets/css/skills.css">
     <link rel="stylesheet" href="assets/css/contact.css">
-    <link rel="icon" href="images/logo.webp" type="image/webp">
+    <link rel="icon" href="media/logo.webp" type="image/webp">
 <!--"Outfit" Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
 <header>
     <div class="header-background"></div>
     <div id="me">
-        <img src="images/photo-de-profil.jpg" alt="logo" id="logo">
+        <img src="media/photo-de-profil.jpg" alt="logo" id="logo">
         <h1>Théodore de Boisseson</h1>
     </div>
 
@@ -99,37 +99,37 @@
                 <ul class="skills-list">
                     <li>
                         <div class="circle loading" data-percentage="85">
-                            <img src="images/icons/HTML5.svg" alt="Logo HTML5">
+                            <img src="media/skills/HTML5.svg" alt="Logo HTML5">
                         </div>
-                        <p>HTML5 | CSS3</p>
+                        <p>HTML CSS</p>
                     </li>
                     <li>
                         <div class="circle" data-percentage="20">
-                            <img src="images/icons/JavaScript.svg" alt="Logo JavaScript">
+                            <img src="media/skills/JavaScript.svg" alt="Logo JavaScript">
                         </div>
                         <p>JavaScript</p>
                     </li>
                     <li>
                         <div class="circle" data-percentage="75">
-                            <img src="images/icons/php.svg" alt="Logo PHP">
+                            <img src="media/skills/php.svg" alt="Logo PHP">
                         </div>
                         <p>PHP</p>
                     </li>
                     <li>
                         <div class="circle" data-percentage="60">
-                            <img src="images/icons/java.svg" alt="Logo Java">
+                            <img src="media/skills/java.svg" alt="Logo Java">
                         </div>
                         <p>Java</p>
                     </li>
                     <li>
                         <div class="circle" data-percentage="50">
-                            <img src="images/icons/mariadb-blue.svg" alt="Logo MariaDB">
+                            <img src="media/skills/mariadb-blue.svg" alt="Logo MariaDB">
                         </div>
                         <p>MariaDB</p>
                     </li>
                     <li>
                         <div class="circle" data-percentage="50">
-                            <img src="images/icons/c++.svg" alt="Logo C++">
+                            <img src="media/skills/c++.svg" alt="Logo C++">
                         </div>
                         <p>C++</p>
                     </li>
@@ -141,25 +141,31 @@
                 <ul class="skills-list">
                     <li>
                         <div class="circle" data-percentage="50">
-                            <img src="images/icons/jetbrains.svg" alt="Logo Jetbrains">
+                            <img src="media/skills/jetbrains.svg" alt="Logo Jetbrains">
                         </div>
                         <p>Suite JetBrains</p>
                     </li>
                     <li>
                         <div class="circle" data-percentage="50">
-                            <img src="images/icons/scrum.svg" alt="Logo méthode Agile Scrum">
+                            <img src="media/skills/scrum.svg" alt="Logo méthode Agile Scrum">
                         </div>
                         <p>Méthode Agile Scrum</p>
                     </li>
                     <li>
                         <div class="circle" data-percentage="50">
-                            <img src="images/icons/docker.svg" alt="Logo Docker Desktop">
+                            <img src="media/skills/docker.svg" alt="Logo Docker Desktop">
                         </div>
                         <p>Docker</p>
                     </li>
                     <li>
                         <div class="circle" data-percentage="85">
-                            <img src="images/icons/github-mark.svg" alt="GitHub">
+                            <img src="media/skills/gitlab.svg" alt="Logo Gitlab">
+                        </div>
+                        <p>Gitlab</p>
+                    </li>
+                    <li>
+                        <div class="circle" data-percentage="70">
+                            <img src="media/skills/github-mark.svg" alt="Logo GitHub">
                         </div>
                         <p>GitHub</p>
                     </li>
@@ -169,10 +175,9 @@
     </section>
     <section id="contact">
             <h2>Contactez-moi</h2>
-            <p>Envoyez-moi un message ou contactez-moi directement par e-mail :
-                <a href="mailto:theodoredeboisseson@gmail.com" id="email-link">theodoredeboisseson@gmail.com</a>
+            <p>Envoyez-moi un message via le formulaire ou contactez-moi directement :
+                <a href="mailto:theodoredeboisseson@gmail.com?body=Bonjour Théodore," target="_blank" id="email-link">theodoredeboisseson@gmail.com</a>
             </p>
-
 
             <form id="contact-form" onsubmit="sendMail(event)">
                 <div id="input-div">
@@ -195,7 +200,7 @@
 
                         <div class="textfield">
                             <input type="email" id="email" name="email" placeholder="" required>
-                            <label for="email">E-mail</label>
+                            <label for="email">Votre E-mail</label>
                         </div>
                     </div>
 
@@ -210,13 +215,11 @@
 
             <p id="status-message" style="display: none;"></p>
     </section>
-
-    <div id="stars-animation"></div>
-
 </main>
 <footer>
     <p>© 2024-2024 Théodore de Boisseson | version 0</p>
 </footer>
+<div id="stars-animation"></div>
 <script src="assets/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script type="text/javascript"
