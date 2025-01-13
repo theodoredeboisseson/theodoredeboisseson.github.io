@@ -54,17 +54,6 @@
         transition: stroke 0.3s ease, fill 0.3s ease;
     }
 
-    .progressive-stroke { /* Sert à afficher progressivement un .svg */
-        stroke-dasharray: 100;
-        stroke-dashoffset: 100;
-        transition: stroke-dashoffset 1s ease;
-
-        &:hover {
-            stroke-dashoffset: 0;
-        }
-    }
-}
-
 .separator {
     border-left: 3px black solid;
     border-radius: 5px;

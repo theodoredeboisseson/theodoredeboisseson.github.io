@@ -34,8 +34,8 @@
 * {
     color: var(--main-text-color);
     transition: .3s,
-                stroke .1s linear, fill 0s linear,
-                width 0s, height 0s;
+    stroke .1s linear, fill 0s linear,
+    width 0s, height 0s;
     box-sizing: border-box;
 }
 
