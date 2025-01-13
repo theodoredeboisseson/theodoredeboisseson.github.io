@@ -156,6 +156,21 @@ section {
     }
 }
 
+.content-box {
+    width: 50%;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: #342f38;
+    h4, p {
+        margin: 0;
+    }
+
+    p{
+        padding: 0 1rem;
+    }
+}
+
+
 footer {
     display: block;
     text-align: center;
@@ -183,8 +198,20 @@ footer {
     z-index: -1;
 }
 
+@media (max-width: 768px) {
+    main{
+        padding: 120px 15px 20px;
+    }
+
+    .video-container {
+        width: 100%;
+        margin: 0;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     header{
         flex-direction: column;
     }
 }
+
