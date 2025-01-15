@@ -145,3 +145,67 @@ function sendMail(event){
             alert("L'E-mail n'as pas pu être envoyé...");
         });
 }
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray('.box').forEach((box) => {
+    gsap.fromTo(
+        box,
+        { opacity: 0, y: 100 }, // État initial
+        {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: box,
+                start: 'top 80%', // Quand l'animation démarre (élément visible)
+                end: 'top 50%',   // Optionnel : fin de l'animation
+                toggleActions: 'play none none none', // play, pause, reset...
+            },
+        }
+    );
+});
+
+
+// Script pour GSAP
+gsap.registerPlugin(ScrollTrigger);
+
+// Fonction pour animer les éléments
+function animateElements() {
+    gsap.utils.toArray('.appear-left, .appear-right, .appear-below').forEach((element) => {
+        let xValue = 0, yValue = 0; // Initialisation des valeurs de translation
+
+        if (element.classList.contains('appear-left')) {
+            xValue = -60; // Déplacement vers la gauche plus subtil
+        } else if (element.classList.contains('appear-right')) {
+            xValue = 60; // Déplacement vers la droite plus subtil
+        } else if (element.classList.contains('appear-below')) {
+            yValue = 60; // Déplacement vers le bas plus subtil
+        }
+
+        // Applique l'animation avec GSAP
+        gsap.fromTo(element,
+            {
+                opacity: 0,
+                x: xValue,
+                y: yValue,
+                ease: "none" // Courbe d'accélération sans freinage (mouvement constant)
+            },
+            {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                duration: 0.6, // Durée plus courte pour accélérer l'animation
+                scrollTrigger: {
+                    trigger: element,
+                    start: 'top 90%',  // L'élément commence à apparaître quand il est plus près de l'écran
+                    toggleActions: 'play none none none',
+                    markers: false // Désactive les marqueurs de débogage
+                }
+            }
+        );
+    });
+}
+
+window.addEventListener('load', animateElements);

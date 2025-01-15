@@ -219,6 +219,25 @@ footer {
     z-index: -1;
 }
 
+/* Classes pour GSAP */
+.appear-left, .appear-right, .appear-below{
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.appear-left {
+    transform: translateX(-100px);
+}
+
+.appear-right {
+    transform: translateX(100px);
+}
+
+.appear-below {
+    transform: translateY(100px);
+}
+
+
 @media (max-width: 768px) {
     main{
         padding: 120px 15px 20px;
