@@ -10,7 +10,6 @@
 /************ Fonts ************/
 
 /************** Règles générales *****************/
-
 * {
     color: var(--main-text-color);
     transition: .3s,
@@ -55,35 +54,22 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-
+    backdrop-filter: blur(50px);
+    background-color: rgba(0, 0, 0, 0.4); /* Couche opaque semi-transparente */
+    border-bottom: 1px solid var(--main-text-color);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-
-    .header-background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        backdrop-filter: blur(50px);
-        background-color: rgba(0, 0, 0, 0.4); /* Couche opaque semi-transparente */
-        /*mask-image: linear-gradient(to bottom, black 0%, transparent 90%);*/
-        border-bottom: 1px solid var(--main-text-color);
-        z-index: -1;
-    }
-
 
     #me {
         display: flex;
         align-items: center;
         gap: 20px;
+        h1{margin: 0;}
 
         img {
             height: 80px;
             border-radius: 100%;
         }
     }
-
-
 
     nav {
         position: relative;
@@ -111,13 +97,12 @@ header {
     }
 }
 
-
 /* Classe pour cacher le header */
 .header-hidden {
     transform: translateY(-100%);
 }
 
-#toggle-header {
+#toggle-burger {
     display: none;
     position: fixed;
     top: 10px;
@@ -133,17 +118,15 @@ header {
     transition: transform 0.3s ease-in-out;
 }
 
-#toggle-header.hidden {
+#toggle-burger.hidden {
     transform: translateX(100%);
 }
 
-header.header-hidden + #toggle-header {
+header.header-hidden + #toggle-burger {
     display: flex;
 }
 
-
 /****************************/
-
 main {
     padding: 120px 50px 20px; /* 120px pour le décalage avec le header. */
     flex: 1;
@@ -184,7 +167,6 @@ section {
     }
 }
 
-
 footer {
     display: block;
     text-align: center;
@@ -219,35 +201,7 @@ footer {
     z-index: -1;
 }
 
-/* Classes pour GSAP */
-.appear-left, .appear-right, .appear-below{
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-}
 
-.appear-left {
-    transform: translateX(-100px);
-}
-
-.appear-right {
-    transform: translateX(100px);
-}
-
-.appear-below {
-    transform: translateY(100px);
-}
-
-
-@media (max-width: 768px) {
-    main{
-        padding: 120px 15px 20px;
-    }
-
-    .video-container {
-        width: 100%;
-        margin: 0;
-    }
-}
 
 @media screen and (max-width: 1024px) {
     .floating-animation {
@@ -256,7 +210,7 @@ footer {
 
     main{padding-top: 350px}
 
-    #toggle-header {
+    #toggle-burger {
         display: flex;
     }
 
@@ -286,3 +240,13 @@ footer {
     }
 }
 
+@media (max-width: 768px) {
+    main {
+        padding: 120px 15px 20px;
+    }
+
+    .video-container {
+        width: 100%;
+        margin: 0;
+    }
+}
