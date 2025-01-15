@@ -68,7 +68,7 @@ function isResponsive() {
 function updateHeader() {
     const currentScrollY = window.scrollY;
 
-    if (currentScrollY <= 100) {
+    if (currentScrollY <= 0) {
         header.classList.remove('header-hidden');
         burgerButton.classList.add('hidden');
         lastScrollY = currentScrollY;
