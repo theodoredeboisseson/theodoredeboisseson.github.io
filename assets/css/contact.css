@@ -145,7 +145,11 @@
         #input-div {
             flex-direction: column;
             & > div {
-                width: unset;
+                width: 100%;
+                & > div {
+                    flex-direction: column;
+                    gap: 0;
+                }
             }
 
             .textfield {

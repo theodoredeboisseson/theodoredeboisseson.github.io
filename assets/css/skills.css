@@ -61,37 +61,37 @@
         gap: 20px;
         padding: 0;
         margin: 0;
-        max-height: 50vh;
         width: 100%;
 
         li {
-            text-align: center;
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            max-width: 50%;
-            flex-shrink: 0;
-            position: relative;
-            transition: transform 0.3s ease;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 10px;
+            gap: 15px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            width: auto;
+            height: auto;
+            box-sizing: border-box;
+
 
             &:hover {
                 transform: translateY(-3px);
             }
 
             .circle {
-                position: relative;
-                width: 80px;
-                height: 80px;
+                width: 75px;
+                height: 75px;
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                flex-shrink: 0;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-                transition: background 0.8s ease-out;
                 background: conic-gradient(
                         var(--skill-progress-color) 0%,
                         var(--skill-background-color) 0%
                 );
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
 
                 img {
@@ -102,9 +102,12 @@
             }
 
             p {
-                margin-left: 15px;
+                margin: 0;
                 font-size: 1.2em;
                 font-weight: bold;
+                text-align: center;
+                word-wrap: break-word;
+                white-space: normal;
             }
         }
     }
@@ -144,5 +147,11 @@
 
     .skills-container {
         font-size: .8em !important;
+        width: 100%;
+
+        .skills-list {
+            flex-wrap: nowrap;
+            align-items: flex-start;
+        }
     }
 }
