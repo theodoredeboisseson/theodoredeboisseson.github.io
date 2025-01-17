@@ -208,7 +208,7 @@ footer {
         animation: none;
     }
 
-    main{padding-top: 350px}
+    main{padding: 350px 20px 20px}
 
     #toggle-burger {
         display: flex;
@@ -241,10 +241,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    main {
-        padding: 120px 15px 20px;
-    }
-
     .video-container {
         width: 100%;
         margin: 0;
