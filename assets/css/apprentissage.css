@@ -30,7 +30,7 @@
 
 .competence-description {
     font-style: italic;
-    color: var(--text-color-light); /* Couleur de texte plus claire pour la description */
+    color: var(--text-color) !important; /* Couleur de texte plus claire pour la description */
     margin-bottom: 20px;
 }
 
