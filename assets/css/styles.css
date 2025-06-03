@@ -1,22 +1,23 @@
 :root {
-    --main-text-color: #F4E5C2; /* Beige clair pour titres/accents */
-    --secondary-text-color: #d2c6b4; /* Beige plus doux pour paragraphes secondaires */
-    --text-color: rgb(178, 199, 214);            /* Blanc cassé principal pour le corps de texte */
+    /* Textes */
+    --main-text-color: #F4E5C2;
+    --secondary-text-color: #d2c6b4;
+    --text-color: #b2c7db;
 
-    --text-color-body: #EAEAEA;         /* Blanc cassé pour le corps */
-    --text-color-headings: #F4E5C2;   /* Beige clair pour titres */
-    --text-color-secondary: #A8B2C0;   /* Gris clair bleuté pour textes secondaires */
-    
-    --primary-color: #0b6884;         /* Vert principal */
-    --primary-color-light: #3984e3;   /* Vert plus clair */
-    --secondary-color: #096C47;       /* Vert secondaire/foncé */
+    --text-color-body: #EAEAEA;
+    --text-color-headings: #F4E5C2;
+    --text-color-secondary: #A8B2C0;
 
-    --background-color: #28242c;      /* Fond principal (presque noir violacé) */
+    /* Couleurs principales */
+    --primary-color: #4A90E2;
+    --primary-color-light: #7FB3F7;
+    --background-color: #28242c;
 
-    /* Palette d'Accents */
-    --accent-color: #3498DB;
-    --accent-color-light: #5DADE2;
-    --accent-color-dark: #2874A6;
+    /* Palette d’accents */
+    --accent-color: #5AA0F2;
+    --accent-color-light: #B3D1FF;
+    --accent-color-dark: #357ABD;
+
 
     
     /* Éléments d'Interface */
@@ -220,7 +221,7 @@ footer {
 
     h4 {
         margin-bottom: var(--spacing-unit);
-        color: var(--primary-color-light);
+        color: var(--primary-color);
     }
 
     p {
