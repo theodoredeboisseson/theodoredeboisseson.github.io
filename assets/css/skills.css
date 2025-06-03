@@ -153,3 +153,10 @@
         }
     }
 }
+
+.separator {
+    border: 3px black solid;
+    border-radius: 5px;
+    height: 30vw;
+    margin: var(--spacing-unit) calc(1.25 * var(--spacing-unit));
+}

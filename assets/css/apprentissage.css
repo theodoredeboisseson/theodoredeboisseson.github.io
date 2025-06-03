@@ -44,7 +44,7 @@
 }
 
 .ac-item h3 {
-    color: var(--primary-color-light); /* Couleur primaire claire pour les titres AC */
+    color: var(--main-text-color); /* Couleur primaire claire pour les titres AC */
     font-size: 1.3em;
     margin-bottom: 8px;
 }

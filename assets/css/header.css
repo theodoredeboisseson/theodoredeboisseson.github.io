@@ -1,0 +1,111 @@
+/***************** Header ************/
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    backdrop-filter: blur(50px);
+    background-color: rgba(0, 0, 0, 0.4); /* Couche opaque semi-transparente */
+    border-bottom: 1px solid var(--main-text-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+
+    #me {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        h1{margin: 0;}
+
+        img {
+            height: 80px;
+            border-radius: 100%;
+        }
+    }
+
+    nav {
+        position: relative;
+        z-index: 1;
+        padding: 0 20px;
+        margin: 1em;
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 50px;
+
+            li a {
+                font-size: 1.2em;
+                color: var(--main-text-color);
+                text-decoration: none;
+                font-weight: bold;
+                /*background-color: rgba(0, 0, 0, 0.2); !* Légère opacité *!*/
+                padding: 10px 20px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+        }
+    }
+}
+
+/* Classe pour cacher le header */
+.header-hidden {
+    transform: translateY(-100%);
+}
+
+#toggle-burger {
+    display: none;
+    position: fixed;
+    top: 10px;
+    right: 0;
+    transform: translateX(-30%);
+    font-size: 2em;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: var(--background-color);
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+#toggle-burger.hidden {
+    transform: translateX(100%);
+}
+
+header.header-hidden + #toggle-burger {
+    display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+    #toggle-burger {
+        display: flex;
+    }
+
+    header{
+        flex-direction: column;
+
+        nav{
+            width: 100%;
+            margin: 0;
+        }
+
+        ul{
+            flex-direction: column;
+            gap: 0 !important;
+            text-align: center;
+
+            a{
+                padding: 10px 0 !important;
+                display: block;
+                font-size: 1.5em !important;
+            }
+        }
+
+        h1{
+            font-size: 1.5em;
+        }
+    }
+}

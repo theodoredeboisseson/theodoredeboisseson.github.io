@@ -126,23 +126,3 @@ window.addEventListener('resize', () => {
         burgerButton.classList.add('hidden');
     }
 });
-
-function sendMail(event){
-    event.preventDefault();
-
-    let params = {
-        first_name: document.getElementById('first_name').value,
-        last_name: document.getElementById('last_name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    }
-
-    emailjs.send('service_nsw9fpa', 'template_zclnavi', params)
-        .then(function(response) {
-            alert("E-mail envoyé!");
-        })
-        .catch(function(error) {
-            alert("L'E-mail n'as pas pu être envoyé...");
-        });
-}

@@ -1,29 +1,38 @@
 :root {
-    --main-text-color: #F4E5C2;
-    --secondary-text-color: #d2c6b4;
-    --primary-color: #0B8457;
-    --secondary-color: #096C47;
-    --background-color: #28242c;
-    /*--foreground-color: var(--secondary-color);*/
-    /*--primary-color: #00bcd4;         !* Cyan - Ajuste selon tes goûts *!*/
-    --primary-color-light: #10ad74 /*#80deea*/;  /* Cyan plus clair */
-    --accent-color: #ffc107;          /* Ambre - Pour les accents */
-    --accent-color-light: #ffe082;   /* Ambre plus clair */
+    --main-text-color: #F4E5C2; /* Beige clair pour titres/accents */
+    --secondary-text-color: #d2c6b4; /* Beige plus doux pour paragraphes secondaires */
+    --text-color: #f5f5f5;            /* Blanc cassé principal pour le corps de texte */
 
-    --text-color: #f5f5f5;            /* Couleur de texte principale (claire pour fond sombre) */
-    --text-color-light: #bdbdbd;      /* Texte un peu moins important */
-    --text-color-dark: #212121;       /* Texte pour fond clair (si tu en as) */
+    --primary-color: #0B8457;         /* Vert principal */
+    --primary-color-light: #10ad74;   /* Vert plus clair */
+    --secondary-color: #096C47;       /* Vert secondaire/foncé */
 
-    /*--background-color: #212121;      !* Fond principal (sombre) *!*/
-    --background-content-box: rgba(255, 255, 255, 0.07); /* Fond des content-box */
-    --background-header-footer: #333333; /* Fond du header/footer */
+    --accent-color: #ffc107;          /* Ambre pour accents forts */
+    --accent-color-light: #ffe082;    /* Ambre plus clair */
 
-    --border-color: rgba(255, 255, 255, 0.1); /* Couleur des bordures discrètes */
+    --background-color: #28242c;      /* Fond principal (presque noir violacé) */
+    --background-content-box: rgba(255, 255, 255, 0.07);
+    --background-header-footer: rgba(33, 33, 33, 0.8); /* Fond header/footer avec transparence */
+
+
+    --border-color: rgba(242, 228, 193, .5); /* Bordure légère pour les éléments */
 
     --font-family-main: 'Outfit', sans-serif;
-}
+    --font-family-body: Arial, Helvetica, sans-serif; /* Police de corps plus standard pour la lisibilité */
 
-/************ Fonts ************/
+    --header-height-var: 50px; /* Doit correspondre à --header-height dans header.css */
+    --font-size-base: 16px; /* 1rem = 16px */
+    --font-size-sm: 0.875rem; /* 14px */
+    --font-size-md: 1rem;    /* 16px */
+    --font-size-lg: 1.125rem; /* 18px */
+    --font-size-xl: 1.25rem;  /* 20px */
+    --font-size-h1: 2.5rem;  /* 40px */
+    --font-size-h2: 2rem;    /* 32px */
+    --font-size-h3: 1.75rem;  /* 28px */
+    --font-size-h4: 1.25rem; /* 20px */
+
+    --spacing-unit: 1rem; /* 16px */
+}
 
 /************** Règles générales *****************/
 * {
@@ -31,172 +40,112 @@
     transition: .3s,
     stroke .1s linear, fill 0s linear,
     width 0s, height 0s;
+    margin: 0; /* Réinitialisation plus complète */
+    padding: 0;
     box-sizing: border-box;
 }
 
-html {scroll-behavior: smooth;}
-
-html, body {
-    height: 100%;
-    width: 100%;
+html {
+    scroll-behavior: smooth;
+    font-size: var(--font-size-base); /* Définit la base pour les unités rem */
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+    font-family: var(--font-family-body), serif;
+    line-height: 1.7; /* Augmenté pour meilleure lisibilité */
     background-color: var(--background-color);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    padding-top: var(--header-height-var); /* Espace pour le header fixe */
 }
 
 a {
     text-decoration: none;
-    &:hover {color: cornflowerblue;}
 }
 
-h1, h2 {
-    font-family: 'Outfit', sans-serif;
+a:hover, a:focus {
+    text-decoration: underline; /* Optionnel, mais bon pour l'accessibilité */
 }
 
-/***************** Header ************/
-header {
-    position: fixed;
-    width: 100%;
-    z-index: 2;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    backdrop-filter: blur(50px);
-    background-color: rgba(0, 0, 0, 0.4); /* Couche opaque semi-transparente */
-    border-bottom: 1px solid var(--main-text-color);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-
-    #me {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        h1{margin: 0;}
-
-        img {
-            height: 80px;
-            border-radius: 100%;
-        }
-    }
-
-    nav {
-        position: relative;
-        z-index: 1;
-        padding: 0 20px;
-        margin: 1em;
-
-        ul {
-            list-style: none;
-            padding: 0;
-            display: flex;
-            gap: 50px;
-
-            li a {
-                font-size: 1.2em;
-                color: var(--main-text-color);
-                text-decoration: none;
-                font-weight: bold;
-                /*background-color: rgba(0, 0, 0, 0.2); !* Légère opacité *!*/
-                padding: 10px 20px;
-                border-radius: 5px;
-                transition: background-color 0.3s ease;
-            }
-        }
-    }
+h1, h2, h3, h4 {
+    line-height: 1.3;
+    margin-bottom: var(--spacing-unit); /* Espacement sous les titres */
 }
 
-/* Classe pour cacher le header */
-.header-hidden {
-    transform: translateY(-100%);
-}
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-h4); }
 
-#toggle-burger {
-    display: none;
-    position: fixed;
-    top: 10px;
-    right: 0;
-    transform: translateX(-30%);
-    font-size: 2em;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: var(--background-color);
-    cursor: pointer;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
+/****************************************************************************/
 
-#toggle-burger.hidden {
-    transform: translateX(100%);
-}
-
-header.header-hidden + #toggle-burger {
-    display: flex;
-}
-
-/****************************/
 main {
-    padding: 120px 50px 20px; /* 120px pour le décalage avec le header. */
+    padding: calc(2 * var(--spacing-unit)) calc(3 * var(--spacing-unit)); /* Ex: 32px 48px */
     flex: 1;
+    width: 100%; /* S'assure que main prend toute la largeur disponible */
+    max-width: 1600px; /* Limite la largeur du contenu principal pour grands écrans */
+    margin: 0 auto; /* Centre le contenu de main */
 }
 
-hr{
+hr {
     border: none;
-    height: 2px;
+    height: 2px; /* Plus fin */
     background-color: var(--main-text-color);
-    border-radius: 5px;
+    margin: calc(3 * var(--spacing-unit)) auto; /* Espacement uniforme */
     width: 80%;
 }
 
 section {
-    h1{
-        font-size: 2em;
-        text-align: center;
-        font-family: arial, sans-serif;
-    }
+    padding: calc(2 * var(--spacing-unit)) 0; /* Espacement vertical pour les sections */
+}
 
-    p {
-        text-align: justify;
-        color: var(--secondary-text-color);
-    }
+section > h1, /* Cibler les H1 directs des sections pour le style "titre de section" */
+section > h2 { /* Et H2 si utilisés comme titre de section */
+    text-align: center;
+    margin-bottom: calc(2 * var(--spacing-unit)); /* Plus d'espace sous les titres de section */
+    /* font-family: arial, sans-serif; // Remplacé par var(--font-family-main) */
+}
+
+section p { /* Style de base pour les paragraphes dans les sections */
+    text-align: justify;
+    margin-bottom: var(--spacing-unit);
+    font-size: var(--font-size-md);
 }
 
 .content-box {
-    width: 50%;
-    padding: 1rem;
-    border-radius: .5rem;
-    background-color: var(--foreground-color);
-    h4, p {
-        margin: 0;
-    }
-
-    p{
-        padding: 0 1rem;
-    }
+    width: 100%; /* Prendra la largeur du parent, à gérer avec le layout de la section */
+    max-width: 700px; /* Limite la largeur des content-box pour lisibilité */
+    margin-left: auto;
+    margin-right: auto;
+    padding: calc(1.5 * var(--spacing-unit));
+    border-radius: 8px; /* Coins arrondis plus doux */
+    background-color: var(--background-content-box);
+    margin-bottom: calc(2 * var(--spacing-unit));
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ombre subtile */
 }
+
+.content-box h4 {
+    margin-bottom: var(--spacing-unit); /* Espace sous les h4 dans content-box */
+    color: var(--primary-color-light);
+}
+
+.content-box p {
+    padding: 0; /* Pas de padding interne supplémentaire si déjà dans content-box */
+}
+
 
 footer {
     display: block;
     text-align: center;
+    padding: calc(2 * var(--spacing-unit)) 0;
+    background-color: var(--background-header-footer); /* Utilise la même variable que le header */
+    border-top: 1px solid var(--border-color);
+    font-size: var(--font-size-sm);
+    color: var(--main-text-color);
 }
 
 .floating-animation {
     animation: floating-animation 5s linear infinite both;
-}
-
-.separator {
-    border: 3px black solid;
-    border-radius: 5px;
-    height: 30vw;
-    margin: 0 20px;
 }
 
 @keyframes floating-animation {
@@ -218,47 +167,34 @@ footer {
 }
 
 
-
 @media screen and (max-width: 1024px) {
-    .floating-animation {
-        animation: none;
+    /* Le header est géré dans header.css */
+    /* Le padding de main n'a plus besoin d'être aussi grand ici grâce au body.padding-top */
+    main {
+        padding: var(--spacing-unit) calc(1.5 * var(--spacing-unit)); /* Ajustement pour tablettes */
     }
 
-    main{padding: 425px 20px 20px}
-
-    #toggle-burger {
-        display: flex;
-    }
-
-    header{
-        flex-direction: column;
-
-        nav{
-            width: 100%;
-            margin: 0;
-        }
-
-        ul{
-            flex-direction: column;
-            gap: 0 !important;
-            text-align: center;
-
-            a{
-                padding: 10px 0 !important;
-                display: block;
-                font-size: 1.5em !important;
-            }
-        }
-
-        h1{
-            font-size: 1.5em;
-        }
-    }
+    h1 { font-size: calc(var(--font-size-h1) * 0.9); } /* Réduction légère des titres */
+    h2 { font-size: calc(var(--font-size-h2) * 0.9); }
 }
 
-@media (max-width: 768px) {
-    .video-container {
-        width: 100%;
-        margin: 0;
+@media screen and (max-width: 768px) {
+    main {
+        padding: var(--spacing-unit) var(--spacing-unit); /* Ajustement pour mobiles */
+    }
+
+    .content-box {
+        width: 90%; /* Plus de largeur sur petits écrans */
+        padding: var(--spacing-unit);
+    }
+
+    h1 { font-size: calc(var(--font-size-h1) * 0.8); }
+    h2 { font-size: calc(var(--font-size-h2) * 0.8); }
+
+    /* Si .separator est utilisé et doit être responsive */
+    .separator {
+        height: unset; /* Peut-être cacher ou réduire */
+        width: 75%;
+        margin: var(--spacing-unit) auto;
     }
 }

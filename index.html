@@ -17,6 +17,7 @@
     <meta property="og:type" content="website" />
     <!--Stylesheets et favicon-->
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/presentation.css">
     <link rel="stylesheet" href="assets/css/projets.css">
     <link rel="stylesheet" href="assets/css/skills.css">
@@ -45,7 +46,6 @@
         </ul>
     </nav>
 </header>
-<div id="toggle-burger" class="hidden shadow">&#9776;</div>
 
 <main>
     <hr data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
@@ -268,24 +268,16 @@
 <footer>
     <p>© 2025 Théodore de Boisseson | version 1</p>
 </footer>
+
 <div id="stars-animation"></div>
-<!--Script animation des étoiles dans l'arrière plan-->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
 <script src="assets/js/script.js"></script>
-<!--Librairie Animate On Scroll-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
     AOS.init({
         duration: 500,
         offset: 100,
     });
-/* Animations disponibles :
-    fade, fade-up, fade-down, fade-left, fade-right
-    zoom-in, zoom-out
-    flip-left, flip-right, flip-up, flip-down
-    slide-up, slide-down, slide-left, slide-right
-*/
-    console.log(AOS);
 </script>
 </body>
 </html>
