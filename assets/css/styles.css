@@ -1,10 +1,26 @@
 :root {
     --main-text-color: #F4E5C2;
-    --secondary-text-color: #c2b7a6;
+    --secondary-text-color: #d2c6b4;
     --primary-color: #0B8457;
     --secondary-color: #096C47;
     --background-color: #28242c;
-    --foreground-color: var(--secondary-color);
+    /*--foreground-color: var(--secondary-color);*/
+    /*--primary-color: #00bcd4;         !* Cyan - Ajuste selon tes goûts *!*/
+    --primary-color-light: #10ad74 /*#80deea*/;  /* Cyan plus clair */
+    --accent-color: #ffc107;          /* Ambre - Pour les accents */
+    --accent-color-light: #ffe082;   /* Ambre plus clair */
+
+    --text-color: #f5f5f5;            /* Couleur de texte principale (claire pour fond sombre) */
+    --text-color-light: #bdbdbd;      /* Texte un peu moins important */
+    --text-color-dark: #212121;       /* Texte pour fond clair (si tu en as) */
+
+    /*--background-color: #212121;      !* Fond principal (sombre) *!*/
+    --background-content-box: rgba(255, 255, 255, 0.07); /* Fond des content-box */
+    --background-header-footer: #333333; /* Fond du header/footer */
+
+    --border-color: rgba(255, 255, 255, 0.1); /* Couleur des bordures discrètes */
+
+    --font-family-main: 'Outfit', sans-serif;
 }
 
 /************ Fonts ************/
@@ -81,7 +97,7 @@ header {
             list-style: none;
             padding: 0;
             display: flex;
-            gap: 100px;
+            gap: 50px;
 
             li a {
                 font-size: 1.2em;
@@ -208,7 +224,7 @@ footer {
         animation: none;
     }
 
-    main{padding: 350px 20px 20px}
+    main{padding: 425px 20px 20px}
 
     #toggle-burger {
         display: flex;

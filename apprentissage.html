@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--SEO-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Portfolio d'apprentissage de Théodore de Boisseson, étudiant en BUT Informatique à l'IUT Montpellier-Sète. Suivi de l'évolution des compétences." />
+    <meta name="keywords" content="Théodore de Boisseson, portfolio d'apprentissage, BUT Informatique, compétences, IUT Montpellier-Sète" />
+    <meta name="author" content="Théodore de Boisseson"/>
+    <title>Portfolio d'Apprentissage - Théodore de Boisseson</title>
+    <!--Open Graph pour le partage sur les réseaux-->
+    <meta property="og:title" content="Portfolio d'Apprentissage de Théodore de Boisseson" />
+    <meta property="og:description" content="Découvrez mon portfolio d'apprentissage et le suivi de mes compétences en BUT Informatique." />
+    <meta property="og:image" content="media/photo-de-profil.webp" /> <!-- Tu peux changer cette image si tu veux une image spécifique pour cette page -->
+    <meta property="og:url" content="https://theodoredeboisseson.github.io/apprentissage.html" />
+    <meta property="og:type" content="website" />
+    <!--Stylesheets et favicon-->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/presentation.css">
+    <!-- <link rel="stylesheet" href="assets/css/projets.css"> --> <!-- Moins pertinent ici peut-être -->
+    <!-- <link rel="stylesheet" href="assets/css/skills.css"> --> <!-- Moins pertinent ici peut-être -->
+    <!-- <link rel="stylesheet" href="assets/css/contact.css"> --> <!-- Moins pertinent ici peut-être -->
+    <link rel="stylesheet" href="assets/css/apprentissage.css"> <!-- Nouveau CSS spécifique pour cette page -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="icon" href="media/logo.webp" type="image/webp">
+    <!--"Outfit" Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div id="me" data-aos="fade-down" data-aos-delay="800" data-aos-duration="800">
+        <img src="media/photo-de-profil.webp" loading="lazy" alt="logo" id="logo">
+        <h1>Théodore de Boisseson</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li data-aos="fade-down" data-aos-delay="1000" data-aos-duration="800"><a href="index.html#presentation">À propos</a></li>
+            <li data-aos="fade-down" data-aos-delay="1200" data-aos-duration="800"><a href="index.html#projets">Projets</a></li>
+            <li data-aos="fade-down" data-aos-delay="1400" data-aos-duration="800"><a href="index.html#skills">Compétences</a></li>
+            <li data-aos="fade-down" data-aos-delay="1600" data-aos-duration="800"><a href="index.html#contact">Contact</a></li>
+            <li data-aos="fade-down" data-aos-delay="1800" data-aos-duration="800"><a href="apprentissage.html" class="active">Apprentissage BUT</a></li>
+        </ul>
+    </nav>
+</header>
+<div id="toggle-burger" class="hidden shadow">&#9776;</div>
+
+<main>
+    <hr data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+    <section id="portfolio-apprentissage" data-aos="fade-up">
+        <h1 data-aos="fade" data-aos-delay="500" data-aos-duration="1000">Portfolio d'apprentissage</h1>
+
+        <div class="content-box" data-aos="fade-up">
+            <p>
+                Au sein du portfolio, l'étudiant documente et argumente sa trajectoire de
+                développement en mobilisant et analysant des traces, et ainsi en apportant des
+                preuves issues de l'ensemble de ses mises en situation professionnelle (SAÉ).
+            </p>
+            <p>
+                Afin de donner une échelle quantitative sur mon auto-évaluation, je vais utiliser
+                cette échelle pour les différents niveaux d'acquisition : <strong>Non Acquise → En cours
+                d'acquisition → Acquise → Maîtrisée</strong>.
+            </p>
+        </div>
+
+        <div class="competence-block" data-aos="fade-up">
+            <h2>Compétence 1 : Réaliser</h2>
+            <p class="competence-description"><em>Partir des exigences et aller jusqu'à une application complète</em></p>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 1 : Élaborer et implémenter les spécifications fonctionnelles et non fonctionnelles à partir des exigences</h3>
+                <p><strong>Maîtrisée :</strong> Cet apprentissage est sollicité depuis le début de la formation, je l'ai affinée avec le temps. Dans la SAÉ 2.01 (Trains), j'ai reçu un cahier des charges précisant les mécaniques du jeu. Dans la SAÉ 3A, c'était différent, nous venions à construire notre propre cahier des charges en échangeant avec un client.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 2 : Appliquer des principes d'accessibilité et d'ergonomie</h3>
+                <p><strong>Acquis :</strong> Ce point est important pour moi, c'est pourquoi je l'ai travaillé dans tous les projets depuis le début du BUT, que ce soit par le style ou l'UX. J'ai notamment travaillé sur la hiérarchie visuelle, les contrastes, et l'organisation des éléments. Il me manque cependant encore un peu de pratique dans l'accessibilité pour dire que je maîtrise cet AC.</p>
+                <p><strong>Trace :</strong> Screens de différentes interfaces que j'ai design.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 3 : Adopter de bonnes pratiques de conception et de programmation</h3>
+                <p><strong>Acquis :</strong> Je m'assure, lorsque je code, de rendre simple à lire, comprendre, réutiliser puis à maintenir. C'est une compétence essentielle pour être un développeur dans une équipe. Cette AC devrait normalement être mobilisée dans tous les projets où l'on code.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 4 : Vérifier et valider la qualité de l'application par les tests</h3>
+                <p><strong>En cours d'acquisition :</strong> J'assume en toute transparence n'avoir pas assez conçu de test lors de mes différents projets. Même si j'en ai fait peu, j'ai de bonnes bases. Il est alors question de vérifier la qualité d'une application plus souvent avec de vrais tests que par l'exécution du programme, lors de des prochains projets.</p>
+            </div>
+        </div>
+
+        <hr data-aos="fade">
+
+        <div class="competence-block" data-aos="fade-up">
+            <h2>Compétence 2 : Optimiser</h2>
+            <p class="competence-description"><em>Sélectionner les algorithmes adéquats pour répondre à un problème donné</em></p>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 1 : Choisir des structures de données complexes adaptées au problème</h3>
+                <p><strong>Acquis :</strong> Dans le projet de Graphes Trains (Semestre 2), j'ai dû choisir entre des listes d'adjacence et des matrices. J'ai fini par opter pour une structure optimisée pour la recherche de voisins directs. Il y a aussi les cours de Développement efficace, qui nous a bien appris à identifier chacune des différentes structures de données, leurs caractéristiques, leurs points forts, ainsi que comment les optimiser. Ce travail m'a appris à choisir mes structures avec un vrai raisonnement derrière.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 2 : Utiliser des techniques algorithmiques adaptées pour des problèmes complexes (par ex. recherche opérationnelle, méthodes arborescentes, optimisation globale, intelligence artificielle...)</h3>
+                <p><strong>Acquis :</strong> Cet élément a surtout été sollicité en 1ère année, il a été lui aussi également été retravaillé en Développement efficace, avec différentes méthodes de recherche ou encore de récursivité. J'ai également appris à comparer plus solutions pour un même problème.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 3 : Comprendre les enjeux et moyens de sécurisation des données et du code</h3>
+                <p><strong>Acquis :</strong> Selon les attentes pédagogiques du programme du BUT2, je pense avoir acquis cette AC.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 4 : Évaluer l'impact environnemental et sociétal des solutions proposées</h3>
+                <p><strong>Acquis :</strong> Je prends au mieux les précautions pour que mon travail ne soit pas énergivore, qu'il ait des fuites de performances. J'aime optimiser mes programmes notamment pour réduire leur impact. Dans l'idée de “Faire pareil avec moins”.</p>
+            </div>
+        </div>
+
+        <hr data-aos="fade">
+
+        <div class="competence-block" data-aos="fade-up">
+            <h2>Compétence 3 : Administrer</h2>
+            <p class="competence-description"><em>Déployer des services dans une architecture réseau</em></p>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 1 : Concevoir et développer des applications communicantes</h3>
+                <p><strong>Maîtrisé :</strong> Pendant mon stage à la MJC de Mauguio-Carnon, j'ai conçu un site web avec Django couplé à Wagtail pour la gestion de contenu. L'application communique avec une base PostgreSQL, un reverse proxy Nginx pour les images, le css et js. Le site comprenait également une partie administrative à la gestion CMS, qui demandait une authentification utilisateurs avec plusieurs comptes possibles; J'ai dû m'assurer de la fiabilité de tous ces échanges et de leur bon fonctionnement en production, tout en assurant leur maintenance à distance.</p>
+                <img src="media/apprentissage/architecture-technique.png" alt="Architecture technique du projet MJC" style="max-width: 100%; height: auto; margin-top: 15px; border-radius: 5px;">
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 2 : Utiliser des serveurs et des services réseaux virtualisés</h3>
+                <p><strong>Acquis :</strong> J'ai utilisé Oracle en test puis OVHCloud pour déployer le site en production puis Docker pour conteneuriser ma stack de services : Le serveur web Gunicorn, la BDD Postgres et le Reverse Proxy Nginx, chacun isolés les uns des autres et exposés juste assez pour faire passer les informations essentielles entre les différents conteneurs/services. Je n'estime pas encore avoir maîtrisé cette partie car je pense atteindre une meilleure rigueur au niveau de Docker lors des prochains cours de Virtualisation, même si je suis fier de mon niveau atteint en autonomie.</p>
+            </div>
+            
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 3 : Sécuriser les services et données d'un système</h3>
+                <p><strong>Maîtrisé :</strong> Lors de mon stage, j'ai mis en place la gestion des utilisateurs dans Wagtail avec des rôles différenciés, sécurisé les fichiers de configuration avec python-dotenv pour passer des variables d'environnement sensibles via un fichier .env. Il m'a semblé important d'ajouter manuellement un système de backup de la base de données du serveur en cas de problème, celui-ci planifié avec crontab. Je peux encore citer la restriction des ports avec UFW, les Certificats SSL pour le HTTPS, désactiver l'indexation publique des pages sensibles tel que l'administration avec le sitemap.xml...</p>
+                <p><strong>Trace :</strong> Extraits de fichiers de configuration (settings.py, .env), captures de l'admin Wagtail, preuve de passage en HTTPS.</p>
+            </div>
+        </div>
+        
+        <hr data-aos="fade">
+
+        <div class="competence-block" data-aos="fade-up">
+            <h2>Compétence 4 : Gérer</h2>
+            <p class="competence-description"><em>Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité</em></p>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 1 : Optimiser les modèles de données de l'entreprise</h3>
+                <p><strong>Acquis :</strong> Les cours de bases de données, les SAÉ ainsi que mon stage m'ont permis d'atteindre un bon niveau en conception et création de bases de données. Mais en ce qui concerne le refactor/remodelage d'un schéma déjà existant, il me manque encore un peu de pratique que je pourrais satisfaire avec cette SAÉ du Semestre 4 de Very Bad Split. Cependant les cours de “qualité et au delà de relationnel" du semestre 4 m'ont suffi pour estimer cet AC acquis.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 2 : Assurer la confidentialité des données (intégrité et sécurité)</h3>
+                <p><strong>Acquis :</strong> Je pense avoir acquis ce point, sans pour autant le maîtriser. Lors de mes expériences j'ai eu l'occasion de sécuriser une base de données que ce soit depuis du code vers une BD, dans une DB même et d'une BD vers du code.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 3 : Organiser la restitution de données à travers la programmation et la visualisation</h3>
+                <p><strong>Acquis :</strong> Au fur et à mesure j'ai appris à bien structurer une requête SQL pour récupérer des données. Je pense pouvoir encore travailler la partie visualisation des données via des interfaces utilisateurs par exemple.</p>
+            </div>
+            
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 4 : Manipuler des données hétérogènes</h3>
+                <p><strong>Acquis :</strong> J'aime travailler sur l'interopérabilité et les interactions entre plusieurs technologies lors de mes projets. J'ai donc travaillé plus souvent que mes camarades sur l'utilisation de données via différents formats.</p>
+            </div>
+        </div>
+
+        <hr data-aos="fade">
+
+        <div class="competence-block" data-aos="fade-up">
+            <h2>Compétence 5 : Conduire</h2>
+            <p class="competence-description"><em>Appliquer une démarche de suivi de projet en fonction des besoins métiers des client et des utilisateurs</em></p>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 1 : Identifier les processus présents dans une organisation en vue d'améliorer les systèmes d'information</h3>
+                <p><strong>En cours d'acquisition :</strong> J'analyse une organisation et un système d'information souvent plus avec mon expérience personnelle que par la théorie apprise en cours, ce qui peut manquer de rigueur. Mais je peux avoir une bonne vue d'ensemble pour améliorer un SI, comme je l'ai fait pendant mon stage par exemple.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 2 : Formaliser les besoins du client et de l'utilisateur</h3>
+                <p><strong>Acquis :</strong> J'arrive facilement à communiquer avec un client pour comprendre son idée, j'ai notamment déjà rédigé plusieurs cahiers des charges. J'ai cependant là aussi plus une approche liée à mon intuition plus que théorique, mais qui a bien marché pour moi jusqu'à là.</p>
+            </div>
+            
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 3 : Identifier les critères de faisabilité d'un projet informatique</h3>
+                <p><strong>Acquis :</strong> Mon stage m'a beaucoup aidé pour acquérir cette AC. J'ai du gérer un projet entièrement en autonomie en planifiant mon travail sur 11 semaines en respectant les dates. En choisissant les bons outils et savoir où mettre son énergie. Bien sûr la réalité n'est pas parfaite donc j'ai eu des débordements de temps mais je me suis bien adapté face au difficulté.</p>
+            </div>
+
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 4 : Définir et mettre en œuvre une démarche de suivi de projet</h3>
+                <p><strong>En cours d'acquisition :</strong> J'utilise régulièrement Notion comme outil de gestion central, souvent pour organiser mes tâches. J'ai une bonne maîtrise des diagrammes Gantt ou les Kanban board (Trello, Notion) pour des tableaux SCRUM Agile (User stories....). Mais j'estime manquer d'expérience professionnelle en ce qui concerne la communication avec les parties prenantes comme le client d'un projet.</p>
+            </div>
+        </div>
+
+        <!--<hr data-aos="fade">
+
+        <div class="competence-block" data-aos="fade-up">
+            <h2>Compétence 6 : Collaborer</h2>
+            <p class="competence-description"><em>Situer son rôle et ses missions au sein d'une équipe informatique</em></p>
+            
+            &lt;!&ndash; Le PDF ne détaille pas les AC pour la Compétence 6, donc je laisse en suspens &ndash;&gt;
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 1 : Comprendre la diversité, la structure et la dimension de l'informatique dans une organisation (ESN, DSI, ...)</h3>
+                <p><em>(À compléter avec ton auto-évaluation)</em></p>
+            </div>
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 2 : Appliquer une démarche pour intégrer une équipe informatique au sein d'une organisation</h3>
+                <p><em>(À compléter avec ton auto-évaluation)</em></p>
+            </div>
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 3 : Mobiliser les compétences interpersonnelles pour intégrer une équipe informatique</h3>
+                <p><em>(À compléter avec ton auto-évaluation)</em></p>
+            </div>
+            <div class="ac-item content-box" data-aos="fade-up">
+                <h3>AC 4 : Rendre compte de son activité professionnelle</h3>
+                <p><em>(À compléter avec ton auto-évaluation)</em></p>
+            </div>
+        </div>-->
+        <hr data-aos="fade">
+    </section>
+</main>
+<footer>
+    <p>© 2025 Théodore de Boisseson | version 1</p>
+</footer>
+<div id="stars-animation"></div>
+<!--Script animation des étoiles dans l'arrière plan-->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer></script>
+<script src="assets/js/script.js"></script>
+<!--Librairie Animate On Scroll-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({
+        duration: 500,
+        offset: 100,
+    });
+</script>
+</body>
+</html>
