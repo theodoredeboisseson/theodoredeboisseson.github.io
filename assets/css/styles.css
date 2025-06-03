@@ -1,19 +1,29 @@
 :root {
     --main-text-color: #F4E5C2; /* Beige clair pour titres/accents */
     --secondary-text-color: #d2c6b4; /* Beige plus doux pour paragraphes secondaires */
-    --text-color: #f5f5f5;            /* Blanc cassé principal pour le corps de texte */
+    --text-color: rgb(178, 199, 214);            /* Blanc cassé principal pour le corps de texte */
 
-    --primary-color: #0B8457;         /* Vert principal */
-    --primary-color-light: #10ad74;   /* Vert plus clair */
+    --text-color-body: #EAEAEA;         /* Blanc cassé pour le corps */
+    --text-color-headings: #F4E5C2;   /* Beige clair pour titres */
+    --text-color-secondary: #A8B2C0;   /* Gris clair bleuté pour textes secondaires */
+    
+    --primary-color: #0b6884;         /* Vert principal */
+    --primary-color-light: #3984e3;   /* Vert plus clair */
     --secondary-color: #096C47;       /* Vert secondaire/foncé */
 
-    --accent-color: #ffc107;          /* Ambre pour accents forts */
-    --accent-color-light: #ffe082;    /* Ambre plus clair */
-
     --background-color: #28242c;      /* Fond principal (presque noir violacé) */
-    --background-content-box: rgba(255, 255, 255, 0.07);
-    --background-header-footer: rgba(33, 33, 33, 0.8); /* Fond header/footer avec transparence */
 
+    /* Palette d'Accents */
+    --accent-color: #3498DB;
+    --accent-color-light: #5DADE2;
+    --accent-color-dark: #2874A6;
+
+    
+    /* Éléments d'Interface */
+    --background-content-box: rgba(255, 255, 255, 0.07); /* Fond des content-box neutre */
+    --background-header-footer: rgba(25, 28, 32, 0.85); /* Fond header/footer un peu plus sombre et moins transparent */
+    --border-color-soft: rgba(52, 152, 219, 0.3);
+    --border-color-strong: var(--accent-color);
 
     --border-color: rgba(242, 228, 193, .5); /* Bordure légère pour les éléments */
 
@@ -36,7 +46,6 @@
 
 /************** Règles générales *****************/
 * {
-    color: var(--main-text-color);
     transition: .3s,
     stroke .1s linear, fill 0s linear,
     width 0s, height 0s;
@@ -47,12 +56,13 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: var(--font-size-base); /* Définit la base pour les unités rem */
+    font-size: var(--font-size-base);
 }
 
 body {
     font-family: var(--font-family-body), serif;
-    line-height: 1.7; /* Augmenté pour meilleure lisibilité */
+    color: var(--main-text-color);
+    line-height: 1.7;
     background-color: var(--background-color);
     min-height: 100vh;
     display: flex;
@@ -62,10 +72,11 @@ body {
 
 a {
     text-decoration: none;
-}
-
-a:hover, a:focus {
-    text-decoration: underline; /* Optionnel, mais bon pour l'accessibilité */
+    color: var(--accent-color);
+    
+    &:hover {
+        color: var(--accent-color-light);
+    }
 }
 
 h1, h2, h3, h4 {
@@ -82,55 +93,45 @@ h4 { font-size: var(--font-size-h4); }
 main {
     padding: calc(2 * var(--spacing-unit)) calc(3 * var(--spacing-unit)); /* Ex: 32px 48px */
     flex: 1;
-    width: 100%; /* S'assure que main prend toute la largeur disponible */
-    max-width: 1600px; /* Limite la largeur du contenu principal pour grands écrans */
-    margin: 0 auto; /* Centre le contenu de main */
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 hr {
     border: none;
     height: 2px; /* Plus fin */
     background-color: var(--main-text-color);
-    margin: calc(3 * var(--spacing-unit)) auto; /* Espacement uniforme */
+    margin: calc(2 * var(--spacing-unit)) auto; /* Espacement uniforme */
     width: 80%;
 }
 
 section {
     padding: calc(2 * var(--spacing-unit)) 0; /* Espacement vertical pour les sections */
-}
+    
+    & > h1, & > h2 { /* Et H2 si utilisés comme titre de section */
+        text-align: center;
+        margin-bottom: calc(2 * var(--spacing-unit));
+    }
 
-section > h1, /* Cibler les H1 directs des sections pour le style "titre de section" */
-section > h2 { /* Et H2 si utilisés comme titre de section */
-    text-align: center;
-    margin-bottom: calc(2 * var(--spacing-unit)); /* Plus d'espace sous les titres de section */
-    /* font-family: arial, sans-serif; // Remplacé par var(--font-family-main) */
-}
-
-section p { /* Style de base pour les paragraphes dans les sections */
-    text-align: justify;
-    margin-bottom: var(--spacing-unit);
-    font-size: var(--font-size-md);
-}
-
-.content-box {
-    width: 100%; /* Prendra la largeur du parent, à gérer avec le layout de la section */
-    max-width: 700px; /* Limite la largeur des content-box pour lisibilité */
-    margin-left: auto;
-    margin-right: auto;
-    padding: calc(1.5 * var(--spacing-unit));
-    border-radius: 8px; /* Coins arrondis plus doux */
-    background-color: var(--background-content-box);
-    margin-bottom: calc(2 * var(--spacing-unit));
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ombre subtile */
-}
-
-.content-box h4 {
-    margin-bottom: var(--spacing-unit); /* Espace sous les h4 dans content-box */
-    color: var(--primary-color-light);
-}
-
-.content-box p {
-    padding: 0; /* Pas de padding interne supplémentaire si déjà dans content-box */
+    strong { /* Pour du relief dans les textes */
+        color: var(--secondary-text-color);
+    }
+    
+    p, ul, span {
+        color: var(--text-color);
+    }
+    
+    p { 
+        text-align: justify;
+        margin-bottom: var(--spacing-unit);
+        font-size: var(--font-size-md);
+    }
+    
+    ul { 
+        padding-left: 1.5rem; /* Espace pour les puces */
+        margin-bottom: var(--spacing-unit);
+    }
 }
 
 
@@ -168,7 +169,6 @@ footer {
 
 
 @media screen and (max-width: 1024px) {
-    /* Le header est géré dans header.css */
     /* Le padding de main n'a plus besoin d'être aussi grand ici grâce au body.padding-top */
     main {
         padding: var(--spacing-unit) calc(1.5 * var(--spacing-unit)); /* Ajustement pour tablettes */
@@ -190,11 +190,60 @@ footer {
 
     h1 { font-size: calc(var(--font-size-h1) * 0.8); }
     h2 { font-size: calc(var(--font-size-h2) * 0.8); }
-
-    /* Si .separator est utilisé et doit être responsive */
+    
     .separator {
         height: unset; /* Peut-être cacher ou réduire */
         width: 75%;
         margin: var(--spacing-unit) auto;
+    }
+}
+
+
+#presentation,
+#projets {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre les .content-box par défaut */
+    gap: var(--spacing-unit);
+}
+
+.content-box {
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: calc(1.5 * var(--spacing-unit));
+    border-radius: 8px;
+    background-color: var(--background-content-box);
+    margin-bottom: calc(2 * var(--spacing-unit));
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Ombre subtile */
+
+    h4 {
+        margin-bottom: var(--spacing-unit);
+        color: var(--primary-color-light);
+    }
+
+    p {
+        padding: 0; /* Pas de padding interne supplémentaire si déjà dans content-box */
+    }
+}
+
+/* Nouvelles classes pour le décalage */
+.content-box-left {
+    align-self: flex-start;
+     margin-left: 5%;
+}
+
+.content-box-right {
+    align-self: flex-end;
+    margin-right: 5%;
+}
+
+@media screen and (max-width: 768px) { /* Ou la breakpoint où tu veux uniformiser */
+    #presentation .content-box, /* Cible toutes les content-box dans #presentation */
+    #projets .content-box,
+    .content-box-left,
+    .content-box-right {
+        align-self: stretch;
     }
 }
