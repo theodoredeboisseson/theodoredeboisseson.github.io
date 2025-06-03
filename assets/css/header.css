@@ -1,111 +1,164 @@
-/***************** Header ************/
+/* assets/css/header.css */
 header {
     position: fixed;
     width: 100%;
-    z-index: 2;
+    z-index: 100;
     top: 0;
+    left: 0;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    backdrop-filter: blur(50px);
-    background-color: rgba(0, 0, 0, 0.4); /* Couche opaque semi-transparente */
+    justify-content: space-between;
+    padding: 0.75rem 2rem;
+    backdrop-filter: blur(8px);
+    background-color: var(--background-header-footer);
     border-bottom: 1px solid var(--main-text-color);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    min-height: 80px;
+}
 
+header {
     #me {
         display: flex;
         align-items: center;
-        gap: 20px;
-        h1{margin: 0;}
+        gap: 1rem;
 
-        img {
-            height: 80px;
-            border-radius: 100%;
+        h1 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        img#logo {
+            height: 60px; /* Était 80px */
+            border-radius: 50%;
         }
     }
 
     nav {
-        position: relative;
-        z-index: 1;
-        padding: 0 20px;
-        margin: 1em;
+        padding: 0; /* Pas de padding supplémentaire ici si header a déjà du padding */
 
         ul {
             list-style: none;
             padding: 0;
             display: flex;
-            gap: 50px;
+            align-items: center;
+            gap: 4rem;
 
             li a {
-                font-size: 1.2em;
-                color: var(--main-text-color);
+                font-size: 1.2rem;
+                color: var(--text-color-body);
                 text-decoration: none;
-                font-weight: bold;
-                /*background-color: rgba(0, 0, 0, 0.2); !* Légère opacité *!*/
-                padding: 10px 20px;
-                border-radius: 5px;
-                transition: background-color 0.3s ease;
+                font-weight: 500;
+                padding: 0.5rem 0.75rem;
+                border-radius: 4px;
+                position: relative;
+
+                &:hover, &:focus, &.active {
+                    color: var(--accent-color);
+                    &::after {
+                        width: 70%; /* Soulignement partiel pour un look plus subtil */
+                    }
+                }
+                
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 2px;
+                    bottom: -4px; /* Un peu plus bas */
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: var(--accent-color);
+                    transition: width 0.3s ease;
+                }
+
             }
         }
     }
 }
 
-/* Classe pour cacher le header */
-.header-hidden {
-    transform: translateY(-100%);
+
+/* Classe pour cacher le header (ton script JS l'utilise) */
+header.header-hidden {
+    transform: translateY(-120%); /* Un peu plus pour éviter artefacts */
 }
 
+/* Le #toggle-burger est externe, ton JS le gère. Style pour ce bouton burger: */
 #toggle-burger {
-    display: none;
+    display: none; /* Caché par défaut, affiché par media query et JS */
     position: fixed;
-    top: 10px;
-    right: 0;
-    transform: translateX(-30%);
-    font-size: 2em;
-    padding: 10px 20px;
-    border-radius: 20px;
-    background-color: var(--background-color);
+    top: 15px; /* Ajusté */
+    right: 15px; /* Ajusté */
+    font-size: 1.8em; /* Réduit */
+    padding: 0.5rem 0.8rem; /* Réduit */
+    border-radius: 50%; /* Rond */
+    background-color: var(--background-color); /* Fond du body pour se fondre */
+    color: var(--text-color-body);
     cursor: pointer;
-    z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-#toggle-burger.hidden {
-    transform: translateX(100%);
-}
-
-header.header-hidden + #toggle-burger {
-    display: flex;
-}
-
-@media screen and (max-width: 1024px) {
-    #toggle-burger {
-        display: flex;
+    z-index: 1001; /* Au-dessus du header quand il est caché */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease;
+    border: 1px solid var(--border-color-soft); /* Petite bordure */
+    
+    &.hidden { /* Si tu utilises une classe pour le cacher via JS */
+        transform: scale(0.8); /* Animation de disparition */
+        opacity: 0;
+        pointer-events: none;
     }
+}
 
-    header{
+
+/* Styles pour mobile et tablette - Adapté de ton header.css actuel */
+@media screen and (max-width: 1024px) {
+    header {
         flex-direction: column;
+        padding: 0.5rem 1rem; /* Padding ajusté pour le mode colonne */
+        /* Le justify-content et align-items par défaut de flex-column sont OK ici */
 
-        nav{
+        #me {
+            width: 100%;
+            justify-content: center; /* Centrer le logo et nom */
+            padding-bottom: 0.5rem; /* Espace avant la nav */
+            border-bottom: 1px solid var(--border-color-soft); /* Ligne séparatrice en mobile */
+            margin-bottom: 0.5rem; /* Espace après la ligne */
+
+            img#logo {
+                height: 40px;
+            }
+
+            h1 {
+                font-size: 1.3rem;
+            }
+        }
+
+        nav {
             width: 100%;
             margin: 0;
-        }
 
-        ul{
-            flex-direction: column;
-            gap: 0 !important;
-            text-align: center;
+            ul {
+                flex-direction: column;
+                gap: 0 !important; /* Tes styles originaux */
+                text-align: center;
+                width: 100%;
 
-            a{
-                padding: 10px 0 !important;
-                display: block;
-                font-size: 1.5em !important;
+                li {
+                    width: 100%;
+
+                    a {
+                        padding: 0.8rem 0 !important; /* Tes styles originaux */
+                        display: block;
+                        font-size: 1.2em !important; /* Tes styles originaux */
+                        border-bottom: 1px solid rgba(52, 152, 219, 0.1); /* Séparateur fin */
+                        
+                        &::after { /* Pas de soulignement pour le menu mobile */
+                            display: none;
+                        }
+                    }
+                    
+                    &:last-child a {
+                        border-bottom: none;
+                    }
+                }
             }
-        }
-
-        h1{
-            font-size: 1.5em;
         }
     }
 }
