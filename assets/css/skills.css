@@ -1,8 +1,8 @@
 /* CSS Skills section */
 :root {
-    --skill-progress-color: #1e1f22;
-    --skill-background-color: #9d9d9d;
-    --skill-background: whitesmoke;
+    --skill-progress-color: var(--accent-color);
+    --skill-background-color: var(--background-content-box);
+    --skill-background: var(--background-content-box);
 }
 
 #skills {
@@ -13,8 +13,13 @@
     padding: 20px;
     margin: 50px;
 
-    h1, h2, p {
-        color: black;
+    h1, h2 {
+        color: var(--main-text-color);
+    }
+    
+    p {
+        color: var(--text-color-body);
+        font-size: 1.2em;
     }
 
     .title {
@@ -86,10 +91,10 @@
                 align-items: center;
                 justify-content: center;
                 background: conic-gradient(
-                        var(--skill-progress-color) 0%,
+                        var(--accent-color) 0%,
                         var(--skill-background-color) 0%
                 );
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 4px 15px rgb(108, 154, 208);
 
 
                 img {
@@ -115,7 +120,7 @@
         position: absolute;
         width: 64px;
         height: 64px;
-        background-color: var(--skill-background);
+        background-color: whitesmoke;
         border-radius: 50%;
         z-index: 1;
     }
@@ -155,7 +160,7 @@
 }
 
 .separator {
-    border: 3px black solid;
+    border: 3px var(--main-text-color) solid;
     border-radius: 5px;
     height: 30vw;
     margin: var(--spacing-unit) calc(1.25 * var(--spacing-unit));
