@@ -28,8 +28,13 @@ header {
         }
 
         img#logo {
-            height: 60px; /* Était 80px */
+            width: 12vw;
+            max-width: 70px;
+            min-width: 40px;
+            height: auto;
+            aspect-ratio: 1 / 1;
             border-radius: 50%;
+            object-fit: cover;
         }
     }
 

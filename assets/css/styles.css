@@ -225,7 +225,7 @@ footer {
     }
 
     p {
-        padding: 0; /* Pas de padding interne supplémentaire si déjà dans content-box */
+        padding: 0;
     }
 }
 
@@ -240,8 +240,8 @@ footer {
     margin-right: 5%;
 }
 
-@media screen and (max-width: 768px) { /* Ou la breakpoint où tu veux uniformiser */
-    #presentation .content-box, /* Cible toutes les content-box dans #presentation */
+@media screen and (max-width: 768px) {
+    #presentation .content-box,
     #projets .content-box,
     .content-box-left,
     .content-box-right {
