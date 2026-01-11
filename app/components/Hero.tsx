@@ -7,7 +7,7 @@ export default function Hero() {
     return (
         <section className="relative min-h-screen w-full overflow-hidden pt-24 px-6 md:px-12 lg:px-24 flex flex-col justify-center text-background">
             {/* Background Image */}
-            <div className="absolute inset-0 z-0 blur-4xl">
+            <div className="absolute inset-0 z-0 blur-xs">
                 <Image
                     src="/images/hero_bg.jpg"
                     alt="Hero Background"
@@ -51,8 +51,8 @@ export default function Hero() {
                         className="max-w-md mt-8 ml-2 border-l-[0.5px] border-white/40 pl-6"
                     >
                         <p className="font-mono text-sm md:text-base leading-relaxed opacity-80">
-                            DÉVELOPPEUR & DESIGNER <br />
-                            Based in Montpellier. Crafting digital experiences with a focus on motion, typography, and tactical aesthetics.
+                            STUDENT DEVELOPER & DIGITAL ARTIST <br />
+                            Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time.
                         </p>
                     </motion.div>
                 </div>
