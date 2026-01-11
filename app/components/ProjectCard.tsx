@@ -65,7 +65,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                     {/* Link Arrow */}
                     <Link
-                        href={`/projets/${project.id}`}
+                        href={`/projects/${project.id}`}
                         className="mt-12 w-16 h-16 border border-foreground/10 rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 group-hover:scale-110"
                     >
                         <ArrowUpRight strokeWidth={1} size={24} />
@@ -74,12 +74,12 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                 {/* Overlapping Title */}
                 <div className="absolute left-0 -bottom-8 lg:bottom-8 lg:-left-12 z-20 pointer-events-none mix-blend-difference text-white">
-                    <h2 className="font-serif italic text-5xl md:text-7xl lg:text-9xl tracking-tighter leading-[0.8]">
+                    <h2 className="font-serif italic text-5xl md:text-7xl lg:text-9xl tracking-tighter">
                         <span className="block group-hover:translate-x-4 transition-transform duration-500 ease-out">
                             {project.title}
                         </span>
                     </h2>
-                    <p className="font-sans text-sm md:text-base mt-2 max-w-md ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                    <p className="font-serif italic font-light text-sm md:text-lg mt-2 max-w-md ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 tracking-wide">
                         {project.under_the_hood}
                     </p>
                 </div>

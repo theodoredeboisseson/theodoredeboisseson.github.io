@@ -50,7 +50,7 @@ export default function Hero() {
                         transition={{ delay: 0.4, duration: 0.8 }}
                         className="max-w-md mt-8 ml-2 border-l-[0.5px] border-white/40 pl-6"
                     >
-                        <p className="font-mono text-sm md:text-base leading-relaxed opacity-80">
+                        <p className="font-serif italic text-base md:text-lg leading-relaxed opacity-90 tracking-wide">
                             STUDENT DEVELOPER & DIGITAL ARTIST <br />
                             Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time.
                         </p>
