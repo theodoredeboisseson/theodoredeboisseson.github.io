@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getProjectSlugs, getProjectBySlug } from '../../../lib/mdx';
 import TechnicalCrosshair from '../../components/TechnicalCrosshair';
-import { ArrowLeft, Terminal, Cpu, Eye } from 'lucide-react';
+import ReturnButton from '../../components/ReturnButton';
+import { ArrowUpRight, Eye } from 'lucide-react';
 
 // Custom MDX Components
 import ProjectGallery from '../../components/mdx/ProjectGallery';
@@ -40,120 +41,106 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
     }
 
     return (
-        <main className="min-h-screen bg-[#101010] text-[#F5F5F5]">
-            {/* 1. CREATIVE UNIVERSE Section */}
-            <section className="relative w-full h-[80vh] flex items-end p-8 md:p-16 overflow-hidden">
-                {/* Back Button */}
-                <Link href="/projects" className="absolute top-8 left-8 z-50 flex items-center gap-2 text-[#F5F5F5] hover:text-[#CC5500] transition-colors font-mono uppercase text-sm">
-                    <ArrowLeft size={16} /> Back to Archive
-                </Link>
+        <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
+            {/* Header / Hero Section */}
+            <section className="relative w-full pt-32 pb-12 px-6 md:px-12 lg:px-24">
+                <ReturnButton href="/projects" label="Index" className="absolute top-8 left-6 md:left-12 lg:left-24" />
+                <TechnicalCrosshair className="top-8 right-6 md:right-12 lg:right-24" />
 
-                {/* Background Hero */}
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute inset-0 bg-[#CC5500]/20 animate-pulse" />
-                    {/* Image Placeholder or Actual Image */}
-                    {project.image ? (
-                        <div className="absolute inset-0">
-                            {/* Using standard img for full background for now or Next/Image if we want to optimize further given it's a bg */}
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover opacity-30 blur-sm"
-                            />
-                        </div>
-                    ) : (
-                        <div className="absolute inset-0 bg-neutral-900" />
-                    )}
-
-                    <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
-                        <span className="text-[20vw] font-black uppercase text-white truncate max-w-full text-center">
-                            {project.category}
-                        </span>
-                    </div>
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#101010] via-transparent to-black/30" />
-                </div>
-
-                {/* Title Block */}
-                <div className="relative z-10 max-w-4xl">
-                    <div className="flex items-center gap-4 mb-4">
-                        <span className="px-3 py-1 bg-[#CC5500] text-white font-mono text-sm uppercase">
-                            {project.category}
-                        </span>
-                        <span className="font-mono text-[#888]">// {project.date}</span>
-                    </div>
-                    <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tight leading-none mb-6">
-                        {project.title}
-                    </h1>
-                    <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl">
-                        {project.description}
-                    </p>
-                </div>
-
-                <TechnicalCrosshair className="top-12 right-12" />
-            </section>
-
-            {/* 2. UNDER THE HOOD Section */}
-            <section className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12 p-8 md:p-16">
-
-                {/* Left Column: Creative Process / Context - MDX CONTENT */}
-                <div className="lg:col-span-2 space-y-12">
-                    <div>
-                        <h2 className="flex items-center gap-3 text-3xl font-bold uppercase mb-8 border-b border-[#333] pb-4">
-                            <Eye className="text-[#CC5500]" /> Project Report
-                        </h2>
-                        {/* MDX Rendering */}
-                        <div className="prose prose-invert prose-lg max-w-none text-gray-300 prose-headings:font-bold prose-headings:uppercase prose-a:text-[#CC5500] prose-img:rounded-sm">
-                            <MDXRemote source={project.content} components={components} />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Right Column: Technical "Terminal" */}
-                <div className="lg:col-span-1">
-                    <div className="sticky top-8 bg-[#0a0a0a] border border-[#333] p-6 rounded-sm shadow-neo font-mono text-sm">
-                        <div className="flex items-center gap-2 mb-6 text-[#CC5500] border-b border-[#333] pb-4">
-                            <Terminal size={18} />
-                            <span className="uppercase tracking-widest font-bold">System_Log</span>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+                    {/* Title & Info */}
+                    <div className="lg:col-span-8">
+                        <div className="flex items-center gap-4 mb-6 font-mono text-xs uppercase tracking-widest opacity-60">
+                            <span className="text-primary">●</span>
+                            <span>{project.category}</span>
+                            <span>//</span>
+                            <span>{project.date}</span>
                         </div>
 
-                        {/* Description Short */}
-                        <div className="mb-8">
-                            <span className="block text-[#666] mb-2">$ cat description.txt</span>
-                            <p className="text-gray-300 leading-relaxed border-l-2 border-[#CC5500] pl-4">
+                        <h1 className="font-serif italic text-6xl md:text-8xl lg:text-9xl tracking-tighter leading-[0.9] mb-8">
+                            {project.title}
+                        </h1>
+
+                        <div className="max-w-2xl">
+                            <p className="font-mono text-sm md:text-base leading-relaxed opacity-80 border-l-[0.5px] border-primary pl-6">
                                 {project.description}
                             </p>
                         </div>
+                    </div>
 
+                    {/* Meta Sidebar (Mobile: bottom, Desktop: right) */}
+                    <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-end space-y-8 font-mono text-xs uppercase tracking-widest">
                         {/* Stack */}
-                        <div className="mb-8">
-                            <span className="block text-[#666] mb-2">$ list dependencies</span>
-                            <div className="flex flex-wrap gap-2">
-                                {project.tags.map(skill => (
-                                    <div key={skill} className="flex items-center gap-2 bg-[#151515] px-3 py-1.5 border border-[#333] text-gray-300">
-                                        <Cpu size={14} className="text-[#CC5500]" />
-                                        {skill}
-                                    </div>
+                        <div className="flex flex-col items-start lg:items-end gap-2">
+                            <span className="opacity-40">Technologies</span>
+                            <div className="flex flex-wrap gap-2 justify-start lg:justify-end">
+                                {project.tags.map(tag => (
+                                    <span key={tag} className="px-2 py-1 border-[0.5px] border-foreground/20 rounded-full">
+                                        {tag}
+                                    </span>
                                 ))}
                             </div>
                         </div>
 
-                        {/* Start Button / Link */}
+                        {/* Links */}
                         {(project.links?.demo || project.links?.github) && (
-                            <div className="mt-8 pt-6 border-t border-[#333] space-y-4">
+                            <div className="flex gap-4">
                                 {project.links.demo && (
-                                    <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="block w-full py-3 bg-[#CC5500] text-black font-bold uppercase text-center hover:bg-white transition-colors">
-                                        Launch Demo
+                                    <a
+                                        href={project.links.demo}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"
+                                    >
+                                        Live Demo <ArrowUpRight size={14} />
                                     </a>
                                 )}
                                 {project.links.github && (
-                                    <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="block w-full py-3 border border-[#333] text-white font-bold uppercase text-center hover:bg-[#151515] transition-colors">
-                                        View Source
+                                    <a
+                                        href={project.links.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity"
+                                    >
+                                        Source Code <Eye size={14} />
                                     </a>
                                 )}
                             </div>
                         )}
+                    </div>
+                </div>
+            </section>
 
+            {/* Featured Image */}
+            {project.image && (
+                <div className="w-full px-6 md:px-12 lg:px-24 mb-24">
+                    <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-sm">
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover"
+                        />
+                        {/* Overlay Texture/Gradient if needed */}
+                        <div className="absolute inset-0 ring-1 ring-inset ring-black/5 pointer-events-none" />
+                    </div>
+                </div>
+            )}
+
+            {/* Content Area */}
+            <section className="px-6 md:px-12 lg:px-24 pb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    {/* Sticky Table of Contents or Meta could go here in col-span-3 */}
+                    <div className="hidden lg:block lg:col-span-3">
+                        <div className="sticky top-12 border-t-[0.5px] border-foreground/10 pt-4">
+                            <span className="font-mono text-xs uppercase tracking-widest opacity-40">Project Report</span>
+                        </div>
+                    </div>
+
+                    {/* MDX Content */}
+                    <div className="lg:col-span-8 lg:col-start-5">
+                        <article className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-normal prose-h2:text-4xl prose-h2:mt-16 prose-h2:mb-8 prose-p:font-sans prose-p:text-foreground/80 prose-p:leading-relaxed prose-code:font-mono prose-code:text-primary prose-code:bg-primary/5 prose-code:px-1 prose-code:rounded-sm">
+                            <MDXRemote source={project.content} components={components} />
+                        </article>
                     </div>
                 </div>
             </section>
