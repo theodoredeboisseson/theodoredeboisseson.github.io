@@ -15,7 +15,7 @@ export default function FeaturedProjects() {
                 <h2 className="text-4xl md:text-6xl font-black uppercase text-[#F5F5F5]">
                     Featured <span className="text-[#CC5500]">Work</span>
                 </h2>
-                <Link href="/projects" className="hidden md:flex items-center gap-2 text-[#CC5500] uppercase font-mono hover:underline">
+                <Link href="/projets" className="hidden md:flex items-center gap-2 text-[#CC5500] uppercase font-mono hover:underline">
                     View All <ArrowUpRight size={16} />
                 </Link>
             </div>
@@ -41,7 +41,7 @@ export default function FeaturedProjects() {
                         </div>
 
                         {/* Content Overlay */}
-                        <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/90 to-transparent">
+                        <Link href={`/projets/${project.id}`} className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black/90 to-transparent">
                             <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                 <span className="inline-block px-2 py-1 mb-2 text-xs font-mono bg-[#CC5500] text-white">
                                     {project.category} // {project.date}
@@ -60,7 +60,7 @@ export default function FeaturedProjects() {
                                     ))}
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </motion.article>
                 ))}
             </div>
