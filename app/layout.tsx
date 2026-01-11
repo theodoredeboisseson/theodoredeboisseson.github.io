@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio Hybride",
-  description: "Portfolio Technique et Artistique",
+  title: "Théodore de Boisseson",
+  description: "Portfolio Hybride | Tech & Art",
 };
 
 export default function RootLayout({
