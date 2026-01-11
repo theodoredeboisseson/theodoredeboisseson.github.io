@@ -44,7 +44,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
             {/* Header / Hero Section */}
             <section className="relative w-full pt-32 pb-12 px-6 md:px-12 lg:px-24">
-                <ReturnButton href="/projects" label="Index" className="absolute top-8 left-6 md:left-12 lg:left-24" />
+                <ReturnButton href="/projects" label="Gallery" className="absolute top-8 left-6 md:left-12 lg:left-24" />
                 <TechnicalCrosshair className="top-8 right-6 md:right-12 lg:right-24" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">

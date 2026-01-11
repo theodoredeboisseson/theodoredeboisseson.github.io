@@ -35,7 +35,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                 {/* Image Section */}
                 <Link href={`/projects/${project.slug}`} className="lg:col-span-9 relative block">
-                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-tr-[5rem] rounded-bl-sm rounded-tl-sm rounded-br-sm bg-black/50">
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-tr-[5rem] rounded-sm bg-black/50">
                         {/* Image or Placeholder */}
                         {project.image ? (
                             <>

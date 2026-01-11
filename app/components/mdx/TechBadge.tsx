@@ -9,13 +9,13 @@ export default function TechBadge({ skills }: TechBadgeProps) {
     if (!skills || skills.length === 0) return null;
 
     return (
-        <div className="flex flex-wrap gap-2 my-6">
+        <div className="flex flex-wrap gap-3 my-8">
             {skills.map((skill) => (
                 <div
                     key={skill}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-neutral-900 border border-neutral-800 text-neutral-300 font-mono text-sm shadow-sm hover:border-primary/50 transition-colors"
+                    className="flex items-center gap-2 px-3 py-1 bg-transparent border-[0.5px] border-foreground/20 rounded-full text-foreground/80 font-mono text-xs uppercase tracking-widest hover:border-primary hover:text-primary transition-colors cursor-default"
                 >
-                    <Cpu size={14} className="text-primary" />
+                    <Cpu size={12} className="text-primary" />
                     <span>{skill}</span>
                 </div>
             ))}

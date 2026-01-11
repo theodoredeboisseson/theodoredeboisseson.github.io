@@ -11,16 +11,16 @@ export default function VideoPlayer({ url }: VideoPlayerProps) {
     const isVideoFile = url.match(/\.(mp4|webm|ogg)$/);
 
     return (
-        <div className="my-8 w-full aspect-video bg-neutral-950 rounded-lg overflow-hidden border border-neutral-800 relative group">
+        <div className="my-12 w-full aspect-video bg-foreground/5 rounded-sm overflow-hidden border-[0.5px] border-foreground/10 relative group">
             {isVideoFile ? (
                 <video controls className="w-full h-full object-cover">
                     <source src={url} />
                     Your browser does not support the video tag.
                 </video>
             ) : (
-                <div className="flex items-center justify-center w-full h-full text-neutral-500 bg-neutral-900 icon-stripes">
-                    {/* Fallback for external embeds (iframe) if needed later */}
-                    <span className="font-mono text-sm">External video source to be implemented</span>
+                <div className="flex flex-col items-center justify-center w-full h-full text-foreground/40 bg-foreground/[0.02]">
+                    <span className="font-mono text-xs uppercase tracking-widest border border-foreground/20 px-4 py-2 rounded-full">Video Placeholder</span>
+                    <span className="font-mono text-[10px] mt-2 opacity-60">{url}</span>
                 </div>
             )}
         </div>

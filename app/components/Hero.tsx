@@ -62,7 +62,7 @@ export default function Hero() {
                         initial={{ scale: 0.95, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
                         transition={{ delay: 0.2, duration: 1 }}
-                        className="relative h-full w-full rounded-2xl overflow-hidden bg-black/5"
+                        className="relative h-full w-full rounded-3xl rounded-tl-sm overflow-hidden bg-black/5"
                     >
                         {/* Texture/Image Placeholder */}
                         <Image
@@ -71,7 +71,7 @@ export default function Hero() {
                             fill
                             className="object-cover opacity-90"
                         />
-                        <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-black/5 shadow-sm">
+                        <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl rounded-tl-sm border border-black/5 shadow-sm">
                             <div className="flex items-center gap-2">
                                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                                 <span className="font-mono text-[10px] uppercase text-black">Open to work</span>
