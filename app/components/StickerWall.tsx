@@ -44,8 +44,8 @@ export default function StickerWall() {
                             dragConstraints={containerRef}
                             whileHover={{ scale: 1.1, zIndex: 50 }}
                             whileDrag={{ scale: 1.2, zIndex: 100 }}
-                            initial={{ rotate: Math.random() * 20 - 10, y: 50, opacity: 0 }}
-                            animate={{ rotate: Math.random() * 20 - 10, y: 0, opacity: 1 }}
+                            initial={{ rotate: ((index * 7) % 20) - 10, y: 50, opacity: 0 }}
+                            animate={{ rotate: ((index * 13) % 20) - 10, y: 0, opacity: 1 }}
                             transition={{ delay: index * 0.1 }}
                             className="flex flex-col items-center justify-center p-4 bg-[#F5F5F5] text-[#101010] shadow-neo w-24 h-24 sm:w-32 sm:h-32 rounded-lg select-none border-2 border-black"
                         >
