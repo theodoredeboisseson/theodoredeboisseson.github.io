@@ -31,14 +31,14 @@ export default function Hero() {
                     <div className="relative h-full w-full rounded-[2rem] overflow-hidden border-2 border-[#333] shadow-neo rotate-3 hover:rotate-0 transition-transform duration-500">
                         {/* Placeholder for Photo - Using a solid color fall back or external placeholder if local missing */}
                         <div className="absolute inset-0 bg-neutral-800 flex items-center justify-center text-neutral-500 font-mono">
-                            [PHOTO PLACEHOLDER]
+                            <Image
+                                src="/images/profile_picture.jpg"
+                                alt="Theodore de Boisseson"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
                         </div>
-                        {/* <Image 
-                    src="/images/profile.jpg" 
-                    alt="Theodore de Boisseson" 
-                    fill 
-                    className="object-cover"
-                /> */}
                     </div>
                 </div>
             </div>
