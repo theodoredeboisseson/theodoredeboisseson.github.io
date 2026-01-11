@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
 interface Project {
-    id: string;
+    slug: string;
     title: string;
     category: string;
     date: string;
@@ -34,7 +34,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
                 {/* Image Section */}
-                <Link href={`/projects/${project.id}`} className="lg:col-span-9 relative block">
+                <Link href={`/projects/${project.slug}`} className="lg:col-span-9 relative block">
                     <div className="relative aspect-[16/9] w-full overflow-hidden rounded-tr-[5rem] rounded-bl-sm rounded-tl-sm rounded-br-sm bg-black/50">
                         {/* Image or Placeholder */}
                         {project.image ? (
@@ -83,7 +83,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                     {/* Link Arrow */}
                     <Link
-                        href={`/projects/${project.id}`}
+                        href={`/projects/${project.slug}`}
                         className="mt-12 w-16 h-16 border border-foreground/10 rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 group-hover:scale-110"
                     >
                         <ArrowUpRight strokeWidth={1} size={24} />
