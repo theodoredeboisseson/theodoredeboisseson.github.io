@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "title": "Portfolio Hybride",
+        "category": "Tech",
+        "date": "2024-01",
+        "isFeatured": true,
+        "usedSkills": [
+            "1"
+        ],
+        "ac_validation": [
+            "AC1",
+            "AC2"
+        ],
+        "under_the_hood": "Built with Next.js App Router and Framer Motion for smooth transitions between Art and Tech worlds."
+    }
+]

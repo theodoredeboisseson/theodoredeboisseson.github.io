@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "name": "Next.js",
+        "category": "Tech",
+        "icon": "NextJs",
+        "comfortLevel": 90
+    },
+    {
+        "id": "2",
+        "name": "Blender",
+        "category": "Art",
+        "icon": "Blender",
+        "comfortLevel": 75
+    },
+    {
+        "id": "3",
+        "name": "Piano",
+        "category": "Art",
+        "icon": "Music",
+        "comfortLevel": 85
+    }
+]
