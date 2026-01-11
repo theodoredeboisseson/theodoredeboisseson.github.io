@@ -14,6 +14,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+import TechnicalFrame from "./components/TechnicalFrame";
+
 export const metadata: Metadata = {
   title: "Théodore de Boisseson",
   description: "Portfolio Hybride | Tech & Art",
@@ -30,6 +32,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GrainOverlay />
+        <TechnicalFrame />
         {children}
       </body>
     </html>

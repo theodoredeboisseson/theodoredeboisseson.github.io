@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #101010;
-  --foreground: #F5F5F5;
-  --color-primary: #CC5500;
-  --color-text: #F5F5F5;
+  --background: #F5F5F3;
+  --foreground: #111111;
+  --color-primary: #d94261;
+  --color-text: #111111;
+  --color-border: #11111120;
+  /* Very subtle border */
 }
 
 @theme inline {
@@ -12,6 +14,7 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--color-primary);
   --color-text: var(--color-text);
+  --color-border: var(--color-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -21,20 +24,24 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
 
 ::selection {
   background-color: var(--color-primary);
   color: white;
 }
 
-/* Noise Pattern */
+/* Noise Pattern - Kept subtle or removed? Keeping subtle for paper feel might be nice */
 .bg-noise {
+  opacity: 0.4;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }
 
-/* Neo-Brutalist Hard Shadow */
-.shadow-neo {
-  box-shadow: 5px 5px 0px 0px #000000;
+/* Utilities for Editorial Design */
+.border-thin {
+  border-width: 0.5px;
 }

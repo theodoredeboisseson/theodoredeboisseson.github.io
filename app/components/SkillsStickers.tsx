@@ -1,81 +1,59 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 import * as Icons from 'lucide-react';
 import skillsData from '../../data/skills.json';
 
-export default function SkillsStickers() {
+export default function SkillsBento() {
     return (
-        <section className="relative w-full py-20 overflow-hidden bg-[#101010]">
-            <div className="absolute inset-0 bg-[#CC5500]/5" />
-
-            <div className="container mx-auto px-4 mb-12">
-                <h2 className="text-5xl font-bold uppercase tracking-tight text-[#F5F5F5]">
-                    Tech <span className="text-[#CC5500]">&</span> Art
-                    <span className="block text-xl font-mono opacity-50 mt-2 text-[#CC5500]">// My Arsenal</span>
+        <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background">
+            {/* Header */}
+            <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 w-full max-w-7xl mx-auto">
+                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground">
+                    ARSENAL<span className="text-primary">.</span>
                 </h2>
+                <div className="text-right mt-4 md:mt-0">
+                    <span className="block font-mono text-xs uppercase tracking-widest text-foreground/50">
+                        TOOLKIT // 2026
+                    </span>
+                    <span className="block font-serif italic text-lg text-foreground/80">
+                        Selected tools & technologies
+                    </span>
+                </div>
             </div>
 
-            <div className="container mx-auto px-4">
+            <div className="w-full max-w-7xl mx-auto">
                 <motion.div
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true }}
+                    viewport={{ once: true, margin: "-100px" }}
                     variants={{
                         hidden: {},
                         visible: {
-                            transition: {
-                                staggerChildren: 0.1
-                            }
+                            transition: { staggerChildren: 0.05 }
                         }
                     }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                    className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                 >
                     {skillsData.map((skill, index) => (
                         <motion.div
                             key={skill.id}
                             variants={{
-                                hidden: { y: 20, opacity: 0 },
-                                visible: { y: 0, opacity: 1 }
+                                hidden: { scale: 0.9, opacity: 0 },
+                                visible: { scale: 1, opacity: 1 }
                             }}
-                            whileHover={{
-                                scale: 1.02,
-                                borderColor: '#CC5500',
-                                boxShadow: '5px 5px 0px 0px #CC5500' // Colored Neo Shadow on hover
-                            }}
-                            className="flex items-center gap-4 p-4 bg-[#151515] border border-[#333] rounded-sm group transition-all duration-300 cursor-default"
+                            whileHover={{ y: -5 }}
+                            className="bg-white/50 backdrop-blur-sm border border-black/5 rounded-3xl p-6 flex flex-col items-center justify-center gap-4 hover:border-primary/30 transition-colors duration-300 aspect-square group"
                         >
-                            {/* Icon Section - Floating Animation */}
-                            <motion.div
-                                animate={{ y: [0, -5, 0] }}
-                                transition={{
-                                    duration: 3,
-                                    repeat: Infinity,
-                                    ease: "easeInOut",
-                                    delay: index * 0.2 // Deterministic delay
-                                }}
-                                className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-[#CC5500]/10 text-[#CC5500] rounded-sm"
-                            >
+                            {/* Icon */}
+                            <div className="text-foreground/80 group-hover:text-primary transition-colors duration-300">
                                 {getIcon(skill.icon)}
-                            </motion.div>
+                            </div>
 
-                            {/* Info Section */}
-                            <div className="flex-grow">
-                                <div className="flex justify-between items-baseline mb-1">
-                                    <h3 className="font-bold text-[#F5F5F5] uppercase tracking-wide">{skill.name}</h3>
-                                    <span className="text-xs text-[#666] font-mono uppercase">{skill.category}</span>
-                                </div>
-
-                                {/* Comfort Level Gauge */}
-                                <div className="w-full h-1.5 bg-[#222] rounded-full overflow-hidden">
-                                    <motion.div
-                                        initial={{ width: 0 }}
-                                        whileInView={{ width: `${skill.comfortLevel}%` }}
-                                        transition={{ duration: 1, delay: 0.5 }}
-                                        className="h-full bg-[#CC5500]"
-                                    />
-                                </div>
+                            {/* Info */}
+                            <div className="text-center">
+                                <h3 className="font-bold text-sm uppercase tracking-wide text-foreground">{skill.name}</h3>
+                                <span className="text-[10px] text-foreground/40 font-mono uppercase mt-1 block">{skill.category}</span>
                             </div>
                         </motion.div>
                     ))}
@@ -89,18 +67,18 @@ export default function SkillsStickers() {
 const getIcon = (name: string) => {
     // Check if it's a file path for custom icon
     if (name.startsWith('/') || name.startsWith('http')) {
-        return <img src={name} alt="" className="w-full h-full object-contain p-1" />;
+        return <img src={name} alt="" className="w-8 h-8 object-contain" />;
     }
 
     // Lucide fallback
     // @ts-expect-error - Dynamic icon lookup
     const Icon = Icons[name];
 
-    if (Icon) return <Icon size={24} />;
+    if (Icon) return <Icon size={32} strokeWidth={1.5} />;
 
     // Specific manual mapping for missing Lucide icons or brand overrides
-    if (name === 'NextJs') return <Icons.Cpu size={24} />;
-    if (name === 'Blender') return <Icons.Box size={24} />;
+    if (name === 'NextJs') return <Icons.Cpu size={32} strokeWidth={1.5} />;
+    if (name === 'Blender') return <Icons.Box size={32} strokeWidth={1.5} />;
 
-    return <Icons.Code size={24} />;
+    return <Icons.Code size={32} strokeWidth={1.5} />;
 };

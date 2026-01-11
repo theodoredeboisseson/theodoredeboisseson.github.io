@@ -1,11 +1,13 @@
-import Image from 'next/image';
-import TechnicalCrosshair from './TechnicalCrosshair';
+'use client';
+
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-[90vh] w-full bg-[#101010] text-[#F5F5F5] overflow-hidden flex flex-col justify-center px-4 md:px-12">
+        <section className="relative min-h-screen w-full overflow-hidden pt-24 px-6 md:px-12 lg:px-24 flex flex-col justify-center text-background">
             {/* Background Image */}
-            <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 z-0 blur-4xl">
                 <Image
                     src="/images/hero_bg.jpg"
                     alt="Hero Background"
@@ -15,52 +17,80 @@ export default function Hero() {
                     quality={100}
                 />
                 {/* Subtle overlay to ensure text readability while maintaining image visibility */}
-                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 bg-black/30" />
             </div>
 
-            {/* Decorative Technical Elements */}
-            <TechnicalCrosshair className="top-10 left-10" />
-            <TechnicalCrosshair className="bottom-10 right-10" />
-            <div className="absolute top-1/2 left-0 h-[1px] w-full bg-white opacity-20" />
 
-            <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center z-10">
+            {/* Grid Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-7xl mx-auto items-center">
 
-                {/* Text Content - Asymmetric Placement */}
-                <div className="md:col-span-7 flex flex-col space-y-4 relative z-20 mix-blend-difference">
-                    <h1 className="text-6xl md:text-9xl font-bold tracking-tighter uppercase leading-[0.8]">
-                        Theodore<br />
-                        <span className="text-outline text-transparent stroke-white stroke-2">De Boisseson</span>
-                    </h1>
-                    <p className="text-xl md:text-2xl font-mono mt-4">
-                        Full Stack Developer <br />
-                        Digital Artist
-                    </p>
+                {/* Horizontal line */}
+                <div className="absolute top-5/8 left-0 h-[1px] w-full bg-white opacity-20" />
+
+                {/* Left Col: Title & Intro */}
+                <div className="lg:col-span-8 flex flex-col gap-6 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className="flex flex-col"
+                    >
+                        <span className="font-mono text-xs uppercase font-bold tracking-[0.2em] mb-4 text-primary">
+                            Issue 01 — 2026
+                        </span>
+                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
+                            THÉO<br />
+                            DORE<span className="text-primary">.</span>
+                        </h1>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4, duration: 0.8 }}
+                        className="max-w-md mt-8 ml-2 border-l-[0.5px] border-white/40 pl-6"
+                    >
+                        <p className="font-mono text-sm md:text-base leading-relaxed opacity-80">
+                            DÉVELOPPEUR & DESIGNER <br />
+                            Based in Montpellier. Crafting digital experiences with a focus on motion, typography, and tactical aesthetics.
+                        </p>
+                    </motion.div>
                 </div>
 
-                {/* Image - Irregular Shape */}
-                <div className="md:col-span-5 relative h-[500px] w-full">
-                    {/* Abstract Background Shape */}
-                    <div className="absolute inset-0 bg-[#CC5500] rounded-[30%_70%_70%_30%_/_30%_30%_70%_70%] opacity-20 blur-3xl animate-pulse" />
-
-                    <div className="relative h-full w-full rounded-[2rem] overflow-hidden border-2 border-[#333] shadow-neo rotate-3 hover:rotate-0 transition-transform duration-500">
-                        {/* Placeholder for Photo - Using a solid color fall back or external placeholder if local missing */}
-                        <div className="absolute inset-0 bg-neutral-800 flex items-center justify-center text-neutral-500 font-mono">
-                            <Image
-                                src="/images/profile_picture.jpg"
-                                alt="Theodore de Boisseson"
-                                fill
-                                className="object-cover"
-                                priority
-                            />
+                {/* Right Col: Image / Graphic Element */}
+                <div className="lg:col-span-4 relative h-[50vh] lg:h-[70vh] w-full mt-12 lg:mt-0">
+                    <motion.div
+                        initial={{ scale: 0.95, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ delay: 0.2, duration: 1 }}
+                        className="relative h-full w-full rounded-2xl overflow-hidden bg-black/5"
+                    >
+                        {/* Texture/Image Placeholder */}
+                        <Image
+                            src="/images/profile_picture.jpg"
+                            alt="Portrait"
+                            fill
+                            className="object-cover opacity-90"
+                        />
+                        <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-black/5 shadow-sm">
+                            <div className="flex items-center gap-2">
+                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                <span className="font-mono text-[10px] uppercase text-black">Open to work</span>
+                            </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
-            {/* Scroll Indicator */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-                <div className="w-[1px] h-16 bg-[#F5F5F5]" />
-            </div>
+            {/* Scroll indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="absolute bottom-12 left-6 md:left-24 font-mono text-[10px] tracking-widest hidden md:block opacity-60"
+            >
+                SCROLL TO EXPLORE ↓
+            </motion.div>
         </section>
     );
 }
