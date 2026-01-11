@@ -24,9 +24,6 @@ export default function Hero() {
             {/* Grid Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-7xl mx-auto items-center">
 
-                {/* Horizontal line */}
-                <div className="absolute top-5/8 left-0 h-[1px] w-full bg-white opacity-20" />
-
                 {/* Left Col: Title & Intro */}
                 <div className="lg:col-span-8 flex flex-col gap-6 relative z-10">
                     <motion.div
@@ -39,10 +36,12 @@ export default function Hero() {
                             Issue 01 — 2026
                         </span>
                         <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
-                            THÉO<br />
-                            DORE<span className="text-primary">.</span>
+                            THÉODORE<span className="text-primary">.</span>
                         </h1>
                     </motion.div>
+
+                    {/* Horizontal line */}
+                    <div className="h-[1px] w-full bg-white opacity-20" />
 
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -51,14 +50,14 @@ export default function Hero() {
                         className="max-w-md mt-8 ml-2 border-l-[0.5px] border-white/40 pl-6"
                     >
                         <p className="font-serif italic text-base md:text-lg leading-relaxed opacity-90 tracking-wide">
-                            STUDENT DEVELOPER & DIGITAL ARTIST <br />
+                            STUDENT DEVELOPER / DIGITAL ARTIST <br />
                             Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time.
                         </p>
                     </motion.div>
                 </div>
 
                 {/* Right Col: Image / Graphic Element */}
-                <div className="lg:col-span-4 relative h-[50vh] lg:h-[70vh] w-full mt-12 lg:mt-0">
+                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4] mx-auto">
                     <motion.div
                         initial={{ scale: 0.95, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}

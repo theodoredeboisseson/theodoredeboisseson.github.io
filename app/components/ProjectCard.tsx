@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -11,6 +12,7 @@ interface Project {
     date: string;
     under_the_hood: string;
     ac_validation?: string[];
+    image?: string;
     // Add other properties as needed from your projects.json structure
 }
 
@@ -33,16 +35,32 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                 {/* Image Section */}
                 <Link href={`/projects/${project.id}`} className="lg:col-span-9 relative block">
-                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-tr-[5rem] rounded-bl-sm rounded-tl-sm rounded-br-sm bg-black/5">
-                        {/* Placeholder / Image */}
-                        <div className="absolute inset-0 bg-neutral-200 group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-tr-[5rem] rounded-bl-sm rounded-tl-sm rounded-br-sm bg-black/50">
+                        {/* Image or Placeholder */}
+                        {project.image ? (
+                            <>
+                                <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-[1.5s] ease-out">
+                                    <Image
+                                        src={project.image}
+                                        alt={project.title}
+                                        fill
+                                        className="object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+                                    />
+                                </div>
+                            </>
+                        ) : (
+                            <div className="absolute inset-0 bg-neutral-200 group-hover:scale-105 transition-transform duration-[1.5s] ease-out" />
+                        )}
+
                         {/* Overlay */}
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
 
-                        {/* Image Text Placeholder - In real app use next/image */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-10 text-9xl font-black uppercase text-black select-none">
-                            {project.category.substring(0, 2)}
-                        </div>
+                        {/* Image Text Placeholder (only if no image) */}
+                        {!project.image && (
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 text-9xl font-black uppercase text-black select-none">
+                                {project.category.substring(0, 2)}
+                            </div>
+                        )}
                     </div>
                 </Link>
 

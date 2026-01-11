@@ -23,7 +23,7 @@ import TechnicalFrame from "./components/TechnicalFrame";
 
 export const metadata: Metadata = {
   title: "Théodore de Boisseson",
-  description: "Portfolio Hybride | Tech & Art",
+  description: "Portfolio / Computer Science Student & Digital Artist",
 };
 
 export default function RootLayout({

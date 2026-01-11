@@ -2,7 +2,7 @@
   
   
   <text x="55%" y="60%" dominant-baseline="middle" text-anchor="middle" 
-        font-family="sans" font-weight="bold" font-size="80" fill="white">
+        font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-size="80" fill="white">
     T<tspan fill="#d94261" dy="-8" dx="10">.</tspan> 
   </text>
 </svg>
