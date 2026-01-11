@@ -4,10 +4,24 @@ import TechnicalCrosshair from './TechnicalCrosshair';
 export default function Hero() {
     return (
         <section className="relative min-h-[90vh] w-full bg-[#101010] text-[#F5F5F5] overflow-hidden flex flex-col justify-center px-4 md:px-12">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/images/hero_bg.jpg"
+                    alt="Hero Background"
+                    fill
+                    className="object-cover"
+                    priority
+                    quality={100}
+                />
+                {/* Subtle overlay to ensure text readability while maintaining image visibility */}
+                <div className="absolute inset-0 bg-black/20" />
+            </div>
+
             {/* Decorative Technical Elements */}
             <TechnicalCrosshair className="top-10 left-10" />
             <TechnicalCrosshair className="bottom-10 right-10" />
-            <div className="absolute top-1/2 left-0 h-[1px] w-full bg-[#CC5500] opacity-20" />
+            <div className="absolute top-1/2 left-0 h-[1px] w-full bg-white opacity-20" />
 
             <div className="container mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center z-10">
 
@@ -17,9 +31,9 @@ export default function Hero() {
                         Theodore<br />
                         <span className="text-outline text-transparent stroke-white stroke-2">De Boisseson</span>
                     </h1>
-                    <p className="text-xl md:text-2xl font-mono text-[#CC5500] mt-4">
-            // Full Stack Developer <br />
-            // Digital Artist
+                    <p className="text-xl md:text-2xl font-mono mt-4">
+                        Full Stack Developer <br />
+                        Digital Artist
                     </p>
                 </div>
 
