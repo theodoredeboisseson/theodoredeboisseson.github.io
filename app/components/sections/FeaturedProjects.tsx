@@ -25,8 +25,8 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
         <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background overflow-hidden">
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-end mb-24 border-b-[0.5px] border-black/10 pb-6 w-full max-w-7xl mx-auto">
-                <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground">
-                    PROJECTS<span className="text-primary">.</span>
+                <h2 className="section-title">
+                    Featured projects<span className="text-primary">.</span>
                 </h2>
                 <Link href="/projects" className="group flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-foreground hover:text-primary transition-colors mt-4 md:mt-0">
                     Index

@@ -127,3 +127,9 @@ body {
   margin-top: 0.25rem !important;
   margin-bottom: 0.25rem !important;
 }
+
+.section-title {
+  @apply text-4xl md:text-6xl font-bold font-serif tracking-tighter text-foreground;
+}
+
+/* text-4xl md:text-6xl font-bold tracking-tighter text-foreground */

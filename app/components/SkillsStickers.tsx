@@ -30,8 +30,8 @@ export default function SkillsBento({ projects }: SkillsBentoProps) {
             <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 w-full max-w-7xl mx-auto">
-                    <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-foreground">
-                        ARSENAL<span className="text-primary">.</span>
+                    <h2 className="section-title">
+                        Arsenal<span className="text-primary">.</span>
                     </h2>
                     <div className="text-right mt-4 md:mt-0">
                         <span className="block font-mono text-xs uppercase tracking-widest text-foreground/50">

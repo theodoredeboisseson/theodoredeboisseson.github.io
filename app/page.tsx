@@ -2,6 +2,8 @@ import Image from "next/image";
 import Hero from "./components/sections/Hero";
 import SkillsStickers from "./components/SkillsStickers";
 import FeaturedProjects from "./components/sections/FeaturedProjects";
+import FormationSection from "./components/sections/FormationSection";
+import ContactSection from "./components/sections/ContactSection";
 import { getAllProjects } from "../lib/mdx";
 
 export default function Home() {
@@ -23,6 +25,8 @@ export default function Home() {
       <Hero />
       <SkillsStickers projects={allProjects} />
       <FeaturedProjects projects={featuredProjects} />
+      <FormationSection />
+      <ContactSection />
     </main>
   );
 }
