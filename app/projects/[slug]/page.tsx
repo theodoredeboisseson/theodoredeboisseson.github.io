@@ -13,6 +13,7 @@ import TechBadge from '../../components/ui/TechBadge';
 import CompetenceBlock from '../../components/mdx/CompetenceBlock';
 import VideoPlayer from '../../components/mdx/VideoPlayer';
 import Hyperlink from '../../components/mdx/Hyperlink';
+import Spacer from '../../components/mdx/Spacer';
 
 const components = {
     ProjectGallery,
@@ -20,6 +21,7 @@ const components = {
     CompetenceBlock,
     VideoPlayer,
     Hyperlink,
+    Spacer,
 };
 
 export const dynamicParams = false;
