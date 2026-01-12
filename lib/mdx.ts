@@ -40,6 +40,9 @@ export function getProjectBySlug(slug: string): ProjectData | null {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
+    // Dynamic spacing: convert 3+ newlines into a Spacer component
+    const processedContent = content.replace(/\n\n\n+/g, '\n\n<Spacer size="xl" />\n\n');
+
     return {
         slug: realSlug,
         title: data.title,
@@ -53,7 +56,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
         featured: data.featured || false,
         usedSkills: data.usedSkills || [],
         filter: data.filter || 'Tech', // Default to Tech for now
-        content,
+        content: processedContent,
     };
 }
 

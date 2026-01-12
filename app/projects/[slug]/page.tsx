@@ -12,12 +12,14 @@ import ProjectGallery from '../../components/mdx/ProjectGallery';
 import TechBadge from '../../components/ui/TechBadge';
 import CompetenceBlock from '../../components/mdx/CompetenceBlock';
 import VideoPlayer from '../../components/mdx/VideoPlayer';
+import Hyperlink from '../../components/mdx/Hyperlink';
 
 const components = {
     ProjectGallery,
     TechBadge,
     CompetenceBlock,
     VideoPlayer,
+    Hyperlink,
 };
 
 export const dynamicParams = false;
