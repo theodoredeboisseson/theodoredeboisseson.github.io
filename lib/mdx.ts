@@ -41,7 +41,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
     const { data, content } = matter(fileContents);
 
     // Dynamic spacing: convert 3+ newlines into a Spacer component
-    const processedContent = content.replace(/\n\n\n+/g, '\n\n<Spacer size="xl" />\n\n');
+    const processedContent = content.replace(/\n\n\n+/g, '\n\n<Spacer size="sm" />\n\n');
 
     return {
         slug: realSlug,

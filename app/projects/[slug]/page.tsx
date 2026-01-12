@@ -5,6 +5,7 @@ import { getProjectSlugs, getProjectBySlug } from '../../../lib/mdx';
 import skillsData from '../../../data/skills.json';
 import TechnicalCrosshair from '../../components/ui/TechnicalCrosshair';
 import ReturnButton from '../../components/ui/ReturnButton';
+import ProjectWave from '../../components/ui/MovementLine';
 import { ArrowUpRight, Eye } from 'lucide-react';
 
 // Custom MDX Components
@@ -137,17 +138,18 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             )}
 
             {/* Content Area */}
-            <section className="px-6 md:px-12 lg:px-24 pb-32">
+            <section className="px-6 md:px-12 lg:px-24 pb-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     {/* Sticky Table of Contents or Meta could go here in col-span-3 */}
                     <div className="hidden lg:block lg:col-span-3">
-                        <div className="sticky top-12 border-t-[0.5px] border-foreground/10 pt-4">
+                        <div className="sticky top-12 border-t-[0.5px] border-foreground/10 pt-4 h-[calc(100vh-6rem)] overflow-hidden">
                             <span className="font-mono text-xs uppercase tracking-widest opacity-40">Project Report</span>
+                            <ProjectWave />
                         </div>
                     </div>
 
                     {/* MDX Content */}
-                    <div className="lg:col-span-8 lg:col-start-5">
+                    <div className="lg:col-span-8 lg:col-start-5 pb-16">
                         <article className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-normal prose-h2:text-4xl prose-h2:mt-16 prose-h2:mb-8 prose-p:font-sans prose-p:text-foreground/80 prose-p:leading-relaxed prose-code:font-mono prose-code:text-primary prose-code:bg-primary/5 prose-code:px-1 prose-code:rounded-sm">
                             <MDXRemote source={project.content} components={components} />
                         </article>

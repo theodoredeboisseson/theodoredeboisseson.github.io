@@ -7,7 +7,7 @@ interface HyperlinkProps {
 
 const Hyperlink: React.FC<HyperlinkProps> = ({ label, href }) => {
     return (
-        <div className="flex justify-center w-full my-12">
+        <div className="flex justify-center w-full my-8">
             <a
                 href={href}
                 target="_blank"
