@@ -1,5 +1,5 @@
 import { getAllProjects } from '../../lib/mdx';
-import ProjectGalleryClient from '../components/ProjectGalleryClient';
+import ProjectGalleryClient from '../components/sections/ProjectGalleryClient';
 
 export const metadata = {
     title: 'Projects | Théodore',

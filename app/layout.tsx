@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-import GrainOverlay from "./components/GrainOverlay";
+import GrainOverlay from "./components/ui/GrainOverlay";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
-import TechnicalFrame from "./components/TechnicalFrame";
+import TechnicalFrame from "./components/ui/TechnicalFrame";
 
 export const metadata: Metadata = {
   title: "Théodore de Boisseson",

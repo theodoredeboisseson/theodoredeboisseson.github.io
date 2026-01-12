@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight, Crosshair } from 'lucide-react';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '../ui/ProjectCard';
 
 interface Project {
     slug: string;

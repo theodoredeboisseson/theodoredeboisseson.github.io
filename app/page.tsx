@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Hero from "./components/Hero";
+import Hero from "./components/sections/Hero";
 import SkillsStickers from "./components/SkillsStickers";
-import FeaturedProjects from "./components/FeaturedProjects";
+import FeaturedProjects from "./components/sections/FeaturedProjects";
 import { getAllProjects } from "../lib/mdx";
 
 export default function Home() {

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import ProjectCard from './ProjectCard';
-import ReturnButton from './ReturnButton';
+import ProjectCard from '../ui/ProjectCard';
+import ReturnButton from '../ui/ReturnButton';
 
 interface Project {
     slug: string;

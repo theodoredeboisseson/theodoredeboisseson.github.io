@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
 import * as Icons from 'lucide-react';
-import { ProjectData } from '../../lib/mdx';
+import { ProjectData } from '../../../lib/mdx';
 
 interface Skill {
     id: string;

@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getProjectSlugs, getProjectBySlug } from '../../../lib/mdx';
 import skillsData from '../../../data/skills.json';
-import TechnicalCrosshair from '../../components/TechnicalCrosshair';
-import ReturnButton from '../../components/ReturnButton';
+import TechnicalCrosshair from '../../components/ui/TechnicalCrosshair';
+import ReturnButton from '../../components/ui/ReturnButton';
 import { ArrowUpRight, Eye } from 'lucide-react';
 
 // Custom MDX Components
 import ProjectGallery from '../../components/mdx/ProjectGallery';
-import TechBadge from '../../components/mdx/TechBadge';
+import TechBadge from '../../components/ui/TechBadge';
 import CompetenceBlock from '../../components/mdx/CompetenceBlock';
 import VideoPlayer from '../../components/mdx/VideoPlayer';
 
@@ -119,12 +119,12 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
             {/* Featured Image */}
             {project.image && (
-                <div className="w-full px-6 md:px-12 lg:px-24 mb-24">
-                    <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-sm">
+                <div className="w-full px-6 md:px-12 lg:px-24 mb-24 flex justify-center">
+                    <div className="relative w-full max-w-6xl aspect-[16/9] overflow-hidden rounded-tr-[5rem] rounded-sm bg-black/5">
                         <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover opacity-90"
                         />
                         {/* Overlay Texture/Gradient if needed */}
                         <div className="absolute inset-0 ring-1 ring-inset ring-black/5 pointer-events-none" />

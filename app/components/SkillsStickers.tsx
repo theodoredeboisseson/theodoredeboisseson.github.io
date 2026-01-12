@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import skillsData from '../../data/skills.json';
 import { useState } from 'react';
-import SkillDrawer from './SkillDrawer';
+import SkillDrawer from './ui/SkillDrawer';
 import { ProjectData } from '../../lib/mdx';
 
 interface SkillsBentoProps {
