@@ -4,20 +4,23 @@
         "name": "Next.js",
         "category": "Tech",
         "icon": "NextJs",
-        "comfortLevel": 90
+        "comfortLevel": 90,
+        "description": "Framework React de référence pour le web moderne. SSR, App Router et performance."
     },
     {
         "id": "2",
         "name": "Blender",
         "category": "Art",
-        "icon": "Blender",
-        "comfortLevel": 75
+        "icon": "blender.svg",
+        "comfortLevel": 75,
+        "description": "Modélisation 3D, rigging et animation. Création d'assets pour le web et l'art numérique."
     },
     {
         "id": "3",
         "name": "Piano",
         "category": "Art",
         "icon": "Music",
-        "comfortLevel": 85
+        "comfortLevel": 85,
+        "description": "Pratique régulière du jazz et classique. Solfège et composition."
     }
 ]

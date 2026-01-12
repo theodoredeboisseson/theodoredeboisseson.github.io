@@ -1,0 +1,12 @@
+Animation du fond avec des étoiles : https://codepen.io/bob6664569/pen/rOzmve
+Utilisation des IA ChatGPT et Claude pour conseils, vérifications, améliorations.
+Inspirations des Portfolios de :
+Nino Chevrier : https://nino-chevrier.fr/
+Dorian Blanchet : https://dodoledev.gitlab.io/index.html
+Goharik Gyurjyan : ?
+Dégradé de flou sur le header : https://codepen.io/Francesco_Maretti/pen/yLPRvXp
+
+Trucs bien a retenir du test.html :
+Le blocs
+Ajouter les techno sollicitées en bas de projets 
+Logo sobre de Github et Linkedin

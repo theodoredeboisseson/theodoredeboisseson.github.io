@@ -84,7 +84,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                     {/* Link Arrow */}
                     <Link
                         href={`/projects/${project.slug}`}
-                        className="mt-12 w-16 h-16 border border-foreground/10 rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 group-hover:scale-110"
+                        className="mt-12 w-16 h-16 border border-foreground/10 rounded-full flex items-center justify-center text-foreground group-hover:bg-primary group-hover:text-white group-hover:border-transparent transition-all duration-300 group-hover:scale-110"
                     >
                         <ArrowUpRight strokeWidth={1} size={24} />
                     </Link>

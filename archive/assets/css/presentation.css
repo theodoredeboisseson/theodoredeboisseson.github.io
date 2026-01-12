@@ -1,0 +1,87 @@
+#presentation {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .content-box {margin-bottom: 2rem;}
+}
+
+
+#socials {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+    width: 100%;
+
+    .btn-with-icon {
+        padding: 10px 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        line-height: 1;
+        font-weight: bold;
+        box-sizing: border-box;
+        width: 10%;
+        min-width: 150px;
+        border-radius: 5px;
+
+        .icon {
+            max-height: 50px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+            stroke: var(--main-text-color);
+            transition: stroke 0.3s ease, fill 0.3s ease;
+        }
+
+        &:hover {
+            background-color: #4b4b4b;
+
+            .icon {
+                stroke: cornflowerblue;
+                transform: scale(1.2);
+                transition: transform 0.4s ease-out;
+            }
+        }
+    }
+
+    .linkedin:hover {
+        background-color: #eaeaea;
+        color: #0A66C2;
+    }
+
+    .github:hover {
+        background-color: black;
+        fill: white;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 1024px){
+    #socials {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        .btn-with-icon {
+            width: 90%;
+            max-width: 300px;
+            justify-content: center;
+        }
+    }
+
+    .content-box{
+        width: 70%;
+    }
+
+    #socials{
+        /*gap: 1rem;*/
+    }
+}
+
+@media screen and (max-width: 768px){
+    .content-box{
+        width: 90%;
+    }
+}

@@ -1,0 +1,33 @@
+:root{
+    --contact-bg-color: var(--background-color);
+}
+
+#contact {
+    padding: 50px;
+    margin: 50px 20px;
+    text-align: center;
+    
+    p {
+        text-align: center;
+    }
+
+    #email-link {
+        display: inline-block;
+        font-size: 1.2em;
+        color: var(--accent-color);
+        text-decoration: none;
+        margin-bottom: 30px;
+
+        &:hover {
+            text-decoration: underline;
+            color: var(--accent-color-light);
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #contact{
+        margin:0;
+        padding: 1em;
+    }
+}
