@@ -17,7 +17,8 @@ export default function ProjectsGalleryPage() {
         date: p.date,
         under_the_hood: p.description, // Mapping description from frontmatter for the card summary
         ac_validation: p.ac_list,
-        image: p.image
+        image: p.image,
+        filter: p.filter
     }));
 
     return (

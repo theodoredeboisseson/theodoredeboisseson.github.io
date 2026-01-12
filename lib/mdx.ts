@@ -19,6 +19,7 @@ export interface ProjectMetadata {
     image?: string;
     featured?: boolean;
     usedSkills?: string[];
+    filter?: 'Tech' | 'Art';
 }
 
 export interface ProjectData extends ProjectMetadata {
@@ -51,6 +52,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
         image: data.image,
         featured: data.featured || false,
         usedSkills: data.usedSkills || [],
+        filter: data.filter || 'Tech', // Default to Tech for now
         content,
     };
 }

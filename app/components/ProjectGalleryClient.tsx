@@ -13,19 +13,20 @@ interface Project {
     under_the_hood: string;
     ac_validation?: string[];
     image?: string;
+    filter?: 'Tech' | 'Art';
 }
 
 interface ProjectGalleryClientProps {
     projects: Project[];
 }
 
-const CATEGORIES = ['All', 'Tech', 'Art', '3D'];
+const CATEGORIES = ['All', 'Tech', 'Art'];
 
 export default function ProjectGalleryClient({ projects }: ProjectGalleryClientProps) {
-    const [filter, setFilter] = useState('All');
+    const [activeFilter, setActiveFilter] = useState('All');
 
     const filteredProjects = projects.filter(project =>
-        filter === 'All' || project.category === filter
+        activeFilter === 'All' || project.filter === activeFilter
     );
 
     return (
@@ -49,9 +50,9 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
                     {CATEGORIES.map(cat => (
                         <button
                             key={cat}
-                            onClick={() => setFilter(cat)}
+                            onClick={() => setActiveFilter(cat)}
                             className={`px-4 py-2 font-mono text-sm uppercase transition-all duration-300 border-[0.5px]
-                                ${filter === cat
+                                ${activeFilter === cat
                                     ? 'bg-foreground text-background border-foreground'
                                     : 'bg-transparent text-foreground/60 border-foreground/20 hover:border-foreground hover:text-foreground'
                                 }
