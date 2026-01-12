@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getProjectSlugs, getProjectBySlug } from '../../../lib/mdx';
+import skillsData from '../../../data/skills.json';
 import TechnicalCrosshair from '../../components/TechnicalCrosshair';
 import ReturnButton from '../../components/ReturnButton';
 import { ArrowUpRight, Eye } from 'lucide-react';
@@ -40,6 +41,15 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         notFound();
     }
 
+    // Map used skills to full skill objects
+    const usedSkillsData = project.usedSkills?.map(id => skillsData.find(s => s.id === id)).filter(Boolean) || [];
+
+    // Create unified badges list
+    const projectBadges = [
+        ...usedSkillsData.map(s => ({ label: s!.name, icon: s!.icon })),
+        ...project.tags.map(tag => ({ label: tag }))
+    ];
+
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
             {/* Header / Hero Section */}
@@ -72,13 +82,9 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     <div className="lg:col-span-4 flex flex-col items-start lg:items-end justify-end space-y-8 font-mono text-xs uppercase tracking-widest">
                         {/* Stack */}
                         <div className="flex flex-col items-start lg:items-end gap-2">
-                            <span className="opacity-40">Technologies</span>
+                            <span className="opacity-40">Skills / Technologies</span>
                             <div className="flex flex-wrap gap-2 justify-start lg:justify-end">
-                                {project.tags.map(tag => (
-                                    <span key={tag} className="px-2 py-1 border-[0.5px] border-foreground/20 rounded-full">
-                                        {tag}
-                                    </span>
-                                ))}
+                                <TechBadge badges={projectBadges} />
                             </div>
                         </div>
 
