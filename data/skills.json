@@ -22,5 +22,93 @@
         "icon": "Music",
         "comfortLevel": 85,
         "description": "Pratique régulière du jazz et classique. Solfège et composition."
+    },
+    {
+        "id": "4",
+        "name": "HTML CSS",
+        "category": "Tech",
+        "icon": "HTML5.svg",
+        "comfortLevel": 85,
+        "description": "Structure sémantique et styles avancés. Base de tout projet web."
+    },
+    {
+        "id": "5",
+        "name": "JavaScript",
+        "category": "Tech",
+        "icon": "JavaScript.svg",
+        "comfortLevel": 60,
+        "description": "Interactivité et logique côté client. ES6+ et manipulation du DOM."
+    },
+    {
+        "id": "6",
+        "name": "PHP",
+        "category": "Tech",
+        "icon": "php.svg",
+        "comfortLevel": 75,
+        "description": "Développement back-end robuste. Interaction bases de données et architectures MVC."
+    },
+    {
+        "id": "7",
+        "name": "Java",
+        "category": "Tech",
+        "icon": "java.svg",
+        "comfortLevel": 75,
+        "description": "Programmation orientée objet stricte. Applications lourdes et Android."
+    },
+    {
+        "id": "8",
+        "name": "MariaDB",
+        "category": "Tech",
+        "icon": "mariadb-blue.svg",
+        "comfortLevel": 60,
+        "description": "Gestion de bases de données relationnelles SQL."
+    },
+    {
+        "id": "9",
+        "name": "C++",
+        "category": "Tech",
+        "icon": "c++.svg",
+        "comfortLevel": 50,
+        "description": "Programmation système et logique embarquée (Arduino)."
+    },
+    {
+        "id": "10",
+        "name": "JetBrains",
+        "category": "Tools",
+        "icon": "jetbrains.svg",
+        "comfortLevel": 50,
+        "description": "Suite d'IDE performants pour le développement (IntelliJ, PhpStorm, WebStorm)."
+    },
+    {
+        "id": "11",
+        "name": "Agile Scrum",
+        "category": "Method",
+        "icon": "scrum.svg",
+        "comfortLevel": 60,
+        "description": "Méthodologie de gestion de projet itérative et collaborative."
+    },
+    {
+        "id": "12",
+        "name": "Docker",
+        "category": "Tools",
+        "icon": "docker.svg",
+        "comfortLevel": 80,
+        "description": "Conteneurisation d'applications pour un déploiement fiable et reproductible."
+    },
+    {
+        "id": "13",
+        "name": "GitLab",
+        "category": "Tools",
+        "icon": "gitlab.svg",
+        "comfortLevel": 85,
+        "description": "Gestion de versions et CI/CD."
+    },
+    {
+        "id": "14",
+        "name": "GitHub",
+        "category": "Tools",
+        "icon": "github-mark.svg",
+        "comfortLevel": 80,
+        "description": "Hébergement de code et collaboration open-source."
     }
 ]

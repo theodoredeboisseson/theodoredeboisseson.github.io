@@ -2,9 +2,9 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight } from 'lucide-react';
-import projectsData from '../../data/projects.json';
 import Link from 'next/link';
 import * as Icons from 'lucide-react';
+import { ProjectData } from '../../lib/mdx';
 
 interface Skill {
     id: string;
@@ -19,12 +19,13 @@ interface SkillDrawerProps {
     isOpen: boolean;
     onClose: () => void;
     selectedSkill: Skill | null;
+    projects: ProjectData[];
 }
 
-export default function SkillDrawer({ isOpen, onClose, selectedSkill }: SkillDrawerProps) {
+export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }: SkillDrawerProps) {
     // Filter projects linked to this skill
     const linkedProjects = selectedSkill
-        ? projectsData.filter(project => project.usedSkills.includes(selectedSkill.id))
+        ? projects.filter(project => project.usedSkills?.includes(selectedSkill.id))
         : [];
 
     const IconComponent = selectedSkill ? getIcon(selectedSkill.icon) : null;
@@ -107,8 +108,8 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill }: SkillDra
                                         <div className="space-y-4">
                                             {linkedProjects.map((project) => (
                                                 <Link
-                                                    key={project.id}
-                                                    href={`/projects/project-${project.id}`} // Assuming slug or dynamic route
+                                                    key={project.slug}
+                                                    href={`/projects/${project.slug}`}
                                                     className="group block p-4 bg-white/40 border border-[var(--color-border)] hover:border-primary/50 transition-all rounded-lg"
                                                 >
                                                     <div className="flex justify-between items-start">

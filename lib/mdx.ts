@@ -18,6 +18,7 @@ export interface ProjectMetadata {
     description: string;
     image?: string;
     featured?: boolean;
+    usedSkills?: string[];
 }
 
 export interface ProjectData extends ProjectMetadata {
@@ -49,6 +50,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
         description: data.description,
         image: data.image,
         featured: data.featured || false,
+        usedSkills: data.usedSkills || [],
         content,
     };
 }

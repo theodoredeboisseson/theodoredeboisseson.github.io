@@ -3,18 +3,21 @@
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import skillsData from '../../data/skills.json';
-import projectsData from '../../data/projects.json';
 import { useState } from 'react';
 import SkillDrawer from './SkillDrawer';
-import { ArrowUpRight } from 'lucide-react';
+import { ProjectData } from '../../lib/mdx';
 
-export default function SkillsBento() {
+interface SkillsBentoProps {
+    projects: ProjectData[];
+}
+
+export default function SkillsBento({ projects }: SkillsBentoProps) {
     const [selectedSkill, setSelectedSkill] = useState<typeof skillsData[0] | null>(null);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
     const handleSkillClick = (skill: typeof skillsData[0]) => {
         // Check if skill has linked projects or description
-        const hasLinkedData = projectsData.some(p => p.usedSkills.includes(skill.id)) || skill.description;
+        const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.id)) || skill.description;
 
         if (hasLinkedData) {
             setSelectedSkill(skill);
@@ -54,7 +57,7 @@ export default function SkillsBento() {
                         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                     >
                         {skillsData.map((skill, index) => {
-                            const hasLinkedData = projectsData.some(p => p.usedSkills.includes(skill.id)) || skill.description;
+                            const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.id)) || skill.description;
 
                             return (
                                 <motion.div
@@ -66,7 +69,7 @@ export default function SkillsBento() {
                                     whileHover={hasLinkedData ? { y: -5 } : {}}
                                     onClick={() => handleSkillClick(skill)}
                                     className={`
-                                        bg-white/50 backdrop-blur-sm border border-black/5 rounded-3xl p-6 flex flex-col items-center justify-between gap-4 
+                                        bg-white/50 backdrop-blur-sm border border-black/5 rounded-3xl p-6 flex flex-col items-center justify-between gap-4
                                         transition-all duration-300 aspect-square group relative
                                         ${hasLinkedData ? 'cursor-pointer hover:border-primary/30 hover:bg-white/80' : 'cursor-default opacity-80'}
                                     `}
@@ -74,7 +77,7 @@ export default function SkillsBento() {
                                     {/* Interaction Indicator */}
                                     {hasLinkedData && (
                                         <div className="absolute top-3 right-3 text-foreground/20 group-hover:text-primary transition-colors duration-300">
-                                            <ArrowUpRight strokeWidth={1} size={24} />
+                                            <Icons.ArrowUpRight size={16} />
                                         </div>
                                     )}
 
@@ -113,6 +116,7 @@ export default function SkillsBento() {
                 isOpen={isDrawerOpen}
                 onClose={() => setIsDrawerOpen(false)}
                 selectedSkill={selectedSkill}
+                projects={projects}
             />
         </>
     );
