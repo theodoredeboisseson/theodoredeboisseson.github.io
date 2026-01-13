@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Hero from "./components/sections/Hero";
-import SkillsStickers from "./components/SkillsStickers";
+import SkillsStickers from "./components/sections/SkillsStickers";
 import FeaturedProjects from "./components/sections/FeaturedProjects";
 import FormationSection from "./components/sections/FormationSection";
 import ContactSection from "./components/sections/ContactSection";

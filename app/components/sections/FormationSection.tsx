@@ -8,7 +8,7 @@ const formations = bioData.education;
 
 export default function FormationSection() {
     return (
-        <section className="w-full max-w-7xl mx-auto px-6 py-24" id="formation">
+        <section className="w-full max-w-7xl mx-auto px-6 py-12" id="formation">
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -41,10 +41,13 @@ export default function FormationSection() {
                                     {item.degree}
                                 </h3>
                                 <p className="text-xl font-sans text-foreground/60 mb-4">
-                                    {item.school} <span className="text-sm opacity-50 ml-2">[{item.location}]</span>
+                                    {item.school} - {item.location}
+                                </p>
+                                <p className="font-mono text-sm opacity-80 mb-2 text-primary">
+                                    {item.details}
                                 </p>
                                 <p className="font-mono text-sm opacity-60 max-w-xl border-l border-primary/30 pl-4 py-1">
-                                    {item.details}
+                                    {item.description}
                                 </p>
                             </div>
                         </div>

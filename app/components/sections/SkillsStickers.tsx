@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
-import skillsData from '../../data/skills.json';
+import skillsData from '../../../data/skills.json';
 import { useState } from 'react';
-import SkillDrawer from './ui/SkillDrawer';
-import { ProjectData } from '../../lib/mdx';
+import SkillDrawer from '../ui/SkillDrawer';
+import { ProjectData } from '../../../lib/mdx';
 
 interface SkillsBentoProps {
     projects: ProjectData[];
@@ -27,7 +27,7 @@ export default function SkillsBento({ projects }: SkillsBentoProps) {
 
     return (
         <>
-            <section className="relative w-full py-24 px-6 md:px-12 lg:px-24 bg-background">
+            <section className="relative w-full py-12 mt-12 px-6 md:px-12 lg:px-24 bg-background">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 w-full max-w-7xl mx-auto">
                     <h2 className="section-title">

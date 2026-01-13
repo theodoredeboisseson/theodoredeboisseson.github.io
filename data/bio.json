@@ -1,0 +1,32 @@
+{
+    "education": [
+        {
+            "year": "2026",
+            "degree": "BUT Informatique",
+            "school": "IUT Montpellier-Sète",
+            "details": "Parcours Réalisation d'Applications (RACDV)",
+            "location": "Montpellier, FR",
+            "description": "Formation axée sur la réalisation d'applications : conception, développement, validation et intégration.",
+            "current": true
+        },
+        {
+            "year": "2023",
+            "degree": "Baccalauréat STI2D",
+            "school": "Lycée Victor Hugo",
+            "details": "Mention Très Bien",
+            "location": "Lunel, FR",
+            "description": "Spécialité Systèmes d'Information et Numérique (SIN).",
+            "current": false
+        }
+    ],
+    "contact": {
+        "email": "theodoredeboisseson@gmail.com",
+        "mail_subject": "Prise de contact - Portfolio",
+        "mail_body": "Bonjour Théodore,\n\nJe viens de voir ton portfolio et j'aimerais discuter de..."
+    },
+    "socials": {
+        "github": "https://github.com/theodoredeboisseson",
+        "linkedin": "https://www.linkedin.com/in/theodoredeboisseson/"
+    },
+    "cv_file": "/documents/CV_Theodore_de_Boisseson.pdf"
+}
