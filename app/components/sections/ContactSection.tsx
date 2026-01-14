@@ -28,8 +28,11 @@ export default function ContactSection() {
                     viewport={{ once: true }}
                     className="md:col-span-4 min-h-[300px] md:min-h-[400px] bg-foreground text-background rounded-[2rem] md:rounded-br-sm p-8 md:p-12 flex flex-col justify-between group relative overflow-hidden transition-all duration-500 hover:shadow-2xl"
                 >
+                    {/* Background Decor */}
+                    <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-colors duration-500 z-0 pointer-events-none"></div>
+
                     {/* Ticket Texture / Decor */}
-                    <div className="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity">
+                    <div className="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity z-10">
                         <Mail size={48} strokeWidth={1} />
                     </div>
 
@@ -44,12 +47,10 @@ export default function ContactSection() {
                         <span className="block text-sm md:text-base font-mono opacity-60 mb-2">
                             SEND A MESSAGE
                         </span>
-                        <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                        <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight group-hover:opacity-80 transition-opacity duration-300">
                             {bioData.contact.email.split('@')[0]}<br className="hidden md:block" />@{bioData.contact.email.split('@')[1]}
                         </h3>
                     </div>
-
-                    <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-all duration-500"></div>
                 </motion.a>
 
                 {/* Block 2: CV (The Square) - 2 cols */}
@@ -60,7 +61,7 @@ export default function ContactSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 }}
-                    className="md:col-span-2 aspect-square md:aspect-auto bg-gray-50 border border-border rounded-[2rem] md:rounded-bl-sm flex flex-col justify-between p-8 group relative overflow-hidden hover:border-primary transition-colors"
+                    className="md:col-span-2 aspect-square md:aspect-auto bg-gray-50 border border-border rounded-4xl md:rounded-bl-sm flex flex-col justify-between p-8 group relative overflow-hidden hover:border-primary hover:shadow-lg transition-colors"
                 >
                     <div className="w-full h-full absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                         <div className="relative w-64 h-64 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
@@ -98,7 +99,7 @@ export default function ContactSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="md:col-span-3 min-h-[200px] bg-gray-50 border border-border hover:border-primary rounded-[2rem] md:rounded-tr-sm p-8 flex flex-col justify-between group hover:bg-white hover:shadow-lg transition-all"
+                    className="md:col-span-3 min-h-[200px] bg-gray-50 border border-border hover:border-primary rounded-4xl md:rounded-tr-sm p-8 flex flex-col justify-between group hover:bg-white hover:shadow-lg transition-all"
                 >
                     <div className="flex justify-between items-start">
                         <Github size={48} strokeWidth={1.5} className="group-hover:text-primary transition-colors" />
