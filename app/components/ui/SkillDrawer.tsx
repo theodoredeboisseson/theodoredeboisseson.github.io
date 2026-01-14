@@ -67,7 +67,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
 
                             {/* Skill Content */}
                             <div className="flex-1">
-                                <div className="w-16 h-16 mb-6 text-foreground">
+                                <div className="size-16 mb-6 text-foreground">
                                     {IconComponent}
                                 </div>
 
