@@ -2,10 +2,20 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Github, Linkedin, Mail, FileText } from 'lucide-react';
+import { ArrowUpRight, Github, Linkedin, Mail, FileText, Copy, Check } from 'lucide-react';
 import bioData from '@/data/bio.json';
 
 export default function ContactSection() {
+    const [isCopied, setIsCopied] = React.useState(false);
+
+    const handleCopy = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        navigator.clipboard.writeText(bioData.contact.email);
+        setIsCopied(true);
+        setTimeout(() => setIsCopied(false), 2000);
+    };
+
     return (
         <section className="w-full max-w-7xl mx-auto px-4 md:px-6 py-12 mb-12" id="contact">
             <motion.h2
@@ -20,30 +30,36 @@ export default function ContactSection() {
             <div className="w-full grid grid-cols-1 md:grid-cols-6 gap-4">
 
                 {/* Block 1: Email (The Giant) - 4 cols */}
-                <motion.a
-                    href={`mailto:${bioData.contact.email}?subject=${encodeURIComponent(bioData.contact.mail_subject)}&body=${encodeURIComponent(bioData.contact.mail_body)}`}
-                    target="_blank"
+                <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="md:col-span-4 min-h-[300px] md:min-h-[400px] bg-foreground text-background rounded-[2rem] md:rounded-br-sm p-8 md:p-12 flex flex-col justify-between group relative overflow-hidden transition-all duration-500 hover:shadow-2xl"
+                    className="md:col-span-4 min-h-[300px] md:min-h-[400px] bg-foreground text-background rounded-4xl md:rounded-br-sm p-8 md:p-12 flex flex-col justify-between group relative overflow-hidden transition-all duration-500 hover:shadow-2xl"
                 >
+                    {/* Main Link Overlay */}
+                    <a
+                        href={`mailto:${bioData.contact.email}?subject=${encodeURIComponent(bioData.contact.mail_subject)}&body=${encodeURIComponent(bioData.contact.mail_body)}`}
+                        target="_blank"
+                        className="absolute inset-0 z-0"
+                        aria-label="Send email"
+                    />
+
                     {/* Background Decor */}
                     <div className="absolute -bottom-12 -left-12 w-64 h-64 bg-primary/20 rounded-full blur-3xl group-hover:bg-primary/30 transition-colors duration-500 z-0 pointer-events-none"></div>
 
                     {/* Ticket Texture / Decor */}
-                    <div className="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity z-10">
+                    <div className="absolute top-0 right-0 p-6 opacity-30 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
                         <Mail size={48} strokeWidth={1} />
                     </div>
 
-                    <div className="relative z-10">
-                        <span className="inline-block px-3 py-1 border border-background/20 rounded-full text-xs font-mono uppercase tracking-widest mb-4">
+                    <div className="relative z-10 pointer-events-none">
+                        <span className="inline-block px-3 py-1 border border-background/20 group-hover:bg-green-500/50 group-hover:font-bold rounded-full text-xs font-mono uppercase tracking-widest mb-4">
                             Available for hire
                         </span>
                         <div className="w-12 h-1 bg-primary mb-6 group-hover:w-24 transition-all duration-300"></div>
                     </div>
 
-                    <div className="relative z-10">
+                    <div className="relative z-10 pointer-events-none">
                         <span className="block text-sm md:text-base font-mono opacity-60 mb-2">
                             SEND A MESSAGE
                         </span>
@@ -51,7 +67,21 @@ export default function ContactSection() {
                             {bioData.contact.email.split('@')[0]}<br className="hidden md:block" />@{bioData.contact.email.split('@')[1]}
                         </h3>
                     </div>
-                </motion.a>
+
+                    {/* Copy Button */}
+                    <button
+                        onClick={handleCopy}
+                        className="absolute bottom-8 right-8 z-20 flex items-center justify-center gap-2 group/btn"
+                        aria-label="Copy email address"
+                    >
+                        <span className={`text-xs font-mono uppercase tracking-wider transition-all duration-300 ${isCopied ? 'opacity-100 text-green-400' : 'opacity-0 -translate-x-2 group-hover/btn:opacity-60 group-hover/btn:translate-x-0'}`}>
+                            {isCopied ? 'Copied!' : 'Copy Email'}
+                        </span>
+                        <div className={`p-3 rounded-full border border-background/20 bg-foreground text-background transition-all duration-300 ${isCopied ? 'border-green-400/50 text-green-400' : 'hover:bg-background hover:text-foreground'}`}>
+                            {isCopied ? <Check size={20} /> : <Copy size={20} />}
+                        </div>
+                    </button>
+                </motion.div>
 
                 {/* Block 2: CV (The Square) - 2 cols */}
                 <motion.a
@@ -86,7 +116,7 @@ export default function ContactSection() {
                     </div>
 
                     <div className="relative z-10 mt-auto">
-                        <span className="text-2xl font-bold font-sans">RESUME</span>
+                        <span className="text-2xl font-bold font-sans">Resume</span>
                         <p className="text-sm font-mono opacity-60 group-hover:opacity-80">Check the PDF</p>
                     </div>
                 </motion.a>
@@ -99,15 +129,15 @@ export default function ContactSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2 }}
-                    className="md:col-span-3 min-h-[200px] bg-gray-50 border border-border hover:border-primary rounded-4xl md:rounded-tr-sm p-8 flex flex-col justify-between group hover:bg-white hover:shadow-lg transition-all"
+                    className="md:col-span-3 min-h-[200px] bg-gray-50 border border-border rounded-4xl md:rounded-tr-sm p-8 flex flex-col justify-between group hover:bg-[#24292e] hover:text-white hover:shadow-lg transition-all"
                 >
                     <div className="flex justify-between items-start">
-                        <Github size={48} strokeWidth={1.5} className="group-hover:text-primary transition-colors" />
-                        <ArrowUpRight size={32} className="opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                        <Github size={48} strokeWidth={1.5} className="group-hover:text-[#bc8cff] transition-colors" />
+                        <ArrowUpRight size={32} className="opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-[#bc8cff] transition-all" />
                     </div>
                     <div>
                         <span className="text-2xl font-bold font-sans">GitHub</span>
-                        <p className="text-sm font-mono opacity-60">Explore my repositories</p>
+                        <p className="text-sm font-mono opacity-60 group-hover:opacity-80">Explore my repositories</p>
                     </div>
                 </motion.a>
 
@@ -119,7 +149,7 @@ export default function ContactSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3 }}
-                    className="md:col-span-3 min-h-[200px] bg-gray-50 border border-border rounded-[2rem] md:rounded-tl-sm p-8 flex flex-col justify-between group hover:bg-[#0A66C2] hover:text-white hover:shadow-lg transition-all"
+                    className="md:col-span-3 min-h-[200px] bg-gray-50 border border-border rounded-4xl md:rounded-tl-sm p-8 flex flex-col justify-between group hover:bg-[#0A66C2] hover:text-white hover:shadow-lg transition-all"
                 >
                     <div className="flex justify-between items-start">
                         <Linkedin size={48} strokeWidth={1.5} />
