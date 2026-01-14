@@ -41,7 +41,7 @@ export default function Hero() {
                     </motion.div>
 
                     {/* Horizontal line */}
-                    <div className="h-[1px] w-full bg-white opacity-20" />
+                    <div className="h-px w-full bg-white opacity-20" />
 
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -50,14 +50,14 @@ export default function Hero() {
                         className="max-w-md mt-8 ml-2 border-l-[0.5px] border-white/40 pl-6"
                     >
                         <p className="font-serif italic text-base md:text-lg leading-relaxed opacity-90 tracking-wide">
-                            STUDENT DEVELOPER / DIGITAL ARTIST <br />
+                            STUDENT DEVELOPER <br />
                             Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time.
                         </p>
                     </motion.div>
                 </div>
 
                 {/* Right Col: Image / Graphic Element */}
-                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-[3/4] md:aspect-[4/5] lg:aspect-[3/4] mx-auto">
+                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-3/4 md:aspect-4/5 lg:aspect-3/4 mx-auto">
                     <motion.div
                         initial={{ scale: 0.95, opacity: 0 }}
                         animate={{ scale: 1, opacity: 1 }}
@@ -90,6 +90,6 @@ export default function Hero() {
             >
                 SCROLL TO EXPLORE ↓
             </motion.div>
-        </section>
+        </section >
     );
 }

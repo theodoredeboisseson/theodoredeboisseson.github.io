@@ -125,7 +125,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             {/* Featured Image */}
             {project.image && (
                 <div className="w-full px-6 md:px-12 lg:px-24 mb-24 flex justify-center">
-                    <div className="relative w-full max-w-6xl aspect-[16/9] overflow-hidden rounded-tr-[5rem] rounded-sm bg-black/5">
+                    <div className="relative w-full max-w-6xl aspect-video overflow-hidden rounded-tr-[5rem] rounded-sm bg-black/5">
                         <img
                             src={project.image}
                             alt={project.title}
