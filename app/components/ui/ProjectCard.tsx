@@ -4,17 +4,11 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import * as Icons from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
+import skillsData from '../../../data/skills.json';
 
-interface Project {
-    slug: string;
-    title: string;
-    category: string;
-    date: string;
-    under_the_hood: string;
-    ac_validation?: string[];
-    image?: string;
-    // Add other properties as needed from your projects.json structure
-}
+import { Project } from '../../Interfaces';
 
 interface ProjectCardProps {
     project: Project;
@@ -22,6 +16,8 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+    const linkedSkills = project.usedSkills?.map(id => skillsData.find(s => s.id === id)).filter(Boolean) || [];
+
     return (
         <motion.article
             layout
@@ -66,7 +62,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                 {/* Metadata Block */}
                 <div className="lg:col-span-4 flex flex-col items-end text-right pt-4 lg:pt-0">
-                    <div className="font-mono text-xs uppercase tracking-widest space-y-2 opacity-60 text-foreground">
+                    <div className="font-mono text-xs uppercase tracking-widest space-y-4 opacity-60 text-foreground">
                         <div className="flex flex-col">
                             <span className="font-bold">Category</span>
                             <span>{project.category}</span>
@@ -75,19 +71,41 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                             <span className="font-bold">Date</span>
                             <span>{project.date || '2025'}</span>
                         </div>
-                        <div className="flex flex-col">
-                            <span className="font-bold">Ac validation</span>
-                            <span>{project.ac_validation ? project.ac_validation[0] : 'React'}</span>
-                        </div>
+
+                        {/* Skills Icons */}
+                        {linkedSkills.length > 0 && (
+                            <div className="flex flex-col items-end">
+                                <span className="font-bold mb-1">Stack</span>
+                                <div className="flex flex-wrap gap-2 justify-end">
+                                    {linkedSkills.slice(0, 18).map((skill) => (
+                                        <div key={skill!.id} title={skill!.name} className="text-foreground/80 hover:text-primary transition-colors">
+                                            {getIcon(skill!.icon)}
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {project.ac_validation && project.ac_validation.length > 0 && (
+                            <div className="flex flex-col">
+                                <span className="font-bold">Ac validation</span>
+                                <span>{project.ac_validation[0]}</span>
+                            </div>
+                        )}
                     </div>
 
                     {/* Link Arrow */}
-                    <Link
-                        href={`/projects/${project.slug}`}
-                        className="mt-12 size-16 border border-foreground/10 rounded-full flex items-center justify-center text-foreground group-hover:bg-primary group-hover:text-white group-hover:border-transparent transition-all duration-300 group-hover:scale-110"
-                    >
-                        <ArrowUpRight strokeWidth={1} size={24} />
-                    </Link>
+                    <div className="relative mt-12">
+                        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-foreground/50 text-background text-xs font-mono uppercase px-3 py-1 rounded whitespace-nowrap hidden lg:block">
+                            See more
+                        </span>
+                        <Link
+                            href={`/projects/${project.slug}`}
+                            className="size-16 border border-foreground/10 rounded-full flex items-center justify-center text-foreground group-hover:bg-primary group-hover:text-white group-hover:border-transparent transition-all duration-300 group-hover:scale-110"
+                        >
+                            <ArrowUpRight strokeWidth={1} size={24} />
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Overlapping Title */}
@@ -106,3 +124,25 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </motion.article>
     );
 }
+
+// Helper to support custom image paths from /public/icones or Lucide icons
+const getIcon = (name: string) => {
+    // Check if it's a file path for custom icon (starts with / or includes .svg/.png/.jpg)
+    if (name.startsWith('/') || name.includes('.') || name.includes('/')) {
+        // If it's just a filename like 'blender.svg', assume it's in /icones/ if not specified
+        const src = name.startsWith('/') ? name : `/icones/${name}`;
+        return <img src={src} alt="" className="size-9 object-contain" />;
+    }
+
+    // Lucide fallback
+    // @ts-expect-error - Dynamic icon lookup
+    const Icon = Icons[name] as LucideIcon;
+
+    if (Icon) return <Icon size={32} strokeWidth={1.5} />;
+
+    // Specific manual mapping for missing Lucide icons or brand overrides
+    if (name === 'NextJs') return <Icons.Cpu size={32} strokeWidth={1.5} />;
+
+    // Default fallback
+    return <Icons.Code size={32} strokeWidth={1.5} />;
+};

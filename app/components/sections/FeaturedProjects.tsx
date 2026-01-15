@@ -6,15 +6,7 @@ import Link from 'next/link';
 import { ArrowUpRight, Crosshair, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
 import ProjectCard from '../ui/ProjectCard';
 
-interface Project {
-    slug: string;
-    title: string;
-    category: string;
-    date: string;
-    under_the_hood: string;
-    ac_validation?: string[];
-    image?: string;
-}
+import { Project } from '../../Interfaces';
 
 interface FeaturedProjectsProps {
     projects: Project[];

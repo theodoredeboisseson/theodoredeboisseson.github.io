@@ -1,5 +1,6 @@
 import { getAllProjects } from '../../lib/mdx';
 import ProjectGalleryClient from '../components/sections/ProjectGalleryClient';
+import { Project } from '../Interfaces';
 
 export const metadata = {
     title: 'Projects | Théodore',
@@ -10,7 +11,7 @@ export default function ProjectsGalleryPage() {
     const rawProjects = getAllProjects();
 
     // Transform MDX data to match ProjectCard interface
-    const projects = rawProjects.map(p => ({
+    const projects: Project[] = rawProjects.map(p => ({
         slug: p.slug,
         title: p.title,
         category: p.category,
@@ -18,7 +19,8 @@ export default function ProjectsGalleryPage() {
         under_the_hood: p.description, // Mapping description from frontmatter for the card summary
         ac_validation: p.ac_list,
         image: p.image,
-        filter: p.filter
+        filter: p.filter,
+        usedSkills: p.usedSkills
     }));
 
     return (

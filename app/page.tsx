@@ -5,10 +5,11 @@ import FeaturedProjects from "./components/sections/FeaturedProjects";
 import FormationSection from "./components/sections/FormationSection";
 import ContactSection from "./components/sections/ContactSection";
 import { getAllProjects } from "../lib/mdx";
+import { Project } from "./Interfaces";
 
 export default function Home() {
   const allProjects = getAllProjects();
-  const featuredProjects = allProjects
+  const featuredProjects: Project[] = allProjects
     .filter(p => p.featured)
     .map(p => ({
       slug: p.slug,
@@ -17,7 +18,8 @@ export default function Home() {
       date: p.date,
       under_the_hood: p.description,
       ac_validation: p.ac_list,
-      image: p.image
+      image: p.image,
+      usedSkills: p.usedSkills
     }));
 
   return (

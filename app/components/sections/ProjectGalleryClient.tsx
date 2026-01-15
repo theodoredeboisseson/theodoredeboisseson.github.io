@@ -4,17 +4,7 @@ import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import ProjectCard from '../ui/ProjectCard';
 import ReturnButton from '../ui/ReturnButton';
-
-interface Project {
-    slug: string;
-    title: string;
-    category: string;
-    date: string;
-    under_the_hood: string;
-    ac_validation?: string[];
-    image?: string;
-    filter?: 'Tech' | 'Art';
-}
+import { Project } from '../../Interfaces';
 
 interface ProjectGalleryClientProps {
     projects: Project[];
