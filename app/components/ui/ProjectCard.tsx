@@ -34,7 +34,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
                 {/* Image Section */}
-                <Link href={`/projects/${project.slug}`} className="lg:col-span-9 relative block">
+                <Link href={`/projects/${project.slug}`} className="lg:col-span-8 relative block">
                     <div className="relative aspect-video w-full overflow-hidden rounded-tr-[5rem] rounded-sm bg-black/50">
                         {/* Image or Placeholder */}
                         {project.image ? (
@@ -65,7 +65,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 </Link>
 
                 {/* Metadata Block */}
-                <div className="lg:col-span-3 flex flex-col items-end text-right pt-4 lg:pt-0">
+                <div className="lg:col-span-4 flex flex-col items-end text-right pt-4 lg:pt-0">
                     <div className="font-mono text-xs uppercase tracking-widest space-y-2 opacity-60 text-foreground">
                         <div className="flex flex-col">
                             <span className="font-bold">Category</span>
@@ -91,8 +91,8 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                 </div>
 
                 {/* Overlapping Title */}
-                <div className="absolute left-0 -bottom-8 lg:bottom-8 lg:-left-12 z-20 pointer-events-none w-full max-w-full pr-4 lg:pr-0 ">
-                    <h2 className="font-serif italic text-4xl md:text-6xl lg:text-7xl tracking-tighter break-word w-full text-white">
+                <div className="absolute left-0 -bottom-8 lg:bottom-8 lg:-left-8 z-20 pointer-events-none w-full max-w-full pr-4 lg:pr-0 ">
+                    <h2 className="font-serif italic text-4xl md:text-5xl lg:text-6xl tracking-tighter break-word w-full text-white">
                         <span className="inline-block bg-black/40 backdrop-blur-md px-2 lg:px-6 py-1 lg:py-2 -skew-x-12 rounded-lg group-hover:translate-x-4 transition-transform duration-500 ease-out">
                             {project.title}
                         </span>

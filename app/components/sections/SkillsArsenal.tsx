@@ -43,7 +43,7 @@ export default function SkillsBento({ projects }: SkillsBentoProps) {
                     </div>
                 </div>
 
-                <div className="w-full max-w-7xl mx-auto">
+                <div className="w-full max-w-7xl mx-auto py-6">
                     <motion.div
                         initial="hidden"
                         whileInView="visible"

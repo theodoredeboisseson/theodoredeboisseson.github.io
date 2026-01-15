@@ -60,11 +60,15 @@ export default function FormationSection() {
                             </div>
 
                             {/* Separator - Footnote style, 80% width aligned right */}
-                            <div className="mt-16 w-full flex justify-end">
-                                <div className="w-[85%] h-px bg-border/40" />
+                            <div className="mt-16 w-full flex justify-center">
+                                <div className="w-[85%] h-px bg-border/50" />
                             </div>
                         </motion.div>
                     ))}
+                </div>
+
+                <div className="absolute -right-4 md:-right-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
+                    <MovementLine />
                 </div>
             </div>
         </section>
