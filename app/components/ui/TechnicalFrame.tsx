@@ -14,8 +14,8 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
             <div className="flex w-full items-start justify-between">
                 {/* Top Left Crosshair */}
                 <div className="relative h-8 w-8">
-                    <div className="absolute top-0 left-0 h-[1px] w-4 bg-current" />
-                    <div className="absolute top-0 left-0 h-4 w-[1px] bg-current" />
+                    <div className="absolute top-0 left-0 h-px w-4 bg-current" />
+                    <div className="absolute top-0 left-0 h-4 w-px bg-current" />
                 </div>
 
                 {/* Top Metadata */}
@@ -27,8 +27,8 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
 
                 {/* Top Right Crosshair */}
                 <div className="relative h-8 w-8">
-                    <div className="absolute top-0 right-0 h-[1px] w-4 bg-current" />
-                    <div className="absolute top-0 right-0 h-4 w-[1px] bg-current" />
+                    <div className="absolute top-0 right-0 h-px w-4 bg-current" />
+                    <div className="absolute top-0 right-0 h-4 w-px bg-current" />
                 </div>
             </div>
 
@@ -41,8 +41,8 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
             <div className="flex w-full items-end justify-between">
                 {/* Bottom Left Crosshair */}
                 <div className="relative h-8 w-8">
-                    <div className="absolute bottom-0 left-0 h-[1px] w-4 bg-current" />
-                    <div className="absolute bottom-0 left-0 h-4 w-[1px] bg-current" />
+                    <div className="absolute bottom-0 left-0 h-px w-4 bg-current" />
+                    <div className="absolute bottom-0 left-0 h-4 w-px bg-current" />
                 </div>
 
                 {/* Bottom Metadata */}
@@ -54,8 +54,8 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
 
                 {/* Bottom Right Crosshair */}
                 <div className="relative h-8 w-8">
-                    <div className="absolute bottom-0 right-0 h-[1px] w-4 bg-current" />
-                    <div className="absolute bottom-0 right-0 h-4 w-[1px] bg-current" />
+                    <div className="absolute bottom-0 right-0 h-px w-4 bg-current" />
+                    <div className="absolute bottom-0 right-0 h-4 w-px bg-current" />
                 </div>
             </div>
 

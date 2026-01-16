@@ -5,13 +5,15 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight, Github, Linkedin, Mail, FileText, Copy, Check } from 'lucide-react';
 import bioData from '@/data/bio.json';
 
-export default function ContactSection() {
+import { ContactProps } from '../../Interfaces';
+
+export default function ContactSection({ contact, socials, cvUrl }: ContactProps) {
     const [isCopied, setIsCopied] = React.useState(false);
 
     const handleCopy = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        navigator.clipboard.writeText(bioData.contact.email);
+        navigator.clipboard.writeText(contact.email);
         setIsCopied(true);
         setTimeout(() => setIsCopied(false), 2000);
     };
@@ -38,7 +40,7 @@ export default function ContactSection() {
                 >
                     {/* Main Link Overlay */}
                     <a
-                        href={`mailto:${bioData.contact.email}?subject=${encodeURIComponent(bioData.contact.mail_subject)}&body=${encodeURIComponent(bioData.contact.mail_body)}`}
+                        href={`mailto:${contact.email}?subject=${encodeURIComponent(contact.mail_subject)}&body=${encodeURIComponent(contact.mail_body)}`}
                         target="_blank"
                         className="absolute inset-0 z-0"
                         aria-label="Send email"
@@ -64,7 +66,7 @@ export default function ContactSection() {
                             SEND A MESSAGE
                         </span>
                         <h3 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight group-hover:opacity-80 transition-opacity duration-300">
-                            {bioData.contact.email.split('@')[0]}<br className="hidden md:block" />@{bioData.contact.email.split('@')[1]}
+                            {contact.email.split('@')[0]}<br className="hidden md:block" />@{contact.email.split('@')[1]}
                         </h3>
                     </div>
 
@@ -85,7 +87,7 @@ export default function ContactSection() {
 
                 {/* Block 2: CV (The Square) - 2 cols */}
                 <motion.a
-                    href={bioData.cv_file}
+                    href={cvUrl}
                     target="_blank"
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -123,7 +125,7 @@ export default function ContactSection() {
 
                 {/* Block 3: GitHub (Satellite) - 3 cols */}
                 <motion.a
-                    href={bioData.socials.github}
+                    href={socials.github}
                     target="_blank"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -143,7 +145,7 @@ export default function ContactSection() {
 
                 {/* Block 4: LinkedIn (Satellite) - 3 cols */}
                 <motion.a
-                    href={bioData.socials.linkedin}
+                    href={socials.linkedin}
                     target="_blank"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

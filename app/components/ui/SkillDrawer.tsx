@@ -3,32 +3,14 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-import * as Icons from 'lucide-react';
-import { ProjectData } from '../../../lib/mdx';
-
-interface Skill {
-    id: string;
-    name: string;
-    category: string;
-    icon: string;
-    comfortLevel: number;
-    description?: string;
-}
-
-interface SkillDrawerProps {
-    isOpen: boolean;
-    onClose: () => void;
-    selectedSkill: Skill | null;
-    projects: ProjectData[];
-}
+import { SkillDrawerProps } from '../../Interfaces';
+import DynamicIcon from './DynamicIcon';
 
 export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }: SkillDrawerProps) {
     // Filter projects linked to this skill
     const linkedProjects = selectedSkill
         ? projects.filter(project => project.usedSkills?.includes(selectedSkill.id))
         : [];
-
-    const IconComponent = selectedSkill ? getIcon(selectedSkill.icon) : null;
 
     return (
         <AnimatePresence>
@@ -49,7 +31,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                        className="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-[var(--background)] border-l border-[var(--color-border)] shadow-xl overflow-y-auto"
+                        className="fixed top-0 right-0 z-50 h-full w-full max-w-md bg-background border-l border-border shadow-xl overflow-y-auto"
                     >
                         <div className="p-8 h-full flex flex-col">
                             {/* Header */}
@@ -68,13 +50,13 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                             {/* Skill Content */}
                             <div className="flex-1">
                                 <div className="size-16 mb-6 text-foreground">
-                                    {IconComponent}
+                                    <DynamicIcon name={selectedSkill.icon} category={selectedSkill.category} className="w-full h-full" strokeWidth={1} />
                                 </div>
 
                                 <h2 className="text-4xl font-bold mb-2 tracking-tight">
                                     {selectedSkill.name}<span className="text-primary">.</span>
                                 </h2>
-                                <span className="inline-block px-3 py-1 border border-[var(--color-border)] rounded-full text-xs font-mono uppercase tracking-wide mb-8">
+                                <span className="inline-block px-3 py-1 border border-border rounded-full text-xs font-mono uppercase tracking-wide mb-8">
                                     {selectedSkill.category}
                                 </span>
 
@@ -101,7 +83,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
 
                                 {/* Linked Projects Section */}
                                 {linkedProjects.length > 0 && (
-                                    <div className="border-t border-[var(--color-border)] pt-8">
+                                    <div className="border-t border-border pt-8">
                                         <h3 className="font-mono text-xs uppercase tracking-widest mb-6 opacity-60">
                                             Linked Projects ({linkedProjects.length})
                                         </h3>
@@ -110,7 +92,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                                                 <Link
                                                     key={project.slug}
                                                     href={`/projects/${project.slug}`}
-                                                    className="group block p-4 bg-white/40 border border-[var(--color-border)] hover:border-primary/50 transition-all rounded-lg"
+                                                    className="group block p-4 bg-white/40 border border-border hover:border-primary/50 transition-all rounded-lg"
                                                 >
                                                     <div className="flex justify-between items-start">
                                                         <div>
@@ -130,7 +112,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                                 )}
                             </div>
 
-                            <div className="mt-8 pt-6 border-t border-[var(--color-border)] flex justify-between items-end">
+                            <div className="mt-8 pt-6 border-t border-border flex justify-between items-end">
                                 <span className="font-mono text-[10px] opacity-40">ID: {selectedSkill.id}</span>
                             </div>
                         </div>
@@ -140,18 +122,3 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
         </AnimatePresence>
     );
 }
-
-// Helper to get icon (same as SkillsStickers, duplicated for independence or could be shared)
-const getIcon = (name: string) => {
-    if (name.startsWith('/') || name.includes('.') || name.includes('/')) {
-        const src = name.startsWith('/') ? name : `/icones/${name}`;
-        return <img src={src} alt="" className="w-full h-full object-contain" />;
-    }
-    // @ts-expect-error - Dynamic icon lookup
-    const Icon = Icons[name];
-    if (Icon) return <Icon className="w-full h-full" strokeWidth={1} />;
-
-    if (name === 'NextJs') return <Icons.Cpu className="w-full h-full" strokeWidth={1} />;
-
-    return <Icons.Code className="w-full h-full" strokeWidth={1} />;
-};

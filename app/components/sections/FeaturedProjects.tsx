@@ -6,11 +6,7 @@ import Link from 'next/link';
 import { ArrowUpRight, Crosshair, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
 import ProjectCard from '../ui/ProjectCard';
 
-import { Project } from '../../Interfaces';
-
-interface FeaturedProjectsProps {
-    projects: Project[];
-}
+import { FeaturedProjectsProps } from '../../Interfaces';
 
 export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
     const [currentIndex, setCurrentIndex] = useState(0);

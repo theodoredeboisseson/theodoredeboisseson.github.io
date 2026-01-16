@@ -3,11 +3,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import MovementLine from '../ui/MovementLine';
-import bioData from '@/data/bio.json';
+import { FormationSectionProps } from '../../Interfaces';
 
-const formations = bioData.education;
-
-export default function FormationSection() {
+export default function FormationSection({ education }: FormationSectionProps) {
     return (
         <section className="w-full max-w-7xl mx-auto px-6 py-12" id="formation">
             <motion.h2
@@ -26,7 +24,7 @@ export default function FormationSection() {
                 </div>
 
                 <div className="flex flex-col space-y-16 ml-4">
-                    {formations.map((item, index) => (
+                    {education.map((item, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
@@ -53,7 +51,7 @@ export default function FormationSection() {
                                     <p className="font-mono text-sm opacity-80 mb-2 text-primary">
                                         {item.details}
                                     </p>
-                                    <p className="font-mono text-sm opacity-60 max-w-xl border-l border-primary/30 pl-4 py-1">
+                                    <p className="font-mono text-sm opacity-60 max-w-xl border-l-2 border-primary/50 pl-4 py-1">
                                         {item.description}
                                     </p>
                                 </div>

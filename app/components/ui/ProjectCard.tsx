@@ -4,11 +4,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import * as Icons from 'lucide-react';
-import { LucideIcon } from 'lucide-react';
 import skillsData from '../../../data/skills.json';
 
 import { Project } from '../../Interfaces';
+import DynamicIcon from './DynamicIcon';
 
 interface ProjectCardProps {
     project: Project;
@@ -79,7 +78,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                                 <div className="flex flex-wrap gap-2 justify-end">
                                     {linkedSkills.slice(0, 18).map((skill) => (
                                         <div key={skill!.id} title={skill!.name} className="text-foreground/80 hover:text-primary transition-colors">
-                                            {getIcon(skill!.icon)}
+                                            <DynamicIcon name={skill!.icon} category={skill!.category} size={32} className="size-9" />
                                         </div>
                                     ))}
                                 </div>
@@ -124,25 +123,3 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </motion.article>
     );
 }
-
-// Helper to support custom image paths from /public/icones or Lucide icons
-const getIcon = (name: string) => {
-    // Check if it's a file path for custom icon (starts with / or includes .svg/.png/.jpg)
-    if (name.startsWith('/') || name.includes('.') || name.includes('/')) {
-        // If it's just a filename like 'blender.svg', assume it's in /icones/ if not specified
-        const src = name.startsWith('/') ? name : `/icones/${name}`;
-        return <img src={src} alt="" className="size-9 object-contain" />;
-    }
-
-    // Lucide fallback
-    // @ts-expect-error - Dynamic icon lookup
-    const Icon = Icons[name] as LucideIcon;
-
-    if (Icon) return <Icon size={32} strokeWidth={1.5} />;
-
-    // Specific manual mapping for missing Lucide icons or brand overrides
-    if (name === 'NextJs') return <Icons.Cpu size={32} strokeWidth={1.5} />;
-
-    // Default fallback
-    return <Icons.Code size={32} strokeWidth={1.5} />;
-};

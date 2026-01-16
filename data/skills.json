@@ -3,7 +3,7 @@
         "id": "1",
         "name": "Next.js",
         "category": "Tech",
-        "icon": "NextJs",
+        "icon": "nextjs.svg",
         "comfortLevel": 90,
         "description": "Framework React de référence pour le web moderne. SSR, App Router et performance."
     },

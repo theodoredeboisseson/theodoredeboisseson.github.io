@@ -3,7 +3,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-export default function Hero() {
+import { HeroProps } from "../../Interfaces";
+
+export default function Hero({ issueText, title, subtitle, description, profileImage }: HeroProps) {
     return (
         <section className="relative min-h-screen w-full overflow-hidden pt-24 px-6 md:px-12 lg:px-24 flex flex-col justify-center text-background">
             {/* Background Image */}
@@ -16,10 +18,9 @@ export default function Hero() {
                     priority
                     quality={100}
                 />
-                {/* Subtle overlay to ensure text readability while maintaining image visibility */}
+                {/* Subtle overlay */}
                 <div className="absolute inset-0 bg-black/30" />
             </div>
-
 
             {/* Grid Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-7xl mx-auto items-center">
@@ -33,10 +34,10 @@ export default function Hero() {
                         className="flex flex-col"
                     >
                         <span className="font-mono text-xs uppercase font-bold tracking-[0.2em] mb-4 text-primary">
-                            Issue 01 — 2026
+                            {issueText}
                         </span>
                         <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]">
-                            THÉODORE<span className="text-primary">.</span>
+                            {title}<span className="text-primary">.</span>
                         </h1>
                     </motion.div>
 
@@ -50,8 +51,8 @@ export default function Hero() {
                         className="max-w-md mt-8 ml-2 border-l-[0.5px] border-white/40 pl-6"
                     >
                         <p className="font-serif italic text-base md:text-lg leading-relaxed opacity-90 tracking-wide">
-                            STUDENT DEVELOPER <br />
-                            Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time.
+                            <span className="block font-bold not-italic mb-1">{subtitle}</span>
+                            {description}
                         </p>
                     </motion.div>
                 </div>
@@ -66,7 +67,7 @@ export default function Hero() {
                     >
                         {/* Texture/Image Placeholder */}
                         <Image
-                            src="/images/profile_picture.jpg"
+                            src={profileImage}
                             alt="Portrait"
                             fill
                             className="object-cover opacity-90"

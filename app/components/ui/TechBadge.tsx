@@ -1,6 +1,6 @@
 'use client';
 import { Cpu } from 'lucide-react';
-import * as Icons from 'lucide-react';
+import DynamicIcon from './DynamicIcon';
 
 interface Badge {
     label: string;
@@ -26,7 +26,11 @@ export default function TechBadge({ skills, badges }: TechBadgeProps) {
                     className="flex items-center gap-2 px-3 py-1 bg-transparent border-[0.5px] border-foreground/20 rounded-full text-foreground/80 font-mono text-xs uppercase tracking-widest hover:border-primary hover:text-primary transition-colors cursor-default"
                 >
                     <span className="w-4 h-4 flex items-center justify-center">
-                        {item.icon ? getIcon(item.icon) : <Cpu size={12} className="text-primary/50" />}
+                        {item.icon ? (
+                            <DynamicIcon name={item.icon} size={14} className="w-full h-full" />
+                        ) : (
+                            <Cpu size={12} className="text-primary/50" />
+                        )}
                     </span>
                     <span>{item.label}</span>
                 </div>
@@ -34,16 +38,3 @@ export default function TechBadge({ skills, badges }: TechBadgeProps) {
         </div>
     );
 }
-
-// Helper to get icon
-const getIcon = (name: string) => {
-    if (name.startsWith('/') || name.includes('.') || name.includes('/')) {
-        const src = name.startsWith('/') ? name : `/icones/${name}`;
-        return <img src={src} alt="" className="w-full h-full object-contain" />;
-    }
-    // @ts-expect-error - Dynamic icon lookup
-    const Icon = Icons[name];
-    if (Icon) return <Icon size={14} strokeWidth={1.5} />;
-
-    return <Cpu size={14} strokeWidth={1.5} />;
-};

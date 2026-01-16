@@ -1,8 +1,6 @@
 
 export default function GrainOverlay() {
     return (
-        <div className="pointer-events-none fixed inset-0 z-[100] h-full w-full opacity-[0.1] mix-blend-overlay">
-            <div className="bg-noise absolute inset-0 bg-repeat" />
-        </div>
+        <div className="bg-noise fixed inset-0 z-9999 opacity-40 mix-blend-overlay pointer-events-none" aria-hidden="true" />
     );
 }

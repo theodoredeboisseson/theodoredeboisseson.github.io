@@ -1,21 +1,18 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import skillsData from '../../../data/skills.json';
 import { useState } from 'react';
 import SkillDrawer from '../ui/SkillDrawer';
 import SkillSticker from '../ui/SkillSticker';
 import { ProjectData } from '../../../lib/mdx';
 
-interface SkillsBentoProps {
-    projects: ProjectData[];
-}
+import { Skill, SkillsBentoProps } from '../../Interfaces';
 
-export default function SkillsBento({ projects }: SkillsBentoProps) {
-    const [selectedSkill, setSelectedSkill] = useState<typeof skillsData[0] | null>(null);
+export default function SkillsBento({ projects, skills }: SkillsBentoProps) {
+    const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-    const handleSkillClick = (skill: typeof skillsData[0]) => {
+    const handleSkillClick = (skill: Skill) => {
         // Check if skill has linked projects or description
         const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.id)) || skill.description;
 
@@ -56,7 +53,7 @@ export default function SkillsBento({ projects }: SkillsBentoProps) {
                         }}
                         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                     >
-                        {skillsData.map((skill) => {
+                        {skills.map((skill) => {
                             const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.id)) || skill.description;
 
                             return (

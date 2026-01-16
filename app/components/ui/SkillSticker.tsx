@@ -2,22 +2,8 @@
 
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
-import { LucideIcon } from 'lucide-react';
-
-export interface Skill {
-    id: string;
-    name: string;
-    category: string;
-    icon: string;
-    comfortLevel: number;
-    description?: string;
-}
-
-interface SkillStickerProps {
-    skill: Skill;
-    hasLinkedData: boolean;
-    onClick: () => void;
-}
+import { SkillStickerProps } from '../../Interfaces';
+import DynamicIcon from './DynamicIcon';
 
 export default function SkillSticker({ skill, hasLinkedData, onClick }: SkillStickerProps) {
     return (
@@ -29,7 +15,7 @@ export default function SkillSticker({ skill, hasLinkedData, onClick }: SkillSti
             whileHover={hasLinkedData ? { y: -5 } : {}}
             onClick={onClick}
             className={`
-                bg-white/50 backdrop-blur-sm border border-black/5 rounded-3xl p-6 flex flex-col items-center justify-between gap-4
+                bg-white/50 backdrop-blur-sm border border-border rounded-3xl p-6 flex flex-col items-center justify-between gap-4
                 transition-all duration-300 aspect-square group relative
                 ${hasLinkedData ? 'cursor-pointer hover:border-primary/30 hover:bg-white/80' : 'cursor-default opacity-80'}
             `}
@@ -43,7 +29,7 @@ export default function SkillSticker({ skill, hasLinkedData, onClick }: SkillSti
 
             {/* Icon */}
             <div className={`text-foreground/80 transition-colors duration-300 ${hasLinkedData ? 'group-hover:text-primary' : ''} mt-2`}>
-                {getIcon(skill.icon)}
+                <DynamicIcon name={skill.icon} category={skill.category} size={48} className="size-12" />
             </div>
 
             {/* Info */}
@@ -68,25 +54,3 @@ export default function SkillSticker({ skill, hasLinkedData, onClick }: SkillSti
         </motion.div>
     );
 }
-
-// Helper to support custom image paths from /public/icones or Lucide icons
-const getIcon = (name: string) => {
-    // Check if it's a file path for custom icon (starts with / or includes .svg/.png/.jpg)
-    if (name.startsWith('/') || name.includes('.') || name.includes('/')) {
-        // If it's just a filename like 'blender.svg', assume it's in /icones/ if not specified
-        const src = name.startsWith('/') ? name : `/icones/${name}`;
-        return <img src={src} alt="" className="size-12 object-contain" />;
-    }
-
-    // Lucide fallback
-    // @ts-expect-error - Dynamic icon lookup
-    const Icon = Icons[name] as LucideIcon;
-
-    if (Icon) return <Icon size={48} strokeWidth={1.5} />;
-
-    // Specific manual mapping for missing Lucide icons or brand overrides
-    if (name === 'NextJs') return <Icons.Cpu size={48} strokeWidth={1.5} />;
-
-    // Default fallback
-    return <Icons.Code size={48} strokeWidth={1.5} />;
-};
