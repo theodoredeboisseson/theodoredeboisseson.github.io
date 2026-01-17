@@ -6,6 +6,8 @@ import FormationSection from "./components/sections/FormationSection";
 import ContactSection from "./components/sections/ContactSection";
 import { getAllProjects } from "../lib/mdx";
 import { Project } from "./Interfaces";
+import bioData from '@/data/bio.json';
+import skillsData from '@/data/skills.json';
 
 export default function Home() {
   const allProjects = getAllProjects();
@@ -24,11 +26,24 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Hero />
-      <SkillsStickers projects={allProjects} />
+      <Hero
+        issueText="Issue 01 — 2026"
+        title="THÉODORE"
+        subtitle="STUDENT DEVELOPER"
+        description="Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time."
+        profileImage="/images/profile_picture.jpg"
+      />
+      <SkillsStickers
+        projects={allProjects}
+        skills={skillsData}
+      />
       <FeaturedProjects projects={featuredProjects} />
-      <FormationSection />
-      <ContactSection />
+      <FormationSection education={bioData.education} />
+      <ContactSection
+        contact={bioData.contact}
+        socials={bioData.socials}
+        cvUrl={bioData.cv_file}
+      />
     </main>
   );
 }
