@@ -3,36 +3,41 @@ title: "Portfolio Redesign"
 date: "2026-01"
 category: "Tech"
 tags: ["Framer Motion", "TailwindCSS"]
-ac_list: ["AC11", "AC12", "AC32"]
+ac_list: ["AC12", "AC13", "AC31"]
 links:
   github: "https://github.com/theodoredeboisseson/theodoredeboisseson.github.io"
   demo: "https://theodoredeboisseson.github.io"
 description: "Construit avec Next.js (React), TailwindCSS, Framer Motion... Mise en avant professionnelle et personnelle"
 image: "/images/hero_bg.jpg"
 featured: true
-usedSkills: ["1", "4", "5", "14"]
+usedSkills: ["1", "16", "15", "14"]
 filter: "Tech"
 ---
 ## L'idée
 
 Ce portfolio est mon effort pour améliorer ma présence sur le web et me mettre en avant professionnellement.
+J'ai fait le choix d'y inclure également mes projets personnels hors informatique, qui impliquent mes centres d'intérêt personnels. C'est l'occasion de montrer la richesse de mon profil *"généraliste spécialisé"*.
 
-J'ai fait le choix d'y inclure égalemment mes projets personnels hors informatique, qui implique mes centres d'intérêt personnels.
-C'est l'occasion de montrer la richesse de mon profil *"généraliste spécialisé"* quand il s'agit de ce que j'apprends.
+## Choix Techniques et Architecture
 
-## Le processus
+J'ai opté pour **Next.js** favorable au SEO et à la performance. L'architecture du projet respecte les **bonnes pratiques modernes** (AC13) :
+- **Composants atomiques** réutilisables
+- **Typage fort** avec TypeScript
+- Séparation claire entre la donnée (MDX) et la vue
 
-Pour le design je suis partis sur un thème "magazine tactique". 
-J'ai cherché des inspirations sur des sites comme Pinterest pour une palette de couleurs et des éléments visuels.
+### Design et Expérience Utilisateur (AC12)
 
-J'ai décidé prendre une couleur d'accent propre tirée de ma photo de profil.
+Pour le design, je suis parti sur un thème "magazine tactique" épuré. J'ai porté une attention particulière à l'**accessibilité** et à l'ergonomie : contraste des couleurs, fluidité des animations avec **Framer Motion**, et navigation intuitive.
+L'objectif était de créer une interface qui « wow » l'utilisateur tout en restant parfaitement lisible.
+
+J'ai décidé de prendre une couleur d'accent propre tirée de ma photo de profil.
 <ProjectGallery images={[
-  { src: "/images/hero_bg.jpg", alt: "Hero Section" },
-  { src: "/images/profile_picture.jpg", alt: "Profile" }
+  { src: "/images/hero_bg.jpg", alt: "Hero Section", type: "image" },
+  { src: "/images/profile_picture.jpg", alt: "Profile", type: "image" }
 ]} />
 
 Le plus amusant c'était de tout modulariser rendant l'extensibilité et la maintenance du site très facile.
-C'était l'occasion d'apprendre Next.js, framework de React, qui est mon language de front favoris.
+C'était l'occasion d'apprendre Next.js, framework de React, qui est mon langage de front favori.
 
 <Hyperlink 
     label="Curieux du source code ? Cliquez-moi" 
@@ -43,5 +48,5 @@ C'était l'occasion d'apprendre Next.js, framework de React, qui est mon languag
 
 Pour mieux voir la différence de niveau après 1 an d'écart entre les deux versions, voici la "landing page" du portfolio avant le redesign :
 <ProjectGallery images={[
-  { src: "/images/projects/portfolio-redesign/old_portfolio.png", alt: "Old Portfolio" }
+  { src: "/images/projects/portfolio-redesign/old_portfolio.png", alt: "Old Portfolio", type: "image" }
 ]} />

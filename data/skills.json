@@ -110,5 +110,29 @@
         "icon": "github-mark.svg",
         "comfortLevel": 80,
         "description": "Hébergement de code et collaboration open-source."
+    },
+    {
+        "id": "15",
+        "name": "TypeScript",
+        "category": "Tech",
+        "icon": "typescript.svg",
+        "comfortLevel": 60,
+        "description": "Langage de programmation orienté objet."
+    },
+    {
+        "id": "16",
+        "name": "Tailwind CSS",
+        "category": "Tech",
+        "icon": "tailwind.svg",
+        "comfortLevel": 80,
+        "description": "Framework CSS pour le développement front-end."
+    },
+    {
+        "id": "17",
+        "name": "Photographie",
+        "category": "Art",
+        "icon": "Camera",
+        "comfortLevel": 40,
+        "description": "Apprends la prise de vue, la retouche, la composition ou juste prend du plaisir avec un Canon EOS 650D depuis Avril 2025."
     }
 ]

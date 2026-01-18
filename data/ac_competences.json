@@ -8,25 +8,25 @@
         "id": "AC11",
         "title": "Élaborer et implémenter les spécifications fonctionnelles et non fonctionnelles à partir des exigences",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "J'analyse les besoins complexes d'un client pour rédiger des spécifications techniques précises, prenant en compte les contraintes d'architecture et de performance."
       },
       {
         "id": "AC12",
         "title": "Appliquer des principes d'accessibilité et d'ergonomie",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je conçois des interfaces utilisateur inclusives en respectant les normes WCAG et en assurant une expérience utilisateur fluide sur tous supports."
       },
       {
         "id": "AC13",
         "title": "Adopter de bonnes pratiques de conception et de programmation",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "J'applique les principes SOLID et Clean Code pour produire un code maintenable, testable et évolutif, adapté aux architectures modernes."
       },
       {
         "id": "AC14",
         "title": "Vérifier et valider la qualité de l'application par les tests",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je mets en place des stratégies de tests automatisés (unitaires, intégration, E2E) pour garantir la robustesse et la non-régression des applications."
       }
     ]
   },
@@ -39,25 +39,25 @@
         "id": "AC21",
         "title": "Choisir des structures de données complexes adaptées au problème",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je sélectionne et implémente des structures de données avancées (arbres, graphes) pour optimiser la complexité temporelle et spatiale des traitements."
       },
       {
         "id": "AC22",
         "title": "Utiliser des techniques algorithmiques adaptées à des problèmes complexes",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "J'utilise des approches algorithmiques (programmation dynamique, heuristiques) pour résoudre des problèmes d'optimisation sous contraintes."
       },
       {
         "id": "AC23",
         "title": "Comprendre les enjeux et moyens de sécurisation des données et du code",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "J'intègre la sécurité dès la conception (Security by Design) en identifiant les vulnérabilités potentielles et en appliquant les correctifs nécessaires."
       },
       {
         "id": "AC24",
         "title": "Évaluer l'impact environnemental et sociétal des solutions proposées",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je mesure l'empreinte carbone des solutions numériques et propose des alternatives éco-responsables dans une démarche de numérique responsable."
       }
     ]
   },
@@ -70,19 +70,19 @@
         "id": "AC31",
         "title": "Concevoir et développer des applications communicantes",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je développe des architectures distribuées (microservices, API REST/GraphQL) facilitant l'interopérabilité et la scalabilité des systèmes."
       },
       {
         "id": "AC32",
         "title": "Utiliser des serveurs et services réseaux virtualisés",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Maîtrise de la virtualisation (Docker) pour le déploiement. Configuration de services réseaux dans un environnement Linux."
       },
       {
         "id": "AC33",
         "title": "Sécuriser les services et données d'un système",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Mise en œuvre de politiques de sécurité (pare-feu, chiffrement, gestion des accès) pour protéger les infrastructures et les données sensibles."
       }
     ]
   },
@@ -95,19 +95,19 @@
         "id": "AC41",
         "title": "Optimiser les modèles de données de l'entreprise",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je conçois des modèles de données normalisés et performants, adaptés aux besoins décisionnels et transactionnels de l'entreprise."
       },
       {
         "id": "AC42",
         "title": "Assurer la confidentialité des données (intégrité et sécurité)",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "J'assure la conformité RGPD et l'intégrité des bases de données par une gestion fine des droits et des mécanismes de sauvegarde."
       },
       {
         "id": "AC43",
         "title": "Organiser la restitution de données à travers la programmation et la visualisation",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je développe des tableaux de bord interactifs et des outils de reporting pour faciliter la prise de décision basée sur l'analyse des données."
       }
     ]
   },
@@ -120,25 +120,25 @@
         "id": "AC51",
         "title": "Identifier les processus présents dans une organisation en vue d'améliorer les systèmes d'information",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "J'audit les processus métier existants pour proposer des solutions numériques innovantes améliorant l'efficacité opérationnelle."
       },
       {
         "id": "AC52",
         "title": "Formaliser les besoins du client et de l'utilisateur",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je traduis les attentes clients en backlog produit priorisé, en utilisant des techniques d'animation d'ateliers et de prototypage."
       },
       {
         "id": "AC53",
         "title": "Identifier les critères de faisabilité d'un projet informatique",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "J'évalue la viabilité technique, économique et temporelle d'un projet avant son lancement, en identifiant les risques majeurs."
       },
       {
         "id": "AC54",
         "title": "Définir et mettre en œuvre une démarche de suivi de projet",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je pilote des projets en utilisant des méthodologies agiles (Scrum, Kanban), assurant le respect des délais et la qualité des livrables."
       }
     ]
   },
@@ -151,25 +151,25 @@
         "id": "AC61",
         "title": "Comprendre la diversité, la structure et la dimension de l'informatique dans une organisation (ESN, DSI, ...)",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je m'adapte rapidement à la culture et aux processus de différentes structures (ESN, startups, grands groupes) pour être opérationnel efficacement."
       },
       {
         "id": "AC62",
         "title": "Appliquer une démarche pour intégrer une équipe informatique au sein d'une organisation",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je participe activement à la vie de l'équipe, partage mes connaissances et facilite l'intégration des nouveaux collaborateurs."
       },
       {
         "id": "AC63",
         "title": "Mobiliser les compétences interpersonnelles pour intégrer une équipe informatique",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je communique efficacement avec des profils techniques et non-techniques, favorisant la cohésion d'équipe et la résolution de conflits."
       },
       {
         "id": "AC64",
         "title": "Rendre compte de son activité professionnelle",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "À compléter"
+        "level3": "Je produis des rapports d'activité clairs et synthétiques, mettant en valeur les réalisations et identifiant les axes d'amélioration."
       }
     ]
   }
