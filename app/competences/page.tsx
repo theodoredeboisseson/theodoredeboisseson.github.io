@@ -29,16 +29,14 @@ export default function CompetencesPage() {
     };
 
     return (
-        <main className="min-h-screen bg-[#FDFBF7] text-black py-20 px-4 md:px-12 font-sans selection:bg-[#d94261] selection:text-white">
-            <div className="mb-12">
-                <ReturnButton label="Page d'accueil" />
-            </div>
+        <main className="min-h-screen bg-background text-foreground py-20 px-4 md:px-12 font-sans selection:bg-primary selection:text-background">
+            <ReturnButton label="Page d'accueil" className="mb-12" />
             <header className="mb-20 grid grid-cols-1 md:grid-cols-12 gap-6 border-b border-black/10 pb-8">
                 <div className="col-span-1 md:col-span-4">
                     <h1 className="text-4xl md:text-5xl font-serif italic mb-2">
                         Validation
                         <br />
-                        <span className="text-[#d94261]">des Compétences</span>
+                        <span className="text-primary">des Compétences</span>
                     </h1>
                 </div>
                 <div className="col-span-1 md:col-span-8 flex flex-col justify-end">
@@ -46,8 +44,9 @@ export default function CompetencesPage() {
                         Index Technique // BUT Informatique
                     </p>
                     <p className="mt-4 text-lg max-w-2xl font-light opacity-80">
-                        Référentiel des apprentissages critiques validés au cours du Bachelor Universitaire de Technologie.
+                        Référentiel des apprentissages critiques validés au cours du BUT Informatique.
                         Chaque compétence est attestée par des projets concrets.
+                        En guise d'auto-evaluation, j’utilise une échelle progressive : <span className="text-primary">Non acquise → En cours d’acquisition → Acquise → Maîtrisée.</span>
                     </p>
                 </div>
             </header>
@@ -59,7 +58,7 @@ export default function CompetencesPage() {
 
                             {/* Left: Competence Title */}
                             <div className="col-span-1 md:col-span-4 flex flex-col gap-2">
-                                <span className="font-mono text-xs text-[#d94261] mb-1">
+                                <span className="font-mono text-xs text-primary mb-1">
                                     {comp.id} //
                                 </span>
                                 <h2 className="text-3xl font-serif">
@@ -86,7 +85,7 @@ export default function CompetencesPage() {
                                                 </h3>
                                                 {/* Level 3 Placeholder */}
                                                 <div className="pl-8 mt-2">
-                                                    <p className="text-sm font-mono text-[#d94261]/80 mb-1">
+                                                    <p className="text-sm font-mono text-primary mb-1">
                                                         Niveau 3 :
                                                     </p>
                                                     <p className="text-sm opacity-70">
@@ -107,7 +106,7 @@ export default function CompetencesPage() {
                                                         <Link
                                                             key={p.slug}
                                                             href={`/projects/${p.slug}`}
-                                                            className="inline-block px-2 py-1 bg-black/5 hover:bg-[#d94261] hover:text-white transition-colors text-xs font-mono rounded-sm"
+                                                            className="inline-block px-2 py-1 bg-black/5 hover:bg-primary hover:text-background transition-colors text-xs font-mono rounded-sm"
                                                         >
                                                             {p.title} ↗
                                                         </Link>
@@ -130,7 +129,7 @@ export default function CompetencesPage() {
             </div>
 
             <footer className="mt-32 pt-8 border-t border-black/10 text-center font-mono text-xs opacity-40">
-                VALIDATION OFFICIELLE // JURY 2026
+                VALIDATION DES COMPETENCES // JURY 2026
             </footer>
         </main>
     );

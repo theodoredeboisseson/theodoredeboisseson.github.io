@@ -35,7 +35,7 @@ export default function Home() {
       />
 
       {/* Tactical Bar - Espace Jury */}
-      <Link href="/competences" className="w-full bg-[#F5F5F0] border-y border-black/5 py-4 overflow-hidden group hover:bg-primary hover:text-white transition-all cursor-pointer">
+      <Link href="/competences" className="w-full bg-background border-y border-black/5 py-4 overflow-hidden group hover:bg-primary hover:text-white transition-all cursor-pointer">
         <div className="flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.2em]">
           <span className="w-2 h-2 bg-primary group-hover:bg-white rounded-none animate-pulse" />
           <span className="font-semibold">Espace Évaluation // Jury BUT</span>

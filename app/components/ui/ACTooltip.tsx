@@ -45,7 +45,10 @@ export default function ACTooltip({ acString, className = "" }: ACTooltipProps) 
             <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-64 bg-white border border-black/10 shadow-xl opacity-0 group-hover/tooltip:opacity-100 transition-opacity duration-200 pointer-events-none z-50 p-3 text-left">
                 <div className="flex flex-col gap-1">
                     <span className="font-mono text-[9px] text-primary uppercase tracking-widest">
-                        {(acData as Competence[]).find(c => c.acs.some(a => a.id === matchedAc!.id || matchedAc!.id.includes(a.id)))?.id}
+                        {(() => {
+                            const parentComp = (acData as Competence[]).find(c => c.acs.some(a => a.id === matchedAc!.id));
+                            return parentComp ? `${parentComp.id} // ${parentComp.title}` : matchedAc!.id;
+                        })()}
                     </span>
                     <p className="font-serif font-bold text-sm leading-tight text-black">
                         {matchedAc.title}

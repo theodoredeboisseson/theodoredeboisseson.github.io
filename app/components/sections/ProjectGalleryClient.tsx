@@ -22,9 +22,7 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
     return (
         <div className="max-w-7xl mx-auto">
             {/* Navigation */}
-            <div className="mb-12">
-                <ReturnButton href="/" label="Home" />
-            </div>
+            <ReturnButton href="/" label="Home" className='mb-6 md:mb-12' />
 
             {/* Header & Filter */}
             <div className="flex flex-col md:flex-row justify-between items-end mb-24 border-b-[0.5px] border-foreground/10 pb-6 gap-6">
