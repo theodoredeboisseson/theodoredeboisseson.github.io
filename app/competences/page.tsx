@@ -3,20 +3,7 @@ import acData from '@/data/ac_competences.json';
 import { getAllProjects } from '../../lib/mdx';
 import ReturnButton from '../components/ui/ReturnButton';
 
-// Types
-type AC = {
-    id: string; // e.g. "AC11"
-    title: string;
-    description: string;
-    level3: string;
-};
-
-type Competence = {
-    id: string; // e.g. "C1"
-    title: string;
-    description: string;
-    acs: AC[];
-};
+import { AC, Competence } from '../Interfaces';
 
 
 
@@ -34,9 +21,7 @@ export default function CompetencesPage() {
             return p.ac_list.some((valString: string) => {
                 const s = valString.toLowerCase();
 
-                console.log(s);
                 const hasNum = s.includes(`ac${acNum}`) || s.includes(`ac ${acNum}`);
-                console.log(acNum);
 
                 return hasNum;
             });

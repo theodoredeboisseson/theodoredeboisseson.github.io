@@ -4,10 +4,24 @@ export interface Project {
     category: string;
     date: string;
     under_the_hood: string;
-    ac_validation?: string[];
+    ac_list?: string[];
     image?: string;
     usedSkills?: string[];
     filter?: 'Tech' | 'Art';
+}
+
+export interface AC {
+    id: string; // e.g. "AC11"
+    title: string;
+    description: string;
+    level3?: string;
+}
+
+export interface Competence {
+    id: string; // e.g. "C1"
+    title: string;
+    description: string;
+    acs: AC[];
 }
 
 export interface HeroProps {

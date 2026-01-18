@@ -19,7 +19,7 @@ export default function Home() {
       category: p.category,
       date: p.date,
       under_the_hood: p.description,
-      ac_validation: p.ac_list,
+      ac_list: p.ac_list,
       image: p.image,
       usedSkills: p.usedSkills
     }));

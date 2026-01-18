@@ -8,6 +8,7 @@ import skillsData from '../../../data/skills.json';
 
 import { Project } from '../../Interfaces';
 import DynamicIcon from './DynamicIcon';
+import ACTooltip from './ACTooltip';
 
 interface ProjectCardProps {
     project: Project;
@@ -85,10 +86,17 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                             </div>
                         )}
 
-                        {project.ac_validation && project.ac_validation.length > 0 && (
-                            <div className="flex flex-col">
-                                <span className="font-bold">Ac validation</span>
-                                <span>{project.ac_validation}</span>
+                        {/* ACs */}
+                        {project.ac_list && project.ac_list.length > 0 && (
+                            <div className="flex flex-col items-end">
+                                <span className="font-bold mb-1">But validation</span>
+                                <div className="flex flex-wrap gap-1.5 justify-end">
+                                    {project.ac_list.map((ac) => (
+                                        <div key={ac}>
+                                            <ACTooltip acString={ac} />
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         )}
                     </div>

@@ -16,8 +16,8 @@ export default function ProjectsGalleryPage() {
         title: p.title,
         category: p.category,
         date: p.date,
-        under_the_hood: p.description, // Mapping description from frontmatter for the card summary
-        ac_validation: p.ac_list,
+        under_the_hood: p.description,
+        ac_list: p.ac_list,
         image: p.image,
         filter: p.filter,
         usedSkills: p.usedSkills
