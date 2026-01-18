@@ -88,7 +88,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                         {project.ac_validation && project.ac_validation.length > 0 && (
                             <div className="flex flex-col">
                                 <span className="font-bold">Ac validation</span>
-                                <span>{project.ac_validation[0]}</span>
+                                <span>{project.ac_validation}</span>
                             </div>
                         )}
                     </div>

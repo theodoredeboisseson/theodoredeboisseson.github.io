@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 import Hero from "./components/sections/Hero";
 import SkillsStickers from "./components/sections/SkillsArsenal";
 import FeaturedProjects from "./components/sections/FeaturedProjects";
@@ -33,6 +33,17 @@ export default function Home() {
         description="Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time."
         profileImage="/images/profile_picture.jpg"
       />
+
+      {/* Tactical Bar - Espace Jury */}
+      <Link href="/competences" className="w-full bg-[#F5F5F0] border-y border-black/5 py-4 overflow-hidden group hover:bg-primary hover:text-white transition-all cursor-pointer">
+        <div className="flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-[0.2em]">
+          <span className="w-2 h-2 bg-primary group-hover:bg-white rounded-none animate-pulse" />
+          <span className="font-semibold">Espace Évaluation // Jury BUT</span>
+          <span className="hidden md:inline opacity-40 ml-4 group-hover:opacity-80 transition-opacity">
+            Accéder au référentiel des compétences ↗
+          </span>
+        </div>
+      </Link>
       <SkillsStickers
         projects={allProjects}
         skills={skillsData}

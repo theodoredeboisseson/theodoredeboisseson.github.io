@@ -1,0 +1,176 @@
+[
+  {
+    "id": "C1",
+    "title": "Réaliser",
+    "description": "Partir des exigences et aller jusqu'à une application complète",
+    "acs": [
+      {
+        "id": "AC11",
+        "title": "Élaborer et implémenter les spécifications fonctionnelles et non fonctionnelles à partir des exigences",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC12",
+        "title": "Appliquer des principes d'accessibilité et d'ergonomie",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC13",
+        "title": "Adopter de bonnes pratiques de conception et de programmation",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC14",
+        "title": "Vérifier et valider la qualité de l'application par les tests",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      }
+    ]
+  },
+  {
+    "id": "C2",
+    "title": "Optimiser",
+    "description": "Sélectionner les algorithmes adéquats pour répondre à un problème donné",
+    "acs": [
+      {
+        "id": "AC21",
+        "title": "Choisir des structures de données complexes adaptées au problème",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC22",
+        "title": "Utiliser des techniques algorithmiques adaptées à des problèmes complexes",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC23",
+        "title": "Comprendre les enjeux et moyens de sécurisation des données et du code",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC24",
+        "title": "Évaluer l'impact environnemental et sociétal des solutions proposées",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      }
+    ]
+  },
+  {
+    "id": "C3",
+    "title": "Administrer",
+    "description": "Déployer des services dans une architecture réseau",
+    "acs": [
+      {
+        "id": "AC31",
+        "title": "Concevoir et développer des applications communicantes",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC32",
+        "title": "Utiliser des serveurs et services réseaux virtualisés",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC33",
+        "title": "Sécuriser les services et données d'un système",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      }
+    ]
+  },
+  {
+    "id": "C4",
+    "title": "Gérer",
+    "description": "Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité",
+    "acs": [
+      {
+        "id": "AC41",
+        "title": "Optimiser les modèles de données de l'entreprise",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC42",
+        "title": "Assurer la confidentialité des données (intégrité et sécurité)",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC43",
+        "title": "Organiser la restitution de données à travers la programmation et la visualisation",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      }
+    ]
+  },
+  {
+    "id": "C5",
+    "title": "Conduire",
+    "description": "Appliquer une démarche de suivi de projet en fonction des besoins métiers des client et des utilisateurs",
+    "acs": [
+      {
+        "id": "AC51",
+        "title": "Identifier les processus présents dans une organisation en vue d'améliorer les systèmes d'information",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC52",
+        "title": "Formaliser les besoins du client et de l'utilisateur",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC53",
+        "title": "Identifier les critères de faisabilité d'un projet informatique",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC54",
+        "title": "Définir et mettre en œuvre une démarche de suivi de projet",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      }
+    ]
+  },
+  {
+    "id": "C6",
+    "title": "Collaborer",
+    "description": "Situer son rôle et ses missions au sein d'une équipe informatique",
+    "acs": [
+      {
+        "id": "AC61",
+        "title": "Comprendre la diversité, la structure et la dimension de l'informatique dans une organisation (ESN, DSI, ...)",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC62",
+        "title": "Appliquer une démarche pour intégrer une équipe informatique au sein d'une organisation",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC63",
+        "title": "Mobiliser les compétences interpersonnelles pour intégrer une équipe informatique",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      },
+      {
+        "id": "AC64",
+        "title": "Rendre compte de son activité professionnelle",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "À compléter"
+      }
+    ]
+  }
+]
