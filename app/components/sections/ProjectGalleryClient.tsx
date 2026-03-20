@@ -39,12 +39,7 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
                         <button
                             key={cat}
                             onClick={() => setActiveFilter(cat)}
-                            className={`px-4 py-2 font-mono text-sm uppercase transition-all duration-300 border-[0.5px]
-                                ${activeFilter === cat
-                                    ? 'bg-foreground text-background border-foreground'
-                                    : 'bg-transparent text-foreground/60 border-foreground/20 hover:border-foreground hover:text-foreground'
-                                }
-                            `}
+                            className={`button ${activeFilter === cat ? 'button-primary' : 'button-outline'}`}
                         >
                             {cat}
                         </button>
@@ -53,7 +48,7 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
             </div>
 
             {/* Gallery List */}
-            <div className="flex flex-col gap-32">
+            <div className="flex flex-col gap-24">
                 <AnimatePresence mode="popLayout">
                     {filteredProjects.map((project, index) => (
                         <div key={project.slug}>

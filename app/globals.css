@@ -15,9 +15,6 @@
   --color-primary: var(--color-primary);
   --color-text: var(--color-text);
   --color-border: var(--color-border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: var(--font-playfair);
 }
 
 body {
@@ -145,4 +142,25 @@ body {
 
 .text-serif-italic {
   @apply font-serif italic;
+}
+
+/* Button Primitives */
+.button {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-full font-mono text-xs uppercase tracking-widest transition-all duration-300 outline-none cursor-pointer;
+}
+
+.button-primary {
+  @apply bg-foreground text-background border border-foreground;
+}
+
+.button-outline {
+  @apply bg-transparent text-foreground/60 border border-foreground/20 hover:border-foreground hover:text-foreground;
+}
+
+.button-icon {
+  @apply size-10 inline-flex items-center justify-center border border-foreground/10 hover:border-foreground/30 border-b-[3px] rounded-lg active:border-b active:translate-y-[2px] hover:bg-foreground/5 transition-all text-foreground/60 hover:text-foreground outline-none cursor-pointer;
+}
+
+.button-circle {
+  @apply size-16 border border-foreground/10 rounded-full inline-flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 cursor-pointer;
 }

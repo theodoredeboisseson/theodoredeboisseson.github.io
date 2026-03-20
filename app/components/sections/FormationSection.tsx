@@ -46,6 +46,7 @@ export default function FormationSection({ education }: FormationSectionProps) {
                                         {item.degree}
                                     </h3>
                                     <p className="text-xl font-sans text-foreground/60 mb-4">
+                                        {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                                         {item.school} // {item.location}
                                     </p>
                                     <p className="font-mono text-sm opacity-80 mb-2 text-primary">

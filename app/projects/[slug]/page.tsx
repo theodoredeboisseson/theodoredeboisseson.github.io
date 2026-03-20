@@ -1,11 +1,11 @@
-import { notFound } from 'next/navigation';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import { getProjectSlugs, getProjectBySlug } from '../../../lib/mdx';
-import skillsData from '../../../data/skills.json';
+import {notFound} from 'next/navigation';
+import {MDXRemote} from 'next-mdx-remote/rsc';
+import {getProjectBySlug, getProjectSlugs} from '@/lib/mdx';
+import skillsData from '@/data/skills.json';
 import TechnicalCrosshair from '../../components/ui/TechnicalCrosshair';
 import ReturnButton from '../../components/ui/ReturnButton';
 import ProjectWave from '../../components/ui/MovementLine';
-import { ArrowUpRight, Eye } from 'lucide-react';
+import {ArrowUpRight, Eye} from 'lucide-react';
 import ACTooltip from '../../components/ui/ACTooltip';
 
 // Custom MDX Components
@@ -28,11 +28,9 @@ export const dynamicParams = false;
 // Generate static params for all projects
 export async function generateStaticParams() {
     const slugs = getProjectSlugs();
-    const params = slugs.map((slug) => ({
+    return slugs.map((slug) => ({
         slug: slug.replace(/\.mdx$/, ''),
     }));
-
-    return params;
 }
 
 export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {

@@ -21,10 +21,10 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
     return (
         <motion.article
             layout
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-10px" }}
+            transition={{ duration: 0.3 }}
             className="group relative w-full"
         >
             <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -108,7 +108,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
                         </span>
                         <Link
                             href={`/projects/${project.slug}`}
-                            className="size-16 border border-foreground/10 rounded-full flex items-center justify-center text-foreground group-hover:bg-primary group-hover:text-white group-hover:border-transparent transition-all duration-300 group-hover:scale-110"
+                            className="button-circle group-hover:bg-primary group-hover:text-white group-hover:border-transparent group-hover:scale-110"
                         >
                             <ArrowUpRight strokeWidth={1} size={24} />
                         </Link>

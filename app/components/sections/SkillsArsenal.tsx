@@ -59,10 +59,7 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                 <div className="container-7xl flex flex-wrap gap-2">
                     <button
                         onClick={() => setSelectedCategories([])}
-                        className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-widest transition-all ${selectedCategories.length === 0
-                            ? 'bg-foreground text-background'
-                            : 'border border-border text-foreground hover:border-primary/50'
-                            }`}
+                        className={`button ${selectedCategories.length === 0 ? 'button-primary' : 'button-outline'}`}
                     >
                         All
                     </button>
@@ -70,10 +67,7 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                         <button
                             key={category}
                             onClick={() => toggleCategory(category)}
-                            className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-widest transition-all ${selectedCategories.includes(category)
-                                ? 'bg-primary text-background'
-                                : 'border border-border text-foreground hover:border-primary/50'
-                                }`}
+                            className={`button ${selectedCategories.includes(category) ? 'button-primary' : 'button-outline'}`}
                         >
                             {category}
                         </button>
@@ -101,7 +95,7 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                                             type: "spring",
                                             stiffness: 260,
                                             damping: 20,
-                                            delay: index * 0.05
+                                            delay: (index % 5) * 0.1
                                         }}
                                     >
                                         <SkillSticker

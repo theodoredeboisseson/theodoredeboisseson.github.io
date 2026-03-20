@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import acData from '@/data/ac_competences.json';
-import { getAllProjects } from '../../lib/mdx';
+import {getAllProjects} from '@/lib/mdx';
 import ReturnButton from '../components/ui/ReturnButton';
 
-import { AC, Competence } from '../Interfaces';
-
+import {AC, Competence} from '../Interfaces';
 
 
 export default function CompetencesPage() {
@@ -21,9 +20,7 @@ export default function CompetencesPage() {
             return p.ac_list.some((valString: string) => {
                 const s = valString.toLowerCase();
 
-                const hasNum = s.includes(`ac${acNum}`) || s.includes(`ac ${acNum}`);
-
-                return hasNum;
+                return s.includes(`ac${acNum}`) || s.includes(`ac ${acNum}`);
             });
         });
     };
@@ -46,7 +43,7 @@ export default function CompetencesPage() {
                     <p className="mt-4 text-lg max-w-2xl font-light opacity-80">
                         Référentiel des apprentissages critiques validés au cours du BUT Informatique.
                         Chaque compétence est attestée par des projets concrets.
-                        En guise d'auto-evaluation, j’utilise une échelle progressive : <span className="text-primary">Non acquise → En cours d’acquisition → Acquise → Maîtrisée.</span>
+                        En guise d&#39;auto-evaluation, j’utilise une échelle progressive : <span className="text-primary">Non acquise → En cours d’acquisition → Acquise → Maîtrisée.</span>
                     </p>
                 </div>
             </header>
@@ -59,6 +56,7 @@ export default function CompetencesPage() {
                             {/* Left: Competence Title */}
                             <div className="col-span-1 md:col-span-4 flex flex-col gap-2">
                                 <span className="font-mono text-xs text-primary mb-1">
+                                    {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                                     {comp.id} //
                                 </span>
                                 <h2 className="text-3xl font-serif">

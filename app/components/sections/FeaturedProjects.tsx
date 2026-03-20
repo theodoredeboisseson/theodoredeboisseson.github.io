@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowUpRight, Crosshair, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowUpRight, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
 import ProjectCard from '../ui/ProjectCard';
 
 import { FeaturedProjectsProps } from '../../Interfaces';
@@ -94,9 +94,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                             // Visual properties
                             const scale = isCenter ? 1 : 0.9;
                             const opacity = isCenter ? 1 : 0.5;
-                            // x distance: 100% or more to separate them. 
-
-                            const xOffset = offset * 65; // % of parent width if we use % units in animate? 
+                            // x distance: 100% or more to separate them.
                             return (
                                 <motion.div
                                     key={project.slug}
@@ -156,7 +154,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                     {/* Left Key */}
                     <button
                         onClick={handleManualPrev}
-                        className="size-10 flex items-center justify-center border border-foreground/10 hover:border-foreground/30 border-b-[3px] rounded-lg active:border-b active:translate-y-[2px] hover:bg-foreground/5 transition-all text-foreground/60 hover:text-foreground outline-none"
+                        className="button-icon"
                         aria-label="Previous Project (Left Arrow)"
                     >
                         <ArrowLeft size={16} />
@@ -174,7 +172,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
                     {/* Right Key */}
                     <button
                         onClick={handleManualNext}
-                        className="size-10 flex items-center justify-center border border-foreground/10 hover:border-foreground/30 border-b-[3px] rounded-lg active:border-b active:translate-y-[2px] hover:bg-foreground/5 transition-all text-foreground/60 hover:text-foreground outline-none"
+                        className="button-icon"
                         aria-label="Next Project (Right Arrow)"
                     >
                         <ArrowRight size={16} />
