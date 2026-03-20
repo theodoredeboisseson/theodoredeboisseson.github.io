@@ -174,5 +174,21 @@
         "icon": "python.svg",
         "comfortLevel": 40,
         "description": "Développement web fullstack avec le framework Django (utilisé pour la refonte du site de la MJC)."
+    },
+    {
+        "id": "23",
+        "name": "React",
+        "category": "Tech",
+        "icon": "react.svg",
+        "comfortLevel": 80,
+        "description": "Création d'interfaces utilisateur dynamiques avec React et React Native."
+    },
+    {
+        "id": "24",
+        "name": "Neo4j",
+        "category": "Tech",
+        "icon": "neo4j.svg",
+        "comfortLevel": 30,
+        "description": "Base de données orientée graphe. Requêtes Cypher et intégration avec des LLMs (RAG) pour l'interrogation en langage naturel."
     }
 ]

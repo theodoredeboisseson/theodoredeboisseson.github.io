@@ -1,4 +1,32 @@
 {
+    "experiences": [
+        {
+            "period": "Avr – Août 2026",
+            "title": "Développeur Full-Stack / IA",
+            "company": "CIRAD",
+            "location": "Montpellier, FR",
+            "type": "Stage",
+            "status": "upcoming",
+            "description": "Développement en binôme d'une API REST intégrant des LLMs (RAG) pour interroger en langage naturel une base de données graphe Neo4j. Interface utilisateur en React.",
+            "skill_ids": [
+                "23",
+                "24",
+                "5",
+                "15"
+            ],
+            "project_slug": null
+        },
+        {
+            "period": "Jan – Avr 2025",
+            "title": "Développeur Full-Stack",
+            "company": "MJC Mauguio-Carnon",
+            "location": "Mauguio, FR",
+            "type": "Stage",
+            "status": "completed",
+            "description": "Refonte complète du site web en autonomie totale avec Django/Wagtail. Conception, développement, déploiement Docker sur OVH et formation des utilisateurs.",
+            "project_slug": "stage-mjc"
+        }
+    ],
     "education": [
         {
             "year": "2026",
