@@ -31,12 +31,13 @@ export default function ContactSection({ contact, socials, cvUrl }: ContactProps
 
             <div className="w-full grid grid-cols-1 md:grid-cols-6 gap-4">
 
-                {/* Block 1: Email (The Giant) - 4 cols */}
+                {/* Email */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, x: -80 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="md:col-span-4 min-h-[300px] md:min-h-[400px] bg-foreground text-background rounded-4xl md:rounded-br-sm p-8 md:p-12 flex flex-col justify-between group relative overflow-hidden transition-all duration-500 hover:shadow-2xl"
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                    className="md:col-span-4 min-h-75 md:min-h-100 bg-foreground text-background rounded-4xl md:rounded-br-sm p-8 md:p-12 flex flex-col justify-between group relative overflow-hidden transition-shadow duration-500 hover:shadow-2xl"
                 >
                     {/* Main Link Overlay */}
                     <a
@@ -85,14 +86,14 @@ export default function ContactSection({ contact, socials, cvUrl }: ContactProps
                     </button>
                 </motion.div>
 
-                {/* Block 2: CV (The Square) - 2 cols */}
+                {/* Resume */}
                 <motion.a
                     href={cvUrl}
                     target="_blank"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, x: 80 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                     className="md:col-span-2 aspect-square md:aspect-auto bg-gray-50 border border-border rounded-4xl md:rounded-bl-sm flex flex-col justify-between p-8 group relative overflow-hidden hover:border-primary hover:shadow-lg transition-colors"
                 >
                     <div className="w-full h-full absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -123,15 +124,15 @@ export default function ContactSection({ contact, socials, cvUrl }: ContactProps
                     </div>
                 </motion.a>
 
-                {/* Block 3: GitHub (Satellite) - 3 cols */}
+                {/* GitHub */}
                 <motion.a
                     href={socials.github}
                     target="_blank"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: -80 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    className="md:col-span-3 min-h-[200px] bg-gray-50 border border-border rounded-4xl md:rounded-tr-sm p-8 flex flex-col justify-between group hover:bg-[#24292e] hover:text-white hover:shadow-lg transition-all"
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.25 }}
+                    className="md:col-span-3 min-h-50 bg-gray-50 border border-border rounded-4xl md:rounded-tr-sm p-8 flex flex-col justify-between group hover:bg-[#24292e] hover:text-white hover:shadow-lg transition-[background-color,color,box-shadow]"
                 >
                     <div className="flex justify-between items-start">
                         <Github size={48} strokeWidth={1.5} className="group-hover:text-[#bc8cff] transition-colors" />
@@ -143,15 +144,15 @@ export default function ContactSection({ contact, socials, cvUrl }: ContactProps
                     </div>
                 </motion.a>
 
-                {/* Block 4: LinkedIn (Satellite) - 3 cols */}
+                {/* LinkedIn */}
                 <motion.a
                     href={socials.linkedin}
                     target="_blank"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    initial={{ opacity: 0, x: 80 }}
+                    whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}
-                    className="md:col-span-3 min-h-[200px] bg-gray-50 border border-border rounded-4xl md:rounded-tl-sm p-8 flex flex-col justify-between group hover:bg-[#0A66C2] hover:text-white hover:shadow-lg transition-all"
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+                    className="md:col-span-3 min-h-50 bg-gray-50 border border-border rounded-4xl md:rounded-tl-sm p-8 flex flex-col justify-between group hover:bg-[#0A66C2] hover:text-white hover:shadow-lg transition-[background-color,color,box-shadow]"
                 >
                     <div className="flex justify-between items-start">
                         <Linkedin size={48} strokeWidth={1.5} />

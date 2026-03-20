@@ -16,7 +16,7 @@ export default function SkillSticker({ skill, hasLinkedData, onClick }: SkillSti
             onClick={onClick}
             className={`
                 bg-white/50 backdrop-blur-sm border border-border rounded-3xl p-6 flex flex-col items-center justify-between gap-4
-                transition-all duration-300 aspect-square group relative
+                transition-[border-color,background-color] duration-300 aspect-square group relative
                 ${hasLinkedData ? 'cursor-pointer hover:border-primary/30 hover:bg-white/80' : 'cursor-default opacity-80'}
             `}
         >
