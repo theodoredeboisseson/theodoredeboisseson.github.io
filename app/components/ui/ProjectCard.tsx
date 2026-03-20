@@ -62,7 +62,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                 {/* Metadata Block */}
                 <div className="lg:col-span-4 flex flex-col items-end text-right pt-4 lg:pt-0">
-                    <div className="font-mono text-xs uppercase tracking-widest space-y-4 opacity-60 text-foreground">
+                    <div className="text-label space-y-4 opacity-60 text-foreground">
                         <div className="flex flex-col">
                             <span className="font-bold">Category</span>
                             <span>{project.category}</span>
@@ -117,12 +117,12 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
                 {/* Overlapping Title */}
                 <div className="absolute left-0 -bottom-8 lg:bottom-8 lg:-left-8 z-20 pointer-events-none w-full max-w-full pr-4 lg:pr-0 ">
-                    <h2 className="font-serif italic text-4xl md:text-5xl lg:text-6xl tracking-tighter break-word w-full text-white">
+                    <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tighter break-word w-full text-white">
                         <span className="inline-block bg-black/40 backdrop-blur-md px-2 lg:px-6 py-1 lg:py-2 -skew-x-12 rounded-lg group-hover:translate-x-4 transition-transform duration-500 ease-out">
                             {project.title}
                         </span>
                     </h2>
-                    <p className="mt-2 ml-2 font-serif italic font-light text-sm md:text-lg inline-block bg-black/40 backdrop-blur-md text-white px-3 py-1 -skew-x-12 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 tracking-wide shadow-lg">
+                    <p className="mt-2 ml-2 font-serif font-light text-sm md:text-lg inline-block bg-black/40 backdrop-blur-md text-white px-3 py-1 -skew-x-12 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 tracking-wide shadow-lg">
                         {project.under_the_hood}
                     </p>
                 </div>

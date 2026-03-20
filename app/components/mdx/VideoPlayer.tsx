@@ -19,7 +19,7 @@ export default function VideoPlayer({ url }: VideoPlayerProps) {
                 </video>
             ) : (
                 <div className="flex flex-col items-center justify-center w-full h-full text-foreground/40 bg-foreground/[0.02]">
-                    <span className="font-mono text-xs uppercase tracking-widest border border-foreground/20 px-4 py-2 rounded-full">Video Placeholder</span>
+                    <span className="text-label border border-foreground/20 px-4 py-2 rounded-full">Video Placeholder</span>
                     <span className="font-mono text-[10px] mt-2 opacity-60">{url}</span>
                 </div>
             )}

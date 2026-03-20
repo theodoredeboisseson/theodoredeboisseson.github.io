@@ -7,12 +7,12 @@ import { FormationSectionProps } from '../../Interfaces';
 
 export default function FormationSection({ education }: FormationSectionProps) {
     return (
-        <section className="w-full max-w-7xl mx-auto px-6 py-12" id="formation">
+        <section className="container-7xl px-6 py-12" id="formation">
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-6xl md:text-8xl font-serif italic mb-24 tracking-tighter"
+                className="text-6xl md:text-8xl text-serif-italic mb-24 tracking-tighter"
             >
                 Formation<span className="text-primary">.</span>
             </motion.h2>
@@ -35,7 +35,7 @@ export default function FormationSection({ education }: FormationSectionProps) {
                             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start relative">
                                 {/* Year - Huge Serif Italic */}
                                 <div className="md:col-span-4 lg:col-span-3">
-                                    <span className={`font-serif italic text-6xl md:text-8xl lg:text-9xl text-primary block leading-none transition-opacity duration-500`}>
+                                    <span className={`text-serif-italic text-6xl md:text-8xl lg:text-9xl text-primary block leading-none transition-opacity duration-500`}>
                                         {item.year}
                                     </span>
                                 </div>

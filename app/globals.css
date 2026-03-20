@@ -134,4 +134,15 @@ body {
   @apply text-4xl md:text-6xl font-bold font-serif tracking-tighter text-foreground;
 }
 
-/* text-4xl md:text-6xl font-bold tracking-tighter text-foreground */
+/* Extracted Utility Classes to reduce repetition */
+.text-label {
+  @apply font-mono text-xs uppercase tracking-widest;
+}
+
+.container-7xl {
+  @apply w-full max-w-7xl mx-auto;
+}
+
+.text-serif-italic {
+  @apply font-serif italic;
+}

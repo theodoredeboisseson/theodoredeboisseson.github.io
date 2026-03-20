@@ -23,7 +23,7 @@ export default function TechBadge({ skills, badges }: TechBadgeProps) {
             {items.map((item) => (
                 <div
                     key={item.label}
-                    className="flex items-center gap-2 px-3 py-1 bg-transparent border-[0.5px] border-foreground/20 rounded-full text-foreground/80 font-mono text-xs uppercase tracking-widest hover:border-primary hover:text-primary transition-colors cursor-default"
+                    className="flex items-center gap-2 px-3 py-1 bg-transparent border-[0.5px] border-foreground/20 rounded-full text-foreground/80 text-label hover:border-primary hover:text-primary transition-colors cursor-default"
                 >
                     <span className="w-4 h-4 flex items-center justify-center">
                         {item.icon ? (

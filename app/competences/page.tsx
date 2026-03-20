@@ -33,7 +33,7 @@ export default function CompetencesPage() {
             <ReturnButton label="Page d'accueil" className="mb-12" />
             <header className="mb-20 grid grid-cols-1 md:grid-cols-12 gap-6 border-b border-black/10 pb-8">
                 <div className="col-span-1 md:col-span-4">
-                    <h1 className="text-4xl md:text-5xl font-serif italic mb-2">
+                    <h1 className="text-4xl md:text-5xl text-serif-italic mb-2">
                         Validation
                         <br />
                         <span className="text-primary">des Compétences</span>

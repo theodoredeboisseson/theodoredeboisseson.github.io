@@ -30,12 +30,12 @@ export default function ContactSection({ contact, socials, cvUrl }: ContactProps
     };
 
     return (
-        <section className="w-full max-w-7xl mx-auto px-4 md:px-6 py-12 mb-12" id="contact">
+        <section className="container-7xl px-4 md:px-6 py-12 mb-12" id="contact">
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-6xl md:text-8xl font-serif italic mb-16 tracking-tighter text-right"
+                className="text-6xl md:text-8xl text-serif-italic mb-16 tracking-tighter text-right"
             >
                 Contact<span className="text-primary">.</span>
             </motion.h2>

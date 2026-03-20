@@ -24,7 +24,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
                     />
                     {/* Caption Overlay */}
                     <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="text-background font-mono text-xs uppercase tracking-widest">{img.alt}</span>
+                        <span className="text-background text-label">{img.alt}</span>
                     </div>
                 </div>
             ))}

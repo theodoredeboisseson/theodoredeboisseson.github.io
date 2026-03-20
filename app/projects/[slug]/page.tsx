@@ -83,14 +83,14 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
                     {/* Right: Title & Info & AC & Links */}
                     <div className="lg:col-span-8 order-1 lg:order-2 flex flex-col items-start">
-                        <div className="flex items-center gap-4 mb-6 font-mono text-xs uppercase tracking-widest opacity-60">
+                        <div className="flex items-center gap-4 mb-6 text-label opacity-60">
                             <span className="text-primary">●</span>
                             <span>{project.category}</span>
                             <span>//</span>
                             <span>{project.date}</span>
                         </div>
 
-                        <h1 className="font-serif italic text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-8">
+                        <h1 className="text-serif-italic text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-8">
                             {project.title}
                         </h1>
 
@@ -105,7 +105,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
                             {/* Links */}
                             {(project.links?.demo || project.links?.github) && (
-                                <div className="flex gap-6 font-mono text-xs uppercase tracking-widest">
+                                <div className="flex gap-6 text-label">
                                     {project.links.demo && (
                                         <a
                                             href={project.links.demo}
@@ -165,7 +165,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     {/* Sticky Table of Contents or Meta could go here in col-span-3 */}
                     <div className="hidden lg:block lg:col-span-3">
                         <div className="sticky top-12 border-t-[0.5px] border-foreground/10 pt-4 h-[calc(100vh-6rem)] overflow-hidden">
-                            <span className="font-mono text-xs uppercase tracking-widest opacity-40">Project Report</span>
+                            <span className="text-label opacity-40">Project Report</span>
                             <ProjectWave />
                         </div>
                     </div>

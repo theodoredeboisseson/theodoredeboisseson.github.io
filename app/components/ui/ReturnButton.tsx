@@ -22,7 +22,7 @@ export default function ReturnButton({ href = "/", label = "Back", className = "
                 ${className}`}
         >
             <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-300" />
-            <span className="font-mono text-xs uppercase tracking-widest">{label}</span>
+            <span className="text-label">{label}</span>
         </Link>
     );
 }

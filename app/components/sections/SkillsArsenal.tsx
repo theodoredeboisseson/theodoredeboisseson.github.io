@@ -41,22 +41,22 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
         <>
             <section className="relative w-full py-12 mt-12 px-6 md:px-12 lg:px-24 bg-background">
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 w-full max-w-7xl mx-auto">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 container-7xl">
                     <h2 className="section-title">
                         Arsenal<span className="text-primary">.</span>
                     </h2>
                     <div className="text-right mt-4 md:mt-0">
-                        <span className="block font-mono text-xs uppercase tracking-widest text-foreground/50">
+                        <span className="block text-label text-foreground/50">
                             TOOLKIT // 2026
                         </span>
-                        <span className="block font-serif italic text-lg text-foreground/80">
+                        <span className="block text-serif-italic text-lg text-foreground/80">
                             Selected tools & technologies
                         </span>
                     </div>
                 </div>
 
                 {/* Filters */}
-                <div className="w-full max-w-7xl mx-auto flex flex-wrap gap-2">
+                <div className="container-7xl flex flex-wrap gap-2">
                     <button
                         onClick={() => setSelectedCategories([])}
                         className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-widest transition-all ${selectedCategories.length === 0
@@ -80,7 +80,7 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                     ))}
                 </div>
 
-                <div className="w-full max-w-7xl mx-auto py-6">
+                <div className="container-7xl py-6">
                     <motion.div
                         layout
                         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"

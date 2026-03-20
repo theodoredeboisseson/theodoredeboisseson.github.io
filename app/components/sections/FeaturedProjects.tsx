@@ -67,7 +67,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
     return (
         <section ref={containerRef} className="relative w-full py-0 px-3 md:px-6 lg:px-12 bg-background overflow-hidden">
             {/* Header */}
-            <div className="flex flex-col md:flex-row justify-between items-end border-b-[0.5px] border-black/10 pb-6 w-full max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-end border-b-[0.5px] border-black/10 pb-6 container-7xl">
                 <h2 className="section-title">
                     Featured projects<span className="text-primary">.</span>
                 </h2>

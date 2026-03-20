@@ -84,7 +84,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                                 {/* Linked Projects Section */}
                                 {linkedProjects.length > 0 && (
                                     <div className="border-t border-border pt-8">
-                                        <h3 className="font-mono text-xs uppercase tracking-widest mb-6 opacity-60">
+                                        <h3 className="text-label mb-6 opacity-60">
                                             Linked Projects ({linkedProjects.length})
                                         </h3>
                                         <div className="space-y-4">
