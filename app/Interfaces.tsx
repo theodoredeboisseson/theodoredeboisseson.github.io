@@ -42,7 +42,7 @@ export interface Skill {
     description: string;
 }
 
-export interface SkillsBentoProps {
+export interface SkillsArsenalProps {
     projects: import('../lib/mdx').ProjectData[];
     skills: Skill[];
 }

@@ -1,16 +1,31 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import SkillDrawer from '../ui/SkillDrawer';
 import SkillSticker from '../ui/SkillSticker';
-import { ProjectData } from '../../../lib/mdx';
 
-import { Skill, SkillsBentoProps } from '../../Interfaces';
+import { Skill, SkillsArsenalProps } from '../../Interfaces';
 
-export default function SkillsBento({ projects, skills }: SkillsBentoProps) {
+export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) {
     const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+
+    // Get unique categories from skills
+    const categories = Array.from(new Set(skills.map(skill => skill.category))).sort();
+
+    const toggleCategory = (category: string) => {
+        setSelectedCategories(prev =>
+            prev.includes(category)
+                ? prev.filter(c => c !== category)
+                : [...prev, category]
+        );
+    };
+
+    const filteredSkills = skills.filter(skill =>
+        selectedCategories.length === 0 || selectedCategories.includes(skill.category)
+    ).sort((a, b) => a.name.localeCompare(b.name));
 
     const handleSkillClick = (skill: Skill) => {
         // Check if skill has linked projects or description
@@ -40,31 +55,64 @@ export default function SkillsBento({ projects, skills }: SkillsBentoProps) {
                     </div>
                 </div>
 
+                {/* Filters */}
+                <div className="w-full max-w-7xl mx-auto flex flex-wrap gap-2">
+                    <button
+                        onClick={() => setSelectedCategories([])}
+                        className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-widest transition-all ${selectedCategories.length === 0
+                            ? 'bg-foreground text-background'
+                            : 'border border-border text-foreground hover:border-primary/50'
+                            }`}
+                    >
+                        All
+                    </button>
+                    {categories.map(category => (
+                        <button
+                            key={category}
+                            onClick={() => toggleCategory(category)}
+                            className={`px-4 py-2 rounded-full text-xs font-mono uppercase tracking-widest transition-all ${selectedCategories.includes(category)
+                                ? 'bg-primary text-background'
+                                : 'border border-border text-foreground hover:border-primary/50'
+                                }`}
+                        >
+                            {category}
+                        </button>
+                    ))}
+                </div>
+
                 <div className="w-full max-w-7xl mx-auto py-6">
                     <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "-100px" }}
-                        variants={{
-                            hidden: {},
-                            visible: {
-                                transition: { staggerChildren: 0.05 }
-                            }
-                        }}
+                        layout
                         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                     >
-                        {skills.map((skill) => {
-                            const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.id)) || skill.description;
+                        <AnimatePresence>
+                            {filteredSkills.map((skill, index) => {
+                                const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.id)) || skill.description;
 
-                            return (
-                                <SkillSticker
-                                    key={skill.id}
-                                    skill={skill}
-                                    hasLinkedData={Boolean(hasLinkedData)}
-                                    onClick={() => handleSkillClick(skill)}
-                                />
-                            );
-                        })}
+                                return (
+                                    <motion.div
+                                        key={skill.id}
+                                        layout
+                                        initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                                        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                                        viewport={{ once: true, margin: "-30px" }}
+                                        exit={{ opacity: 0, scale: 0.8, y: -20, transition: { duration: 0.2 } }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 260,
+                                            damping: 20,
+                                            delay: index * 0.05
+                                        }}
+                                    >
+                                        <SkillSticker
+                                            skill={skill}
+                                            hasLinkedData={Boolean(hasLinkedData)}
+                                            onClick={() => handleSkillClick(skill)}
+                                        />
+                                    </motion.div>
+                                );
+                            })}
+                        </AnimatePresence>
                     </motion.div>
                 </div>
             </section>

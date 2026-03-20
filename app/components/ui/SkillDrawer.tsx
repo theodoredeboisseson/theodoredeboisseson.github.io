@@ -36,12 +36,12 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                         <div className="p-8 h-full flex flex-col">
                             {/* Header */}
                             <div className="flex justify-between items-start mb-12">
-                                <div className="font-mono text-xs uppercase tracking-widest opacity-50">
+                                <div className="font-mono text-xs p-2 uppercase tracking-widest opacity-50">
                                     Skill Inspector
                                 </div>
                                 <button
                                     onClick={onClose}
-                                    className="group flex items-center gap-2 text-xs font-mono tracking-widest uppercase hover:text-primary transition-colors"
+                                    className="group flex items-center p-2 gap-2 text-xs font-mono tracking-widest uppercase hover:text-primary transition-colors"
                                 >
                                     Close <X size={16} />
                                 </button>
