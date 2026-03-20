@@ -21,10 +21,10 @@ import { ContactProps } from '../../Interfaces';
 export default function ContactSection({ contact, socials, cvUrl }: ContactProps) {
     const [isCopied, setIsCopied] = React.useState(false);
 
-    const handleCopy = (e: React.MouseEvent) => {
+    const handleCopy = async (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
-        navigator.clipboard.writeText(contact.email);
+        await navigator.clipboard.writeText(contact.email);
         setIsCopied(true);
         setTimeout(() => setIsCopied(false), 2000);
     };

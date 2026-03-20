@@ -134,5 +134,45 @@
         "icon": "Camera",
         "comfortLevel": 40,
         "description": "Apprends la prise de vue, la retouche, la composition ou juste prend du plaisir avec un Canon EOS 650D depuis Avril 2025."
+    },
+    {
+        "id": "18",
+        "name": "Kotlin",
+        "category": "Tech",
+        "icon": "kotlin.svg",
+        "comfortLevel": 80,
+        "description": "Développement backend robuste avec Spring Boot et Spring Security"
+    },
+    {
+        "id": "19",
+        "name": "Antigravity",
+        "category": "Tools",
+        "icon": "antigravity.svg",
+        "comfortLevel": 40,
+        "description": "Agent d'intelligence artificielle agissant comme pair-programmer pour la création d'applications modernes."
+    },
+    {
+        "id": "20",
+        "name": "Vue.js",
+        "category": "Tech",
+        "icon": "vuejs.svg",
+        "comfortLevel": 60,
+        "description": "Création d'interfaces web dynamiques et réactives"
+    },
+    {
+        "id": "21",
+        "name": "Symfony",
+        "category": "Tech",
+        "icon": "symfony.svg",
+        "comfortLevel": 60,
+        "description": "Développement backend PHP structuré et création d'APIs REST avec API Platform."
+    },
+    {
+        "id": "22",
+        "name": "Python",
+        "category": "Tech",
+        "icon": "python.svg",
+        "comfortLevel": 40,
+        "description": "Développement web fullstack avec le framework Django (utilisé pour la refonte du site de la MJC)."
     }
 ]
