@@ -2,13 +2,11 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import AnimatedText from "../ui/AnimatedText";
 
 import { HeroProps } from "../../Interfaces";
 
 export default function Hero({ issueText, title, subtitle, description, profileImage }: HeroProps) {
-    // Split title into array of letters for individual animation
-    const titleLetters = title.split("");
-
     const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1.0]; // Premium smooth easing
 
     return (
@@ -32,7 +30,7 @@ export default function Hero({ issueText, title, subtitle, description, profileI
             </motion.div>
 
             {/* Grid Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 w-full max-w-7xl mx-auto items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 container-7xl items-center">
 
                 {/* Left Col: Title & Intro */}
                 <div className="lg:col-span-8 flex flex-col gap-6 relative z-10">
@@ -48,31 +46,10 @@ export default function Hero({ issueText, title, subtitle, description, profileI
                         </motion.span>
 
                         {/* Title - Letter by Letter */}
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] overflow-visible flex flex-wrap">
-                            {titleLetters.map((letter, i) => (
-                                <motion.span
-                                    key={i}
-                                    initial={{ y: 100, opacity: 0, rotate: 5 }}
-                                    animate={{ y: 0, opacity: 1, rotate: 0 }}
-                                    transition={{
-                                        delay: 0.2 + (i * 0.08), // Slower stagger
-                                        duration: 1.0,
-                                        ease
-                                    }}
-                                    className="inline-block origin-bottom-left"
-                                >
-                                    {letter === " " ? "\u00A0" : letter}
-                                </motion.span>
-                            ))}
-                            <motion.span
-                                initial={{ scale: 0, opacity: 0 }}
-                                animate={{ scale: 1, opacity: 1 }}
-                                transition={{ delay: 1.5, duration: 0.5, type: "spring" }}
-                                className="text-primary"
-                            >
-                                .
-                            </motion.span>
-                        </h1>
+                        <AnimatedText 
+                            text={title} 
+                            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]" 
+                        />
                     </div>
 
                     {/* Horizontal line - Expands */}
@@ -99,7 +76,7 @@ export default function Hero({ issueText, title, subtitle, description, profileI
                             transition={{ delay: 2.5, duration: 1.0, ease }}
                             className="max-w-md pt-2"
                         >
-                            <p className="font-serif italic text-base md:text-lg leading-relaxed opacity-90 tracking-wide">
+                            <p className="text-serif-italic text-base md:text-lg leading-relaxed opacity-90 tracking-wide">
                                 <span className="block font-bold not-italic mb-1">{subtitle}</span>
                                 {description}
                             </p>
