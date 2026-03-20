@@ -4,7 +4,7 @@ import SkillsStickers from "./components/sections/SkillsArsenal";
 import FeaturedProjects from "./components/sections/FeaturedProjects";
 import FormationSection from "./components/sections/FormationSection";
 import ContactSection from "./components/sections/ContactSection";
-import { getAllProjects } from "../lib/mdx";
+import { getAllProjects } from "@/lib/mdx";
 import { Project } from "./Interfaces";
 import bioData from '@/data/bio.json';
 import skillsData from '@/data/skills.json';
