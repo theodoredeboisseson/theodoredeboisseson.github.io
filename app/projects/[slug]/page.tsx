@@ -83,9 +83,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     <div className="lg:col-span-8 order-1 lg:order-2 flex flex-col items-start">
                         <div className="flex items-center gap-4 mb-6 text-label opacity-60">
                             <span className="text-primary">●</span>
-                            <span>{project.category}</span>
-                            <span>//</span>
-                            <span>{project.date}</span>
+                            <span>{project.category} // {project.date}</span>
                         </div>
 
                         <h1 className="text-serif-italic text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-8">

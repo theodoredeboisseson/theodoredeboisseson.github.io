@@ -15,7 +15,7 @@ interface ProjectCardProps {
     index?: number;
 }
 
-export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
     const linkedSkills = project.usedSkills?.map(id => skillsData.find(s => s.id === id)).filter(Boolean) || [];
 
     return (

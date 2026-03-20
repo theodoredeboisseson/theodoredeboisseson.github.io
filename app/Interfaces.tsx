@@ -61,6 +61,24 @@ export interface FormationSectionProps {
     education: Education[];
 }
 
+export interface Experience {
+    period: string;
+    title: string;
+    company: string;
+    location: string;
+    type: string;
+    status: 'completed' | 'upcoming';
+    description: string;
+    skill_ids?: string[];
+    project_slug: string | null;
+}
+
+export interface ExperienceSectionProps {
+    experiences: Experience[];
+    skills: Skill[];
+    projects: import('../lib/mdx').ProjectData[];
+}
+
 export interface ContactProps {
     contact: {
         email: string;

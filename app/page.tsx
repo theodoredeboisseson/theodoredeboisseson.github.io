@@ -3,9 +3,10 @@ import Hero from "./components/sections/Hero";
 import SkillsStickers from "./components/sections/SkillsArsenal";
 import FeaturedProjects from "./components/sections/FeaturedProjects";
 import FormationSection from "./components/sections/FormationSection";
+import ExperienceSection from "./components/sections/ExperienceSection";
 import ContactSection from "./components/sections/ContactSection";
 import { getAllProjects } from "@/lib/mdx";
-import { Project } from "./Interfaces";
+import { Project, Experience } from "./Interfaces";
 import bioData from '@/data/bio.json';
 import skillsData from '@/data/skills.json';
 
@@ -50,6 +51,7 @@ export default function Home() {
       />
       <FeaturedProjects projects={featuredProjects} />
       <FormationSection education={bioData.education} />
+      <ExperienceSection experiences={bioData.experiences as Experience[]} skills={skillsData} projects={allProjects} />
       <ContactSection
         contact={bioData.contact}
         socials={bioData.socials}
