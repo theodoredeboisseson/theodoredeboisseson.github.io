@@ -66,24 +66,7 @@
     "title": "Administrer",
     "description": "Déployer des services dans une architecture réseau",
     "acs": [
-      {
-        "id": "AC31",
-        "title": "Concevoir et développer des applications communicantes",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Je développe des architectures distribuées (microservices, API REST/GraphQL) facilitant l'interopérabilité et la scalabilité des systèmes."
-      },
-      {
-        "id": "AC32",
-        "title": "Utiliser des serveurs et services réseaux virtualisés",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Maîtrise de la virtualisation (Docker) pour le déploiement. Configuration de services réseaux dans un environnement Linux."
-      },
-      {
-        "id": "AC33",
-        "title": "Sécuriser les services et données d'un système",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Mise en œuvre de politiques de sécurité (pare-feu, chiffrement, gestion des accès) pour protéger les infrastructures et les données sensibles."
-      }
+      "Pas de niveau 3 pour Administrer"
     ]
   },
   {
@@ -91,24 +74,7 @@
     "title": "Gérer",
     "description": "Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité",
     "acs": [
-      {
-        "id": "AC41",
-        "title": "Optimiser les modèles de données de l'entreprise",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Je conçois des modèles de données normalisés et performants, adaptés aux besoins décisionnels et transactionnels de l'entreprise."
-      },
-      {
-        "id": "AC42",
-        "title": "Assurer la confidentialité des données (intégrité et sécurité)",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "J'assure la conformité RGPD et l'intégrité des bases de données par une gestion fine des droits et des mécanismes de sauvegarde."
-      },
-      {
-        "id": "AC43",
-        "title": "Organiser la restitution de données à travers la programmation et la visualisation",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Je développe des tableaux de bord interactifs et des outils de reporting pour faciliter la prise de décision basée sur l'analyse des données."
-      }
+      "Pas de niveau 3 pour gérer"
     ]
   },
   {
@@ -116,30 +82,7 @@
     "title": "Conduire",
     "description": "Appliquer une démarche de suivi de projet en fonction des besoins métiers des client et des utilisateurs",
     "acs": [
-      {
-        "id": "AC51",
-        "title": "Identifier les processus présents dans une organisation en vue d'améliorer les systèmes d'information",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "J'audit les processus métier existants pour proposer des solutions numériques innovantes améliorant l'efficacité opérationnelle."
-      },
-      {
-        "id": "AC52",
-        "title": "Formaliser les besoins du client et de l'utilisateur",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Je traduis les attentes clients en backlog produit priorisé, en utilisant des techniques d'animation d'ateliers et de prototypage."
-      },
-      {
-        "id": "AC53",
-        "title": "Identifier les critères de faisabilité d'un projet informatique",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "J'évalue la viabilité technique, économique et temporelle d'un projet avant son lancement, en identifiant les risques majeurs."
-      },
-      {
-        "id": "AC54",
-        "title": "Définir et mettre en œuvre une démarche de suivi de projet",
-        "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Je pilote des projets en utilisant des méthodologies agiles (Scrum, Kanban), assurant le respect des délais et la qualité des livrables."
-      }
+      "Pas de niveau 3 pour conduire"
     ]
   },
   {
