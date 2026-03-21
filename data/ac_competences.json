@@ -62,30 +62,6 @@
     ]
   },
   {
-    "id": "C3",
-    "title": "Administrer",
-    "description": "Déployer des services dans une architecture réseau",
-    "acs": [
-      "Pas de niveau 3 pour Administrer"
-    ]
-  },
-  {
-    "id": "C4",
-    "title": "Gérer",
-    "description": "Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité",
-    "acs": [
-      "Pas de niveau 3 pour gérer"
-    ]
-  },
-  {
-    "id": "C5",
-    "title": "Conduire",
-    "description": "Appliquer une démarche de suivi de projet en fonction des besoins métiers des client et des utilisateurs",
-    "acs": [
-      "Pas de niveau 3 pour conduire"
-    ]
-  },
-  {
     "id": "C6",
     "title": "Collaborer",
     "description": "Situer son rôle et ses missions au sein d'une équipe informatique",
