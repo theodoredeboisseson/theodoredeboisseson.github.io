@@ -1,11 +1,11 @@
-import {notFound} from 'next/navigation';
-import {MDXRemote} from 'next-mdx-remote/rsc';
-import {getProjectBySlug, getProjectSlugs} from '@/lib/mdx';
+import { notFound } from 'next/navigation';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import { getProjectBySlug, getProjectSlugs } from '@/lib/mdx';
 import skillsData from '@/data/skills.json';
 import TechnicalCrosshair from '../../components/ui/TechnicalCrosshair';
 import ReturnButton from '../../components/ui/ReturnButton';
 import ProjectWave from '../../components/ui/MovementLine';
-import {ArrowUpRight, Eye} from 'lucide-react';
+import { ArrowUpRight, Eye } from 'lucide-react';
 import ACTooltip from '../../components/ui/ACTooltip';
 
 // Custom MDX Components
@@ -144,9 +144,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
                         </div>
 
-                        {/* Tech Badges Row (Keep it somewhere?) User didn't specify where tech badges go, but likely keep them or similar. 
-                             The previous design had them in sidebar. Let's add them below the Links row using a Spacer.
-                         */}
+                        {/* Tech Badges Row */}
                         <div className="mt-8">
                             <TechBadge badges={projectBadges} />
                         </div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import MovementLine from '../ui/MovementLine';
+import TechBadge from '../ui/TechBadge';
 import { ExperienceSectionProps } from '../../Interfaces';
 
 export default function ExperienceSection({ experiences, skills, projects }: ExperienceSectionProps) {
@@ -90,21 +91,19 @@ export default function ExperienceSection({ experiences, skills, projects }: Exp
                                         </p>
 
                                         {/* Description */}
-                                        <p className="font-mono text-sm opacity-60 max-w-xl border-l-2 border-primary/50 pl-4 py-1 mb-5">
+                                        <p className="font-mono text-sm opacity-60 max-w-xl border-l-2 border-primary/50 pl-4 py-1 mb-2">
                                             {item.description}
                                         </p>
 
                                         {/* Skills pills */}
                                         {resolvedSkills.length > 0 && (
-                                            <div className="flex flex-wrap gap-2 mb-5">
-                                                {resolvedSkills.map((skill) => skill && (
-                                                    <span
-                                                        key={skill.id}
-                                                        className="font-mono text-xs bg-foreground/5 border border-foreground/10 px-2.5 py-1 rounded-sm text-foreground/70"
-                                                    >
-                                                        {skill.name}
-                                                    </span>
-                                                ))}
+                                            <div className="mb-5 -mt-2">
+                                                <TechBadge
+                                                    badges={(resolvedSkills as import('../../Interfaces').Skill[]).map(skill => ({
+                                                        label: skill.name,
+                                                        icon: skill.icon
+                                                    }))}
+                                                />
                                             </div>
                                         )}
 

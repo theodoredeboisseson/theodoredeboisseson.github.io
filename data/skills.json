@@ -189,6 +189,6 @@
         "category": "Tech",
         "icon": "neo4j.svg",
         "comfortLevel": 30,
-        "description": "Base de données orientée graphe. Requêtes Cypher et intégration avec des LLMs (RAG) pour l'interrogation en langage naturel."
+        "description": "Base de données orientée graphe. J'ai appris en également en utilisant des requêtes Cypher."
     }
 ]
