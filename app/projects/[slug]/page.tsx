@@ -5,7 +5,7 @@ import skillsData from '@/data/skills.json';
 import TechnicalCrosshair from '../../components/ui/TechnicalCrosshair';
 import ReturnButton from '../../components/ui/ReturnButton';
 import ProjectWave from '../../components/ui/MovementLine';
-import { ArrowUpRight, Eye } from 'lucide-react';
+import { ArrowUpRight, Eye, Clock, Users } from 'lucide-react';
 import ACTooltip from '../../components/ui/ACTooltip';
 
 // Custom MDX Components
@@ -54,7 +54,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
             {/* Header / Hero Section */}
             <section className="relative w-full pt-32 pb-12 px-6 md:px-12 lg:px-24">
-                <ReturnButton href="/projects" label="Gallery" className="mb-6 md:mb-12" />
+                <ReturnButton href="/projects" label="Gallery" className="mb-6 md:mb-12" projectSlug={project.slug} />
                 <TechnicalCrosshair className="top-8 right-6 md:right-12 lg:right-24" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -139,6 +139,29 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                             <ACTooltip key={ac} acString={ac} />
                                         ))}
                                     </div>
+                                </div>
+                            )}
+
+                            {/* Separator if ACs exist and duration/team exist */}
+                            {project.ac_list && project.ac_list.length > 0 && (project.duration || project.team_size) && (
+                                <div className="hidden md:block w-px h-8 bg-black/10" />
+                            )}
+
+                            {/* Project Meta (Duration & Team Size) */}
+                            {(project.duration || project.team_size) && (
+                                <div className="flex flex-col gap-2 text-label opacity-60">
+                                    {project.duration && (
+                                        <div className="flex items-center gap-2">
+                                            <Clock size={14} className="text-primary" />
+                                            <span>{project.duration}</span>
+                                        </div>
+                                    )}
+                                    {project.team_size && (
+                                        <div className="flex items-center gap-2">
+                                            <Users size={14} className="text-primary" />
+                                            <span>{project.team_size}</span>
+                                        </div>
+                                    )}
                                 </div>
                             )}
 

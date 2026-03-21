@@ -7,7 +7,7 @@ export interface Project {
     ac_list?: string[];
     image?: string;
     usedSkills?: string[];
-    filter?: 'Tech' | 'Art';
+    filter?: string[];
 }
 
 export interface AC {
@@ -31,6 +31,7 @@ export interface HeroProps {
     description: string;
     profileImage: string;
     isMobile?: boolean;
+    availability?: string;
 }
 
 export interface Skill {

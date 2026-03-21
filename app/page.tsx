@@ -33,6 +33,7 @@ export default function Home() {
         subtitle="STUDENT DEVELOPER"
         description="Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time."
         profileImage="/images/profile_picture.jpg"
+        availability="Dispo dès sept. 2026"
       />
 
       {/* Tactical Bar - Espace Jury */}

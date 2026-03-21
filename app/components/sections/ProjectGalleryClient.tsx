@@ -16,7 +16,7 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
     const [activeFilter, setActiveFilter] = useState('All');
 
     const filteredProjects = projects.filter(project =>
-        activeFilter === 'All' || project.filter === activeFilter
+        activeFilter === 'All' || (project.filter && project.filter.includes(activeFilter))
     );
 
     return (
@@ -51,7 +51,7 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
             <div className="flex flex-col gap-24">
                 <AnimatePresence mode="popLayout">
                     {filteredProjects.map((project, index) => (
-                        <div key={project.slug}>
+                        <div key={project.slug} id={project.slug} className="scroll-mt-32">
                             <ProjectCard project={project} index={index} />
                         </div>
                     ))}

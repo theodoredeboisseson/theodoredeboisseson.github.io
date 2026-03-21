@@ -7,12 +7,15 @@ interface ReturnButtonProps {
     href?: string;
     label?: string;
     className?: string;
+    projectSlug?: string;
 }
 
-export default function ReturnButton({ href = "/", label = "Back", className = "" }: ReturnButtonProps) {
+export default function ReturnButton({ href = "/", label = "Back", className = "", projectSlug }: ReturnButtonProps) {
+    const finalHref = projectSlug && href === "/projects" ? `${href}#${projectSlug}` : href;
+
     return (
         <Link
-            href={href}
+            href={finalHref}
             className={`group sticky top-8 z-40 w-fit inline-flex items-center gap-2 px-6 py-3 
                 bg-transparent border-[0.5px] border-foreground/20 
                 rounded-tr-2xl rounded-br-2xl rounded-bl-2xl rounded-tl-[2px]

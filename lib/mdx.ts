@@ -17,9 +17,11 @@ export interface ProjectMetadata {
     };
     description: string;
     image?: string;
+    duration?: string;
+    team_size?: string;
     featured?: boolean;
     usedSkills?: string[];
-    filter?: 'Tech' | 'Art';
+    filter?: string[];
 }
 
 export interface ProjectData extends ProjectMetadata {
@@ -53,9 +55,11 @@ export function getProjectBySlug(slug: string): ProjectData | null {
         links: data.links,
         description: data.description,
         image: data.image,
+        duration: data.duration,
+        team_size: data.team_size,
         featured: data.featured || false,
         usedSkills: data.usedSkills || [],
-        filter: data.filter || 'Tech', // Default to Tech for now
+        filter: data.filter ? (Array.isArray(data.filter) ? data.filter : [data.filter]) : ['Tech'],
         content: processedContent,
     };
 }

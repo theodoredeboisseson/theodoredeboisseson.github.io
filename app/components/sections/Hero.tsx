@@ -6,7 +6,7 @@ import AnimatedText from "../ui/AnimatedText";
 
 import { HeroProps } from "../../Interfaces";
 
-export default function Hero({ issueText, title, subtitle, description, profileImage }: HeroProps) {
+export default function Hero({ issueText, title, subtitle, description, profileImage, availability }: HeroProps) {
     const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1.0]; // Premium smooth easing
 
     return (
@@ -105,9 +105,14 @@ export default function Hero({ issueText, title, subtitle, description, profileI
                             transition={{ delay: 3.8, duration: 0.5, type: "spring" }}
                             className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl rounded-tl-sm border border-black/5 shadow-sm"
                         >
-                            <div className="flex items-center gap-2">
-                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                <span className="font-mono text-[10px] uppercase text-black">Open to work</span>
+                            <div className="flex flex-col items-start gap-1">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                    <span className="font-mono text-[10px] uppercase text-black font-bold">Open to work</span>
+                                </div>
+                                {availability && (
+                                    <span className="font-mono text-[9px] uppercase text-black/60 pl-4">{availability}</span>
+                                )}
                             </div>
                         </motion.div>
                     </motion.div>

@@ -62,7 +62,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                 {/* Metadata Block */}
                 <div className="lg:col-span-4 flex flex-col items-end text-right pt-4 lg:pt-0">
-                    <div className="text-label space-y-4 opacity-60 text-foreground">
+                    <div className="text-label space-y-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 text-foreground">
                         <div className="flex flex-col">
                             <span className="font-bold">Category</span>
                             <span>{project.category}</span>
