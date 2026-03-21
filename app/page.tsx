@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Hero from "./components/sections/Hero";
+import AboutSection from "./components/sections/AboutSection";
 import SkillsStickers from "./components/sections/SkillsArsenal";
 import FeaturedProjects from "./components/sections/FeaturedProjects";
 import FormationSection from "./components/sections/FormationSection";
@@ -46,6 +47,7 @@ export default function Home() {
           </span>
         </div>
       </Link>
+      <AboutSection />
       <SkillsStickers
         projects={allProjects}
         skills={skillsData}
