@@ -9,6 +9,7 @@ import skillsData from '../../../data/skills.json';
 import { Project } from '../../Interfaces';
 import DynamicIcon from './DynamicIcon';
 import ACTooltip from './ACTooltip';
+import ContextBadge from './ContextBadge';
 
 interface ProjectCardProps {
     project: Project;
@@ -66,12 +67,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         <div className="flex flex-col">
                             <span className="font-bold">Context</span>
                             <span className="mt-1 flex justify-end">
-                                <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-widest border ${project.context === 'Professionnel' ? 'bg-blue-500/10 text-blue-500 border-blue-500/20' :
-                                        project.context === 'Scolaire' ? 'bg-orange-500/10 text-orange-500 border-orange-500/20' :
-                                            'bg-green-500/10 text-green-500 border-green-500/20'
-                                    }`}>
-                                    {project.context}
-                                </span>
+                                <ContextBadge context={project.context} />
                             </span>
                         </div>
                         <div className="flex flex-col">

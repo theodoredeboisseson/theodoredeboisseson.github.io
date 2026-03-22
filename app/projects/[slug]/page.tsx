@@ -14,6 +14,7 @@ import TechBadge from '../../components/ui/TechBadge';
 import VideoPlayer from '../../components/mdx/VideoPlayer';
 import Hyperlink from '../../components/mdx/Hyperlink';
 import Spacer from '../../components/mdx/Spacer';
+import ContextBadge from '../../components/ui/ContextBadge';
 
 const components = {
     ProjectGallery,
@@ -84,14 +85,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                         <div className="flex items-center gap-4 mb-6 text-label opacity-60">
                             <span className="text-primary">●</span>
                             <span>{project.category} // {project.date}</span>
-                            {project.context && (
-                                <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-widest border ${project.context === 'Professionnel' ? 'bg-blue-500/10 text-blue-500 border-blue-500/20' :
-                                        project.context === 'Scolaire' ? 'bg-orange-500/10 text-orange-500 border-orange-500/20' :
-                                            'bg-green-500/10 text-green-500 border-green-500/20'
-                                    }`}>
-                                    {project.context}
-                                </span>
-                            )}
+                            <ContextBadge context={project.context} />
                         </div>
 
                         <h1 className="text-serif-italic text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-8">
