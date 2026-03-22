@@ -9,7 +9,7 @@ export default function AboutSection() {
         { name: "Grec", level: "Maternel", flag: "🇬🇷" },
         { name: "Anglais", level: "B2/C1", flag: "🇬🇧" },
         { name: "Japonais", level: "A2 (Autodidacte)", flag: "🇯🇵" },
-        { name: "Espagnol", level: "A2 (École)", flag: "🇪🇸" }
+        { name: "Espagnol", level: "A2 (Scolaire)", flag: "🇪🇸" }
     ];
 
     const softSkills = [

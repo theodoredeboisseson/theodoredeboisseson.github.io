@@ -64,6 +64,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 <div className="lg:col-span-4 flex flex-col items-end text-right pt-4 lg:pt-0">
                     <div className="text-label space-y-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 text-foreground">
                         <div className="flex flex-col">
+                            <span className="font-bold">Context</span>
+                            <span className="mt-1 flex justify-end">
+                                <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-mono uppercase tracking-widest border ${project.context === 'Professionnel' ? 'bg-blue-500/10 text-blue-500 border-blue-500/20' :
+                                        project.context === 'Scolaire' ? 'bg-orange-500/10 text-orange-500 border-orange-500/20' :
+                                            'bg-green-500/10 text-green-500 border-green-500/20'
+                                    }`}>
+                                    {project.context}
+                                </span>
+                            </span>
+                        </div>
+                        <div className="flex flex-col">
                             <span className="font-bold">Category</span>
                             <span>{project.category}</span>
                         </div>

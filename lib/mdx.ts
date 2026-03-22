@@ -22,6 +22,7 @@ export interface ProjectMetadata {
     featured?: boolean;
     usedSkills?: string[];
     filter?: string[];
+    context?: 'Scolaire' | 'Perso' | 'Professionnel';
 }
 
 export interface ProjectData extends ProjectMetadata {
@@ -60,6 +61,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
         featured: data.featured || false,
         usedSkills: data.usedSkills || [],
         filter: data.filter ? (Array.isArray(data.filter) ? data.filter : [data.filter]) : ['Tech'],
+        context: data.context || 'Perso',
         content: processedContent,
     };
 }

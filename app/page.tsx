@@ -23,7 +23,8 @@ export default function Home() {
       under_the_hood: p.description,
       ac_list: p.ac_list,
       image: p.image,
-      usedSkills: p.usedSkills
+      usedSkills: p.usedSkills,
+      context: p.context
     }));
 
   return (

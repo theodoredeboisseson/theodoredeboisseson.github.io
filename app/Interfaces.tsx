@@ -8,6 +8,7 @@ export interface Project {
     image?: string;
     usedSkills?: string[];
     filter?: string[];
+    context?: 'Scolaire' | 'Perso' | 'Professionnel';
 }
 
 export interface AC {

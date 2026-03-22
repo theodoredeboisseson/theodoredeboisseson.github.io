@@ -20,7 +20,8 @@ export default function ProjectsGalleryPage() {
         ac_list: p.ac_list,
         image: p.image,
         filter: p.filter,
-        usedSkills: p.usedSkills
+        usedSkills: p.usedSkills,
+        context: p.context
     }));
 
     return (
