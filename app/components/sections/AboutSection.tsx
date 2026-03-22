@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Globe, Brain, Sparkles, Palette } from 'lucide-react';
+import { Globe, Brain, Sparkles, Palette, Target } from 'lucide-react';
 
 export default function AboutSection() {
     const languages = [
@@ -34,6 +34,28 @@ export default function AboutSection() {
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-auto">
+                {/* Status/Seeking (Full width or Span 12) - Highlighted */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="md:col-span-12 bg-white border border-border rounded-4xl rounded-bl-sm md:rounded-bl-4xl p-8 md:p-10 relative overflow-hidden group hover:border-primary/50 transition-colors flex flex-col md:flex-row gap-6 lg:gap-8 items-start md:items-center w-full shadow-sm"
+                >
+                    <div className="absolute -right-10 -top-10 opacity-5 group-hover:opacity-10 transition-opacity">
+                        <Target size={200} />
+                    </div>
+                    <div className="flex items-center gap-3 w-fit pt-1 shrink-0 relative z-10">
+                        <div className="p-3 border border-border rounded-xl bg-background text-primary">
+                            <Target size={28} />
+                        </div>
+                        <h3 className="text-xl md:text-2xl font-bold font-sans uppercase tracking-tight w-fit">Recherche</h3>
+                        <div className="hidden md:block w-px h-16 bg-border mx-4"></div>
+                    </div>
+                    <div className="relative z-10 font-sans text-lg md:text-xl text-foreground/80 leading-relaxed max-w-4xl">
+                        À la recherche d'un <strong>CDD (3 à 6 mois) ou CDI</strong> à partir de <strong>Septembre 2026</strong> sur <strong>Montpellier</strong>. 
+                        Intéressé par les <strong>Startups</strong> et les <strong>ESN</strong>. Ouvert sur le rôle (Front, Back ou Full-stack) avec une forte appétence pour les écosystèmes <strong>React</strong> et <strong>Spring / Kotlin</strong>.
+                    </div>
+                </motion.div>
                 {/* Hobbies Card (Larger, Span 7) */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
