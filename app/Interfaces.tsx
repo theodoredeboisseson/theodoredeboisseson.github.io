@@ -1,15 +1,6 @@
-export interface Project {
-    slug: string;
-    title: string;
-    category: string;
-    date: string;
-    under_the_hood: string;
-    ac_list?: string[];
-    image?: string;
-    usedSkills?: string[];
-    filter?: string[];
-    context?: 'Scolaire' | 'Perso' | 'Professionnel';
-}
+import type { ProjectMetadata } from '../lib/mdx';
+
+export type Project = Pick<ProjectMetadata, 'slug' | 'title' | 'category' | 'date' | 'description' | 'ac_list' | 'image' | 'usedSkills' | 'filter' | 'context'>;
 
 export interface AC {
     id: string; // e.g. "AC11"

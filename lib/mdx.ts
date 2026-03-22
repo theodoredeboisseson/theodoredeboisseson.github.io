@@ -73,3 +73,18 @@ export function getAllProjects(): ProjectData[] {
         .filter((project): project is ProjectData => project !== null)
         .sort((project1, project2) => (project1.date > project2.date ? -1 : 1));
 }
+
+export function getProjectSummary(p: ProjectData) {
+    return {
+        slug: p.slug,
+        title: p.title,
+        category: p.category,
+        date: p.date,
+        description: p.description,
+        ac_list: p.ac_list,
+        image: p.image,
+        usedSkills: p.usedSkills,
+        filter: p.filter,
+        context: p.context
+    };
+}

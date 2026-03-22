@@ -134,7 +134,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         </span>
                     </h2>
                     <p className="mt-2 ml-2 font-serif font-light text-sm md:text-lg inline-block bg-black/40 backdrop-blur-md text-white px-3 py-1 -skew-x-12 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 tracking-wide shadow-lg">
-                        {project.under_the_hood}
+                        {project.description}
                     </p>
                 </div>
 

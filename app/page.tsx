@@ -6,7 +6,7 @@ import FeaturedProjects from "./components/sections/FeaturedProjects";
 import FormationSection from "./components/sections/FormationSection";
 import ExperienceSection from "./components/sections/ExperienceSection";
 import ContactSection from "./components/sections/ContactSection";
-import { getAllProjects } from "@/lib/mdx";
+import { getAllProjects, getProjectSummary } from "@/lib/mdx";
 import { Project, Experience } from "./Interfaces";
 import bioData from '@/data/bio.json';
 import skillsData from '@/data/skills.json';
@@ -15,17 +15,7 @@ export default function Home() {
   const allProjects = getAllProjects();
   const featuredProjects: Project[] = allProjects
     .filter(p => p.featured)
-    .map(p => ({
-      slug: p.slug,
-      title: p.title,
-      category: p.category,
-      date: p.date,
-      under_the_hood: p.description,
-      ac_list: p.ac_list,
-      image: p.image,
-      usedSkills: p.usedSkills,
-      context: p.context
-    }));
+    .map(getProjectSummary);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
