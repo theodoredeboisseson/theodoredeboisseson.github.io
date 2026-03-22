@@ -29,7 +29,7 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
 
     const handleSkillClick = (skill: Skill) => {
         // Check if skill has linked projects or description
-        const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.id)) || skill.description;
+        const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.name)) || skill.description;
 
         if (hasLinkedData) {
             setSelectedSkill(skill);
@@ -96,11 +96,11 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                     >
                         <AnimatePresence>
                             {filteredSkills.map((skill, index) => {
-                                const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.id)) || skill.description;
+                                const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.name)) || skill.description;
 
                                 return (
                                     <motion.div
-                                        key={skill.id}
+                                        key={skill.name}
                                         layout
                                         initial={{ opacity: 0, scale: 0.8, y: 20 }}
                                         whileInView={{ opacity: 1, scale: 1, y: 0 }}

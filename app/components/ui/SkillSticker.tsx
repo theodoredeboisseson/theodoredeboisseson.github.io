@@ -40,8 +40,7 @@ export default function SkillSticker({ skill, hasLinkedData, onClick }: SkillSti
                 {/* Tactical Gauge */}
                 <div className="flex gap-1 justify-center w-full px-4">
                     {[...Array(5)].map((_, i) => {
-                        // Convert 100 base comfortLevel to 5 segments
-                        const isActive = (i + 1) * 20 <= skill.comfortLevel;
+                        const isActive = (i + 1) <= skill.comfortLevel;
                         return (
                             <div
                                 key={i}

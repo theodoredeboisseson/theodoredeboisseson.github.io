@@ -43,7 +43,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
     }
 
     // Map used skills to full skill objects
-    const usedSkillsData = project.usedSkills?.map(id => skillsData.find(s => s.id === id)).filter(Boolean) || [];
+    const usedSkillsData = project.usedSkills?.map(name => skillsData.find(s => s.name === name)).filter(Boolean) || [];
 
     // Create unified badges list
     const projectBadges = [
@@ -74,16 +74,13 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                         ) : (
                             <div className="w-full aspect-square bg-neutral-100 rounded-sm border border-black/5" />
                         )}
-
-                        {/* Meta Sidebar (Mobile: bottom, Desktop: below image logic?) 
-                            Actually user said: "Reduis donc la taille de l'image et décale la sur la gauche, sur sa droite je veux dans l'ordre : Live demo, source code, puis la liste des AC comme pour le project card."
-                        */}
                     </div>
 
                     {/* Right: Title & Info & AC & Links */}
                     <div className="lg:col-span-8 order-1 lg:order-2 flex flex-col items-start">
                         <div className="flex items-center gap-4 mb-6 text-label opacity-60">
                             <span className="text-primary">●</span>
+                            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                             <span>{project.category} // {project.date}</span>
                             <ContextBadge context={project.context} />
                         </div>

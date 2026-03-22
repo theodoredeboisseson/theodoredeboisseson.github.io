@@ -1,190 +1,166 @@
 [
     {
-        "id": "1",
         "name": "Next.js",
         "category": "Tech",
         "icon": "nextjs.svg",
-        "comfortLevel": 90,
+        "comfortLevel": 5,
         "description": "Utilisé comme base de ce portfolio pour sa performance et la puissance de son App Router (SSR/SSG)."
     },
     {
-        "id": "2",
         "name": "Blender",
         "category": "Art",
         "icon": "blender.svg",
-        "comfortLevel": 40,
+        "comfortLevel": 2,
         "description": "Modélisation 3D et animation. Petits projets personnels pour mon propre plaisir."
     },
     {
-        "id": "3",
         "name": "Piano",
         "category": "Art",
         "icon": "Music",
-        "comfortLevel": 40,
+        "comfortLevel": 2,
         "description": "Pratique en autodidacte depuis 2024. Participe à des masterclass occasionnelles. Amateur de la musique impressioniste ainsi que de films et séries."
     },
     {
-        "id": "4",
         "name": "HTML & CSS",
         "category": "Tech",
         "icon": "HTML5.svg",
-        "comfortLevel": 80,
+        "comfortLevel": 4,
         "description": "Étant très souvent le développeur front-end des projects scolaire, j'ai une certaine expertise dans ce domaine, notamment en CSS. Presque toujours le web-  designer du groupe, j'ai appris à créer des interfaces graphiques complexes à la volée très rapidement."
     },
     {
-        "id": "5",
         "name": "JavaScript",
         "category": "Tech",
         "icon": "JavaScript.svg",
-        "comfortLevel": 60,
+        "comfortLevel": 3,
         "description": "Langage coeur de ma stack front-end, principalement exploité à travers des frameworks modernes."
     },
     {
-        "id": "6",
         "name": "PHP",
         "category": "Tech",
         "icon": "php.svg",
-        "comfortLevel": 80,
+        "comfortLevel": 4,
         "description": "Premier langage back-end appris. Utilisé pour construire divers petits modèles de conception MVC complets."
     },
     {
-        "id": "7",
         "name": "Java",
         "category": "Tech",
         "icon": "java.svg",
-        "comfortLevel": 80,
+        "comfortLevel": 4,
         "description": "Apprentissage des fondations de la programmation orientée objet stricte et de l'architecture logicielle classique."
     },
     {
-        "id": "8",
         "name": "MariaDB",
         "category": "Tech",
         "icon": "mariadb-blue.svg",
-        "comfortLevel": 60,
+        "comfortLevel": 3,
         "description": "Gestion de bases de données relationnelles SQL."
     },
     {
-        "id": "9",
         "name": "C++",
         "category": "Tech",
         "icon": "c++.svg",
-        "comfortLevel": 40,
+        "comfortLevel": 2,
         "description": "Programmation système et dans mon cas la logique embarquée (Arduino)."
     },
     {
-        "id": "10",
         "name": "JetBrains",
         "category": "Tools",
         "icon": "jetbrains.svg",
-        "comfortLevel": 60,
+        "comfortLevel": 3,
         "description": "Ma suite d'outils quotidiens préférée pour garantir un développement fluide et un refactoring efficace. Je connais et exploite l'outil souvent mieux que mes camarades."
     },
     {
-        "id": "11",
         "name": "Agile Scrum",
         "category": "Method",
         "icon": "scrum.svg",
-        "comfortLevel": 60,
+        "comfortLevel": 3,
         "description": "Méthodologie de gestion de projet itérative et collaborative. L'utilisation de tableaux Kanban est devenue automatique."
     },
     {
-        "id": "12",
         "name": "Docker",
         "category": "Tools",
         "icon": "docker.svg",
-        "comfortLevel": 80,
+        "comfortLevel": 4,
         "description": "Mise en place systématique de conteneurs pour standardiser mes environnements et faciliter les grosses mises en production."
     },
     {
-        "id": "13",
         "name": "GitLab",
         "category": "Tools",
         "icon": "gitlab.svg",
-        "comfortLevel": 80,
+        "comfortLevel": 4,
         "description": "Outil standard utilisé à l'IUT. Pour le versioning d'équipe et la création de pipelines CI/CD."
     },
     {
-        "id": "14",
         "name": "GitHub",
         "category": "Tools",
         "icon": "github-mark.svg",
-        "comfortLevel": 80,
+        "comfortLevel": 4,
         "description": "Hébergement principal de mon code. Vitrine open-source pour mon portfolio et mes expérimentations personnelles."
     },
     {
-        "id": "15",
         "name": "TypeScript",
         "category": "Tech",
         "icon": "typescript.svg",
-        "comfortLevel": 80,
+        "comfortLevel": 4,
         "description": "Surcouche de sécurité que j'apprécie de plus en plus. Utilisé avec Next.js pour ce portfolio et d'autres applications React."
     },
     {
-        "id": "16",
         "name": "Tailwind CSS",
         "category": "Tech",
         "icon": "tailwind.svg",
-        "comfortLevel": 100,
+        "comfortLevel": 5,
         "description": "Mon outil de stylisation favori, me permettant de concevoir des interfaces utilisateur très rapidement. Je l'utilise pour la quasi-totalité de mes projets depuis la nuit de l'info 2024 où j'ai découvert le framework."
     },
     {
-        "id": "17",
         "name": "Photographie",
         "category": "Art",
         "icon": "Camera",
-        "comfortLevel": 40,
+        "comfortLevel": 2,
         "description": "Apprends la prise de vue, la retouche Lightroom, la composition ou juste prend du plaisir avec un Canon EOS 650D depuis Avril 2025."
     },
     {
-        "id": "18",
         "name": "Kotlin",
         "category": "Tech",
         "icon": "kotlin.svg",
-        "comfortLevel": 80,
+        "comfortLevel": 4,
         "description": "Mon langage back-end favori. Découverte en autodidacte sur le projet JiFoosball, j'ai pu y créer une architecture back-end solide."
     },
     {
-        "id": "19",
         "name": "Antigravity",
         "category": "Tools",
         "icon": "antigravity.svg",
-        "comfortLevel": 60,
+        "comfortLevel": 3,
         "description": "Agent d'intelligence artificielle agissant comme pair-programmer. Découverte de l'outil lors de la création de ce portfolio."
     },
     {
-        "id": "20",
         "name": "Vue.js",
         "category": "Tech",
         "icon": "vuejs.svg",
-        "comfortLevel": 60,
+        "comfortLevel": 3,
         "description": "Framework front-end alternatif très apprécié pour prototyper avec une réactivité et une légèreté maximales. Appris lors de la Nuit de l'Info 2025 puis en cours à l'IUT."
     },
     {
-        "id": "21",
         "name": "Symfony",
         "category": "Tech",
         "icon": "symfony.svg",
-        "comfortLevel": 60,
+        "comfortLevel": 3,
         "description": "Exploité spécialement avec API Platform pour créer facilement des endpoints REST structurés."
     },
     {
-        "id": "22",
         "name": "Python",
         "category": "Tech",
         "icon": "python.svg",
-        "comfortLevel": 40,
+        "comfortLevel": 2,
         "description": "Langage couteau suisse, utilisé pour le développement web fullstack avec le framework Django lors de la refonte du site de la MJC."
     },
     {
-        "id": "23",
         "name": "React",
         "category": "Tech",
         "icon": "react.svg",
-        "comfortLevel": 100,
+        "comfortLevel": 5,
         "description": "Mon framework front-end favori pour la composition d'interfaces interactives sur le support web mais également mobile (React Native)."
     },
     {
-        "id": "24",
         "name": "Neo4j",
         "category": "Tech",
         "icon": "neo4j.svg",

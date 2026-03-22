@@ -32,9 +32,9 @@ export default function ExperienceSection({ experiences, skills, projects }: Exp
                             ? projects.find(p => p.slug === item.project_slug)
                             : null;
 
-                        const skillIds = linkedProject?.usedSkills ?? item.skill_ids ?? [];
-                        const resolvedSkills = skillIds
-                            .map(id => skills.find(s => s.id === id))
+                        const skillNames = linkedProject?.usedSkills ?? item.skills ?? [];
+                        const resolvedSkills = skillNames
+                            .map(name => skills.find(s => s.name === name))
                             .filter(Boolean);
 
                         const isUpcoming = item.status === 'upcoming';

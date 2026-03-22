@@ -8,13 +8,13 @@
             "type": "Stage",
             "status": "upcoming",
             "description": "Développement en binôme d'une API REST intégrant des LLMs (RAG) pour interroger en langage naturel une base de données graphe Neo4j. Interface utilisateur en React.",
-            "skill_ids": [
-                "23",
-                "24",
-                "5",
-                "15"
-            ],
-            "project_slug": null
+            "project_slug": null,
+            "skills": [
+                "React",
+                "Neo4j",
+                "JavaScript",
+                "TypeScript"
+            ]
         },
         {
             "period": "Jan – Avr 2025",

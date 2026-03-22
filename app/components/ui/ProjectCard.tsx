@@ -17,7 +17,7 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-    const linkedSkills = project.usedSkills?.map(id => skillsData.find(s => s.id === id)).filter(Boolean) || [];
+    const linkedSkills = project.usedSkills?.map(name => skillsData.find(s => s.name === name)).filter(Boolean) || [];
 
     return (
         <motion.article
@@ -85,7 +85,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 <span className="font-bold mb-1">Stack</span>
                                 <div className="flex flex-wrap gap-2 justify-end">
                                     {linkedSkills.slice(0, 18).map((skill) => (
-                                        <div key={skill!.id} title={skill!.name} className="text-foreground/80 hover:text-primary transition-colors">
+                                        <div key={skill!.name} title={skill!.name} className="text-foreground/80 hover:text-primary transition-colors">
                                             <DynamicIcon name={skill!.icon} category={skill!.category} size={32} className="size-9" />
                                         </div>
                                     ))}

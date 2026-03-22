@@ -27,7 +27,6 @@ export interface HeroProps {
 }
 
 export interface Skill {
-    id: string;
     name: string;
     category: string;
     icon: string;
@@ -62,7 +61,7 @@ export interface Experience {
     type: string;
     status: 'completed' | 'upcoming';
     description: string;
-    skill_ids?: string[];
+    skills?: string[];
     project_slug: string | null;
 }
 
