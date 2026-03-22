@@ -19,7 +19,7 @@ export default function AboutSection() {
 
     const hobbies = [
         "Jeux Vidéo (Compétitif, Souls-like)", "Dessin", "Piano",
-        "Photographie", "Modélisation 3D", "Kung-Fu"
+        "Photographie", "Modélisation 3D", "Kung-Fu", "Automobile"
     ];
 
     return (
@@ -34,28 +34,28 @@ export default function AboutSection() {
             </motion.h2>
 
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-auto">
-                {/* Soft Skills Card (Larger, Span 7) */}
+                {/* Hobbies Card (Larger, Span 7) */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1, duration: 0.6 }}
-                    className="md:col-span-7 bg-foreground text-background/90 rounded-4xl rounded-br-sm md:rounded-br-4xl md:rounded-tr-sm p-8 md:p-10 relative overflow-hidden group hover:shadow-2xl transition-all"
+                    className="md:col-span-7 bg-foreground text-background/90 rounded-4xl rounded-br-sm md:rounded-br-4xl md:rounded-tr-sm p-8 md:p-10 relative overflow-hidden group transition-colors border hover:border-primary"
                 >
                     <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
-                        <Brain size={120} />
+                        <Sparkles size={120} />
                     </div>
                     <div className="flex items-center gap-3 mb-8 relative z-10">
                         <div className="p-2 border border-background/20 rounded-xl bg-background/5">
-                            <Sparkles className="text-primary" size={24} />
+                            <Palette className="text-primary" size={24} />
                         </div>
-                        <h3 className="text-2xl font-bold font-sans uppercase tracking-tight text-white">Soft Skills</h3>
+                        <h3 className="text-2xl font-bold font-sans uppercase tracking-tight text-white">Hobbies</h3>
                     </div>
-                    <div className="flex flex-wrap gap-3 relative z-10">
-                        {softSkills.map((skill, i) => (
-                            <span key={i} className="px-5 py-2.5 rounded-full border border-background/20 text-sm md:text-base font-mono uppercase tracking-widest bg-background/5 hover:bg-background/10 transition-colors">
-                                {skill}
-                            </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative z-10 w-full">
+                        {hobbies.map((hobby, i) => (
+                            <div key={i} className="px-4 py-3.5 rounded-2xl border border-background/10 bg-background/5 hover:bg-background/10 transition-colors flex items-center">
+                                <span className="font-mono text-xs uppercase tracking-widest leading-snug">{hobby}</span>
+                            </div>
                         ))}
                     </div>
                 </motion.div>
@@ -66,7 +66,7 @@ export default function AboutSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    className="md:col-span-5 bg-gray-50 border border-border rounded-4xl rounded-tr-sm md:rounded-tr-4xl md:rounded-tl-sm p-8 md:p-10 relative overflow-hidden group hover:border-primary transition-all flex flex-col justify-between"
+                    className="md:col-span-5 bg-gray-50 border border-border rounded-4xl rounded-tr-sm md:rounded-tr-4xl md:rounded-tl-sm p-8 md:p-10 relative overflow-hidden group hover:border-primary transition-colors flex flex-col justify-between"
                 >
                     <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                         <Globe size={120} />
@@ -92,27 +92,27 @@ export default function AboutSection() {
                     </ul>
                 </motion.div>
 
-                {/* Hobbies / Interests (Full width or Span 12) */}
+                {/* Soft Skills (Full width or Span 12) */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    className="md:col-span-12 bg-primary/5 text-primary rounded-4xl rounded-tl-sm p-8 md:p-10 relative overflow-hidden group border border-primary/10 hover:border-primary/30 hover:bg-primary/10 transition-all flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center w-full"
+                    className="md:col-span-12 bg-primary/5 text-primary rounded-4xl rounded-tl-sm p-8 md:p-10 relative overflow-hidden group border border-primary/10 hover:border-primary/30 hover:bg-primary/10 transition-colors flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center w-full"
                 >
-                    <div className="flex items-center gap-3 w-fit pt-1">
+                    <div className="flex items-center gap-3 w-fit pt-1 shrink-0">
                         <div className="p-2 border border-primary/20 rounded-xl bg-background/50">
-                            <Palette size={24} />
+                            <Brain size={24} />
                         </div>
-                        <h3 className="text-xl md:text-2xl font-bold font-sans uppercase tracking-tight w-fit">Hobbies</h3>
+                        <h3 className="text-xl md:text-2xl font-bold font-sans uppercase tracking-tight w-fit">Soft Skills</h3>
                         <div className="hidden lg:block w-px h-12 bg-primary/20 mx-4"></div>
                     </div>
-                    <div className="flex flex-wrap gap-x-6 gap-y-4">
-                        {hobbies.map((hobby, i) => (
-                            <div key={i} className="flex items-center gap-2 group/hobby">
-                                <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover/hobby:bg-primary transition-colors" />
-                                <span className="font-mono text-sm uppercase tracking-wide opacity-80 group-hover/hobby:opacity-100 transition-opacity">
-                                    {hobby}
+                    <div className="flex flex-wrap justify-between gap-x-4 gap-y-4 w-full">
+                        {softSkills.map((skill, i) => (
+                            <div key={i} className="flex items-center gap-2 group/skill">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary/40 group-hover/skill:bg-primary transition-colors shrink-0" />
+                                <span className="font-mono text-xs lg:text-sm uppercase tracking-wide opacity-80 group-hover/skill:opacity-100 transition-opacity leading-tight">
+                                    {skill}
                                 </span>
                             </div>
                         ))}

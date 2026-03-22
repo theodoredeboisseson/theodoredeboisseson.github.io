@@ -66,9 +66,8 @@ export function getProjectBySlug(slug: string): ProjectData | null {
 
 export function getAllProjects(): ProjectData[] {
     const slugs = getProjectSlugs();
-    const projects = slugs
+    return slugs
         .map((slug) => getProjectBySlug(slug))
         .filter((project): project is ProjectData => project !== null)
         .sort((project1, project2) => (project1.date > project2.date ? -1 : 1));
-    return projects;
 }
