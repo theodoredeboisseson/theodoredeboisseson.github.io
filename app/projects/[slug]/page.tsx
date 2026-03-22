@@ -55,7 +55,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
             {/* Header / Hero Section */}
             <section className="relative w-full pt-32 pb-12 px-6 md:px-12 lg:px-24">
-                <ReturnButton href="/projects" label="Gallery" className="mb-6 md:mb-12" projectSlug={project.slug} />
+                <ReturnButton href="/projects" label="Index" className="mb-6 md:mb-12" projectSlug={project.slug} />
                 <TechnicalCrosshair className="top-8 right-6 md:right-12 lg:right-24" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -108,7 +108,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                             rel="noopener noreferrer"
                                             className="flex items-center gap-2 hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"
                                         >
-                                            Live Demo <ArrowUpRight size={14} />
+                                            Démo Live <ArrowUpRight size={14} />
                                         </a>
                                     )}
                                     {project.links.github && (
@@ -118,7 +118,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                             rel="noopener noreferrer"
                                             className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity"
                                         >
-                                            Source Code <Eye size={14} />
+                                            Code Source <Eye size={14} />
                                         </a>
                                     )}
                                 </div>

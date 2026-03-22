@@ -1,4 +1,59 @@
 {
+    "hero": {
+        "title": "THÉODORE",
+        "subtitle": "ÉTUDIANT EN INFORMATIQUE",
+        "description": "Basé à Montpellier. Étudiant en 3ème année de BUT Informatique. Création de projets numériques sur mon temps libre.",
+        "availability": "Dispo dès sept. 2026"
+    },
+    "about": {
+        "seeking": {
+            "title": "Recherche",
+            "description": "À la recherche d'un **CDD (3 à 6 mois) ou CDI** à partir de **Septembre 2026** sur **Montpellier**. Intéressé par les **Startups** et les **ESN**. Ouvert sur le rôle (Front, Back ou Full-stack) avec une forte appétence pour les écosystèmes **React** et **Spring / Kotlin**."
+        },
+        "languages": [
+            {
+                "name": "Français",
+                "level": "Natif",
+                "flag": "🇫🇷"
+            },
+            {
+                "name": "Grec",
+                "level": "Maternel",
+                "flag": "🇬🇷"
+            },
+            {
+                "name": "Anglais",
+                "level": "B2/C1",
+                "flag": "🇬🇧"
+            },
+            {
+                "name": "Japonais",
+                "level": "A2 (Autodidacte)",
+                "flag": "🇯🇵"
+            },
+            {
+                "name": "Espagnol",
+                "level": "A2 (Scolaire)",
+                "flag": "🇪🇸"
+            }
+        ],
+        "soft_skills": [
+            "Autodiscipline",
+            "Apprentissage continu",
+            "Communication proactive",
+            "Esprit d'équipe & à l'écoute",
+            "Créativité"
+        ],
+        "hobbies": [
+            "Jeux Vidéo (Compétitif, Souls-like)",
+            "Dessin",
+            "Piano",
+            "Photographie",
+            "Modélisation 3D",
+            "Kung-Fu",
+            "Automobile"
+        ]
+    },
     "experiences": [
         {
             "period": "Avr – Août 2026",

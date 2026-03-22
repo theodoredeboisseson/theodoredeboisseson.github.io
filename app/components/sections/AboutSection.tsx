@@ -3,25 +3,9 @@
 import { motion } from 'framer-motion';
 import { Globe, Brain, Sparkles, Palette, Target } from 'lucide-react';
 
-export default function AboutSection() {
-    const languages = [
-        { name: "Français", level: "Natif", flag: "🇫🇷" },
-        { name: "Grec", level: "Maternel", flag: "🇬🇷" },
-        { name: "Anglais", level: "B2/C1", flag: "🇬🇧" },
-        { name: "Japonais", level: "A2 (Autodidacte)", flag: "🇯🇵" },
-        { name: "Espagnol", level: "A2 (Scolaire)", flag: "🇪🇸" }
-    ];
+import { AboutSectionProps } from '../../Interfaces';
 
-    const softSkills = [
-        "Autodiscipline", "Apprentissage continu", "Communication proactive",
-        "Esprit d'équipe & à l'écoute", "Créativité"
-    ];
-
-    const hobbies = [
-        "Jeux Vidéo (Compétitif, Souls-like)", "Dessin", "Piano",
-        "Photographie", "Modélisation 3D", "Kung-Fu", "Automobile"
-    ];
-
+export default function AboutSection({ seeking, languages, softSkills, hobbies }: AboutSectionProps) {
     return (
         <section className="container-7xl px-4 md:px-6 py-12" id="about">
             <motion.h2
@@ -52,8 +36,12 @@ export default function AboutSection() {
                         <div className="hidden md:block w-px h-16 bg-border mx-4"></div>
                     </div>
                     <div className="relative z-10 font-sans text-lg md:text-xl text-foreground/80 leading-relaxed max-w-4xl">
-                        À la recherche d'un <strong>CDD (3 à 6 mois) ou CDI</strong> à partir de <strong>Septembre 2026</strong> sur <strong>Montpellier</strong>. 
-                        Intéressé par les <strong>Startups</strong> et les <strong>ESN</strong>. Ouvert sur le rôle (Front, Back ou Full-stack) avec une forte appétence pour les écosystèmes <strong>React</strong> et <strong>Spring / Kotlin</strong>.
+                        {/* Process bold text from JSON simple markdown style */}
+                        {seeking.description.split(/(\*\*.*?\*\*)/).map((part, i) =>
+                            part.startsWith('**') && part.endsWith('**')
+                                ? <strong key={i}>{part.slice(2, -2)}</strong>
+                                : part
+                        )}
                     </div>
                 </motion.div>
                 {/* Hobbies Card (Larger, Span 7) */}

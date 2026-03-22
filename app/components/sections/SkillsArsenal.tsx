@@ -55,8 +55,21 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                     </div>
                 </div>
 
-                {/* Filters & Legend */}
+                {/* Legend & Filters */}
                 <div className="container-7xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    {/* Legend */}
+                    <div className="flex items-center gap-3 text-label text-foreground/50 border border-foreground/5 bg-foreground/5 px-4 py-2 rounded-full">
+                        <span>Jauge</span>
+                        <div className="flex gap-1 w-16 items-center">
+                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
+                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
+                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
+                            <div className="h-1 flex-1 bg-foreground/10 rounded-full" />
+                            <div className="h-1 flex-1 bg-foreground/10 rounded-full" />
+                        </div>
+                        <span>= Niveau de Confort</span>
+                    </div>
+
                     <div className="flex flex-wrap gap-2">
                         <button
                             onClick={() => setSelectedCategories([])}
@@ -73,19 +86,6 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                                 {category}
                             </button>
                         ))}
-                    </div>
-
-                    {/* Legend */}
-                    <div className="flex items-center gap-3 text-label text-foreground/50 border border-foreground/5 bg-foreground/5 px-4 py-2 rounded-full">
-                        <span>Jauge</span>
-                        <div className="flex gap-1 w-16 items-center">
-                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
-                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
-                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
-                            <div className="h-1 flex-1 bg-foreground/10 rounded-full" />
-                            <div className="h-1 flex-1 bg-foreground/10 rounded-full" />
-                        </div>
-                        <span>= Niveau de Confort</span>
                     </div>
                 </div>
 

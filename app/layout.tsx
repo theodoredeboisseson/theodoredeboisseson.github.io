@@ -20,10 +20,11 @@ const playfair = Playfair_Display({
 });
 
 import TechnicalFrame from "./components/ui/TechnicalFrame";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "Théodore de Boisseson",
-  description: "Portfolio / Computer Science Student & Digital Artist",
+  description: "Portfolio / Étudiant en Informatique & Créateur Numérique",
 };
 
 export default function RootLayout({
@@ -32,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >

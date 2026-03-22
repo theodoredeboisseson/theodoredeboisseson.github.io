@@ -20,12 +20,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Hero
-        issueText="Issue 01 — 2026"
-        title="THÉODORE"
-        subtitle="STUDENT DEVELOPER"
-        description="Based in Montpellier. Studying in 3rd year computer science. Crafting digital projects in my free time."
+        title={bioData.hero.title}
+        subtitle={bioData.hero.subtitle}
+        description={bioData.hero.description}
         profileImage="/images/profile_picture.jpg"
-        availability="Dispo dès sept. 2026"
+        availability={bioData.hero.availability}
       />
 
       {/* Tactical Bar - Espace Jury */}
@@ -38,7 +37,12 @@ export default function Home() {
           </span>
         </div>
       </Link>
-      <AboutSection />
+      <AboutSection 
+        seeking={bioData.about.seeking}
+        languages={bioData.about.languages}
+        softSkills={bioData.about.soft_skills}
+        hobbies={bioData.about.hobbies}
+      />
       <SkillsStickers
         projects={allProjects}
         skills={skillsData}

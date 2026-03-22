@@ -6,7 +6,7 @@ import AnimatedText from "../ui/AnimatedText";
 
 import { HeroProps } from "../../Interfaces";
 
-export default function Hero({ issueText, title, subtitle, description, profileImage, availability }: HeroProps) {
+export default function Hero({ title, subtitle, description, profileImage, availability }: HeroProps) {
     const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1.0]; // Premium smooth easing
 
     return (
@@ -42,7 +42,7 @@ export default function Hero({ issueText, title, subtitle, description, profileI
                             transition={{ delay: 1.2, duration: 1.0, ease }}
                             className="font-mono text-xs uppercase font-bold tracking-[0.2em] mb-4 text-primary"
                         >
-                            {issueText}
+                            Issue 01 — 2026
                         </motion.span>
 
                         {/* Title - Letter by Letter */}

@@ -3,8 +3,8 @@ import ProjectGalleryClient from '../components/sections/ProjectGalleryClient';
 import { Project } from '../Interfaces';
 
 export const metadata = {
-    title: 'Projects | Théodore',
-    description: 'Archive of digital experiments and technical projects.',
+    title: 'Projets | Théodore',
+    description: 'Archives des expérimentations numériques et projets techniques.',
 };
 
 export default function ProjectsGalleryPage() {

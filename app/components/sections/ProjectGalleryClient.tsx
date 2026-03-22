@@ -22,16 +22,17 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
     return (
         <div className="max-w-7xl mx-auto">
             {/* Navigation */}
-            <ReturnButton href="/" label="Home" className='mb-6 md:mb-12' />
+            <ReturnButton href="/" label="Accueil" className='mb-6 md:mb-12' />
 
             {/* Header & Filter */}
             <div className="flex flex-col md:flex-row justify-between items-end mb-24 border-b-[0.5px] border-foreground/10 pb-6 gap-6">
                 <div>
                     <h1 className="text-5xl md:text-7xl font-black uppercase text-foreground mb-2 tracking-tighter">
-                        Projects
+                        Projets
                         <span className="text-primary text-6xl">.</span>
                     </h1>
-                    <p className="font-mono text-foreground/60">// Archive & Experiments</p>
+                    {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+                    <p className="font-mono text-foreground/60">// Archives & Expérimentations</p>
                 </div>
 
                 <div className="flex flex-wrap gap-4">

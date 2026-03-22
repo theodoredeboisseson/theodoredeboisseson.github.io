@@ -17,7 +17,6 @@ export interface Competence {
 }
 
 export interface HeroProps {
-    issueText: string;
     title: string;
     subtitle: string;
     description: string;
@@ -99,4 +98,17 @@ export interface SkillStickerProps {
     skill: Skill;
     hasLinkedData: boolean;
     onClick: () => void;
+}
+export interface AboutSectionProps {
+    seeking: {
+        title: string;
+        description: string;
+    };
+    languages: {
+        name: string;
+        level: string;
+        flag: string;
+    }[];
+    softSkills: string[];
+    hobbies: string[];
 }
