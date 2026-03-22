@@ -55,23 +55,38 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                     </div>
                 </div>
 
-                {/* Filters */}
-                <div className="container-7xl flex flex-wrap gap-2">
-                    <button
-                        onClick={() => setSelectedCategories([])}
-                        className={`button ${selectedCategories.length === 0 ? 'button-primary' : 'button-outline'}`}
-                    >
-                        All
-                    </button>
-                    {categories.map(category => (
+                {/* Filters & Legend */}
+                <div className="container-7xl flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div className="flex flex-wrap gap-2">
                         <button
-                            key={category}
-                            onClick={() => toggleCategory(category)}
-                            className={`button ${selectedCategories.includes(category) ? 'button-primary' : 'button-outline'}`}
+                            onClick={() => setSelectedCategories([])}
+                            className={`button ${selectedCategories.length === 0 ? 'button-primary' : 'button-outline'}`}
                         >
-                            {category}
+                            All
                         </button>
-                    ))}
+                        {categories.map(category => (
+                            <button
+                                key={category}
+                                onClick={() => toggleCategory(category)}
+                                className={`button ${selectedCategories.includes(category) ? 'button-primary' : 'button-outline'}`}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </div>
+
+                    {/* Legend */}
+                    <div className="flex items-center gap-3 text-label text-foreground/50 border border-foreground/5 bg-foreground/5 px-4 py-2 rounded-full">
+                        <span>Jauge</span>
+                        <div className="flex gap-1 w-16 items-center">
+                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
+                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
+                            <div className="h-1 flex-1 bg-foreground/60 rounded-full" />
+                            <div className="h-1 flex-1 bg-foreground/10 rounded-full" />
+                            <div className="h-1 flex-1 bg-foreground/10 rounded-full" />
+                        </div>
+                        <span>= Niveau de Confort</span>
+                    </div>
                 </div>
 
                 <div className="container-7xl py-6">
