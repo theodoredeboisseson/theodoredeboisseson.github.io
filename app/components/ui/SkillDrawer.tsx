@@ -9,7 +9,7 @@ import DynamicIcon from './DynamicIcon';
 export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }: SkillDrawerProps) {
     // Filter projects linked to this skill
     const linkedProjects = selectedSkill
-        ? projects.filter(project => project.usedSkills?.includes(selectedSkill.id))
+        ? projects.filter(project => project.usedSkills?.some(s => s.trim() === selectedSkill.name.trim()))
         : [];
 
     return (
@@ -66,7 +66,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                                     </span>
                                     <div className="flex gap-1 w-32 opacity-50">
                                         {[...Array(5)].map((_, i) => {
-                                            const isActive = (i + 1) * 20 <= selectedSkill.comfortLevel;
+                                            const isActive = i + 1 <= selectedSkill.comfortLevel;
                                             return (
                                                 <div
                                                     key={i}
@@ -100,6 +100,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                                                                 {project.title}
                                                             </h4>
                                                             <span className="text-xs font-mono opacity-50">
+                                                                {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                                                                 {project.category} // {project.date}
                                                             </span>
                                                         </div>
@@ -113,7 +114,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                             </div>
 
                             <div className="mt-8 pt-6 border-t border-border flex justify-between items-end">
-                                <span className="font-mono text-[10px] opacity-40">ID: {selectedSkill.id}</span>
+                                <span className="font-mono text-[10px] opacity-40">ID: {selectedSkill.name}</span>
                             </div>
                         </div>
                     </motion.div>

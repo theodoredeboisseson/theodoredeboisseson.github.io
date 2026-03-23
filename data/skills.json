@@ -1,7 +1,7 @@
 [
     {
         "name": "Next.js",
-        "category": "Tech",
+        "category": "Frameworks",
         "icon": "nextjs.svg",
         "comfortLevel": 5,
         "description": "Utilisé comme base de ce portfolio pour sa performance et la puissance de son App Router (SSR/SSG)."
@@ -22,42 +22,42 @@
     },
     {
         "name": "HTML & CSS",
-        "category": "Tech",
+        "category": "Languages",
         "icon": "HTML5.svg",
         "comfortLevel": 4,
         "description": "Étant très souvent le développeur front-end des projects scolaire, j'ai une certaine expertise dans ce domaine, notamment en CSS. Presque toujours le web-  designer du groupe, j'ai appris à créer des interfaces graphiques complexes à la volée très rapidement."
     },
     {
         "name": "JavaScript",
-        "category": "Tech",
+        "category": "Languages",
         "icon": "JavaScript.svg",
         "comfortLevel": 3,
         "description": "Langage coeur de ma stack front-end, principalement exploité à travers des frameworks modernes."
     },
     {
         "name": "PHP",
-        "category": "Tech",
+        "category": "Languages",
         "icon": "php.svg",
         "comfortLevel": 4,
         "description": "Premier langage back-end appris. Utilisé pour construire divers petits modèles de conception MVC complets."
     },
     {
         "name": "Java",
-        "category": "Tech",
+        "category": "Languages",
         "icon": "java.svg",
         "comfortLevel": 4,
         "description": "Apprentissage des fondations de la programmation orientée objet stricte et de l'architecture logicielle classique."
     },
     {
         "name": "MariaDB",
-        "category": "Tech",
+        "category": "Databases",
         "icon": "mariadb-blue.svg",
         "comfortLevel": 3,
         "description": "Gestion de bases de données relationnelles SQL."
     },
     {
         "name": "C++",
-        "category": "Tech",
+        "category": "Languages",
         "icon": "c++.svg",
         "comfortLevel": 2,
         "description": "Programmation système et dans mon cas la logique embarquée (Arduino)."
@@ -78,35 +78,35 @@
     },
     {
         "name": "Docker",
-        "category": "Tools",
+        "category": "Devops",
         "icon": "docker.svg",
         "comfortLevel": 4,
         "description": "Mise en place systématique de conteneurs pour standardiser mes environnements et faciliter les grosses mises en production."
     },
     {
         "name": "GitLab",
-        "category": "Tools",
+        "category": "Devops",
         "icon": "gitlab.svg",
         "comfortLevel": 4,
         "description": "Outil standard utilisé à l'IUT. Pour le versioning d'équipe et la création de pipelines CI/CD."
     },
     {
         "name": "GitHub",
-        "category": "Tools",
+        "category": "Devops",
         "icon": "github-mark.svg",
         "comfortLevel": 4,
         "description": "Hébergement principal de mon code. Vitrine open-source pour mon portfolio et mes expérimentations personnelles."
     },
     {
         "name": "TypeScript",
-        "category": "Tech",
+        "category": "Languages",
         "icon": "typescript.svg",
         "comfortLevel": 4,
         "description": "Surcouche de sécurité que j'apprécie de plus en plus. Utilisé avec Next.js pour ce portfolio et d'autres applications React."
     },
     {
         "name": "Tailwind CSS",
-        "category": "Tech",
+        "category": "Frameworks",
         "icon": "tailwind.svg",
         "comfortLevel": 5,
         "description": "Mon outil de stylisation favori, me permettant de concevoir des interfaces utilisateur très rapidement. Je l'utilise pour la quasi-totalité de mes projets depuis la nuit de l'info 2024 où j'ai découvert le framework."
@@ -120,7 +120,7 @@
     },
     {
         "name": "Kotlin",
-        "category": "Tech",
+        "category": "Languages",
         "icon": "kotlin.svg",
         "comfortLevel": 4,
         "description": "Mon langage back-end favori. Découverte en autodidacte sur le projet JiFoosball, j'ai pu y créer une architecture back-end solide."
@@ -134,37 +134,79 @@
     },
     {
         "name": "Vue.js",
-        "category": "Tech",
+        "category": "Frameworks",
         "icon": "vuejs.svg",
         "comfortLevel": 3,
         "description": "Framework front-end alternatif très apprécié pour prototyper avec une réactivité et une légèreté maximales. Appris lors de la Nuit de l'Info 2025 puis en cours à l'IUT."
     },
     {
         "name": "Symfony",
-        "category": "Tech",
+        "category": "Frameworks",
         "icon": "symfony.svg",
         "comfortLevel": 3,
         "description": "Exploité spécialement avec API Platform pour créer facilement des endpoints REST structurés."
     },
     {
         "name": "Python",
-        "category": "Tech",
+        "category": "Languages",
         "icon": "python.svg",
         "comfortLevel": 2,
         "description": "Langage couteau suisse, utilisé pour le développement web fullstack avec le framework Django lors de la refonte du site de la MJC."
     },
     {
         "name": "React",
-        "category": "Tech",
+        "category": "Frameworks",
         "icon": "react.svg",
         "comfortLevel": 5,
         "description": "Mon framework front-end favori pour la composition d'interfaces interactives sur le support web mais également mobile (React Native)."
     },
     {
         "name": "Neo4j",
-        "category": "Tech",
+        "category": "Databases",
         "icon": "neo4j.svg",
         "comfortLevel": 0,
         "description": "Base de données orientée graphe. À venir lors de mon stage au CIRAD. J'apprendrais Neo4J combiné à des requêtes Cypher."
+    },
+    {
+        "name": "Spring",
+        "category": "Frameworks",
+        "icon": "spring.svg",
+        "comfortLevel": 3,
+        "description": "Écosystème puissant pour le développement d'applications d'entreprise et de microservices robustes avec Java/Kotlin."
+    },
+    {
+        "name": "PostgreSQL",
+        "category": "Databases",
+        "icon": "postgresql.svg",
+        "comfortLevel": 3,
+        "description": "Basse de données relationnelle puissante et extensible, utilisée pour sa fiabilité et ses fonctionnalités avancées."
+    },
+    {
+        "name": "Nginx",
+        "category": "Devops",
+        "icon": "nginx.svg",
+        "comfortLevel": 2,
+        "description": "Serveur web haute performance utilisé pour le proxy inverse, la gestion du SSL et le routage des requêtes."
+    },
+    {
+        "name": "OVH",
+        "category": "Devops",
+        "icon": "ovh.svg",
+        "comfortLevel": 3,
+        "description": "Gestion d'hébergement, noms de domaine et serveurs VPS pour le déploiement de mes projets personnels."
+    },
+    {
+        "name": "Linux",
+        "category": "Tools",
+        "icon": "linux.svg",
+        "comfortLevel": 4,
+        "description": "Système d'exploitation privilégié pour le développement et la mise en production. Maitrisé via des distributions comme Ubuntu, Kubuntu et Fedora.."
+    },
+    {
+        "name": "WSL",
+        "category": "Tools",
+        "icon": "Terminal",
+        "comfortLevel": 4,
+        "description": "Sous système Linux sur Windows permettant un workflow de développement fluide proche de Linux. J'ai longement utilisé WSL2 pour mes projets en général."
     }
 ]
