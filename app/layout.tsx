@@ -59,6 +59,28 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Théodore de Boisseson",
+              "jobTitle": "Étudiant en Informatique & Création Numérique",
+              "url": "https://theodoredeboisseson.github.io",
+              "sameAs": [
+                "https://github.com/theodoredeboisseson",
+                "https://www.linkedin.com/in/theodoredeboisseson/"
+              ],
+              "description": "Portfolio de Théodore de Boisseson - Étudiant en Informatique et Création Numérique basé à Montpellier.",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Montpellier",
+                "addressCountry": "FR"
+              }
+            })
+          }}
+        />
         <GrainOverlay />
         <TechnicalFrame />
         {children}
