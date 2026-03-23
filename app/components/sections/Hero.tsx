@@ -15,7 +15,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 2.0, ease }}
+                transition={{ duration: 1.5, ease }}
                 className="absolute inset-0 z-0 blur-xs"
             >
                 <Image
@@ -39,16 +39,16 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                         <motion.span
                             initial={{ x: -20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
-                            transition={{ delay: 1.2, duration: 1.0, ease }}
+                            transition={{ delay: 0.5, duration: 1.0, ease }}
                             className="font-mono text-xs uppercase font-bold tracking-[0.2em] mb-4 text-primary"
                         >
                             Issue 01 — 2026
                         </motion.span>
 
                         {/* Title - Letter by Letter */}
-                        <AnimatedText 
-                            text={title} 
-                            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]" 
+                        <AnimatedText
+                            text={title}
+                            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]"
                         />
                     </div>
 
@@ -56,7 +56,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                     <motion.div
                         initial={{ scaleX: 0, opacity: 0 }}
                         animate={{ scaleX: 1, opacity: 1 }}
-                        transition={{ delay: 1.5, duration: 2.0, ease }}
+                        transition={{ delay: 0.5, duration: 2.0, ease }}
                         className="h-px w-full bg-white opacity-20 origin-left"
                     />
 
@@ -65,7 +65,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                         <motion.div
                             initial={{ scaleY: 0 }}
                             animate={{ scaleY: 1 }}
-                            transition={{ delay: 2.0, duration: 1.5, ease }}
+                            transition={{ delay: 2.5, duration: 1.5, ease }}
                             className="bg-white/40 w-[0.5px] mr-6 origin-top"
                         />
 
@@ -73,7 +73,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                         <motion.div
                             initial={{ opacity: 0, x: 10 }}
                             animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 2.5, duration: 1.0, ease }}
+                            transition={{ delay: 2.0, duration: 1.0, ease }}
                             className="max-w-md pt-2"
                         >
                             <p className="text-serif-italic text-base md:text-lg leading-relaxed opacity-90 tracking-wide">
@@ -89,7 +89,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                     <motion.div
                         initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0 }}
                         animate={{ clipPath: "inset(0 0 0 0)", opacity: 1 }}
-                        transition={{ delay: 2.8, duration: 1.5, ease }}
+                        transition={{ delay: 2.5, duration: 1.2, ease }}
                         className="relative h-full w-full rounded-3xl rounded-tl-sm overflow-hidden bg-black/5"
                     >
                         <Image
@@ -102,7 +102,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                         <motion.div
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: 3.8, duration: 0.5, type: "spring" }}
+                            transition={{ delay: 4.2, duration: 0.5, type: "spring" }}
                             className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl rounded-tl-sm border border-black/5 shadow-sm"
                         >
                             <div className="flex flex-col items-start gap-1">

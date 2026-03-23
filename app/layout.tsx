@@ -25,6 +25,28 @@ import React from "react";
 export const metadata: Metadata = {
   title: "Théodore de Boisseson",
   description: "Portfolio / Étudiant en Informatique & Créateur Numérique",
+  openGraph: {
+    title: "Théodore de Boisseson | Portfolio",
+    description: "Portfolio de Théodore de Boisseson - Étudiant en Informatique & Création Numérique",
+    url: "https://theodoredeboisseson.github.io",
+    siteName: "Portfolio de Théodore",
+    images: [
+      {
+        url: "/images/profile_picture.jpg",
+        width: 1200,
+        height: 1200,
+        alt: "Théodore de Boisseson",
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Théodore de Boisseson | Portfolio",
+    description: "Portfolio de Théodore de Boisseson - Étudiant en Informatique & Création Numérique",
+    images: ["/images/profile_picture.jpg"],
+  },
 };
 
 export default function RootLayout({
