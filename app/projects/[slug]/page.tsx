@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getProjectBySlug, getProjectSlugs } from '@/lib/mdx';
 import skillsData from '@/data/skills.json';
+import Image from 'next/image';
 import TechnicalCrosshair from '../../components/ui/TechnicalCrosshair';
 import ReturnButton from '../../components/ui/ReturnButton';
 import ProjectWave from '../../components/ui/MovementLine';
@@ -64,10 +65,11 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     <div className="lg:col-span-4 order-2 lg:order-1">
                         {project.image ? (
                             <div className="relative w-full aspect-video lg:aspect-square overflow-hidden rounded-sm bg-black/5">
-                                <img
+                                <Image
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover opacity-90"
+                                    fill
+                                    className="object-cover opacity-90"
                                 />
                                 <div className="absolute inset-0 ring-1 ring-inset ring-black/5 pointer-events-none" />
                             </div>
@@ -85,7 +87,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                             <ContextBadge context={project.context} />
                         </div>
 
-                        <h1 className="project-heading mb-8">
+                        <h1 className="project-heading text-5xl md:text-7xl lg:text-8xl mb-8">
                             {project.title}
                         </h1>
 

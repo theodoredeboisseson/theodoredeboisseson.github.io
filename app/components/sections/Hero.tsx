@@ -85,7 +85,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                 </div>
 
                 {/* Right Col: Image - Reveals itself */}
-                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-[4/5] sm:aspect-4/5 lg:aspect-3/4 max-w-[320px] sm:max-w-[400px] lg:max-w-none mx-auto">
+                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-4/5 lg:aspect-3/4 max-w-[320px] sm:max-w-100 lg:max-w-none mx-auto">
                     <motion.div
                         initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0 }}
                         animate={{ clipPath: "inset(0 0 0 0)", opacity: 1 }}
