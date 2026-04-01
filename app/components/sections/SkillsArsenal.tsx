@@ -39,9 +39,9 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
 
     return (
         <>
-            <section className="relative w-full py-12 mt-12 px-6 md:px-12 lg:px-24 bg-background">
+        <section className="relative w-full section-padding fluid-padding bg-background">
                 {/* Header */}
-                <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 container-7xl">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 container-7xl mx-auto">
                     <h2 className="section-title">
                         Arsenal<span className="text-primary">.</span>
                     </h2>
@@ -110,7 +110,7 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                                             type: "spring",
                                             stiffness: 260,
                                             damping: 20,
-                                            delay: (index % 5) * 0.1
+                                            delay: (index % (typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 5)) * 0.1
                                         }}
                                     >
                                         <SkillSticker

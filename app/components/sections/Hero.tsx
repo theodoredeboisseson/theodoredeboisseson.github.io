@@ -10,7 +10,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
     const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1.0]; // Premium smooth easing
 
     return (
-        <section className="relative min-h-screen w-full overflow-hidden pt-24 px-6 md:px-12 lg:px-24 flex flex-col justify-center text-background">
+        <section className="relative min-h-screen w-full overflow-hidden pt-24 pb-12 fluid-padding flex flex-col justify-center text-background">
             {/* Background Image - Fades in first */}
             <motion.div
                 initial={{ opacity: 0 }}
@@ -48,7 +48,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                         {/* Title - Letter by Letter */}
                         <AnimatedText
                             text={title}
-                            className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9]"
+                            className="hero-heading"
                         />
                     </div>
 
@@ -85,7 +85,7 @@ export default function Hero({ title, subtitle, description, profileImage, avail
                 </div>
 
                 {/* Right Col: Image - Reveals itself */}
-                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-3/4 md:aspect-4/5 lg:aspect-3/4 mx-auto">
+                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-[4/5] sm:aspect-4/5 lg:aspect-3/4 max-w-[320px] sm:max-w-[400px] lg:max-w-none mx-auto">
                     <motion.div
                         initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0 }}
                         animate={{ clipPath: "inset(0 0 0 0)", opacity: 1 }}

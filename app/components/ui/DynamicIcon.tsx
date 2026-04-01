@@ -1,7 +1,7 @@
 'use client';
 
 import * as Icons from 'lucide-react';
-import { LucideIcon, Code, Wrench, Palette, BookOpen, Cpu, Layers } from 'lucide-react';
+import { LucideIcon, Code, Wrench, Palette, Layers } from 'lucide-react';
 
 interface DynamicIconProps {
     name: string;

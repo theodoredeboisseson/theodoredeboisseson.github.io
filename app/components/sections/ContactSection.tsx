@@ -77,7 +77,7 @@ export default function ContactSection({ contact, socials, cvUrl }: ContactProps
                         <span className="block text-sm md:text-base font-mono opacity-60 mb-2">
                             SEND A MESSAGE
                         </span>
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight group-hover:opacity-80 transition-opacity duration-300">
+                        <h3 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight group-hover:opacity-80 transition-opacity duration-300 break-all sm:break-normal">
                             {contact.email.split('@')[0]}<br className="hidden md:block" />@{contact.email.split('@')[1]}
                         </h3>
                     </div>

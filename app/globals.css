@@ -6,7 +6,6 @@
   --color-primary: #d94261;
   --color-text: #111111;
   --color-border: #11111120;
-  /* Very subtle border */
 }
 
 @theme inline {
@@ -39,11 +38,6 @@ body {
   height: 100%;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   pointer-events: none;
-}
-
-/* Utilities for Editorial Design */
-.border-thin {
-  border-width: 0.5px;
 }
 
 /* MDX Spacing Enhancements */
@@ -127,40 +121,77 @@ body {
   margin-bottom: 0.25rem !important;
 }
 
-.section-title {
-  @apply text-4xl md:text-6xl font-bold font-serif tracking-tighter text-foreground;
-}
+@layer components {
+  .section-title {
+    @apply text-4xl md:text-6xl font-bold font-serif tracking-tighter text-foreground;
+  }
 
-/* Extracted Utility Classes to reduce repetition */
-.text-label {
-  @apply font-mono text-xs uppercase tracking-widest;
-}
+  /* Responsive Editorial Utilities */
+  .fluid-padding {
+    @apply px-4 sm:px-6 md:px-12 lg:px-24;
+  }
 
-.container-7xl {
-  @apply w-full max-w-7xl mx-auto;
-}
+  .hero-heading {
+    @apply text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[0.85] uppercase;
+  }
 
-.text-serif-italic {
-  @apply font-serif italic;
-}
+  .project-heading {
+    @apply text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif italic tracking-tighter leading-[0.9];
+  }
 
-/* Button Primitives */
-.button {
-  @apply inline-flex items-center justify-center px-4 py-2 rounded-full font-mono text-xs uppercase tracking-widest transition-all duration-300 outline-none cursor-pointer;
-}
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
 
-.button-primary {
-  @apply bg-foreground text-background border border-foreground;
-}
+  .bento-grid {
+    @apply grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-auto;
+  }
 
-.button-outline {
-  @apply bg-transparent text-foreground/60 border border-foreground/20 hover:border-foreground hover:text-foreground;
-}
+  .bento-card {
+    @apply bg-white border border-black/5 rounded-3xl md:rounded-4xl p-6 md:p-10 relative overflow-hidden transition-colors duration-300 shadow-sm;
+  }
+  .bento-card:hover {
+    @apply border-primary/30;
+  }
 
-.button-icon {
-  @apply size-10 inline-flex items-center justify-center border border-foreground/10 hover:border-foreground/30 border-b-[3px] rounded-lg active:border-b active:translate-y-0.5 hover:bg-foreground/5 transition-all text-foreground/60 hover:text-foreground outline-none cursor-pointer;
-}
+  .bento-card-dark {
+    @apply bg-foreground text-background/90 rounded-3xl md:rounded-4xl p-6 md:p-10 relative overflow-hidden transition-colors duration-300 border border-transparent;
+  }
+  .bento-card-dark:hover {
+    @apply border-primary;
+  }
 
-.button-circle {
-  @apply size-16 border border-foreground/10 rounded-full inline-flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 cursor-pointer;
+  /* Extracted Utility Classes to reduce repetition */
+  .text-label {
+    @apply font-mono text-[10px] sm:text-xs uppercase tracking-widest;
+  }
+
+  .container-7xl {
+    @apply w-full max-w-7xl mx-auto;
+  }
+
+  .text-serif-italic {
+    @apply font-serif italic;
+  }
+
+  /* Button Primitives */
+  .button {
+    @apply inline-flex items-center justify-center px-4 py-2 rounded-full font-mono text-xs uppercase tracking-widest transition-all duration-300 outline-none cursor-pointer;
+  }
+
+  .button-primary {
+    @apply bg-foreground text-background border border-foreground;
+  }
+
+  .button-outline {
+    @apply bg-transparent text-foreground/60 border border-foreground/20 hover:border-foreground hover:text-foreground;
+  }
+
+  .button-icon {
+    @apply size-10 inline-flex items-center justify-center border border-foreground/10 hover:border-foreground/30 border-b-[3px] rounded-lg active:border-b active:translate-y-0.5 hover:bg-foreground/5 transition-all text-foreground/60 hover:text-foreground outline-none cursor-pointer;
+  }
+
+  .button-circle {
+    @apply size-16 border border-foreground/10 rounded-full inline-flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 cursor-pointer;
+  }
 }

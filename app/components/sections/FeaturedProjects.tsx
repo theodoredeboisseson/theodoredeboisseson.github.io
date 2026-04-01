@@ -78,7 +78,7 @@ export default function FeaturedProjects({ projects }: FeaturedProjectsProps) {
             </div>
 
             {/* Carousel Container */}
-            <div className="relative w-full h-125 md:h-150 flex items-center justify-center">
+            <div className="relative w-full h-128 sm:h-125 md:h-150 flex items-center justify-center">
                 <div className="absolute w-full h-full flex items-center justify-center overflow-visible">
                     <AnimatePresence initial={false} mode='popLayout'>
                         {projects.map((project, index) => {

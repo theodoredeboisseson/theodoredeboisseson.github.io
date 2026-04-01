@@ -12,18 +12,18 @@ export default function AboutSection({ seeking, languages, softSkills, hobbies }
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-6xl md:text-8xl text-serif-italic mb-16 tracking-tighter"
+                className="text-5xl sm:text-6xl md:text-8xl text-serif-italic mb-12 md:mb-16 tracking-tighter"
             >
                 Profil<span className="text-primary">.</span>
             </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-auto">
+            <div className="bento-grid">
                 {/* Status/Seeking (Full width or Span 12) - Highlighted */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="md:col-span-12 bg-white border border-border rounded-4xl rounded-bl-sm md:rounded-bl-4xl p-8 md:p-10 relative overflow-hidden group hover:border-primary/50 transition-colors flex flex-col md:flex-row gap-6 lg:gap-8 items-start md:items-center w-full shadow-sm"
+                    className="md:col-span-12 bento-card rounded-bl-sm md:rounded-bl-4xl group flex flex-col md:flex-row gap-6 lg:gap-8 items-start md:items-center w-full"
                 >
                     <div className="absolute -right-10 -top-10 opacity-5 group-hover:opacity-10 transition-opacity">
                         <Target size={200} />
@@ -50,7 +50,7 @@ export default function AboutSection({ seeking, languages, softSkills, hobbies }
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1, duration: 0.6 }}
-                    className="md:col-span-7 bg-foreground text-background/90 rounded-4xl rounded-br-sm md:rounded-br-4xl md:rounded-tr-sm p-8 md:p-10 relative overflow-hidden group transition-colors border hover:border-primary"
+                    className="md:col-span-7 bento-card-dark rounded-br-sm md:rounded-br-4xl md:rounded-tr-sm group"
                 >
                     <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                         <Sparkles size={120} />
@@ -76,7 +76,7 @@ export default function AboutSection({ seeking, languages, softSkills, hobbies }
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, duration: 0.6 }}
-                    className="md:col-span-5 bg-gray-50 border border-border rounded-4xl rounded-tr-sm md:rounded-tr-4xl md:rounded-tl-sm p-8 md:p-10 relative overflow-hidden group hover:border-primary transition-colors flex flex-col justify-between"
+                    className="md:col-span-5 bento-card rounded-tr-sm md:rounded-tl-sm group flex flex-col justify-between"
                 >
                     <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                         <Globe size={120} />
@@ -102,13 +102,13 @@ export default function AboutSection({ seeking, languages, softSkills, hobbies }
                     </ul>
                 </motion.div>
 
-                {/* Soft Skills (Full width or Span 12) */}
+                {/* Soft Skills */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    className="md:col-span-12 bg-primary/5 text-primary rounded-4xl rounded-tl-sm p-8 md:p-10 relative overflow-hidden group border border-primary/10 hover:border-primary/30 hover:bg-primary/10 transition-colors flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center w-full"
+                    className="md:col-span-12 bg-primary/5 text-primary bento-card rounded-tl-sm md:rounded-tl-4xl group border-primary/10 hover:border-primary/30 hover:bg-primary/10 flex flex-col lg:flex-row gap-6 lg:gap-8 items-start lg:items-center w-full shadow-none"
                 >
                     <div className="flex items-center gap-3 w-fit pt-1 shrink-0">
                         <div className="p-2 border border-primary/20 rounded-xl bg-background/50">

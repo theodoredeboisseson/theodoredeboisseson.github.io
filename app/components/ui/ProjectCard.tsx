@@ -123,8 +123,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </div>
 
                 {/* Overlapping Title */}
-                <div className="absolute left-0 -bottom-8 lg:bottom-8 lg:-left-8 z-20 pointer-events-none w-full max-w-full pr-4 lg:pr-0 ">
-                    <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tighter break-word w-full text-white">
+                <div className="absolute left-0 -bottom-4 lg:bottom-8 lg:-left-8 z-20 pointer-events-none w-full max-w-full pr-4 lg:pr-0 ">
+                    <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tighter break-word w-full text-white">
                         <span className="inline-block bg-black/40 backdrop-blur-md px-2 lg:px-6 py-1 lg:py-2 -skew-x-12 rounded-lg group-hover:translate-x-4 transition-transform duration-500 ease-out">
                             {project.title}
                         </span>

@@ -54,7 +54,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
             {/* Header / Hero Section */}
-            <section className="relative w-full pt-32 pb-12 px-6 md:px-12 lg:px-24">
+            <section className="relative w-full pt-20 pb-12 md:pt-32 md:pb-12 fluid-padding">
                 <ReturnButton href="/projects" label="Index" className="mb-6 md:mb-12" projectSlug={project.slug} />
                 <TechnicalCrosshair className="top-8 right-6 md:right-12 lg:right-24" />
 
@@ -85,7 +85,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                             <ContextBadge context={project.context} />
                         </div>
 
-                        <h1 className="text-serif-italic text-5xl md:text-7xl lg:text-8xl tracking-tighter leading-[0.9] mb-8">
+                        <h1 className="project-heading mb-8">
                             {project.title}
                         </h1>
 
@@ -176,7 +176,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             </section>
 
             {/* Content Area */}
-            <section className="px-6 md:px-12 lg:px-24 pb-16">
+            <section className="fluid-padding pb-16">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                     {/* Sticky Table of Contents or Meta could go here in col-span-3 */}
                     <div className="hidden lg:block lg:col-span-3">
