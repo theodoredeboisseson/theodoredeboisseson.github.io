@@ -14,7 +14,7 @@ export default function ExperienceSection({ experiences, skills, projects }: Exp
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-6xl md:text-8xl text-serif-italic mb-24 tracking-tighter"
+                className="section-title mb-24"
             >
                 Expériences<span className="text-primary">.</span>
             </motion.h2>

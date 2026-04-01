@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SkillDrawer from '../ui/SkillDrawer';
 import SkillSticker from '../ui/SkillSticker';
 
@@ -11,6 +11,19 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
     const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+    const [cols, setCols] = useState(5);
+
+    useEffect(() => {
+        const updateCols = () => {
+            if (window.innerWidth < 768) setCols(2);
+            else if (window.innerWidth < 1024) setCols(3);
+            else if (window.innerWidth < 1280) setCols(4);
+            else setCols(5);
+        };
+        updateCols();
+        window.addEventListener('resize', updateCols);
+        return () => window.removeEventListener('resize', updateCols);
+    }, []);
 
     // Get unique categories from skills
     const categories = Array.from(new Set(skills.map(skill => skill.category))).sort();
@@ -110,7 +123,7 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
                                             type: "spring",
                                             stiffness: 260,
                                             damping: 20,
-                                            delay: (index % (typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 5)) * 0.1
+                                            delay: (index % cols) * 0.1
                                         }}
                                     >
                                         <SkillSticker

@@ -35,7 +35,7 @@ export default function ContactSection({ contact, socials, cvUrl }: ContactProps
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-6xl md:text-8xl text-serif-italic mb-16 tracking-tighter text-right"
+                className="section-title mb-16 text-right"
             >
                 Contact<span className="text-primary">.</span>
             </motion.h2>

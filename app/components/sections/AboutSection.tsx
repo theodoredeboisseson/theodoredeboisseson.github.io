@@ -12,7 +12,7 @@ export default function AboutSection({ seeking, languages, softSkills, hobbies }
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-5xl sm:text-6xl md:text-8xl text-serif-italic mb-12 md:mb-16 tracking-tighter"
+                className="section-title mb-12 md:mb-16"
             >
                 Profil<span className="text-primary">.</span>
             </motion.h2>
