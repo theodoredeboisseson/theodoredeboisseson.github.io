@@ -23,6 +23,7 @@ import TechnicalFrame from "./components/ui/TechnicalFrame";
 import React from "react";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://theodoredeboisseson.github.io"),
   title: "Théodore de Boisseson",
   description: "Portfolio / Étudiant en Informatique & Créateur Numérique",
   openGraph: {
