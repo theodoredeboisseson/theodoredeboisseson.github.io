@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next';
 import { getAllProjects } from '@/lib/mdx';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://theodoredeboisseson.github.io';
   const projects = getAllProjects();
