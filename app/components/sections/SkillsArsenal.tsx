@@ -15,7 +15,8 @@ export default function SkillsArsenal({ id, projects, skills }: SkillsArsenalPro
 
     useEffect(() => {
         const updateCols = () => {
-            if (window.innerWidth < 768) setCols(2);
+            if (window.innerWidth < 640) setCols(2);
+            else if (window.innerWidth < 768) setCols(3);
             else if (window.innerWidth < 1024) setCols(3);
             else if (window.innerWidth < 1280) setCols(4);
             else setCols(5);
@@ -105,7 +106,7 @@ export default function SkillsArsenal({ id, projects, skills }: SkillsArsenalPro
                 <div className="container-7xl py-6">
                     <motion.div
                         layout
-                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
+                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
                     >
                         <AnimatePresence>
                             {filteredSkills.map((skill, index) => {

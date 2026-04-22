@@ -9,7 +9,10 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
     const currentYear = new Date().getFullYear();
 
     return (
-        <div className={`pointer-events-none fixed inset-0 z-50 flex flex-col justify-between p-3 md:p-4 mix-blend-difference text-white opacity-90 ${className}`}>
+        <div
+            style={{ height: '100dvh' }}
+            className={`pointer-events-none fixed inset-x-0 top-0 z-50 flex flex-col justify-between p-1 md:p-4 mix-blend-difference text-white opacity-90 ${className}`}
+        >
             {/* Top Row */}
             <div className="flex w-full items-start justify-between">
                 {/* Top Left Crosshair */}
@@ -20,7 +23,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
 
                 {/* Top Metadata */}
                 {showMetadata && (
-                    <div className="font-mono text-[10px] tracking-widest uppercase opacity-80 hidden md:block">
+                    <div className="font-mono text-[10px] tracking-widest uppercase opacity-80">
                         Portfolio // {currentYear}
                     </div>
                 )}
@@ -60,7 +63,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
             </div>
 
             {/* Decorative border frame (optional, full screen thin border) */}
-            <div className="absolute inset-3 md:inset-4 border-[0.5px] border-current opacity-10 pointer-events-none" />
+            <div className="absolute inset-1 md:inset-4 border-[0.5px] border-current opacity-10 pointer-events-none" />
         </div>
     );
 }
