@@ -7,9 +7,9 @@ import MovementLine from '../ui/MovementLine';
 import TechBadge from '../ui/TechBadge';
 import { ExperienceSectionProps } from '../../Interfaces';
 
-export default function ExperienceSection({ experiences, skills, projects }: ExperienceSectionProps) {
+export default function ExperienceSection({ id, experiences, skills, projects }: ExperienceSectionProps) {
     return (
-        <section className="container-7xl px-6 py-12" id="experience">
+        <section className="container-7xl px-6 py-12" id={id}>
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

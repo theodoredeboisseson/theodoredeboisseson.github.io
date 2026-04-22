@@ -18,7 +18,7 @@ const LinkedinIcon = ({ size = 24, className = '' }: { size?: number; className?
 
 import { ContactProps } from '../../Interfaces';
 
-export default function ContactSection({ contact, socials, cvUrl }: ContactProps) {
+export default function ContactSection({ id, contact, socials, cvUrl }: ContactProps) {
     const [isCopied, setIsCopied] = React.useState(false);
 
     const handleCopy = async (e: React.MouseEvent) => {
@@ -30,7 +30,7 @@ export default function ContactSection({ contact, socials, cvUrl }: ContactProps
     };
 
     return (
-        <section className="container-7xl px-4 md:px-6 py-12 mb-12" id="contact">
+        <section className="container-7xl px-4 md:px-6 py-12 mb-12" id={id}>
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

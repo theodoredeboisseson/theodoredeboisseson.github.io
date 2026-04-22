@@ -1,5 +1,10 @@
 import type { ProjectMetadata } from '../lib/mdx';
 
+export interface BaseSectionProps {
+    id?: string;
+    className?: string;
+}
+
 export type Project = Pick<ProjectMetadata, 'slug' | 'title' | 'category' | 'date' | 'description' | 'ac_list' | 'image' | 'usedSkills' | 'filter' | 'context'>;
 
 export interface AC {
@@ -16,7 +21,8 @@ export interface Competence {
     acs: AC[];
 }
 
-export interface HeroProps {
+export interface HeroProps extends BaseSectionProps {
+    id: string;
     title: string;
     subtitle: string;
     description: string;
@@ -33,7 +39,7 @@ export interface Skill {
     description: string;
 }
 
-export interface SkillsArsenalProps {
+export interface SkillsArsenalProps extends BaseSectionProps {
     projects: import('../lib/mdx').ProjectData[];
     skills: Skill[];
 }
@@ -48,7 +54,7 @@ export interface Education {
     current: boolean;
 }
 
-export interface FormationSectionProps {
+export interface FormationSectionProps extends BaseSectionProps {
     education: Education[];
 }
 
@@ -64,13 +70,13 @@ export interface Experience {
     project_slug: string | null;
 }
 
-export interface ExperienceSectionProps {
+export interface ExperienceSectionProps extends BaseSectionProps {
     experiences: Experience[];
     skills: Skill[];
     projects: import('../lib/mdx').ProjectData[];
 }
 
-export interface ContactProps {
+export interface ContactProps extends BaseSectionProps {
     contact: {
         email: string;
         mail_subject: string;
@@ -83,7 +89,7 @@ export interface ContactProps {
     cvUrl: string;
 }
 
-export interface FeaturedProjectsProps {
+export interface FeaturedProjectsProps extends BaseSectionProps {
     projects: Project[]; // Project is already exported in this file, so we can use it directly or via 'Project[]'
 }
 
@@ -99,7 +105,7 @@ export interface SkillStickerProps {
     hasLinkedData: boolean;
     onClick: () => void;
 }
-export interface AboutSectionProps {
+export interface AboutSectionProps extends BaseSectionProps {
     seeking: {
         title: string;
         description: string;

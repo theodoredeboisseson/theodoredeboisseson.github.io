@@ -6,11 +6,11 @@ import AnimatedText from "../ui/AnimatedText";
 
 import { HeroProps } from "../../Interfaces";
 
-export default function Hero({ title, subtitle, description, profileImage, availability }: HeroProps) {
+export default function Hero({ id, title, subtitle, description, profileImage, availability }: HeroProps) {
     const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1.0]; // Premium smooth easing
 
     return (
-        <section className="relative min-h-screen w-full overflow-hidden pt-24 pb-12 fluid-padding flex flex-col justify-center text-background">
+        <section id={id} className="relative min-h-screen w-full overflow-hidden pt-24 pb-12 fluid-padding flex flex-col justify-center text-background">
             {/* Background Image - Fades in first */}
             <motion.div
                 initial={{ opacity: 0 }}

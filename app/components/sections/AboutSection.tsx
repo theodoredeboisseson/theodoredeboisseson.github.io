@@ -5,9 +5,9 @@ import { Globe, Brain, Sparkles, Palette, Target } from 'lucide-react';
 
 import { AboutSectionProps } from '../../Interfaces';
 
-export default function AboutSection({ seeking, languages, softSkills, hobbies }: AboutSectionProps) {
+export default function AboutSection({ id, seeking, languages, softSkills, hobbies }: AboutSectionProps) {
     return (
-        <section className="container-7xl px-4 md:px-6 py-12" id="about">
+        <section className="container-7xl px-4 md:px-6 py-12" id={id}>
             <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
