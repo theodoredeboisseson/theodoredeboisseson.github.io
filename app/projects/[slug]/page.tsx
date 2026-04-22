@@ -58,7 +58,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-                    {/* Left: Featured Image (Smaller & Moved) */}
+                    {/* Featured Image (Smaller & Moved) */}
                     <div className="lg:col-span-4 order-2 lg:order-1">
                         {project.image ? (
                             <div className="relative w-full aspect-video lg:aspect-square overflow-hidden rounded-sm bg-black/5">
@@ -75,7 +75,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                         )}
                     </div>
 
-                    {/* Right: Title & Info & AC & Links */}
+                    {/* Title & Info & AC & Links */}
                     <div className="lg:col-span-8 order-1 lg:order-2 flex flex-col items-start">
                         <div className="flex items-center gap-4 mb-6 text-label opacity-60">
                             <span className="text-primary">●</span>

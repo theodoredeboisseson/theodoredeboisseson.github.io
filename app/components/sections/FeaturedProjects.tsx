@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView, PanInfo } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
 import ProjectCard from '../ui/ProjectCard';
@@ -11,8 +11,16 @@ import { FeaturedProjectsProps } from '../../Interfaces';
 export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
+    const [windowWidth, setWindowWidth] = useState(0);
     const containerRef = useRef(null);
     const isInView = useInView(containerRef, { amount: 0.3 });
+
+    useEffect(() => {
+        const update = () => setWindowWidth(window.innerWidth);
+        update();
+        window.addEventListener('resize', update);
+        return () => window.removeEventListener('resize', update);
+    }, []);
 
     const nextProject = useCallback(() => {
         setCurrentIndex((prev) => (prev + 1) % projects.length);
@@ -64,11 +72,24 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
 
     const togglePlay = () => setIsPlaying(!isPlaying);
 
+    const handleDragEnd = (_: unknown, info: PanInfo) => {
+        const swipe = info.offset.x;
+        const velocity = info.velocity.x;
+
+        if (swipe < -100 || velocity < -500) {
+            nextProject();
+            setIsPlaying(false);
+        } else if (swipe > 100 || velocity > 500) {
+            prevProject();
+            setIsPlaying(false);
+        }
+    };
+
     return (
         <section id={id} ref={containerRef} className="relative w-full py-0 px-3 md:px-6 lg:px-12 bg-background overflow-hidden">
             {/* Header */}
-            <div className="flex flex-col md:flex-row justify-between items-end border-b-[0.5px] border-black/10 pb-6 container-7xl">
-                <h2 className="section-title">
+            <div className="flex flex-col md:flex-row justify-between items-end border-b-[0.5px] border-black/10 pb-6 container-7xl mx-auto">
+                <h2 className="section-title ml-6">
                     Featured projects<span className="text-primary">.</span>
                 </h2>
                 <Link href="/projects" className="group flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-foreground hover:text-primary transition-colors mt-4 md:mt-0">
@@ -78,43 +99,64 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
             </div>
 
             {/* Carousel Container */}
-            <div className="relative w-full h-128 sm:h-125 md:h-150 flex items-center justify-center">
-                <div className="absolute w-full h-full flex items-center justify-center overflow-visible">
+            <div className="relative w-full h-75 sm:h-92.5 md:h-110 lg:h-110 flex items-center justify-center overflow-visible mt-4 md:mt-8">
+                <div className="absolute w-full h-full flex items-center justify-center">
                     <AnimatePresence initial={false} mode='popLayout'>
                         {projects.map((project, index) => {
                             const length = projects.length;
-                            // Calculate discrete circular distance
-                            // result in range [-length/2, length/2]
                             let offset = (index - currentIndex + length) % length;
                             if (offset > length / 2) offset -= length;
+                            if (offset < -length / 2) offset += length;
 
                             const isCenter = offset === 0;
-                            const zIndex = isCenter ? 10 : 10 - Math.abs(offset);
+                            const isVisible = Math.abs(offset) <= 1;
 
-                            // Visual properties
-                            const scale = isCenter ? 1 : 0.9;
-                            const opacity = isCenter ? 1 : 0.5;
-                            // x distance: 100% or more to separate them.
+                            if (!isVisible) return null;
+
+                            const zIndex = isCenter ? 20 : 10;
+                            const scale = isCenter ? 1 : 0.72;
+                            const opacity = isCenter ? 1 : 0.3;
+                            const rotateY = offset * 10; // Subtle 3D rotation
+                            // On large screens the card has a metadata column on the right (~33%),
+                            // so a smaller offset keeps the side card from overlapping it.
+                            const xOffset = offset * (windowWidth >= 1024 ? 42 : 55);
+
                             return (
                                 <motion.div
                                     key={project.slug}
-                                    className="absolute w-[calc(100%-4rem)] md:w-[calc(100%-8rem)] lg:w-[calc(100%-12rem)] max-w-7xl"
+                                    className="absolute w-full px-4 md:px-0 md:w-[85%] lg:w-[75%] max-w-6xl touch-none"
                                     initial={false}
                                     animate={{
-                                        x: `calc(${offset} * (100% + 2rem))`,
+                                        x: `${xOffset}%`,
                                         scale: scale,
                                         opacity: opacity,
-                                        zIndex: zIndex
+                                        zIndex: zIndex,
+                                        rotateY: rotateY,
+                                        filter: isCenter ? 'blur(0px)' : 'blur(10px)',
                                     }}
-                                    transition={{ duration: 0.8, ease: [0.25, 0.75, 0, 1] }}
-                                    onClick={() => handleSegmentClick(index)}
-                                    style={{ cursor: isCenter ? 'default' : 'pointer' }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 260,
+                                        damping: 30,
+                                        mass: 1
+                                    }}
+                                    drag={isCenter ? "x" : false}
+                                    dragConstraints={{ left: 0, right: 0 }}
+                                    dragElastic={0.2}
+                                    onDragEnd={handleDragEnd}
+                                    onClick={() => !isCenter && handleSegmentClick(index)}
+                                    style={{
+                                        cursor: isCenter ? 'grab' : 'pointer',
+                                        perspective: "1000px"
+                                    }}
+                                    whileTap={isCenter ? { cursor: 'grabbing' } : {}}
                                 >
-                                    {/* Wrapper to handle pointer events locally if needed */}
-                                    <div className={isCenter ? 'pointer-events-auto' : 'pointer-events-none'}>
+                                    <div className={`${isCenter ? 'pointer-events-auto' : 'pointer-events-none'}`}>
                                         <ProjectCard project={project} index={index} />
                                     </div>
-                                    {/* Overlay for inactive items to catch clicks? The parent div has onClick already. */}
+                                    {!isCenter && (
+                                        <div className="absolute inset-0 z-30" />
+                                    )}
                                 </motion.div>
                             );
                         })}
@@ -123,7 +165,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
             </div>
 
             {/* Controls */}
-            <div className="w-full max-w-md mx-auto px-6 flex flex-col items-center gap-2 z-20 relative -mt-12">
+            <div className="w-full max-w-md mx-auto px-6 flex flex-col items-center gap-6 z-20 relative pb-6 md:pb-10">
 
                 {/* Segments */}
                 <div className="flex gap-2 w-full h-8 items-center">

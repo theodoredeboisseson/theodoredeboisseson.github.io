@@ -54,17 +54,27 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             </div>
                         )}
                     </div>
+
+                    {/* Overlapping title + description — inside the image link */}
+                    <div className="absolute left-0 -bottom-2 lg:bottom-6 lg:-left-8 z-20 pointer-events-none w-full max-w-full pr-2 lg:pr-0">
+                        <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl tracking-tighter text-white leading-tight">
+                            <span className="inline-block bg-black/40 backdrop-blur-md px-2 lg:px-5 py-0.5 lg:py-1.5 -skew-x-12 rounded-md group-hover:translate-x-3 transition-transform duration-500 ease-out">
+                                {project.title}
+                            </span>
+                        </h2>
+                        <p className="mt-0.5 ml-1 lg:ml-2 font-serif font-light text-[11px] sm:text-xs md:text-sm lg:text-base inline-block bg-black/40 backdrop-blur-md text-white px-2 lg:px-3 py-0.5 -skew-x-12 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 tracking-wide shadow-lg max-w-[88%] lg:max-w-none line-clamp-1 lg:line-clamp-2">
+                            {project.description}
+                        </p>
+                    </div>
                 </Link>
 
-                {/* Metadata Block */}
-                <div className="lg:col-span-4 flex flex-row lg:flex-col items-start lg:items-end justify-between lg:justify-start text-left lg:text-right pt-2 lg:pt-0 order-2">
-
-                    {/* Mobile: Horizontal meta row | Desktop: Vertical stack */}
-                    <div className="text-label space-y-0 lg:space-y-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 text-foreground flex flex-row lg:flex-col gap-4 lg:gap-0 flex-wrap">
+                {/* Metadata Block — Desktop only (lg+) */}
+                <div className="hidden lg:flex lg:col-span-4 flex-col items-end justify-start text-right pt-0 order-2">
+                    <div className="text-label space-y-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 text-foreground flex flex-col">
 
                         <div className="flex flex-col">
                             <span className="font-bold">Context</span>
-                            <span className="mt-1 flex lg:justify-end">
+                            <span className="mt-1 flex justify-end">
                                 <ContextBadge context={project.context} />
                             </span>
                         </div>
@@ -79,9 +89,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             <span>{project.date || '2025'}</span>
                         </div>
 
-                        {/* Skills - hidden on mobile, shown on lg+ */}
+                        {/* Skills */}
                         {linkedSkills.length > 0 && (
-                            <div className="hidden lg:flex flex-col items-end">
+                            <div className="flex flex-col items-end">
                                 <span className="font-bold mb-1">Stack</span>
                                 <div className="flex flex-wrap gap-2 justify-end">
                                     {linkedSkills.slice(0, 18).map((skill) => (
@@ -93,9 +103,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             </div>
                         )}
 
-                        {/* ACs - hidden on mobile, shown on lg+ */}
+                        {/* ACs */}
                         {project.ac_list && project.ac_list.length > 0 && (
-                            <div className="hidden lg:flex flex-col items-end">
+                            <div className="flex flex-col items-end">
                                 <span className="font-bold mb-1">But validation</span>
                                 <div className="flex flex-wrap gap-1.5 justify-end">
                                     {project.ac_list.map((ac) => (
@@ -108,30 +118,35 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         )}
                     </div>
 
-                    {/* Link Arrow */}
-                    <div className="relative mt-0 lg:mt-12">
-                        <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-foreground/50 text-background text-xs font-mono uppercase px-3 py-1 rounded whitespace-nowrap hidden lg:block">
-                            See more
-                        </span>
+                    {/* Tactical link button — desktop */}
+                    <div className="relative mt-8">
                         <Link
                             href={`/projects/${project.slug}`}
-                            className="button-circle size-12 lg:size-16 group-hover:bg-primary group-hover:text-white group-hover:border-transparent group-hover:scale-110"
+                            className="btn-tactical rounded-2xl rounded-tl-sm group-hover:bg-foreground group-hover:text-background group-hover:border-transparent transition-all duration-300"
                         >
-                            <ArrowUpRight strokeWidth={1} size={20} className="lg:size-24" />
+                            <span>Voir le projet</span>
+                            <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                         </Link>
                     </div>
                 </div>
 
-                {/* Overlapping Title - Adjusted for mobile */}
-                <div className="absolute left-0 -bottom-2 sm:-bottom-4 lg:bottom-8 lg:-left-8 z-20 pointer-events-none w-full max-w-full pr-4 lg:pr-0 order-3">
-                    <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tighter break-words w-full text-white">
-                        <span className="inline-block bg-black/40 backdrop-blur-md px-2 lg:px-6 py-1 lg:py-2 -skew-x-12 rounded-lg group-hover:translate-x-4 transition-transform duration-500 ease-out">
-                            {project.title}
-                        </span>
-                    </h2>
-                    <p className="mt-1 lg:mt-2 ml-1 lg:ml-2 font-serif font-light text-xs sm:text-sm md:text-lg inline-block bg-black/40 backdrop-blur-md text-white px-2 lg:px-3 py-0.5 lg:py-1 -skew-x-12 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 tracking-wide shadow-lg max-w-[90%] lg:max-w-none line-clamp-2 lg:line-clamp-none">
-                        {project.description}
-                    </p>
+                {/* Mobile metadata row — visible below lg */}
+                <div className="flex lg:hidden col-span-1 order-2 items-center justify-between gap-2 pt-1 pb-1">
+                    {/* Left: context + meta */}
+                    <div className="flex items-center gap-3 flex-wrap text-label text-foreground/70 min-w-0">
+                        <ContextBadge context={project.context} />
+                        <span className="shrink-0">{project.category}</span>
+                        <span className="shrink-0 opacity-60">{project.date || '2025'}</span>
+                    </div>
+
+                    {/* Right: tactical btn */}
+                    <Link
+                        href={`/projects/${project.slug}`}
+                        className="btn-tactical shrink-0 rounded-xl rounded-tl-sm text-[9px] px-3 py-2"
+                    >
+                        <ArrowUpRight size={11} />
+                        <span>Voir</span>
+                    </Link>
                 </div>
 
             </div>
