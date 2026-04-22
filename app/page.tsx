@@ -10,6 +10,7 @@ import { getAllProjects, getProjectSummary } from "@/lib/mdx";
 import { Project, Experience } from "./Interfaces";
 import bioData from '@/data/bio.json';
 import skillsData from '@/data/skills.json';
+import SectionNavigator from "@/app/components/ui/SectionNavigator";
 
 export default function Home() {
   const allProjects = getAllProjects();
@@ -19,7 +20,9 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Hero id="hero"
+        <SectionNavigator />
+
+        <Hero id="hero"
         title={bioData.hero.title}
         subtitle={bioData.hero.subtitle}
         description={bioData.hero.description}
