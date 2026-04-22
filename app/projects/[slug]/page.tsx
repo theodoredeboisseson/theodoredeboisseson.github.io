@@ -3,14 +3,12 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getProjectBySlug, getProjectSlugs } from '@/lib/mdx';
 import skillsData from '@/data/skills.json';
 import Image from 'next/image';
-import TechnicalCrosshair from '../../components/ui/TechnicalCrosshair';
 import ReturnButton from '../../components/ui/ReturnButton';
 import ProjectWave from '../../components/ui/MovementLine';
 import { ArrowUpRight, Eye, Clock, Users } from 'lucide-react';
 import ACTooltip from '../../components/ui/ACTooltip';
 
-// Custom MDX Components
-import ProjectGallery from '../../components/mdx/ProjectGallery';
+import ImageGallery from '../../components/mdx/ImageGallery';
 import TechBadge from '../../components/ui/TechBadge';
 import VideoPlayer from '../../components/mdx/VideoPlayer';
 import Hyperlink from '../../components/mdx/Hyperlink';
@@ -18,7 +16,7 @@ import Spacer from '../../components/mdx/Spacer';
 import ContextBadge from '../../components/ui/ContextBadge';
 
 const components = {
-    ProjectGallery,
+    ImageGallery,
     TechBadge,
     VideoPlayer,
     Hyperlink,
@@ -55,9 +53,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
     return (
         <main className="min-h-screen bg-background text-foreground selection:bg-primary/20">
             {/* Header / Hero Section */}
-            <section className="relative w-full pt-20 pb-12 md:pt-32 md:pb-12 fluid-padding">
+            <section className="relative w-full pt-6 pb-12 md:pt-8 md:pb-12 fluid-padding">
                 <ReturnButton href="/projects" label="Index" className="mb-6 md:mb-12" projectSlug={project.slug} />
-                <TechnicalCrosshair className="top-8 right-6 md:right-12 lg:right-24" />
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 

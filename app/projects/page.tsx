@@ -1,4 +1,4 @@
-import { getAllProjects, getProjectSummary } from '../../lib/mdx';
+import { getAllProjects, getProjectSummary } from '@/lib/mdx';
 import ProjectGalleryClient from '../components/sections/ProjectGalleryClient';
 import { Project } from '../Interfaces';
 

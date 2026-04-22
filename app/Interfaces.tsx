@@ -118,3 +118,9 @@ export interface AboutSectionProps extends BaseSectionProps {
     softSkills: string[];
     hobbies: string[];
 }
+
+export interface ImageGalleryProps {
+    images?: string | (string | { src: string; alt?: string })[];
+    alts?: string;
+    children?: React.ReactNode;
+}

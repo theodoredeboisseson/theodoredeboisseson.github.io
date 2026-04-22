@@ -5,7 +5,7 @@ category: "Tech / Art"
 tags: ["Framer Motion"]
 ac_list: ["AC12", "AC13"]
 links:
-  github: "https://github.com/theodoredeboisseson/theodoredeboisseson.github.io"
+  GitHub: "https://github.com/theodoredeboisseson/theodoredeboisseson.github.io"
   demo: "https://theodoredeboisseson.github.io"
 description: "Construit avec Next.js (React), TailwindCSS, Framer Motion... Mise en avant professionnelle et personnelle"
 image: "/images/hero_bg.jpg"
@@ -33,10 +33,12 @@ Pour le design, je suis parti sur un thème "magazine tactique" épuré. J'ai po
 L'objectif était de créer une interface qui « wow » l'utilisateur tout en restant parfaitement lisible.
 
 J'ai décidé de prendre une couleur d'accent propre tirée de ma photo de profil.
-<ProjectGallery images={[
-  { src: "/images/hero_bg.jpg", alt: "Hero Section", type: "image" },
-  { src: "/images/profile_picture.jpg", alt: "Profile", type: "image" }
-]} />
+
+<ImageGallery>
+    /images/hero_bg.jpg | Hero Section - Design épuré et typographie forte
+    /images/profile_picture.jpg | Photo de profil - Source de la couleur d'accent
+    /images/projects/portfolio-redesign/old_portfolio.png | Ancien Portfolio (2024) - Pour la comparaison
+</ImageGallery>
 
 Le plus amusant c'était de tout modulariser rendant l'extensibilité et la maintenance du site très facile.
 C'était l'occasion d'apprendre Next.js, framework de React, qui est mon langage de front favori.
@@ -49,6 +51,7 @@ C'était l'occasion d'apprendre Next.js, framework de React, qui est mon langage
 ### Comparaison
 
 Pour mieux voir la différence de niveau après 1 an d'écart entre les deux versions, voici la "landing page" du portfolio avant le redesign :
-<ProjectGallery images={[
-  { src: "/images/projects/portfolio-redesign/old_portfolio.png", alt: "Old Portfolio", type: "image" }
-]} />
+
+<ImageGallery>
+    /images/projects/portfolio-redesign/old_portfolio.png | Ancien Portfolio (2024)
+</ImageGallery>
