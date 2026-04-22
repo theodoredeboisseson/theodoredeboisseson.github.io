@@ -99,15 +99,15 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
                             {/* Links */}
                             {(project.links?.demo || project.links?.github) && (
-                                <div className="flex gap-6 text-label">
+                                <div className={`flex items-center ${project.links.demo && project.links.github ? 'gap-0' : 'gap-4'} text-label`}>
                                     {project.links.demo && (
                                         <a
                                             href={project.links.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 hover:text-primary transition-colors hover:underline decoration-primary underline-offset-4"
+                                            className={`btn-tactical rounded-bl-sm ${project.links.github ? 'border-r-0 rounded-r-none' : ''} group`}
                                         >
-                                            Démo Live <ArrowUpRight size={14} />
+                                            Démo Live <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                         </a>
                                     )}
                                     {project.links.github && (
@@ -115,9 +115,9 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                             href={project.links.github}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity"
+                                            className={`btn-tactical rounded-tr-sm ${project.links.demo ? 'bg-foreground/5 rounded-l-none' : ''} group`}
                                         >
-                                            Code Source <Eye size={14} />
+                                            Code Source <Eye size={14} className="group-hover:scale-110" />
                                         </a>
                                     )}
                                 </div>

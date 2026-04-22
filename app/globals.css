@@ -18,7 +18,132 @@ html {
   --color-primary: var(--color-primary);
   --color-text: var(--color-text);
   --color-border: var(--color-border);
+
+  /* Semantic Design Tokens */
+  --color-tech-border: color-mix(in srgb, var(--foreground), transparent 85%);
+  --color-tech-border-dim: color-mix(in srgb, var(--foreground), transparent 95%);
+
+  --spacing-bento: var(--spacing-6);
+  --spacing-bento-desktop: var(--spacing-10);
+
+  --radius-bento: var(--radius-3xl);
+  --radius-bento-desktop: var(--radius-4xl);
+  --radius-tactical: var(--radius-xl);
+
+  --font-mono-technical: var(--font-mono);
+  --tracking-technical: 0.2em;
 }
+
+/* 
+  --------------------------------------------------------------------------
+  SHARED PATTERNS (@utility)
+  These are reusable class bundles used for composition.
+  --------------------------------------------------------------------------
+*/
+
+@utility transition-tactical {
+  @apply transition-all duration-300;
+}
+
+@utility pattern-technical {
+  @apply font-mono-technical uppercase tracking-technical transition-tactical;
+}
+
+@utility pattern-card {
+  @apply relative overflow-hidden transition-tactical;
+}
+
+/* 
+  --------------------------------------------------------------------------
+  LAYOUT UTILITIES (@utility)
+  --------------------------------------------------------------------------
+*/
+
+@utility fluid-padding {
+  @apply px-4 sm:px-6 md:px-12 lg:px-24;
+}
+
+@utility section-padding {
+  @apply py-16 md:py-24;
+}
+
+@utility container-7xl {
+  @apply w-full max-w-7xl mx-auto;
+}
+
+@utility bento-grid {
+  @apply grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-auto;
+}
+
+/* 
+  --------------------------------------------------------------------------
+  TYPOGRAPHY UTILITIES (@utility)
+  --------------------------------------------------------------------------
+*/
+
+@utility section-title {
+  @apply text-5xl sm:text-6xl md:text-8xl font-serif italic tracking-tighter text-foreground;
+}
+
+@utility hero-heading {
+  @apply text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[0.85] uppercase;
+}
+
+@utility project-heading {
+  @apply text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif italic tracking-tighter leading-[0.9];
+}
+
+@utility text-label {
+  @apply pattern-technical text-[10px] sm:text-xs;
+}
+
+@utility text-serif-italic {
+  @apply font-serif italic;
+}
+
+/* 
+  --------------------------------------------------------------------------
+  UI COMPONENT UTILITIES (@utility)
+  --------------------------------------------------------------------------
+*/
+
+@utility btn-tactical {
+  @apply pattern-technical inline-flex items-center justify-center gap-2.5 px-6 py-3 text-[10px] border border-tech-border bg-transparent backdrop-blur-sm hover:bg-foreground hover:text-background rounded-tactical;
+}
+
+@utility bento-card {
+  @apply pattern-card bg-white border border-tech-border-dim rounded-bento md:rounded-bento-desktop p-[--spacing-bento] md:p-[--spacing-bento-desktop] shadow-sm hover:border-primary/30;
+}
+
+@utility bento-card-dark {
+  @apply pattern-card bg-foreground text-background/90 rounded-bento md:rounded-bento-desktop p-[--spacing-bento] md:p-[--spacing-bento-desktop] border border-transparent hover:border-primary;
+}
+
+@utility button {
+  @apply pattern-technical inline-flex items-center justify-center px-4 py-2 rounded-full text-xs outline-none cursor-pointer;
+}
+
+@utility button-primary {
+  @apply bg-foreground text-background border border-foreground;
+}
+
+@utility button-outline {
+  @apply bg-transparent text-foreground/60 border border-foreground/20 hover:border-foreground hover:text-foreground;
+}
+
+@utility button-icon {
+  @apply size-10 inline-flex items-center justify-center border border-tech-border-dim border-b-[3px] rounded-lg active:border-b active:translate-y-0.5 hover:bg-foreground/5 transition-tactical text-foreground/60 hover:text-foreground outline-none cursor-pointer hover:border-foreground/30;
+}
+
+@utility button-circle {
+  @apply pattern-card size-16 border border-tech-border-dim rounded-full inline-flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:border-transparent hover:scale-110 cursor-pointer;
+}
+
+/* 
+  --------------------------------------------------------------------------
+  BASE STYLES & GLOBAL SETTINGS
+  --------------------------------------------------------------------------
+*/
 
 body {
   background: var(--background);
@@ -44,7 +169,7 @@ body {
   pointer-events: none;
 }
 
-/* MDX Spacing Enhancements */
+/* MDX Spacing Enhancements (Prose) */
 .prose {
   --tw-prose-body: var(--foreground);
   --tw-prose-headings: var(--foreground);
@@ -123,81 +248,4 @@ body {
 .prose .tight>*+* {
   margin-top: 0.25rem !important;
   margin-bottom: 0.25rem !important;
-}
-
-@layer components {
-  .section-title {
-    @apply text-5xl sm:text-6xl md:text-8xl font-serif italic tracking-tighter text-foreground;
-  }
-
-  /* Responsive Editorial Utilities */
-  .fluid-padding {
-    @apply px-4 sm:px-6 md:px-12 lg:px-24;
-  }
-
-  .hero-heading {
-    @apply text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter leading-[0.85] uppercase;
-  }
-
-  .project-heading {
-    @apply text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-serif italic tracking-tighter leading-[0.9];
-  }
-
-  .section-padding {
-    @apply py-16 md:py-24;
-  }
-
-  .bento-grid {
-    @apply grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-auto;
-  }
-
-  .bento-card {
-    @apply bg-white border border-black/5 rounded-3xl md:rounded-4xl p-6 md:p-10 relative overflow-hidden transition-colors duration-300 shadow-sm;
-  }
-
-  .bento-card:hover {
-    @apply border-primary/30;
-  }
-
-  .bento-card-dark {
-    @apply bg-foreground text-background/90 rounded-3xl md:rounded-4xl p-6 md:p-10 relative overflow-hidden transition-colors duration-300 border border-transparent;
-  }
-
-  .bento-card-dark:hover {
-    @apply border-primary;
-  }
-
-  /* Extracted Utility Classes to reduce repetition */
-  .text-label {
-    @apply font-mono text-[10px] sm:text-xs uppercase tracking-widest;
-  }
-
-  .container-7xl {
-    @apply w-full max-w-7xl mx-auto;
-  }
-
-  .text-serif-italic {
-    @apply font-serif italic;
-  }
-
-  /* Button Primitives */
-  .button {
-    @apply inline-flex items-center justify-center px-4 py-2 rounded-full font-mono text-xs uppercase tracking-widest transition-all duration-300 outline-none cursor-pointer;
-  }
-
-  .button-primary {
-    @apply bg-foreground text-background border border-foreground;
-  }
-
-  .button-outline {
-    @apply bg-transparent text-foreground/60 border border-foreground/20 hover:border-foreground hover:text-foreground;
-  }
-
-  .button-icon {
-    @apply size-10 inline-flex items-center justify-center border border-foreground/10 hover:border-foreground/30 border-b-[3px] rounded-lg active:border-b active:translate-y-0.5 hover:bg-foreground/5 transition-all text-foreground/60 hover:text-foreground outline-none cursor-pointer;
-  }
-
-  .button-circle {
-    @apply size-16 border border-foreground/10 rounded-full inline-flex items-center justify-center text-foreground hover:bg-primary hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 cursor-pointer;
-  }
 }
