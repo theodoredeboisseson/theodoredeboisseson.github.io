@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Hero
+      <Hero id="hero"
         title={bioData.hero.title}
         subtitle={bioData.hero.subtitle}
         description={bioData.hero.description}
@@ -38,19 +38,22 @@ export default function Home() {
         </div>
       </Link>
       <AboutSection 
+        id="about"
         seeking={bioData.about.seeking}
         languages={bioData.about.languages}
         softSkills={bioData.about.soft_skills}
         hobbies={bioData.about.hobbies}
       />
       <SkillsStickers
+        id="arsenal"
         projects={allProjects}
         skills={skillsData}
       />
-      <FeaturedProjects projects={featuredProjects} />
-      <FormationSection education={bioData.education} />
-      <ExperienceSection experiences={bioData.experiences as Experience[]} skills={skillsData} projects={allProjects} />
+      <FeaturedProjects id="projects" projects={featuredProjects} />
+      <FormationSection id="formation" education={bioData.education} />
+      <ExperienceSection id="experience" experiences={bioData.experiences as Experience[]} skills={skillsData} projects={allProjects} />
       <ContactSection
+        id="contact"
         contact={bioData.contact}
         socials={bioData.socials}
         cvUrl={bioData.cv_file}

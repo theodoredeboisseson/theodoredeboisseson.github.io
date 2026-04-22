@@ -21,6 +21,8 @@ const playfair = Playfair_Display({
 
 import TechnicalFrame from "./components/ui/TechnicalFrame";
 import React from "react";
+import SectionNavigator from "@/app/components/ui/SectionNavigator";
+import ScrollToTop from "@/app/components/ui/ScrollToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://theodoredeboisseson.github.io"),
@@ -84,7 +86,9 @@ export default function RootLayout({
         />
         <GrainOverlay />
         <TechnicalFrame />
+        <SectionNavigator />
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );

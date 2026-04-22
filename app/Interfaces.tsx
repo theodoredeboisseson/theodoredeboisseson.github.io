@@ -1,4 +1,4 @@
-import type { ProjectMetadata } from '../lib/mdx';
+import type { ProjectMetadata } from '@/lib/mdx';
 
 export interface BaseSectionProps {
     id?: string;

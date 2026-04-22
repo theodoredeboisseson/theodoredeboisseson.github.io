@@ -7,7 +7,7 @@ import SkillSticker from '../ui/SkillSticker';
 
 import { Skill, SkillsArsenalProps } from '../../Interfaces';
 
-export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) {
+export default function SkillsArsenal({ id, projects, skills }: SkillsArsenalProps) {
     const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -52,7 +52,7 @@ export default function SkillsArsenal({ projects, skills }: SkillsArsenalProps) 
 
     return (
         <>
-        <section className="relative w-full section-padding fluid-padding bg-background">
+        <section id={id} className="relative w-full section-padding fluid-padding bg-background">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 container-7xl mx-auto">
                     <h2 className="section-title">
