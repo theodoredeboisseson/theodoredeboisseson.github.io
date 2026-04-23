@@ -2,8 +2,8 @@
 
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { SkillStickerProps } from '../../types';
-import DynamicIcon from '../display/DynamicIcon';
+import { SkillStickerProps } from '@/app/types';
+import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
 import { useRef } from 'react';
 
 export default function SkillSticker({ skill, hasLinkedData, onClick, index = 0, cols = 1 }: SkillStickerProps) {

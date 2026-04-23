@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import KineticLine from '../ui/display/KineticLine';
-import { FormationSectionProps } from '../../types';
+import KineticLine from '@/app/components/ui/display/KineticLine';
+import { FormationSectionProps } from '@/app/types';
 
 export default function FormationSection({ id, education }: FormationSectionProps) {
     return (

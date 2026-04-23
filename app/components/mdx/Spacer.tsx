@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SpacerProps } from '../../types';
+import { SpacerProps } from '@/app/types';
 
 const Spacer: React.FC<SpacerProps> = ({ size = 'md' }) => {
     const getSize = () => {

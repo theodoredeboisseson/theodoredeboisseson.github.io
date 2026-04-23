@@ -1,6 +1,6 @@
 'use client';
 
-import { VideoPlayerProps } from '../../types';
+import { VideoPlayerProps } from '@/app/types';
 
 export default function VideoPlayer({ url }: VideoPlayerProps) {
     if (!url) return null;

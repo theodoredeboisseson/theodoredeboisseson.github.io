@@ -1,6 +1,6 @@
 import { getAllProjects, getProjectSummary } from '@/lib/mdx';
-import ProjectListClient from '../components/sections/ProjectListClient';
-import { Project } from '../types';
+import ProjectListClient from '@/app/components/sections/ProjectListClient';
+import { Project } from '@/app/types';
 
 export const metadata = {
     title: 'Projets | Théodore',

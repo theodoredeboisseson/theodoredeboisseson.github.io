@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ContextBadgeProps } from '../../types';
+import { ContextBadgeProps } from '@/app/types';
 
 export default function ContextBadge({ context }: ContextBadgeProps) {
     if (!context) return null;

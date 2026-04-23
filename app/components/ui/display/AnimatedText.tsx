@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { AnimatedTextProps } from "../../types";
+import { AnimatedTextProps } from '@/app/types';
 
 export default function AnimatedText({
     text,

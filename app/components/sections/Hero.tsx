@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import AnimatedText from "../ui/AnimatedText";
+import AnimatedText from "@/app/components/ui/display/AnimatedText";
 
-import { HeroProps } from "../../types";
+import { HeroProps } from '@/app/types';
 
 export default function Hero({ id, title, subtitle, description, profileImage, availability }: HeroProps) {
     const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1.0]; // Premium smooth easing

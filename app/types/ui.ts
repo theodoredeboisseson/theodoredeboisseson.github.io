@@ -28,3 +28,12 @@ export interface AnimatedTextProps {
     duration?: number;
     showDot?: boolean;
 }
+
+export interface TacticalFilterProps {
+    options: string[];
+    activeOptions: string | string[];
+    onChange: (option: string) => void;
+    mode: 'radio' | 'checkbox';
+    className?: string;
+}
+

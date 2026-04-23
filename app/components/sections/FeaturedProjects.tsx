@@ -4,9 +4,9 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useInView, PanInfo } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
-import ProjectCard from '../ui/cards/ProjectCard';
+import ProjectCard from '@/app/components/ui/cards/ProjectCard';
 
-import { FeaturedProjectsProps } from '../../types';
+import { FeaturedProjectsProps } from '@/app/types';
 
 export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps) {
     const [currentIndex, setCurrentIndex] = useState(0);

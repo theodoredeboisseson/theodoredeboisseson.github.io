@@ -1,8 +1,8 @@
 'use client';
 import { Cpu } from 'lucide-react';
-import DynamicIcon from '../display/DynamicIcon';
+import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
 
-import { Badge, TechBadgeProps } from '../../types';
+import { Badge, TechBadgeProps } from '@/app/types';
 
 export default function TechBadge({ skills, badges }: TechBadgeProps) {
     // Merge or select source

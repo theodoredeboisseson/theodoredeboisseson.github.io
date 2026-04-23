@@ -3,8 +3,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-import { SkillDrawerProps } from '../../types';
-import DynamicIcon from '../display/DynamicIcon';
+import { SkillDrawerProps } from '@/app/types';
+import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
 
 export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }: SkillDrawerProps) {
     // Filter projects linked to this skill

@@ -2,7 +2,7 @@
 
 import acData from '@/data/ac_competences.json';
 
-import { AC, Competence, ACTooltipProps } from '../../types';
+import { AC, Competence, ACTooltipProps } from '@/app/types';
 
 export default function ACTooltip({ acString, className = "" }: ACTooltipProps) {
     // Heuristic: Check against all known AC IDs.

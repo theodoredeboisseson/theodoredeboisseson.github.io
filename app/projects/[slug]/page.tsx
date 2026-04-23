@@ -3,17 +3,17 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getProjectBySlug, getProjectSlugs } from '@/lib/mdx';
 import skillsData from '@/data/skills.json';
 import Image from 'next/image';
-import ReturnButton from '../../components/ui/navigation/ReturnButton';
-import KineticLine from '../../components/ui/display/KineticLine';
+import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
+import KineticLine from '@/app/components/ui/display/KineticLine';
 import { ArrowUpRight, Eye, Clock, Users } from 'lucide-react';
-import ACTooltip from '../../components/ui/badges/ACTooltip';
+import ACTooltip from '@/app/components/ui/badges/ACTooltip';
 
-import ImageGallery from '../../components/mdx/ImageGallery';
-import TechBadge from '../../components/ui/badges/TechBadge';
-import VideoPlayer from '../../components/mdx/VideoPlayer';
-import Hyperlink from '../../components/mdx/Hyperlink';
-import Spacer from '../../components/mdx/Spacer';
-import ContextBadge from '../../components/ui/ContextBadge';
+import ImageGallery from '@/app/components/mdx/ImageGallery';
+import TechBadge from '@/app/components/ui/badges/TechBadge';
+import VideoPlayer from '@/app/components/mdx/VideoPlayer';
+import Hyperlink from '@/app/components/mdx/Hyperlink';
+import Spacer from '@/app/components/mdx/Spacer';
+import ContextBadge from '@/app/components/ui/badges/ContextBadge';
 
 const components = {
     ImageGallery,

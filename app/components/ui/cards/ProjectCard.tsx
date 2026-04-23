@@ -4,12 +4,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import skillsData from '../../../data/skills.json';
+import skillsData from '@/data/skills.json';
 
-import { Project, ProjectCardProps } from '../../types';
-import DynamicIcon from '../display/DynamicIcon';
-import ACTooltip from '../badges/ACTooltip';
-import ContextBadge from '../badges/ContextBadge';
+import { ProjectCardProps } from '@/app/types';
+import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
+import ACTooltip from '@/app/components/ui/badges/ACTooltip';
+import ContextBadge from '@/app/components/ui/badges/ContextBadge';
 
 export default function ProjectCard({ project }: ProjectCardProps) {
     const linkedSkills = project.usedSkills?.map(name => skillsData.find(s => s.name === name)).filter(Boolean) || [];

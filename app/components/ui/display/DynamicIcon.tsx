@@ -4,7 +4,7 @@ import * as Icons from 'lucide-react';
 import { LucideIcon, Code, Wrench, Palette, Layers } from 'lucide-react';
 import Image from 'next/image';
 
-import { DynamicIconProps } from '../../types';
+import { DynamicIconProps } from '@/app/types';
 
 export default function DynamicIcon({ name, className = "", size, strokeWidth = 1.5, category }: DynamicIconProps) {
     if (!name && !category) return null;

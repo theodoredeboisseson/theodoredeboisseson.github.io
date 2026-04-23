@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { BackgroundSectionProps } from '../../types';
+import { BackgroundSectionProps } from '@/app/types';
 
 export default function BackgroundSection({
     src,

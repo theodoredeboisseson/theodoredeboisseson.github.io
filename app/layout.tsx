@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-import GrainOverlay from "./components/ui/GrainOverlay";
+import GrainOverlay from "@/app/components/ui/overlays/GrainOverlay";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,7 +19,7 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
-import TechnicalFrame from "./components/ui/overlays/TechnicalFrame";
+import TechnicalFrame from "@/app/components/ui/overlays/TechnicalFrame";
 import ScrollToTop from "@/app/components/ui/navigation/ScrollToTop";
 
 export const metadata: Metadata = {
