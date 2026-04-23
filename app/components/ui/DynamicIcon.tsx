@@ -16,7 +16,7 @@ export default function DynamicIcon({ name, className = "", size, strokeWidth = 
     if (!name && !category) return null;
 
     if (name && (name.startsWith('/') || name.includes('.') || name.includes('/'))) {
-        const src = name.startsWith('/') ? name : `/icones/${name}`;
+        const src = name.startsWith('/') ? name : `/icons/${name}`;
         return <Image src={src} alt={name || 'icon'} width={size || 32} height={size || 32} className={`object-contain ${className}`} />;
     }
 

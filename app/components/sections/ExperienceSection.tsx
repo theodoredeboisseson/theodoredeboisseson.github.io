@@ -3,9 +3,9 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import MovementLine from '../ui/MovementLine';
+import KineticLine from '../ui/KineticLine';
 import TechBadge from '../ui/TechBadge';
-import { ExperienceSectionProps } from '../../Interfaces';
+import { ExperienceSectionProps } from '../../types';
 
 export default function ExperienceSection({ id, experiences, skills, projects }: ExperienceSectionProps) {
     return (
@@ -22,7 +22,7 @@ export default function ExperienceSection({ id, experiences, skills, projects }:
             <div className="relative">
                 {/* Visual Line on the left */}
                 <div className="absolute -left-4 md:-left-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
-                    <MovementLine />
+                    <KineticLine />
                 </div>
 
                 <div className="flex flex-col space-y-16 ml-4">
@@ -99,7 +99,7 @@ export default function ExperienceSection({ id, experiences, skills, projects }:
                                         {resolvedSkills.length > 0 && (
                                             <div className="mb-5 -mt-2">
                                                 <TechBadge
-                                                    badges={(resolvedSkills as import('../../Interfaces').Skill[]).map(skill => ({
+                                                    badges={(resolvedSkills as import('../../types').Skill[]).map(skill => ({
                                                         label: skill.name,
                                                         icon: skill.icon
                                                     }))}
@@ -133,7 +133,7 @@ export default function ExperienceSection({ id, experiences, skills, projects }:
                 </div>
 
                 <div className="absolute -right-4 md:-right-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
-                    <MovementLine />
+                    <KineticLine />
                 </div>
             </div>
         </section>

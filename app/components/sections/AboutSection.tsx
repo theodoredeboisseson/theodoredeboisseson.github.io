@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { Globe, Brain, Sparkles, Palette, Target } from 'lucide-react';
 
-import { AboutSectionProps } from '../../Interfaces';
+import { AboutSectionProps } from '../../types';
 
 export default function AboutSection({ id, seeking, languages, softSkills, hobbies }: AboutSectionProps) {
     return (

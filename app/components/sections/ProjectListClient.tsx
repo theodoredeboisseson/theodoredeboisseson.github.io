@@ -4,15 +4,15 @@ import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import ProjectCard from '../ui/ProjectCard';
 import ReturnButton from '../ui/ReturnButton';
-import { Project } from '../../Interfaces';
+import { Project } from '../../types';
 
-interface ProjectGalleryClientProps {
+interface ProjectListClientProps {
     projects: Project[];
 }
 
 const CATEGORIES = ['All', 'Tech', 'Art'];
 
-export default function ProjectGalleryClient({ projects }: ProjectGalleryClientProps) {
+export default function ProjectListClient({ projects }: ProjectListClientProps) {
     const [activeFilter, setActiveFilter] = useState('All');
 
     const filteredProjects = projects.filter(project =>

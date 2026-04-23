@@ -16,7 +16,7 @@ const LinkedinIcon = ({ size = 24, className = '' }: { size?: number; className?
     </svg>
 );
 
-import { ContactProps } from '../../Interfaces';
+import { ContactProps } from '../../types';
 
 export default function ContactSection({ id, contact, socials, cvUrl }: ContactProps) {
     const [isCopied, setIsCopied] = React.useState(false);

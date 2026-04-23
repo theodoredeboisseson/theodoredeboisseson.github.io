@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Hero from "./components/sections/Hero";
 import AboutSection from "./components/sections/AboutSection";
-import SkillsStickers from "./components/sections/SkillsArsenal";
+import SkillsArsenal from "./components/sections/SkillsArsenal";
 import FeaturedProjects from "./components/sections/FeaturedProjects";
 import FormationSection from "./components/sections/FormationSection";
 import ExperienceSection from "./components/sections/ExperienceSection";
 import ContactSection from "./components/sections/ContactSection";
 import { getAllProjects, getProjectSummary } from "@/lib/mdx";
-import { Project, Experience } from "./Interfaces";
+import { Project, Experience } from "./types";
 import bioData from '@/data/bio.json';
 import skillsData from '@/data/skills.json';
 import SectionNavigator from "@/app/components/ui/SectionNavigator";
@@ -47,7 +47,7 @@ export default function Home() {
         softSkills={bioData.about.soft_skills}
         hobbies={bioData.about.hobbies}
       />
-      <SkillsStickers
+      <SkillsArsenal
         id="arsenal"
         projects={allProjects}
         skills={skillsData}

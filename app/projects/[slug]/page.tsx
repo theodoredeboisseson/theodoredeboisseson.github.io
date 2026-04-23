@@ -4,7 +4,7 @@ import { getProjectBySlug, getProjectSlugs } from '@/lib/mdx';
 import skillsData from '@/data/skills.json';
 import Image from 'next/image';
 import ReturnButton from '../../components/ui/ReturnButton';
-import ProjectWave from '../../components/ui/MovementLine';
+import KineticLine from '../../components/ui/KineticLine';
 import { ArrowUpRight, Eye, Clock, Users } from 'lucide-react';
 import ACTooltip from '../../components/ui/ACTooltip';
 
@@ -191,7 +191,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     <div className="hidden lg:block lg:col-span-3">
                         <div className="sticky top-12 border-t-[0.5px] border-foreground/10 pt-4 h-[calc(100vh-6rem)] overflow-hidden">
                             <span className="text-label opacity-40">Project Report</span>
-                            <ProjectWave />
+                            <KineticLine />
                         </div>
                     </div>
 

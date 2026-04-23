@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowUpRight } from 'lucide-react';
 import Link from 'next/link';
-import { SkillDrawerProps } from '../../Interfaces';
+import { SkillDrawerProps } from '../../types';
 import DynamicIcon from './DynamicIcon';
 
 export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }: SkillDrawerProps) {

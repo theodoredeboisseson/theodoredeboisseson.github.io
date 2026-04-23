@@ -20,7 +20,6 @@ const playfair = Playfair_Display({
 });
 
 import TechnicalFrame from "./components/ui/TechnicalFrame";
-import React from "react";
 import ScrollToTop from "@/app/components/ui/ScrollToTop";
 
 export const metadata: Metadata = {

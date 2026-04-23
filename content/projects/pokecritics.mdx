@@ -1,0 +1,30 @@
+---
+title: "PokeCritics"
+description: "Application web communautaire de critiques de Pokémon. Architecture découplée Vue.js (Front) et Symfony/API Platform (Back)."
+date: "2025"
+category: "Développement Web"
+tags: ["API Platform"]
+ac_list: ["AC32", "AC33"]
+duration: "2 semaines"
+team_size: "4 personnes"
+usedSkills: ["Vue.js", "Symfony", "PHP", "HTML & CSS", "JavaScript", "GitHub"]
+filter: "Tech"
+context: "Scolaire"
+---
+
+Projet de programmation avancée visant à créer une application web communautaire complète basée sur une architecture découplée (séparation stricte du front-end et du back-end).
+
+### Le Concept
+
+PokeCritics permet aux utilisateurs de consulter des Pokémon et de leur attribuer des notes et commentaires. 
+- **Utilisateurs standards** : création de compte, mise en favoris, proposition de nouveaux Pokémon (en attente de validation) et publication de critiques.
+- **Administrateurs** : validation des propositions, modération des critiques et gestion des comptes utilisateurs.
+- **Visiteurs publics** : consultation libre des Pokémon validés et de leurs critiques.
+
+### Architecture Technique
+
+L'architecture (imposée par les consignes) repose sur la séparation claire :
+- **Le Backend (Serveur)** : Réalisé en **Symfony** avec **API Platform**. Gestion de la base de données via **Doctrine** et sécurisation complète de l'API avec des tokens **JWT**.
+- **Le Frontend (Client)** : Réalisé en **Vue.js** (avec Vite). Le client interroge l'API Symfony pour afficher les données dynamiquement.
+
+Pour la donnée brute des Pokémon, nous avons optimisé notre temps en nous basant directement sur la fameuse **PokeAPI**, un service externe gratuit répertoriant toutes les créatures, évitant ainsi d'avoir à remplir manuellement notre propre base de données.

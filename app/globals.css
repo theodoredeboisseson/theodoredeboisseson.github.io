@@ -29,7 +29,9 @@ html {
   --color-tech-border: color-mix(in srgb, var(--foreground), transparent 85%);
   --color-tech-border-dim: color-mix(in srgb, var(--foreground), transparent 95%);
 
+  /*noinspection CssUnresolvedCustomProperty*/
   --spacing-bento: var(--spacing-6);
+  /*noinspection CssUnresolvedCustomProperty*/
   --spacing-bento-desktop: var(--spacing-10);
 
   --radius-bento: var(--radius-3xl);

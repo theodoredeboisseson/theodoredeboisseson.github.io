@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import skillsData from '../../../data/skills.json';
 
-import { Project } from '../../Interfaces';
+import { Project } from '../../types';
 import DynamicIcon from './DynamicIcon';
 import ACTooltip from './ACTooltip';
 import ContextBadge from './ContextBadge';
@@ -80,6 +80,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                         <div className="flex flex-col">
                             <span className="font-bold">Category</span>
+                            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                             <span>{project.category} // {project.date || '2025'}</span>
                         </div>
 

@@ -1,6 +1,6 @@
 import { getAllProjects, getProjectSummary } from '@/lib/mdx';
-import ProjectGalleryClient from '../components/sections/ProjectGalleryClient';
-import { Project } from '../Interfaces';
+import ProjectListClient from '../components/sections/ProjectListClient';
+import { Project } from '../types';
 
 export const metadata = {
     title: 'Projets | Théodore',
@@ -15,7 +15,7 @@ export default function ProjectsGalleryPage() {
 
     return (
         <main className="min-h-screen bg-background py-12 px-6 md:px-12 lg:px-24">
-            <ProjectGalleryClient projects={projects} />
+            <ProjectListClient projects={projects} />
         </main>
     );
 }

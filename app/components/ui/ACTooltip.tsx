@@ -2,7 +2,7 @@
 
 import acData from '@/data/ac_competences.json';
 
-import { AC, Competence } from '../../Interfaces';
+import { AC, Competence } from '../../types';
 
 interface ACTooltipProps {
     acString: string; // e.g. "AC11"

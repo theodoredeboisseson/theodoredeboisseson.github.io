@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 
-import { ImageGalleryProps } from '@/app/Interfaces';
+import { ImageGalleryProps } from '@/app/types';
 
 export default function ImageGallery({ images, alts, children }: ImageGalleryProps) {
     const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);

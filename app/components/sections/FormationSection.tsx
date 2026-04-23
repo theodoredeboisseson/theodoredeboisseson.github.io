@@ -1,9 +1,8 @@
 'use client';
 
-import React from 'react';
 import { motion } from 'framer-motion';
-import MovementLine from '../ui/MovementLine';
-import { FormationSectionProps } from '../../Interfaces';
+import KineticLine from '../ui/KineticLine';
+import { FormationSectionProps } from '../../types';
 
 export default function FormationSection({ id, education }: FormationSectionProps) {
     return (
@@ -20,7 +19,7 @@ export default function FormationSection({ id, education }: FormationSectionProp
             <div className="relative">
                 {/* Visual Line on the left */}
                 <div className="absolute -left-4 md:-left-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
-                    <MovementLine />
+                    <KineticLine />
                 </div>
 
                 <div className="flex flex-col space-y-16 ml-4">
@@ -67,7 +66,7 @@ export default function FormationSection({ id, education }: FormationSectionProp
                 </div>
 
                 <div className="absolute -right-4 md:-right-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
-                    <MovementLine />
+                    <KineticLine />
                 </div>
             </div>
         </section>

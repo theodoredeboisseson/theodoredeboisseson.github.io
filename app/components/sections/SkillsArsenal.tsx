@@ -6,7 +6,7 @@ import {ChevronDown} from 'lucide-react';
 import SkillDrawer from '../ui/SkillDrawer';
 import SkillSticker from '../ui/SkillSticker';
 
-import {Skill, SkillsArsenalProps} from '../../Interfaces';
+import {Skill, SkillsArsenalProps} from '../../types';
 
 export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps) {
     const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);

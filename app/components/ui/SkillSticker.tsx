@@ -2,7 +2,7 @@
 
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { SkillStickerProps } from '../../Interfaces';
+import { SkillStickerProps } from '../../types';
 import DynamicIcon from './DynamicIcon';
 import { useRef } from 'react';
 
