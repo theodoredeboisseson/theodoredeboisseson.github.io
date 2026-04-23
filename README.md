@@ -1,4 +1,4 @@
-# 🛡Théodore de Boisseson — Portfolio
+# Théodore de Boisseson — Portfolio
 
 [![Next.js 15](https://img.shields.io/badge/Framework-Next.js%2015-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Tailwind CSS 4](https://img.shields.io/badge/Styling-Tailwind%204-06B6D4?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
@@ -11,7 +11,7 @@ Mon portfolio perso, construit avec un focus sur le design et une architecture N
 
 L'idée est de s'éloigner du web classique tout en courbes pour quelque chose de plus brut, précis et surtout, original.
 
-## 🛠Arsenal Technique
+## Arsenal Technique
 
 ### Core Stack
 - **Framework** : [Next.js 15+](https://nextjs.org/) (App Router, Server Components).
@@ -60,7 +60,7 @@ npm run dev
 
 ## Gestion du Contenu
 
-Les projets sont gérés dynamiquement via des fichiers `.mdx` situés dans `/content/projects/`. Chaque projet supporte :
+Les projets sont gérés via des fichiers `.mdx` situés dans `/content/projects/`. Chaque projet supporte :
 - Un **Frontmatter** (catégorie, date, stack technique, liens).
 - Des **Composants Custom** (Spacers, Galeries d'images, Lecteurs Vidéo).
 
