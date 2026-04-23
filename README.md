@@ -7,13 +7,9 @@
 
 Mon portfolio perso, construit avec un focus sur le design et une architecture Next.js propre. C'est ici que je regroupe mes projets et mes expérimentations.
 
----
-
 ## Le Concept
 
 L'idée est de s'éloigner du web classique tout en courbes pour quelque chose de plus brut, précis et surtout, original.
-
----
 
 ## 🛠Arsenal Technique
 
@@ -28,8 +24,6 @@ L'idée est de s'éloigner du web classique tout en courbes pour quelque chose d
 - **Atomic UI Design** : Composants organisés par responsabilité (`badges`, `cards`, `display`, `navigation`, `overlays`).
 - **Strictly Type-Safe** : Centralisation modulaire des types dans `app/types/` pour une maintenance simplifiée.
 - **Shorthand Imports** : Utilisation systématique de l'alias `@/` pour une structure de fichiers robuste et flexible.
-
----
 
 ## Structure du Projet
 
@@ -47,34 +41,28 @@ L'idée est de s'éloigner du web classique tout en courbes pour quelque chose d
 └── public/               # Assets statiques (Images, Icons)
 ```
 
----
-
 ## Installation
 
 1. **Clonage du dépôt**
 ```bash
    git clone https://github.com/theodoredeboisseson/theodoredeboisseson.github.io.git
-   ```
+```
 
 2. **Installation des dépendances**
-   ```bash
+```bash
 npm install
    ```
 
 3. **Lancement du serveur de développement**
-   ```bash
+```bash
 npm run dev
 ```
-
----
 
 ## Gestion du Contenu
 
 Les projets sont gérés dynamiquement via des fichiers `.mdx` situés dans `/content/projects/`. Chaque projet supporte :
 - Un **Frontmatter** (catégorie, date, stack technique, liens).
 - Des **Composants Custom** (Spacers, Galeries d'images, Lecteurs Vidéo).
-
----
 
 ## License
 
