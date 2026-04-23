@@ -1,4 +1,4 @@
-# 🛡Théodore de Boisseson — Portfolio
+# Théodore de Boisseson — Portfolio
 
 [![Next.js 15](https://img.shields.io/badge/Framework-Next.js%2015-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Tailwind CSS 4](https://img.shields.io/badge/Styling-Tailwind%204-06B6D4?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
@@ -7,15 +7,11 @@
 
 Mon portfolio perso, construit avec un focus sur le design et une architecture Next.js propre. C'est ici que je regroupe mes projets et mes expérimentations.
 
----
-
 ## Le Concept
 
 L'idée est de s'éloigner du web classique tout en courbes pour quelque chose de plus brut, précis et surtout, original.
 
----
-
-## 🛠Arsenal Technique
+## Arsenal Technique
 
 ### La Stack
 - **Next.js 15** (App Router) pour le coeur du projet.
@@ -28,8 +24,6 @@ L'idée est de s'éloigner du web classique tout en courbes pour quelque chose d
 - **Atomic UI** : Tout est rangé par catégorie dans `app/components/ui/` (`cards`, `navigation`, `badges`...).
 - **Type-Safe** : Centralisation des types dans `app/types/` pour éviter de se perdre dans les interfaces.
 - **Shorthand Imports** : Utilisation systématique du `@/` pour pouvoir déplacer les fichiers sans casser les imports.
-
----
 
 ## Structure du Projet
 
@@ -45,8 +39,6 @@ L'idée est de s'éloigner du web classique tout en courbes pour quelque chose d
 └── lib/                  # Utilitaires (parsing MDX, etc.)
 ```
 
----
-
 ## Installation
 
 ```bash
@@ -57,13 +49,9 @@ npm install
 npm run dev
 ```
 
----
-
 ## Gestion du Contenu
 
 J'écris mes projets directement en MDX dans `/content/projects/`. Ça me permet d'utiliser mes propres composants React (galeries, lecteurs vidéo, etc.) à l'intérieur de mes rapports tout en gardant la simplicité du Markdown.
-
----
 
 ## License
 
