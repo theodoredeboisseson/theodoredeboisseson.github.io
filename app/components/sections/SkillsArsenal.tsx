@@ -42,7 +42,13 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
 
     const filteredSkills = skills.filter(skill =>
         selectedCategories.length === 0 || selectedCategories.includes(skill.category)
-    ).sort((a, b) => a.name.localeCompare(b.name));
+    ).sort((a, b) => {
+        // Sort by comfort level descending, then alphabetically
+        if (b.comfortLevel !== a.comfortLevel) {
+            return b.comfortLevel - a.comfortLevel;
+        }
+        return a.name.localeCompare(b.name);
+    });
 
     // Split skills into initial (2 rows) and extra
     const initialCount = cols * 2;
