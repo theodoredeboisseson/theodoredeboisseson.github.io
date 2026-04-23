@@ -126,3 +126,95 @@ export interface ImageGalleryProps {
     alts?: string;
     children?: React.ReactNode;
 }
+
+export interface ProjectCardProps {
+    project: Project;
+    index?: number;
+}
+
+export interface ReturnButtonProps {
+    href?: string;
+    label?: string;
+    className?: string;
+    projectSlug?: string;
+}
+
+export interface SectionIconProps {
+    onClick: () => void;
+    section: {
+        id: string;
+        label: string;
+        icon: React.ForwardRefExoticComponent<Omit<import('lucide-react').LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>>;
+    };
+    active: boolean;
+    isMobile?: boolean;
+}
+
+export interface Badge {
+    label: string;
+    icon?: string;
+}
+
+export interface TechBadgeProps {
+    skills?: string[];
+    badges?: Badge[];
+}
+
+export interface TechnicalFrameProps {
+    className?: string;
+    showMetadata?: boolean;
+}
+
+export interface ACTooltipProps {
+    acString: string;
+    className?: string;
+}
+
+export interface AnimatedTextProps {
+    text: string;
+    className?: string;
+    delayOffset?: number;
+    staggerDelay?: number;
+    duration?: number;
+    showDot?: boolean;
+}
+
+export type ContextType = 'Scolaire' | 'Perso' | 'Professionnel';
+
+export interface ContextBadgeProps {
+    context?: ContextType;
+}
+
+export interface DynamicIconProps {
+    name: string;
+    className?: string;
+    size?: number;
+    strokeWidth?: number;
+    category?: string;
+}
+
+export interface ProjectListClientProps {
+    projects: Project[];
+}
+
+export interface BackgroundSectionProps {
+    src: string;
+    alt: string;
+    children?: React.ReactNode;
+    className?: string;
+    overlayOpacity?: string;
+}
+
+export interface HyperlinkProps {
+    label: string;
+    href: string;
+}
+
+export interface SpacerProps {
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
+}
+
+export interface VideoPlayerProps {
+    url: string;
+}
+

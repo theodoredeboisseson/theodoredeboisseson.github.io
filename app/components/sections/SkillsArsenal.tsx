@@ -3,8 +3,8 @@
 import {motion} from 'framer-motion';
 import {useState, useEffect} from 'react';
 import {ChevronDown} from 'lucide-react';
-import SkillDrawer from '../ui/SkillDrawer';
-import SkillSticker from '../ui/SkillSticker';
+import SkillDrawer from '../ui/overlays/SkillDrawer';
+import SkillSticker from '../ui/cards/SkillSticker';
 
 import {Skill, SkillsArsenalProps} from '../../types';
 

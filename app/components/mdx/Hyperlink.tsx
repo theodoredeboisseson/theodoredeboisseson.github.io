@@ -1,9 +1,6 @@
 import React from 'react';
 
-interface HyperlinkProps {
-    label: string;
-    href: string;
-}
+import { HyperlinkProps } from '../../types';
 
 const Hyperlink: React.FC<HyperlinkProps> = ({ label, href }) => {
     return (

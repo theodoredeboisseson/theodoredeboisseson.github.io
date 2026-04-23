@@ -1,10 +1,6 @@
 import React from 'react';
 
-type ContextType = 'Scolaire' | 'Perso' | 'Professionnel';
-
-interface ContextBadgeProps {
-    context?: ContextType;
-}
+import { ContextBadgeProps } from '../../types';
 
 export default function ContextBadge({ context }: ContextBadgeProps) {
     if (!context) return null;

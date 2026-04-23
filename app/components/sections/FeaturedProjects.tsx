@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence, useInView, PanInfo } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
-import ProjectCard from '../ui/ProjectCard';
+import ProjectCard from '../ui/cards/ProjectCard';
 
 import { FeaturedProjectsProps } from '../../types';
 

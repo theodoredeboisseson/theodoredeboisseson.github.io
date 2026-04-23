@@ -1,16 +1,8 @@
 'use client';
 import { Cpu } from 'lucide-react';
-import DynamicIcon from './DynamicIcon';
+import DynamicIcon from '../display/DynamicIcon';
 
-interface Badge {
-    label: string;
-    icon?: string;
-}
-
-interface TechBadgeProps {
-    skills?: string[]; // Legacy support for MDX
-    badges?: Badge[];  // New rich support
-}
+import { Badge, TechBadgeProps } from '../../types';
 
 export default function TechBadge({ skills, badges }: TechBadgeProps) {
     // Merge or select source

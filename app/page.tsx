@@ -10,7 +10,7 @@ import { getAllProjects, getProjectSummary } from "@/lib/mdx";
 import { Project, Experience } from "./types";
 import bioData from '@/data/bio.json';
 import skillsData from '@/data/skills.json';
-import SectionNavigator from "@/app/components/ui/SectionNavigator";
+import SectionNavigator from "@/app/components/ui/navigation/SectionNavigator";
 
 export default function Home() {
   const allProjects = getAllProjects();

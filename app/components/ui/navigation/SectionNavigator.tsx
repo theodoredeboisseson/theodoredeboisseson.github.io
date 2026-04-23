@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { Briefcase, FolderGit2, GraduationCap, Home, Mail, Toolbox, User } from 'lucide-react';
-import { SectionIcon } from "@/app/components/ui/SectionIcon";
+import { SectionIcon } from "./SectionIcon";
 import { motion } from "framer-motion";
 
 const sections = [

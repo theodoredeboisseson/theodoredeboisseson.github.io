@@ -2,13 +2,9 @@
 
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import ProjectCard from '../ui/ProjectCard';
-import ReturnButton from '../ui/ReturnButton';
-import { Project } from '../../types';
-
-interface ProjectListClientProps {
-    projects: Project[];
-}
+import ProjectCard from '../ui/cards/ProjectCard';
+import ReturnButton from '../ui/navigation/ReturnButton';
+import { Project, ProjectListClientProps } from '../../types';
 
 const CATEGORIES = ['All', 'Tech', 'Art'];
 

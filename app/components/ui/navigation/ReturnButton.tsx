@@ -3,12 +3,7 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
-interface ReturnButtonProps {
-    href?: string;
-    label?: string;
-    className?: string;
-    projectSlug?: string;
-}
+import { ReturnButtonProps } from '../../types';
 
 export default function ReturnButton({ href = "/", label = "Back", className = "", projectSlug }: ReturnButtonProps) {
     const finalHref = projectSlug && href === "/projects" ? `${href}#${projectSlug}` : href;

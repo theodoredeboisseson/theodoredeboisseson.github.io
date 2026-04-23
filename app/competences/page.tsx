@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import acData from '@/data/ac_competences.json';
 import { getAllProjects } from '@/lib/mdx';
-import ReturnButton from '../components/ui/ReturnButton';
+import ReturnButton from '../components/ui/navigation/ReturnButton';
 
 import { AC, Competence } from '../types';
 

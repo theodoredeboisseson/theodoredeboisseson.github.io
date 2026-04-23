@@ -3,7 +3,7 @@
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { SkillStickerProps } from '../../types';
-import DynamicIcon from './DynamicIcon';
+import DynamicIcon from '../display/DynamicIcon';
 import { useRef } from 'react';
 
 export default function SkillSticker({ skill, hasLinkedData, onClick, index = 0, cols = 1 }: SkillStickerProps) {

@@ -2,14 +2,7 @@
 
 import { motion } from "framer-motion";
 
-interface AnimatedTextProps {
-    text: string;
-    className?: string;
-    delayOffset?: number;
-    staggerDelay?: number;
-    duration?: number;
-    showDot?: boolean;
-}
+import { AnimatedTextProps } from "../../types";
 
 export default function AnimatedText({
     text,

@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import KineticLine from '../ui/KineticLine';
-import TechBadge from '../ui/TechBadge';
+import KineticLine from '../ui/display/KineticLine';
+import TechBadge from '../ui/badges/TechBadge';
 import { ExperienceSectionProps } from '../../types';
 
 export default function ExperienceSection({ id, experiences, skills, projects }: ExperienceSectionProps) {

@@ -3,13 +3,13 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getProjectBySlug, getProjectSlugs } from '@/lib/mdx';
 import skillsData from '@/data/skills.json';
 import Image from 'next/image';
-import ReturnButton from '../../components/ui/ReturnButton';
-import KineticLine from '../../components/ui/KineticLine';
+import ReturnButton from '../../components/ui/navigation/ReturnButton';
+import KineticLine from '../../components/ui/display/KineticLine';
 import { ArrowUpRight, Eye, Clock, Users } from 'lucide-react';
-import ACTooltip from '../../components/ui/ACTooltip';
+import ACTooltip from '../../components/ui/badges/ACTooltip';
 
 import ImageGallery from '../../components/mdx/ImageGallery';
-import TechBadge from '../../components/ui/TechBadge';
+import TechBadge from '../../components/ui/badges/TechBadge';
 import VideoPlayer from '../../components/mdx/VideoPlayer';
 import Hyperlink from '../../components/mdx/Hyperlink';
 import Spacer from '../../components/mdx/Spacer';

@@ -1,12 +1,6 @@
 import Image from 'next/image';
 
-interface BackgroundSectionProps {
-    src: string;
-    alt: string;
-    children?: React.ReactNode;
-    className?: string;
-    overlayOpacity?: string;
-}
+import { BackgroundSectionProps } from '../../types';
 
 export default function BackgroundSection({
     src,

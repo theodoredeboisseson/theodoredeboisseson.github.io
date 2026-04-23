@@ -1,8 +1,6 @@
 import React from 'react';
 
-interface SpacerProps {
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | number;
-}
+import { SpacerProps } from '../../types';
 
 const Spacer: React.FC<SpacerProps> = ({ size = 'md' }) => {
     const getSize = () => {

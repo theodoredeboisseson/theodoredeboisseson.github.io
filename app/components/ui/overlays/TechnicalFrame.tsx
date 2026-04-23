@@ -1,9 +1,6 @@
 import React from "react";
 
-interface TechnicalFrameProps {
-    className?: string;
-    showMetadata?: boolean;
-}
+import { TechnicalFrameProps } from "../../types";
 
 export default function TechnicalFrame({ className = "", showMetadata = true }: TechnicalFrameProps) {
     const currentYear = new Date().getFullYear();

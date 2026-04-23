@@ -19,8 +19,8 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
 });
 
-import TechnicalFrame from "./components/ui/TechnicalFrame";
-import ScrollToTop from "@/app/components/ui/ScrollToTop";
+import TechnicalFrame from "./components/ui/overlays/TechnicalFrame";
+import ScrollToTop from "@/app/components/ui/navigation/ScrollToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://theodoredeboisseson.github.io"),
