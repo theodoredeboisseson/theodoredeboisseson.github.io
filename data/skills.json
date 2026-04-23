@@ -71,7 +71,7 @@
     },
     {
         "name": "Agile Scrum",
-        "category": "Method",
+        "category": "Methods",
         "icon": "scrum.svg",
         "comfortLevel": 3,
         "description": "Méthodologie de gestion de projet itérative et collaborative. L'utilisation de tableaux Kanban est devenue automatique."

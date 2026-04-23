@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import ProjectCard from '../ui/cards/ProjectCard';
-import ReturnButton from '../ui/navigation/ReturnButton';
-import { Project, ProjectListClientProps } from '../../types';
+import { AnimatePresence, motion } from 'framer-motion';
+import ProjectCard from '@/app/components/ui/cards/ProjectCard';
+import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
+import TacticalFilter from '@/app/components/ui/navigation/TacticalFilter';
+import { Project, ProjectListClientProps } from '@/app/types';
 
 const CATEGORIES = ['All', 'Tech', 'Art'];
 
@@ -31,17 +32,12 @@ export default function ProjectListClient({ projects }: ProjectListClientProps) 
                     <p className="font-mono text-foreground/60">// Archives & Expérimentations</p>
                 </div>
 
-                <div className="flex flex-wrap gap-4">
-                    {CATEGORIES.map(cat => (
-                        <button
-                            key={cat}
-                            onClick={() => setActiveFilter(cat)}
-                            className={`button ${activeFilter === cat ? 'button-primary' : 'button-outline'}`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
+                <TacticalFilter 
+                    options={CATEGORIES}
+                    activeOptions={activeFilter}
+                    onChange={setActiveFilter}
+                    mode="radio"
+                />
             </div>
 
             {/* Gallery List */}

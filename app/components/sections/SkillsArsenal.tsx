@@ -3,10 +3,11 @@
 import {motion} from 'framer-motion';
 import {useState, useEffect} from 'react';
 import {ChevronDown} from 'lucide-react';
-import SkillDrawer from '../ui/overlays/SkillDrawer';
-import SkillSticker from '../ui/cards/SkillSticker';
+import SkillDrawer from '@/app/components/ui/overlays/SkillDrawer';
+import SkillSticker from '@/app/components/ui/cards/SkillSticker';
+import TacticalFilter from '@/app/components/ui/navigation/TacticalFilter';
 
-import {Skill, SkillsArsenalProps} from '../../types';
+import {Skill, SkillsArsenalProps} from '@/app/types';
 
 export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps) {
     const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
@@ -96,23 +97,12 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
 
                     <div className="flex items-center gap-3 flex-wrap">
                         {/* Category filters */}
-                        <div className="flex flex-wrap gap-2">
-                            <button
-                                onClick={() => setSelectedCategories([])}
-                                className={`button ${selectedCategories.length === 0 ? 'button-primary' : 'button-outline'}`}
-                            >
-                                All
-                            </button>
-                            {categories.map(category => (
-                                <button
-                                    key={category}
-                                    onClick={() => toggleCategory(category)}
-                                    className={`button ${selectedCategories.includes(category) ? 'button-primary' : 'button-outline'}`}
-                                >
-                                    {category}
-                                </button>
-                            ))}
-                        </div>
+                        <TacticalFilter 
+                            options={['All', ...categories]}
+                            activeOptions={selectedCategories}
+                            onChange={(opt) => opt === 'All' ? setSelectedCategories([]) : toggleCategory(opt)}
+                            mode="checkbox"
+                        />
                     </div>
                 </div>
 
