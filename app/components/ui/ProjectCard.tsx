@@ -31,8 +31,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <div className="relative w-full grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start">
 
                 {/* Image Section */}
-                <Link href={`/projects/${project.slug}`} className="lg:col-span-8 relative block order-1">
-                    <div className="relative aspect-video w-full overflow-hidden rounded-tr-[2rem] lg:rounded-tr-[5rem] rounded-sm bg-black/50">
+                <Link href={`/projects/${project.slug}`} className="lg:col-span-7 relative block order-1">
+                    <div className="relative aspect-video w-full overflow-hidden rounded-tr-[2rem] lg:rounded-tr-[4rem] rounded-sm bg-black/50">
                         {project.image ? (
                             <div className="absolute inset-0 group-hover:scale-105 transition-transform duration-[1.5s] ease-out">
                                 <Image
@@ -56,9 +56,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     </div>
 
                     {/* Overlapping title + description — inside the image link */}
-                    <div className="absolute left-0 -bottom-2 lg:bottom-6 lg:-left-8 z-20 pointer-events-none w-full max-w-full pr-2 lg:pr-0">
-                        <h2 className="font-serif text-xl sm:text-2xl md:text-4xl lg:text-5xl tracking-tighter text-white leading-tight">
-                            <span className="inline-block bg-black/40 backdrop-blur-md px-2 lg:px-5 py-0.5 lg:py-1.5 -skew-x-12 rounded-md group-hover:translate-x-3 transition-transform duration-500 ease-out">
+                    <div className="absolute left-0 -bottom-2 lg:bottom-4 lg:-left-6 z-20 pointer-events-none w-full max-w-full pr-2 lg:pr-0">
+                        <h2 className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-tighter text-white leading-tight">
+                            <span className="inline-block bg-black/40 backdrop-blur-md px-2 lg:px-4 py-0.5 lg:py-1 -skew-x-12 rounded-md group-hover:translate-x-2 transition-transform duration-500 ease-out">
                                 {project.title}
                             </span>
                         </h2>
@@ -69,9 +69,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 </Link>
 
                 {/* Metadata Block — Desktop only (lg+) */}
-                <div className="hidden lg:flex lg:col-span-4 flex-col items-end justify-start text-right pt-0 order-2">
-                    <div className="text-label space-y-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 text-foreground flex flex-col">
-
+                <div className="hidden lg:flex lg:col-span-5 h-full flex-col items-end justify-between text-right pt-0 order-2 self-stretch">
+                    <div className="text-label space-y-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 text-foreground flex flex-col w-full">
                         <div className="flex flex-col">
                             <span className="font-bold">Context</span>
                             <span className="mt-1 flex justify-end">
@@ -81,12 +80,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
                         <div className="flex flex-col">
                             <span className="font-bold">Category</span>
-                            <span>{project.category}</span>
-                        </div>
-
-                        <div className="flex flex-col">
-                            <span className="font-bold">Date</span>
-                            <span>{project.date || '2025'}</span>
+                            <span>{project.category} // {project.date || '2025'}</span>
                         </div>
 
                         {/* Skills */}
@@ -107,8 +101,8 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         {project.ac_list && project.ac_list.length > 0 && (
                             <div className="flex flex-col items-end">
                                 <span className="font-bold mb-1">But validation</span>
-                                <div className="flex flex-wrap gap-1.5 justify-end">
-                                    {project.ac_list.map((ac) => (
+                                <div className="flex flex-wrap gap-1.5 justify-end mt-2">
+                                    {project.ac_list.slice(0, 4).map((ac) => (
                                         <div key={ac}>
                                             <ACTooltip acString={ac} />
                                         </div>
@@ -119,13 +113,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     </div>
 
                     {/* Tactical link button — desktop */}
-                    <div className="relative mt-8">
+                    <div className="relative self-end mt-4">
                         <Link
                             href={`/projects/${project.slug}`}
-                            className="btn-tactical rounded-2xl rounded-tl-sm group-hover:bg-foreground group-hover:text-background group-hover:border-transparent transition-all duration-300"
+                            className="btn-tactical text-xs px-8 py-4 rounded-tl-sm group-hover:bg-foreground group-hover:text-background group-hover:border-transparent hover:-translate-y-2 hover:font-bold"
                         >
                             <span>Voir le projet</span>
-                            <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                            <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
                         </Link>
                     </div>
                 </div>

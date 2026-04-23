@@ -94,82 +94,92 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                             </p>
                         </div>
 
-                        {/* Links, Source, ACs Row */}
-                        <div className="w-full flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12 border-t border-black/10 pt-6">
+                        {/* Specifications Header */}
+                        <div className="w-full flex items-center justify-center gap-4 mb-4">
+                            <div className="h-px bg-foreground/20 flex-1" />
+                            <h3 className="text-sm font-bold tracking-widest uppercase mt-1">Technical Specifications</h3>
+                            <div className="h-px bg-foreground/20 flex-1" />
+                        </div>
 
-                            {/* Links */}
+                        {/* Centered Meta Info Section */}
+                        <div className="w-full flex flex-col md:flex-row items-center justify-center md:gap-16 gap-8 border-b border-foreground/20 pb-8">
+
+                            {/* Project Links Group */}
                             {(project.links?.demo || project.links?.github) && (
-                                <div className={`flex items-center ${project.links.demo && project.links.github ? 'gap-0' : 'gap-4'} text-label`}>
-                                    {project.links.demo && (
-                                        <a
-                                            href={project.links.demo}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`btn-tactical rounded-bl-sm ${project.links.github ? 'border-r-0 rounded-r-none' : ''} group`}
-                                        >
-                                            Démo Live <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                                        </a>
-                                    )}
-                                    {project.links.github && (
-                                        <a
-                                            href={project.links.github}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                            className={`btn-tactical rounded-tr-sm ${project.links.demo ? 'bg-foreground/5 rounded-l-none' : ''} group`}
-                                        >
-                                            Code Source <Eye size={14} className="group-hover:scale-110" />
-                                        </a>
-                                    )}
+                                <div className="flex flex-col items-center gap-4">
+                                    <span className="font-mono text-smol uppercase tracking-widest opacity-40">ACCESS</span>
+                                    <div className="flex items-center gap-0">
+                                        {project.links.demo && (
+                                            <a
+                                                href={project.links.demo}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={`btn-tactical rounded-bl-sm ${project.links.github ? 'border-r-0 rounded-r-none' : ''} group`}
+                                            >
+                                                Démo Live<ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                            </a>
+                                        )}
+                                        {project.links.github && (
+                                            <a
+                                                href={project.links.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className={`btn-tactical rounded-tr-sm ${project.links.demo ? 'bg-foreground/5 rounded-l-none' : ''} group`}
+                                            >
+                                                Code Source <Eye size={14} className="group-hover:scale-125 transition-transform" />
+                                            </a>
+                                        )}
+                                    </div>
                                 </div>
                             )}
 
-                            {/* Separator */}
-                            <div className="hidden md:block w-px h-8 bg-black/10" />
+                            {/* Separator Line (Desktop) */}
+                            <div className="hidden md:block w-px h-12 bg-foreground/20" />
 
-                            {/* AC List */}
+                            {/* AC List Group */}
                             {project.ac_list && project.ac_list.length > 0 && (
-                                <div className="flex flex-col items-start">
-                                    <span className="font-mono text-[9px] uppercase tracking-widest opacity-40 mb-1">
-                                        Compétences Validées
-                                    </span>
-                                    <div className="flex flex-wrap gap-2">
+                                <div className="flex flex-col items-center gap-4">
+                                    <span className="font-mono text-smol uppercase tracking-widest opacity-40">Validated Skills</span>
+                                    <div className="flex flex-wrap gap-2 justify-center">
                                         {project.ac_list.map((ac: string) => (
-                                            <ACTooltip key={ac} acString={ac} />
+                                            <ACTooltip className='text-md p-2' key={ac} acString={ac} />
                                         ))}
                                     </div>
                                 </div>
                             )}
 
-                            {/* Separator if ACs exist and duration/team exist */}
-                            {project.ac_list && project.ac_list.length > 0 && (project.duration || project.team_size) && (
-                                <div className="hidden md:block w-px h-8 bg-black/10" />
-                            )}
+                            {/* Separator Line (Desktop) */}
+                            <div className="hidden md:block w-px h-12 bg-foreground/20" />
 
-                            {/* Project Meta (Duration & Team Size) */}
+                            {/* Meta Info Group */}
                             {(project.duration || project.team_size) && (
-                                <div className="flex flex-col gap-2 text-label opacity-60">
-                                    {project.duration && (
-                                        <div className="flex items-center gap-2">
-                                            <Clock size={14} className="text-primary" />
-                                            <span>{project.duration}</span>
-                                        </div>
-                                    )}
-                                    {project.team_size && (
-                                        <div className="flex items-center gap-2">
-                                            <Users size={14} className="text-primary" />
-                                            <span>{project.team_size}</span>
-                                        </div>
-                                    )}
+                                <div className="flex flex-col items-center gap-4">
+                                    <span className="font-mono text-smol uppercase tracking-widest opacity-40">Constraints</span>
+                                    <div className="flex gap-6 items-center">
+                                        {project.duration && (
+                                            <div className="flex items-center gap-2 text-label opacity-70">
+                                                <Clock size={14} className="text-primary" />
+                                                <span className="whitespace-nowrap">{project.duration}</span>
+                                            </div>
+                                        )}
+                                        {project.team_size && (
+                                            <div className="flex items-center gap-2 text-label opacity-70">
+                                                <Users size={14} className="text-primary" />
+                                                <span>{project.team_size}</span>
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
                             )}
-
                         </div>
 
-                        {/* Tech Badges Row */}
-                        <div className="mt-8">
-                            <TechBadge badges={projectBadges} />
+                        {/* Tech Stack Row - Premium Presentation */}
+                        <div className="w-full mt-12">
+                            <div className="flex flex-col items-center gap-6">
+                                <span className="font-mono text-smol uppercase tracking-widest opacity-40">Tech Stack // Built With</span>
+                                <TechBadge badges={projectBadges} />
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </section>

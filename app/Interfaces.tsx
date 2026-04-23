@@ -104,6 +104,8 @@ export interface SkillStickerProps {
     skill: Skill;
     hasLinkedData: boolean;
     onClick: () => void;
+    index?: number;
+    cols?: number;
 }
 export interface AboutSectionProps extends BaseSectionProps {
     seeking: {

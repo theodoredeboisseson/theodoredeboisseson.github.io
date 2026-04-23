@@ -92,7 +92,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
                 <h2 className="section-title ml-6">
                     Featured projects<span className="text-primary">.</span>
                 </h2>
-                <Link href="/projects" className="group flex items-center gap-2 font-mono text-sm uppercase tracking-widest text-foreground hover:text-primary transition-colors mt-4 md:mt-0">
+                <Link href="/projects" className="btn-tactical rounded-tr-none hover:translate-x-2 hover:font-bold text-sm hover:text-primary mt-4 md:mt-0">
                     Index
                     <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
