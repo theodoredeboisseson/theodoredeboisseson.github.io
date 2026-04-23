@@ -23,7 +23,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
 
                 {/* Top Metadata */}
                 {showMetadata && (
-                    <div className="font-mono text-[10px] tracking-widest uppercase opacity-80">
+                    <div className="font-mono text-smol tracking-widest uppercase opacity-80">
                         Portfolio // {currentYear}
                     </div>
                 )}
@@ -50,7 +50,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
 
                 {/* Bottom Metadata */}
                 {showMetadata && (
-                    <div className="font-mono text-[10px] tracking-widest uppercase opacity-80">
+                    <div className="font-mono text-smol tracking-widest uppercase opacity-80">
                         LOC // MONTPELLIER
                     </div>
                 )}

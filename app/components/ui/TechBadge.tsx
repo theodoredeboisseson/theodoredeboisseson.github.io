@@ -19,7 +19,7 @@ export default function TechBadge({ skills, badges }: TechBadgeProps) {
     if (!items || items.length === 0) return null;
 
     return (
-        <div className="flex flex-wrap gap-2 my-4">
+        <div className="flex flex-wrap justify-center gap-3">
             {items.map((item) => (
                 <div
                     key={item.label}

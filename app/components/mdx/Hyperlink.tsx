@@ -12,9 +12,9 @@ const Hyperlink: React.FC<HyperlinkProps> = ({ label, href }) => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-8 py-4 border border-foreground/10 rounded-full hover:bg-foreground/5 transition-all duration-500 hover:gap-4 group"
+                className="btn-tactical hover:gap-5 group"
             >
-                <span className="font-mono text-xs uppercase tracking-[0.2em]">{label}</span>
+                <span className="pattern-technical text-xs">{label}</span>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"

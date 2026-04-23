@@ -95,7 +95,7 @@ export default function CompetencesPage() {
                                             {/* Linked Projects */}
                                             <div className="col-span-1 md:col-span-4 flex flex-col items-start md:items-end gap-2">
                                                 {linkedProjects.length > 0 && (
-                                                    <span className="text-[10px] uppercase tracking-widest opacity-40 font-mono">
+                                                    <span className="text-smol uppercase tracking-widest opacity-40 font-mono">
                                                         Preuves
                                                     </span>
                                                 )}

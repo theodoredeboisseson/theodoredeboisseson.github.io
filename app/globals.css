@@ -9,8 +9,14 @@
 }
 
 html {
-  overflow-x: hidden;
+  @apply overflow-x-hidden scroll-smooth;
 }
+
+/* Offset anchor links to account for fixed header */
+[id] {
+  @apply scroll-m-16;
+}
+
 
 @theme inline {
   --color-background: var(--background);
@@ -94,11 +100,15 @@ html {
 }
 
 @utility text-label {
-  @apply pattern-technical text-[10px] sm:text-xs;
+  @apply pattern-technical text-smol sm:text-xs;
 }
 
 @utility text-serif-italic {
   @apply font-serif italic;
+}
+
+@utility text-smol {
+  @apply text-[10px];
 }
 
 /* 
@@ -108,15 +118,15 @@ html {
 */
 
 @utility btn-tactical {
-  @apply pattern-technical inline-flex items-center justify-center gap-2.5 px-6 py-3 text-[10px] border border-tech-border bg-transparent backdrop-blur-sm hover:bg-foreground hover:text-background rounded-tactical;
+  @apply pattern-technical inline-flex items-center justify-center gap-2.5 px-6 py-3 text-smol border border-tech-border bg-transparent backdrop-blur-sm hover:bg-foreground hover:text-background rounded-tactical;
 }
 
 @utility bento-card {
-  @apply pattern-card bg-white border border-tech-border-dim rounded-bento md:rounded-bento-desktop p-[--spacing-bento] md:p-[--spacing-bento-desktop] shadow-sm hover:border-primary/30;
+  @apply pattern-card bg-white border border-tech-border-dim rounded-3xl md:rounded-4xl p-6 md:p-10 shadow-sm hover:border-primary/30 transform hover:scale-102;
 }
 
 @utility bento-card-dark {
-  @apply pattern-card bg-foreground text-background/90 rounded-bento md:rounded-bento-desktop p-[--spacing-bento] md:p-[--spacing-bento-desktop] border border-transparent hover:border-primary;
+  @apply bg-foreground text-background/90 border border-transparent hover:border-primary;
 }
 
 @utility button {

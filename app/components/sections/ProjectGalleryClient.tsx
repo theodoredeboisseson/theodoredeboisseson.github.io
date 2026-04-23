@@ -22,7 +22,7 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
     return (
         <div className="max-w-7xl mx-auto">
             {/* Navigation */}
-            <ReturnButton href="/" label="Accueil" className='mb-6 md:mb-12' />
+            <ReturnButton href="/#projects" label="Accueil" className='mb-6 md:mb-12' />
 
             {/* Header & Filter */}
             <div className="flex flex-col md:flex-row justify-between items-end mb-24 border-b-[0.5px] border-foreground/10 pb-6 gap-6">
@@ -49,11 +49,13 @@ export default function ProjectGalleryClient({ projects }: ProjectGalleryClientP
             </div>
 
             {/* Gallery List */}
-            <div className="flex flex-col gap-24">
+            <div className="flex flex-col gap-16">
                 <AnimatePresence mode="popLayout">
                     {filteredProjects.map((project, index) => (
-                        <div key={project.slug} id={project.slug} className="scroll-mt-32">
-                            <ProjectCard project={project} index={index} />
+                        <div key={project.slug} id={project.slug} className="scroll-mt-24">
+                            <div className="scale-[0.9] origin-top">
+                                <ProjectCard project={project} index={index} />
+                            </div>
                         </div>
                     ))}
                 </AnimatePresence>

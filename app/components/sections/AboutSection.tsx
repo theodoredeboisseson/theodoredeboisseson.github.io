@@ -44,13 +44,14 @@ export default function AboutSection({ id, seeking, languages, softSkills, hobbi
                         )}
                     </div>
                 </motion.div>
+
                 {/* Hobbies Card (Larger, Span 7) */}
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1, duration: 0.6 }}
-                    className="md:col-span-7 bento-card-dark rounded-br-sm md:rounded-br-4xl md:rounded-tr-sm group"
+                    className="md:col-span-7 bento-card bento-card-dark rounded-br-sm md:rounded-br-4xl md:rounded-tr-sm group"
                 >
                     <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
                         <Sparkles size={120} />
@@ -94,7 +95,7 @@ export default function AboutSection({ id, seeking, languages, softSkills, hobbi
                                     <span className="text-2xl" aria-hidden="true">{lang.flag}</span>
                                     {lang.name}
                                 </span>
-                                <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-foreground/50 group-hover/item:text-primary transition-colors">
+                                <span className="font-mono text-smol sm:text-xs uppercase tracking-widest text-foreground/50 group-hover/item:text-primary transition-colors">
                                     {lang.level}
                                 </span>
                             </li>

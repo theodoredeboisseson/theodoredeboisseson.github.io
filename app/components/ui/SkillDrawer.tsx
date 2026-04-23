@@ -61,7 +61,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                                 </span>
 
                                 <div className="mb-8">
-                                    <span className="block font-mono text-[10px] uppercase tracking-widest opacity-40 mb-2">
+                                    <span className="block font-mono text-smol uppercase tracking-widest opacity-40 mb-2">
                                         Comfort Level
                                     </span>
                                     <div className="flex gap-1 w-32 opacity-50">
@@ -114,7 +114,7 @@ export default function SkillDrawer({ isOpen, onClose, selectedSkill, projects }
                             </div>
 
                             <div className="mt-8 pt-6 border-t border-border flex justify-between items-end">
-                                <span className="font-mono text-[10px] opacity-40">ID: {selectedSkill.name}</span>
+                                <span className="font-mono text-smol opacity-40">ID: {selectedSkill.name}</span>
                             </div>
                         </div>
                     </motion.div>

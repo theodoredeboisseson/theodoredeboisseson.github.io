@@ -33,7 +33,7 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
         if (typeof node === 'string') return node;
         if (typeof node === 'number') return String(node);
         if (Array.isArray(node)) return node.map(extractText).join('');
-        
+
         // Handle React elements with children
         if (React.isValidElement(node)) {
             const props = node.props as { children?: React.ReactNode };
@@ -44,15 +44,15 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
 
     if (children) {
         const textContent = extractText(children);
-        
+
         if (textContent.trim()) {
             finalImages = textContent.split('\n')
                 .map(line => line.trim())
                 .filter(line => line.length > 0)
                 .map(parseLine);
         }
-    } 
-    
+    }
+
     if (finalImages.length === 0 && images) {
         if (Array.isArray(images)) {
             finalImages = images.map((img) => {
@@ -192,7 +192,7 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
                                     className="mt-8 max-w-2xl text-center"
                                 >
                                     <div className="flex flex-col items-center gap-1">
-                                        <span className="text-[10px] font-mono uppercase tracking-[0.4em] text-primary">Content Identification</span>
+                                        <span className="text-smol font-mono uppercase tracking-[0.4em] text-primary">Content Identification</span>
                                         <div className="h-px w-12 bg-primary/30 mb-2" />
                                         <p className="text-white/80 text-lg md:text-xl font-medium tracking-tight">
                                             {selectedImage.alt}
