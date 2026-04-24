@@ -21,7 +21,7 @@ export interface Experience {
     company: string;
     location: string;
     type: string;
-    status: 'completed' | 'upcoming';
+    status: 'completed' | 'upcoming' | 'current';
     description: string;
     skills?: string[];
     project_slug: string | null;

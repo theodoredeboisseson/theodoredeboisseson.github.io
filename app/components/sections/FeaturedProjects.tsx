@@ -86,7 +86,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
     };
 
     return (
-        <section id={id} ref={containerRef} className="relative w-full py-0 px-3 md:px-6 lg:px-12 bg-background overflow-hidden">
+        <section id={id} ref={containerRef} className="relative w-full py-0 px-3 md:px-6 lg:px-12 overflow-hidden">
             {/* Header */}
             <div className="flex flex-col md:flex-row justify-between items-end border-b-[0.5px] border-black/10 pb-6 container-7xl mx-auto">
                 <h2 className="section-title ml-6">

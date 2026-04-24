@@ -50,7 +50,7 @@ html {
 */
 
 @utility transition-tactical {
-  @apply transition-all duration-300;
+  @apply transition-colors duration-300;
 }
 
 @utility pattern-technical {
@@ -124,7 +124,7 @@ html {
 }
 
 @utility bento-card {
-  @apply pattern-card bg-white border border-tech-border-dim rounded-3xl md:rounded-4xl p-6 md:p-10 shadow-sm hover:border-primary/30 transform hover:scale-102;
+  @apply pattern-card transition-transform bg-white border border-tech-border-dim rounded-3xl md:rounded-4xl p-6 md:p-10 shadow-sm hover:border-primary/30 transform hover:scale-102;
 }
 
 @utility bento-card-dark {

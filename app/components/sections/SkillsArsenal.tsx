@@ -67,7 +67,7 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
 
     return (
         <>
-            <section id={id} className="relative w-full section-padding fluid-padding bg-background">
+            <section id={id} className="relative w-full section-padding fluid-padding">
                 {/* Header */}
                 <div
                     className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 container-7xl mx-auto">

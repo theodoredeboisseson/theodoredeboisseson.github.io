@@ -61,7 +61,7 @@
             "company": "CIRAD",
             "location": "Montpellier, FR",
             "type": "Stage",
-            "status": "upcoming",
+            "status": "current",
             "description": "Développement en binôme d'une API REST intégrant des LLMs (RAG) pour interroger en langage naturel une base de données graphe Neo4j. Interface utilisateur en React.",
             "project_slug": null,
             "skills": [

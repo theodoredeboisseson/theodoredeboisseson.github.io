@@ -37,7 +37,6 @@ export default function ExperienceSection({ id, experiences, skills, projects }:
                             .map(name => skills.find(s => s.name === name))
                             .filter(Boolean);
 
-                        const isUpcoming = item.status === 'upcoming';
 
                         return (
                             <motion.div
@@ -67,7 +66,12 @@ export default function ExperienceSection({ id, experiences, skills, projects }:
                                             <span className="font-mono text-xs uppercase tracking-widest text-primary border border-primary/30 px-2 py-0.5 rounded-sm">
                                                 {item.type}
                                             </span>
-                                            {isUpcoming ? (
+                                            {item.status === 'current' ? (
+                                                <span className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-primary font-bold">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse inline-block" />
+                                                    En cours
+                                                </span>
+                                            ) : item.status === 'upcoming' ? (
                                                 <span className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-green-600 dark:text-green-400">
                                                     <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
                                                     À venir
