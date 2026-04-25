@@ -17,6 +17,15 @@ const sections = [
 
 export default function SectionNavigator() {
     const [activeSection, setActiveSection] = useState('hero');
+    const [isPastHeader, setIsPastHeader] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsPastHeader(window.scrollY > 100);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -50,8 +59,8 @@ export default function SectionNavigator() {
     return (
         <>
             {/* Desktop: Fixed left sidebar */}
-            <nav className="hidden xl:flex fixed left-4 top-1/2 -translate-y-1/2 z-50">
-                <div className="bg-white/50 backdrop-blur-xs border-y border-foreground/10 border-b-4 border-r-3 py-3 px-2 rounded-2xl shadow-sm">
+            <nav className={`hidden xl:flex fixed top-1/2 -translate-y-1/2 z-50 transition-all duration-500 ${isPastHeader ? 'left-4' : 'left-0'}`}>
+                <div className={`bg-background/80 backdrop-blur-xs py-3 px-1 shadow-sm transition-all duration-500 border-foreground/10 ${isPastHeader ? 'border-y border-b-4 border-r-3 rounded-2xl' : 'border-y border-x rounded-r-2xl opacity-40'}`}>
                     <div className="flex flex-col">
                         {sections.map((section, index) => {
                             const isNextToActive = index === activeIndex || index === activeIndex - 1;
@@ -82,7 +91,7 @@ export default function SectionNavigator() {
 
             {/* Mobile: Bottom horizontal bar */}
             <nav className="xl:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
-                <div className="bg-white/40 backdrop-blur-xs border-x border-foreground/10 border-l-2 border-r-2 px-2 py-2 rounded-2xl shadow-sm pointer-events-auto">
+                <div className="bg-foreground/90 backdrop-blur-xs border-x border-foreground/10 border-l-2 border-r-2 px-2 py-2 rounded-2xl shadow-sm pointer-events-auto">
                     <div className="flex flex-row">
                         {sections.map((section, index) => {
                             const isNextToActive = index === activeIndex || index === activeIndex - 1;

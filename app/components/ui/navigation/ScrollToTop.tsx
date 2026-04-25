@@ -29,7 +29,7 @@ export default function ScrollToTop() {
                     exit={{ opacity: 0, scale: 0.8, y: 20 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
                     onClick={scrollToTop}
-                    className="hidden md:flex fixed bottom-8 right-8 z-50 button transition-colors! transform hover:scale-110 hover:text-white hover:bg-primary size-16 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg shadow-black/5"
+                    className="hidden md:flex fixed bottom-6 right-6 z-50 button transition-colors! transform hover:scale-110 hover:text-white hover:bg-primary size-16 rounded-2xl bg-background/80 backdrop-blur-sm shadow-lg shadow-black/5"
                     aria-label="Remonter en haut"
                 >
                     <ChevronUp strokeWidth={2} size={32} />

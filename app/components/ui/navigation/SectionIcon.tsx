@@ -38,7 +38,7 @@ export function SectionIcon({ onClick, section, active, isMobile }: SectionIconP
                 strokeWidth={2}
                 className={`relative z-10 transition-all duration-500 ease-out ${active
                         ? `text-primary ${isMobile ? 'w-5.5 h-5.5' : 'w-6 h-6'}`
-                        : `text-foreground/40 opacity-70 ${isMobile ? 'w-4 h-4' : 'w-4.5 h-4.5 group-hover:w-5.5 group-hover:h-5.5 group-hover:text-foreground/70 group-hover:opacity-100'}`
+                        : `text-foreground/40 ${isMobile ? 'w-4 h-4' : 'w-4.5 h-4.5 group-hover:w-5.5 group-hover:h-5.5 group-hover:text-foreground/70 group-hover:opacity-100'}`
                     }`}
             />
 
