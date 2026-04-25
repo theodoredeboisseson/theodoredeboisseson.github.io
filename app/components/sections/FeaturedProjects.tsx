@@ -202,7 +202,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
                     {/* Play/Pause */}
                     <button
                         onClick={togglePlay}
-                        className="p-3 rounded-full hover:bg-foreground/5 border border-foreground/10 hover:border-foreground/30 border-b-[3px] text-foreground/60 hover:text-foreground transition-all duration-300 outline-none"
+                        className="p-3 rounded-full hover:bg-[#11111108] border border-[#11111110] hover:border-[#11111130] border-b-[3px] text-foreground/60 hover:text-foreground transition-all duration-300 outline-none"
                         aria-label={isPlaying ? "Pause autoplay" : "Start autoplay"}
                     >
                         {isPlaying ? <Pause size={20} fill="currentColor" className="opacity-50" /> : <Play size={20} fill="currentColor" className="opacity-50" />}

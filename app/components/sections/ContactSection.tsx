@@ -83,7 +83,7 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
                         <span className={`text-xs font-mono uppercase tracking-wider transition-all duration-300 ${isCopied ? 'opacity-100 text-green-400' : 'opacity-0 -translate-x-2 group-hover/btn:opacity-60 group-hover/btn:translate-x-0'}`}>
                             {isCopied ? 'Copié !' : 'Copier l\'email'}
                         </span>
-                        <div className={`p-3 rounded-full border border-background/20 bg-foreground text-background transition-all duration-300 ${isCopied ? 'border-green-400/50 text-green-400' : 'hover:bg-background hover:text-foreground'}`}>
+                        <div className={`p-3 rounded-full border border-[#F5F5F320] bg-foreground text-background transition-all duration-300 ${isCopied ? 'border-green-400/50 text-green-400' : 'hover:bg-background hover:text-foreground'}`}>
                             {isCopied ? <Check size={20} /> : <Copy size={20} />}
                         </div>
                     </button>

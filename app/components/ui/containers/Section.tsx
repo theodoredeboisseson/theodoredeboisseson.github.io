@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import {SectionComponentProps} from "@/app/types";
 
 export default function Section({
@@ -14,7 +15,13 @@ export default function Section({
     return (
         <section id={id} className={`py-12 md:py-16 ${className}`}>
             {/* Section Header */}
-            <div className={`container-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12`}>
+            <motion.div 
+                className={`container-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+            >
                 <div className={`flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-6 border-b border-foreground/20 ${titlePosition === 'right' ? 'md:flex-row-reverse' : ''}`}>
                     <Tag className="section-title">
                         {title}<span className="text-primary">.</span>
@@ -25,11 +32,17 @@ export default function Section({
                     ) : (
                         /* Default decorative element */
                         <div className="flex items-center gap-3 opacity-50">
-                            <div className="w-2 h-2 mx-5 rotate-45 border border-primary"></div>
+                            <motion.div 
+                                initial={{ scale: 0, rotate: -45 }}
+                                whileInView={{ scale: 1, rotate: 45 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.3, duration: 0.4 }}
+                                className="w-2 h-2 mx-5 border border-primary"
+                            />
                         </div>
                     )}
                 </div>
-            </div>
+            </motion.div>
 
             {/* Section Content */}
             {children}

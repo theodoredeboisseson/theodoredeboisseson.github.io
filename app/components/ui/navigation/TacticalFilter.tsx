@@ -30,10 +30,10 @@ export default function TacticalFilter({
                         onClick={() => onChange(option)}
                         className={`
                             group relative flex items-center gap-2 px-4 py-2 transition-all duration-300
-                            btn-tactical border-y border-r-0 border-foreground/10
+                            btn-tactical border-y border-r-0 border-[#11111110]
                             ${selected 
                                 ? 'bg-foreground text-background z-10 border-transparent shadow-[0_0_15px_rgba(0,0,0,0.1)]' 
-                                : 'bg-foreground/3 text-foreground/40 hover:text-foreground hover:bg-foreground/10'}
+                                : 'bg-[#11111108] text-foreground/40 hover:text-foreground hover:bg-[#11111120]'}
                             
                             /* Selective Rounding */
                             first:rounded-tl-2xl first:rounded-bl-sm 

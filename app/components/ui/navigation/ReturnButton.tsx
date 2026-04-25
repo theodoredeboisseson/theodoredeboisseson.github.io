@@ -1,5 +1,6 @@
 'use client';
 
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
@@ -15,7 +16,12 @@ export default function ReturnButton({ href = "/", label = "Back", className = "
                 rounded-2xl rounded-tl-sm
                 ${className}`}
         >
-            <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform duration-300" />
+            <motion.span
+                whileHover={{ x: -4 }}
+                transition={{ duration: 0.2 }}
+            >
+                <ArrowLeft size={16} className="transition-transform duration-300" />
+            </motion.span>
             <span className="text-label">{label}</span>
         </Link>
     );
