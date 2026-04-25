@@ -107,25 +107,32 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                     className="md:col-span-2 aspect-square md:aspect-auto bg-gray-50 border border-border rounded-4xl md:rounded-bl-sm flex flex-col justify-between p-8 group relative overflow-hidden hover:border-primary hover:shadow-lg transition-colors"
                 >
-                    <div className="w-full h-full absolute inset-0 flex items-center justify-center opacity-30 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                        <div className="relative w-64 h-64 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                            <svg className="w-full h-full animate-[spin_12s_linear_infinite]" viewBox="0 0 100 100">
-                                <path
-                                    id="curve"
-                                    d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                                    fill="transparent"
-                                />
-                                <text className="font-mono text-[9.5px] font-bold uppercase tracking-[0.2em] fill-current text-foreground/40">
-                                    <textPath href="#curve">
-                                        DOWNLOAD PDF • VIEW ONLINE •
-                                    </textPath>
-                                </text>
-                            </svg>
+                    {/* Spinning border */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <svg className="w-3/4 h-3/4 animate-[spin_12s_linear_infinite]" viewBox="0 0 100 100">
+                            <path
+                                id="curve"
+                                d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                                fill="transparent"
+                            />
+                            <text className="font-mono text-[9.5px] font-bold uppercase tracking-[0.2em] fill-current text-foreground/40">
+                                <textPath href="#curve">
+                                    DOWNLOAD PDF • VIEW ONLINE •
+                                </textPath>
+                            </text>
+                        </svg>
+                    </div>
+
+                    {/* Center content */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                        <div className="flex flex-col items-center gap-2 opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                            <FileText size={64} strokeWidth={1} className="text-primary/60 group-hover:text-primary transition-colors" />
+                            <span className="text-xs font-mono font-bold tracking-[0.3em] text-foreground/40 group-hover:text-foreground/70 transition-colors">PDF</span>
                         </div>
                     </div>
 
-                    <div className="flex justify-between items-start">
-                        <FileText size={48} strokeWidth={1.5} className="group-hover:text-primary transition-colors" />
+                    <div className="flex justify-between items-start relative z-10">
+                        <span className="text-xs font-mono text-foreground/40 group-hover:text-foreground/70 transition-colors">2026</span>
                         <ArrowUpRight size={32} className="opacity-50 group-hover:opacity-100 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
                     </div>
 
