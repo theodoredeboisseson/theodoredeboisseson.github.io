@@ -1,7 +1,7 @@
 'use client';
 
 import {motion} from 'framer-motion';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useRef} from 'react';
 import {ChevronDown} from 'lucide-react';
 import SkillDrawer from '@/app/components/ui/overlays/SkillDrawer';
 import SkillSticker from '@/app/components/ui/cards/SkillSticker';
@@ -15,6 +15,8 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
     const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
     const [cols, setCols] = useState(5);
     const [isCollapsed, setIsCollapsed] = useState(true);
+    const [extraHeight, setExtraHeight] = useState(0);
+    const extraContainerRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const updateCols = () => {
@@ -64,6 +66,13 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
             setIsDrawerOpen(true);
         }
     };
+
+    // Measure the extra skills container height for smooth animation
+    useEffect(() => {
+        if (extraContainerRef.current) {
+            setExtraHeight(extraContainerRef.current.scrollHeight);
+        }
+    }, [extraSkills.length, cols]);
 
     return (
         <>
@@ -115,15 +124,12 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
                 {/* Grid container */}
                 <div className="container-7xl py-6">
                     <motion.div
-                        layout
                         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
-                        transition={{type: 'spring', stiffness: 200, damping: 30}}
                     >
                         {/* Always show initial row */}
                         {initialSkills.map((skill, index) => (
                             <motion.div
                                 key={skill.name}
-                                layout
                                 initial={{opacity: 0, y: 20}}
                                 whileInView={{opacity: 1, y: 0}}
                                 viewport={{once: true}}
@@ -145,39 +151,42 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
 
                     {/* Extra skills — always in DOM, height animates smoothly */}
                     {extraSkills.length > 0 && (
-                        <motion.div
-                            animate={{height: isCollapsed ? 0 : 'auto', opacity: isCollapsed ? 0 : 1}}
-                            initial={false}
-                            transition={{type: 'spring', stiffness: 50, damping: 16, bounce: 0}}
-                            style={{overflow: 'hidden'}}
-                        >
-                            <div
-                                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pt-4">
-                                {extraSkills.map((skill, index) => {
-                                    const overallIndex = initialSkills.length + index;
-                                    return (
-                                        <SkillSticker
-                                            key={skill.name}
-                                            skill={skill}
-                                            index={overallIndex}
-                                            cols={cols}
-                                            hasLinkedData={Boolean(projects.some(p => p.usedSkills?.includes(skill.name)) || skill.description)}
-                                            onClick={() => handleSkillClick(skill)}
-                                        />
-                                    );
-                                })}
-                            </div>
-                        </motion.div>
+                        <div ref={extraContainerRef} className="overflow-hidden">
+                            <motion.div
+                                animate={{
+                                    maxHeight: isCollapsed ? 0 : extraHeight,
+                                    opacity: isCollapsed ? 0 : 1
+                                }}
+                                initial={false}
+                                transition={{
+                                    maxHeight: { type: 'spring', stiffness: 60, damping: 22 },
+                                    opacity: { duration: 0.25 }
+                                }}
+                            >
+                                <div
+                                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pt-4">
+                                    {extraSkills.map((skill, index) => {
+                                        const overallIndex = initialSkills.length + index;
+                                        return (
+                                            <SkillSticker
+                                                key={skill.name}
+                                                skill={skill}
+                                                index={overallIndex}
+                                                cols={cols}
+                                                hasLinkedData={Boolean(projects.some(p => p.usedSkills?.includes(skill.name)) || skill.description)}
+                                                onClick={() => handleSkillClick(skill)}
+                                            />
+                                        );
+                                    })}
+                                </div>
+                            </motion.div>
+                        </div>
                     )}
 
                     {/* Centered Toggle Button */}
                     {filteredSkills.length > initialCount && (
-                        <motion.div
-                            layout
+                        <div
                             className="mt-12 flex justify-center"
-                            initial={false}
-                            animate={{y: 0}}
-                            transition={{type: "spring", stiffness: 200, damping: 25}}
                         >
                             <button
                                 onClick={() => setIsCollapsed(prev => !prev)}
@@ -199,7 +208,7 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
                                     </motion.span>
                                 </motion.div>
                             </button>
-                        </motion.div>
+                        </div>
                     )}
                 </div>
             </section>
