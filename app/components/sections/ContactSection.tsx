@@ -115,7 +115,7 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
                                 d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
                                 fill="transparent"
                             />
-                            <text className="font-mono text-[9.5px] font-bold uppercase tracking-[0.2em] fill-current text-foreground/40">
+                            <text className="font-mono text-[9.5px] font-bold uppercase tracking-technical fill-current text-foreground/40">
                                 <textPath href="#curve">
                                     DOWNLOAD PDF • VIEW ONLINE •
                                 </textPath>

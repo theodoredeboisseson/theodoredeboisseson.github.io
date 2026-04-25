@@ -71,7 +71,10 @@ export interface AboutSectionProps extends BaseSectionProps {
         flag: string;
     }[];
     softSkills: string[];
-    hobbies: string[];
+    hobbies: {
+        name: string;
+        icon: string;
+    }[];
 }
 
 export interface BackgroundSectionProps {

@@ -2,7 +2,7 @@
     "hero": {
         "title": "THÉODORE",
         "subtitle": "ÉTUDIANT EN INFORMATIQUE",
-        "description": "Basé à Montpellier. Étudiant en 3ème année de BUT Informatique. Création de projets numériques sur mon temps libre.",
+        "description": "Venant de Montpellier. Étudiant en 3ème année de BUT Informatique. Création de projets numériques sur mon temps libre.",
         "availability": "Dispo dès sept. 2026"
     },
     "about": {
@@ -45,13 +45,13 @@
             "Créativité"
         ],
         "hobbies": [
-            "Jeux Vidéo (Compétitif, Souls-like)",
-            "Dessin",
-            "Piano",
-            "Photographie",
-            "Modélisation 3D",
-            "Kung-Fu",
-            "Automobile"
+            { "name": "Jeux Vidéo (Compétitif, Souls-like)", "icon": "Gamepad2" },
+            { "name": "Dessin", "icon": "Pencil" },
+            { "name": "Piano", "icon": "Music" },
+            { "name": "Photographie", "icon": "Camera" },
+            { "name": "Modélisation 3D", "icon": "Box" },
+            { "name": "Kung-Fu", "icon": "Hand" },
+            { "name": "Automobile", "icon": "Car" }
         ]
     },
     "experiences": [

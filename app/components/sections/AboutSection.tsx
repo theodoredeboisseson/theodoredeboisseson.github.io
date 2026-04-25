@@ -1,9 +1,34 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Globe, Brain, Sparkles, Palette, Target } from 'lucide-react';
+import {
+    Globe,
+    Brain,
+    Sparkles,
+    Palette,
+    Target,
+    Gamepad2,
+    Pencil,
+    Music,
+    Camera,
+    Box,
+    Car,
+    Hand,
+    LucideIcon
+} from 'lucide-react';
 
 import { AboutSectionProps } from '@/app/types';
+
+const iconMap: Record<string, LucideIcon> = {
+    Gamepad2,
+    Pencil,
+    Music,
+    Camera,
+    Box,
+    Car,
+    Hand,
+    Sparkles
+};
 
 export default function AboutSection({ id, seeking, languages, softSkills, hobbies }: AboutSectionProps) {
     return (
@@ -63,11 +88,15 @@ export default function AboutSection({ id, seeking, languages, softSkills, hobbi
                         <h3 className="text-2xl font-bold font-sans uppercase tracking-tight text-white">Hobbies</h3>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 relative z-10 w-full">
-                        {hobbies.map((hobby, i) => (
-                            <div key={i} className="px-4 py-3.5 rounded-2xl border border-background/10 bg-background/5 hover:bg-background/10 transition-colors flex items-center">
-                                <span className="font-mono text-xs uppercase tracking-widest leading-snug">{hobby}</span>
-                            </div>
-                        ))}
+                        {hobbies.map((hobby, i) => {
+                            const IconComponent = iconMap[hobby.icon] || Sparkles;
+                            return (
+                                <div key={i} className="px-4 py-3.5 rounded-2xl border border-background/10 bg-background/5 hover:bg-background/10 transition-colors flex items-center gap-3">
+                                    <IconComponent size={16} className="shrink-0" />
+                                    <span className="font-mono text-xs uppercase tracking-widest leading-snug">{hobby.name}</span>
+                                </div>
+                            );
+                        })}
                     </div>
                 </motion.div>
 
