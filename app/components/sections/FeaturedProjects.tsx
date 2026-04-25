@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence, useInView, PanInfo } from 'framer-motion';
+import { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
 import ProjectCard from '@/app/components/ui/cards/ProjectCard';
@@ -13,8 +13,6 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isPlaying, setIsPlaying] = useState(true);
     const [windowWidth, setWindowWidth] = useState(0);
-    const containerRef = useRef(null);
-    const isInView = useInView(containerRef, { amount: 0.3 });
 
     useEffect(() => {
         const update = () => setWindowWidth(window.innerWidth);
@@ -43,8 +41,6 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
 
     // Keyboard navigation
     useEffect(() => {
-        if (!isInView) return;
-
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'ArrowLeft') {
                 prevProject();
@@ -57,7 +53,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [isInView, nextProject, prevProject]);
+    }, [nextProject, prevProject]);
 
     // Auto-play effect
     useEffect(() => {

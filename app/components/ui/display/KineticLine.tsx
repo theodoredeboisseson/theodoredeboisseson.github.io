@@ -12,7 +12,7 @@ const KineticLine: React.FC = () => {
 
     return (
         // The container is aligned to the left
-        <div className="relative w-full h-full min-h-[500px] overflow-hidden flex justify-start my-4">
+        <div className="relative w-full h-full min-h-125 overflow-hidden flex justify-start my-4">
             {/*
                We restrict the SVG to a narrow column on the left.
                w-24 defines the drawing area width.
@@ -21,6 +21,10 @@ const KineticLine: React.FC = () => {
                 className="h-full w-24 absolute left-0 inset-y-0"
                 viewBox="0 0 24 100" // The viewBox looks only at this narrow strip
                 preserveAspectRatio="none"
+                style={{
+                    maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+                }}
             >
                 <motion.line
                     // Positioned in the middle of our narrow 24-unit strip
