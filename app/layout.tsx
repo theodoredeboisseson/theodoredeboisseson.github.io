@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 import GrainOverlay from "@/app/components/ui/overlays/GrainOverlay";
+import GridPattern from "@/app/components/ui/overlays/GridPattern";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -83,6 +84,7 @@ export default function RootLayout({
           }}
         />
         <GrainOverlay />
+        <GridPattern />
         <TechnicalFrame />
         {children}
         <ScrollToTop />
