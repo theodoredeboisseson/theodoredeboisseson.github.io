@@ -50,7 +50,7 @@ html {
 */
 
 @utility transition-tactical {
-  @apply transition-colors duration-300;
+  @apply transition-all duration-300;
 }
 
 @utility pattern-technical {
