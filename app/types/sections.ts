@@ -2,8 +2,9 @@
  * Page Section Types
  * Props for major page segments (Hero, About, Experience, etc.)
  */
-import { BaseSectionProps } from './common';
-import { Skill } from './skills';
+import {BaseSectionProps} from './common';
+import {Skill} from './skills';
+import React, {ReactNode} from "react";
 
 export interface HeroProps extends BaseSectionProps {
     id: string;
@@ -83,4 +84,12 @@ export interface BackgroundSectionProps {
     children?: React.ReactNode;
     className?: string;
     overlayOpacity?: string;
+}
+
+export interface SectionComponentProps extends BaseSectionProps {
+    title: string;
+    titlePosition?: 'left' | 'right';
+    titleTag?: 'h1' | 'h2' | 'h3';
+    aside?: ReactNode;
+    children: ReactNode;
 }

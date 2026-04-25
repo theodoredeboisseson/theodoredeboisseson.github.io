@@ -71,10 +71,6 @@ html {
   @apply px-4 sm:px-6 md:px-12 lg:px-24;
 }
 
-@utility section-padding {
-  @apply py-16 md:py-24;
-}
-
 @utility container-7xl {
   @apply w-full max-w-7xl mx-auto;
 }

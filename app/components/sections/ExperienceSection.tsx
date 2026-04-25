@@ -5,20 +5,12 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import KineticLine from '@/app/components/ui/display/KineticLine';
 import TechBadge from '@/app/components/ui/badges/TechBadge';
+import Section from '@/app/components/ui/containers/Section';
 import { ExperienceSectionProps } from '@/app/types';
 
 export default function ExperienceSection({ id, experiences, skills, projects }: ExperienceSectionProps) {
     return (
-        <section className="container-7xl px-6 py-12" id={id}>
-            <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="section-title mb-24"
-            >
-                Expériences<span className="text-primary">.</span>
-            </motion.h2>
-
+        <Section id={id} title="Expériences" className="container-7xl px-6">
             <div className="relative">
                 {/* Visual Line on the left */}
                 <div className="absolute -left-4 md:-left-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
@@ -103,7 +95,7 @@ export default function ExperienceSection({ id, experiences, skills, projects }:
                                         {resolvedSkills.length > 0 && (
                                             <div className="mb-5 -mt-2">
                                                 <TechBadge
-                                                    badges={(resolvedSkills as import('../../types').Skill[]).map(skill => ({
+                                                    badges={(resolvedSkills as import('@/app/types').Skill[]).map(skill => ({
                                                         label: skill.name,
                                                         icon: skill.icon
                                                     }))}
@@ -140,6 +132,6 @@ export default function ExperienceSection({ id, experiences, skills, projects }:
                     <KineticLine />
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

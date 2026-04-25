@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Mail, FileText, Copy, Check } from 'lucide-react';
+import Section from '@/app/components/ui/containers/Section';
 
 const GithubIcon = ({ size = 24, className = '' }: { size?: number; className?: string }) => (
     <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -30,16 +31,7 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
     };
 
     return (
-        <section className="container-7xl px-4 md:px-6 py-12 mb-12" id={id}>
-            <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="section-title mb-16 text-right"
-            >
-                Contact<span className="text-primary">.</span>
-            </motion.h2>
-
+        <Section id={id} title="Contact" titlePosition="right" className="container-7xl px-4 md:px-6 py-12 mb-12">
             <div className="w-full grid grid-cols-1 md:grid-cols-6 gap-4">
 
                 {/* Email */}
@@ -183,6 +175,6 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
                 </motion.a>
 
             </div>
-        </section>
+        </Section>
     );
 }

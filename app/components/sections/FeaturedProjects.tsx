@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useInView, PanInfo } from 'framer-motion';
 import Link from 'next/link';
 import { ArrowUpRight, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
 import ProjectCard from '@/app/components/ui/cards/ProjectCard';
+import Section from '@/app/components/ui/containers/Section';
 
 import { FeaturedProjectsProps } from '@/app/types';
 
@@ -86,18 +87,18 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
     };
 
     return (
-        <section id={id} ref={containerRef} className="relative w-full py-0 px-3 md:px-6 lg:px-12 overflow-hidden">
-            {/* Header */}
-            <div className="flex flex-col md:flex-row justify-between items-end border-b-[0.5px] border-black/10 pb-6 container-7xl mx-auto">
-                <h2 className="section-title ml-6">
-                    Featured projects<span className="text-primary">.</span>
-                </h2>
+        <Section 
+            id={id} 
+            title="Featured projects" 
+            titlePosition="left"
+            aside={
                 <Link href="/projects" className="btn-tactical rounded-tr-none hover:translate-x-2 hover:font-bold text-sm hover:text-primary mt-4 md:mt-0">
                     Index
                     <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
-            </div>
-
+            }
+            className="w-full py-0 px-3 md:px-6 lg:px-12 overflow-hidden"
+        >
             {/* Carousel Container */}
             <div className="relative w-full h-75 sm:h-92.5 md:h-110 lg:h-110 flex items-center justify-center overflow-visible mt-4 md:mt-8">
                 <div className="absolute w-full h-full flex items-center justify-center">
@@ -222,6 +223,6 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
                 </div>
 
             </div>
-        </section>
+        </Section>
     );
 }

@@ -17,6 +17,7 @@ import {
     LucideIcon
 } from 'lucide-react';
 
+import Section from '@/app/components/ui/containers/Section';
 import { AboutSectionProps } from '@/app/types';
 
 const iconMap: Record<string, LucideIcon> = {
@@ -32,16 +33,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function AboutSection({ id, seeking, languages, softSkills, hobbies }: AboutSectionProps) {
     return (
-        <section className="container-7xl px-4 md:px-6 py-12" id={id}>
-            <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="section-title mb-12 md:mb-16"
-            >
-                Profil<span className="text-primary">.</span>
-            </motion.h2>
-
+        <Section id={id} title="Profil" className="container-7xl px-4 md:px-6 py-12 mt-8">
             <div className="bento-grid">
                 {/* Status/Seeking (Full width or Span 12) - Highlighted */}
                 <motion.div
@@ -159,6 +151,6 @@ export default function AboutSection({ id, seeking, languages, softSkills, hobbi
                     </div>
                 </motion.div>
             </div>
-        </section>
+        </Section>
     );
 }

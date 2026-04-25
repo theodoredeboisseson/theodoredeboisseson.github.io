@@ -7,6 +7,7 @@ import SkillDrawer from '@/app/components/ui/overlays/SkillDrawer';
 import SkillSticker from '@/app/components/ui/cards/SkillSticker';
 import TacticalFilter from '@/app/components/ui/navigation/TacticalFilter';
 
+import Section from '@/app/components/ui/containers/Section';
 import {Skill, SkillsArsenalProps} from '@/app/types';
 
 export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps) {
@@ -76,13 +77,8 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
 
     return (
         <>
-            <section id={id} className="relative w-full section-padding fluid-padding">
-                {/* Header */}
-                <div
-                    className="flex flex-col md:flex-row justify-between items-end mb-16 border-b-[0.5px] border-black/10 pb-6 container-7xl mx-auto">
-                    <h2 className="section-title">
-                        Arsenal<span className="text-primary">.</span>
-                    </h2>
+            <Section id={id} title="Arsenal" className="w-full fluid-padding"
+                aside={
                     <div className="text-right mt-4 md:mt-0">
                         <span className="block text-label text-foreground/50">
                             TOOLKIT // 2026
@@ -91,8 +87,8 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
                             Selected tools &amp; technologies
                         </span>
                     </div>
-                </div>
-
+                }
+            >
                 {/* Legend & Filters */}
                 <div
                     className="container-7xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
@@ -211,7 +207,7 @@ export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps
                         </div>
                     )}
                 </div>
-            </section>
+            </Section>
 
             <SkillDrawer
                 isOpen={isDrawerOpen}

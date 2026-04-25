@@ -2,20 +2,12 @@
 
 import { motion } from 'framer-motion';
 import KineticLine from '@/app/components/ui/display/KineticLine';
+import Section from '@/app/components/ui/containers/Section';
 import { FormationSectionProps } from '@/app/types';
 
 export default function FormationSection({ id, education }: FormationSectionProps) {
     return (
-        <section className="container-7xl px-6 py-12" id={id}>
-            <motion.h2
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="section-title mb-24"
-            >
-                Formation<span className="text-primary">.</span>
-            </motion.h2>
-
+        <Section id={id} title="Formation" className="container-7xl px-6">
             <div className="relative">
                 {/* Visual Line on the left */}
                 <div className="absolute -left-4 md:-left-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
@@ -69,6 +61,6 @@ export default function FormationSection({ id, education }: FormationSectionProp
                     <KineticLine />
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }
