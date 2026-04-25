@@ -6,7 +6,6 @@ import FeaturedProjects from "@/app/components/sections/FeaturedProjects";
 import FormationSection from "@/app/components/sections/FormationSection";
 import ExperienceSection from "@/app/components/sections/ExperienceSection";
 import ContactSection from "@/app/components/sections/ContactSection";
-import TechDivider from "@/app/components/ui/display/TechDivider";
 import { getAllProjects, getProjectSummary } from "@/lib/mdx";
 import { Project, Experience } from '@/app/types';
 import bioData from '@/data/bio.json';
@@ -48,19 +47,14 @@ export default function Home() {
         softSkills={bioData.about.soft_skills}
         hobbies={bioData.about.hobbies}
       />
-      <TechDivider />
       <SkillsArsenal
         id="arsenal"
         projects={allProjects}
         skills={skillsData}
       />
-      <TechDivider />
       <FeaturedProjects id="projects" projects={featuredProjects} />
-      <TechDivider />
       <FormationSection id="formation" education={bioData.education} />
-      <TechDivider />
       <ExperienceSection id="experience" experiences={bioData.experiences as Experience[]} skills={skillsData} projects={allProjects} />
-      <TechDivider />
       <ContactSection
         id="contact"
         contact={bioData.contact}
