@@ -83,11 +83,11 @@ export default function RootLayout({
             })
           }}
         />
-        <GrainOverlay />
         <GridPattern />
         <TechnicalFrame />
         {children}
         <ScrollToTop />
+        <GrainOverlay />
       </body>
     </html>
   );

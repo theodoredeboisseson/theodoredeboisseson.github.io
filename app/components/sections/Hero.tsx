@@ -16,7 +16,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.5, ease }}
-                className="absolute inset-0 z-0 blur-xs"
+                className="absolute inset-0 z-10001 blur-xs"
             >
                 <Image
                     src="/images/hero_bg.jpg"
@@ -33,14 +33,14 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 container-7xl items-center">
 
                 {/* Left Col: Title & Intro */}
-                <div className="lg:col-span-8 flex flex-col gap-6 relative z-10">
+                <div className="lg:col-span-8 flex flex-col gap-6 relative z-10002">
                     <div className="flex flex-col">
                         {/* Issue Text - Slides in */}
                         <motion.span
                             initial={{ x: -20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ delay: 0.5, duration: 1.0, ease }}
-                            className="font-mono text-xs uppercase font-bold tracking-[0.2em] mb-4 text-primary"
+                            className="font-mono text-xs uppercase font-bold tracking-technical mb-4 text-primary"
                         >
                             Issue 01 — 2026
                         </motion.span>
@@ -85,7 +85,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                 </div>
 
                 {/* Right Col: Image - Reveals itself */}
-                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-4/5 lg:aspect-3/4 max-w-[320px] sm:max-w-100 lg:max-w-none mx-auto">
+                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-4/5 lg:aspect-3/4 max-w-[320px] sm:max-w-100 lg:max-w-none mx-auto z-10002">
                     <motion.div
                         initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0 }}
                         animate={{ clipPath: "inset(0 0 0 0)", opacity: 1 }}
@@ -124,7 +124,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 4.0, duration: 1 }}
-                className="absolute bottom-12 left-6 md:left-24 font-mono text-smol tracking-widest hidden md:block opacity-60"
+                className="absolute bottom-12 left-6 md:left-24 font-mono text-smol tracking-widest hidden md:block opacity-60 z-10002"
             >
                 SCROLL TO EXPLORE ↓
             </motion.div>

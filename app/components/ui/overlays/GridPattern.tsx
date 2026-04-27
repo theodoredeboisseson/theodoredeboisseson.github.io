@@ -10,7 +10,7 @@ export default function GridPattern() {
             <div
                 className="absolute inset-0 z-10"
                 style={{
-                    background: 'radial-gradient(ellipse at center, transparent 0%, transparent 30%, rgba(17, 17, 17, 0.02) 60%, rgba(17, 17, 17, 0.08) 100%)',
+                    background: 'radial-gradient(ellipse at center, transparent 0%, transparent 30%, rgba(17, 17, 17, 0.02) 60%, rgba(17, 17, 17, 0.1) 100%)',
                 }}
             />
 
@@ -39,9 +39,9 @@ export default function GridPattern() {
                     {/* Radial gradient mask - transparent center, visible edges */}
                     <radialGradient id="gridFade" cx="50%" cy="50%" r="70%">
                         <stop offset="0%" stopColor="white" stopOpacity="0" />
-                        <stop offset="40%" stopColor="white" stopOpacity="0.05" />
-                        <stop offset="70%" stopColor="white" stopOpacity="0.08" />
-                        <stop offset="100%" stopColor="white" stopOpacity="0.2" />
+                        <stop offset="40%" stopColor="white" stopOpacity="0.08" />
+                        <stop offset="70%" stopColor="white" stopOpacity="0.16" />
+                        <stop offset="100%" stopColor="white" stopOpacity="0.3" />
                     </radialGradient>
 
                     {/* Mask using the gradient */}
