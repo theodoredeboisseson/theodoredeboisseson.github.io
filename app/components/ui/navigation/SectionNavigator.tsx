@@ -59,7 +59,7 @@ export default function SectionNavigator() {
     return (
         <>
             {/* Desktop: Fixed left sidebar */}
-            <nav className={`hidden xl:flex fixed top-1/2 -translate-y-1/2 z-50 transition-all duration-500 ${isPastHeader ? 'left-4' : 'left-0'}`}>
+            <nav className={`hidden xl:flex fixed top-1/2 -translate-y-1/2 z-10050 transition-all duration-500 ${isPastHeader ? 'left-4' : 'left-0'}`}>
                 <div className={`bg-[#F5F5F3CC] backdrop-blur-xs py-3 px-1 shadow-sm transition-all duration-500 border-[#11111110] 
                 ${isPastHeader ? 'border-y border-b-4 border-r-3 rounded-2xl' : 'border-y border-x rounded-r-2xl opacity-40'}`}>
                     <div className="flex flex-col">
@@ -91,7 +91,7 @@ export default function SectionNavigator() {
             </nav>
 
             {/* Mobile: Bottom horizontal bar */}
-            <nav className="xl:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-50 pointer-events-none">
+            <nav className="xl:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-9999 pointer-events-none">
                 <div className="bg-background backdrop-blur-xs border-x border-[#11111110] border-l-2 border-r-2 px-2 py-2 rounded-2xl shadow-sm pointer-events-auto">
                     <div className="flex flex-row">
                         {sections.map((section, index) => {
