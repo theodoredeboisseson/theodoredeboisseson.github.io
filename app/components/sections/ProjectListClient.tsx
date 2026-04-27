@@ -19,14 +19,11 @@ export default function ProjectListClient({ projects }: ProjectListClientProps) 
     return (
         <div className="max-w-7xl mx-auto">
             {/* Navigation */}
-            <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-            >
-                <ReturnButton href="/#projects" label="Accueil" className='mb-6 md:mb-12' />
-            </motion.div>
+            <ReturnButton 
+                href="/#projects" 
+                label="Accueil" 
+                className='mb-8 md:mb-12 sticky top-8' 
+            />
 
             {/* Header & Filter */}
             <motion.div 

@@ -107,7 +107,7 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className={`group relative flex flex-col gap-4 ${isBig ? 'md:col-span-2' : ''}`}
+                            className={`group hover:-translate-y-1 transition-transform relative flex flex-col gap-4 ${isBig ? 'md:col-span-2' : ''}`}
                         >
                             <div
                                 className={`relative overflow-hidden rounded-sm bg-foreground/5 border-[0.5px] border-foreground/10 cursor-pointer ${isBig ? 'aspect-video' : 'aspect-4/3'}`}
@@ -123,7 +123,7 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
 
                                 {/* Caption Overlay (Bottom Left) */}
                                 {img.alt && (
-                                    <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-20 bg-linear-to-t from-black/80 via-black/20 to-transparent pointer-events-none group-hover:opacity-0 transition-opacity">
+                                    <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-20 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-40">
                                         <p className="text-xs md:text-sm font-bold text-white/90 leading-relaxed max-w-[85%] border-l border-primary/50 pl-2 mt-1">
                                             {img.alt}
                                         </p>
