@@ -11,13 +11,11 @@ export default function CompetencesPage() {
     const projects = getAllProjects();
 
     return (
-        <main className="min-h-screen bg-background text-foreground py-20 px-4 md:px-12 font-sans selection:bg-primary selection:text-background">
-            <div
-                className="opacity-0 animate-fade-in"
-                style={{ animationDelay: '0.1s', animationFillMode: 'forwards' }}
-            >
-                <ReturnButton label="Page d'accueil" className="mb-12" />
-            </div>
+        <main className="min-h-screen relative bg-background text-foreground py-20 px-4 md:px-12 selection:bg-primary selection:text-background">
+            <ReturnButton 
+                label="Page d'accueil" 
+                className="mb-12" 
+            />
 
             <header 
                 className="mb-20 grid grid-cols-1 md:grid-cols-12 gap-6 border-b border-black/10 pb-8"

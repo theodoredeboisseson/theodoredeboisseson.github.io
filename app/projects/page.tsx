@@ -7,6 +7,8 @@ export const metadata = {
     description: 'Archives des expérimentations numériques et projets techniques.',
 };
 
+import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
+
 export default function ProjectsGalleryPage() {
     const rawProjects = getAllProjects();
 
@@ -14,7 +16,8 @@ export default function ProjectsGalleryPage() {
     const projects: Project[] = rawProjects.map(getProjectSummary);
 
     return (
-        <main className="min-h-screen bg-background py-12 px-6 md:px-12 lg:px-24">
+        <main className="min-h-screen relative bg-background py-12 px-6 md:px-12 lg:px-24">
+            <ReturnButton href="/#projects" label="Accueil" className="mb-12" />
             <ProjectListClient projects={projects} />
         </main>
     );

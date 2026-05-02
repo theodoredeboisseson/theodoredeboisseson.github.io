@@ -18,13 +18,6 @@ export default function ProjectListClient({ projects }: ProjectListClientProps) 
 
     return (
         <div className="max-w-7xl mx-auto">
-            {/* Navigation */}
-            <ReturnButton 
-                href="/#projects" 
-                label="Accueil" 
-                className='mb-8 md:mb-12 sticky top-8' 
-            />
-
             {/* Header & Filter */}
             <motion.div 
                 className="flex flex-col md:flex-row justify-between items-end mb-24 border-b-[0.5px] border-foreground/10 pb-6 gap-6"
