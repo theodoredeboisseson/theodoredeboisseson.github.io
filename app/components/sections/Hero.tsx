@@ -49,6 +49,9 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                         <AnimatedText
                             text={title}
                             className="hero-heading"
+                            delayOffset={0.2}
+                            staggerDelay={0.08}
+                            duration={1.0}
                         />
                     </div>
 

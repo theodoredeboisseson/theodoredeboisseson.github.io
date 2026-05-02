@@ -15,7 +15,7 @@ export default function CompetencesPage() {
     const projects = getAllProjects();
 
     return (
-        <main className="min-h-screen relative bg-background text-foreground py-20 px-4 md:px-12 selection:bg-primary selection:text-background">
+        <main className="min-h-screen relative text-foreground py-20 px-4 md:px-12">
             <ReturnButton
                 label="Page d'accueil"
                 className="mb-12"

@@ -26,7 +26,7 @@ export default function CompetenceTooltip({ id, className = "" }: CompetenceTool
     return (
         <div className={`group/tooltip relative inline-block ${matchedItem ? 'cursor-help' : ''}`}>
             <Link
-                href={`/competences#${id}`}
+                href={`/apprentissage#${id}`}
                 className={`font-mono text-xs px-2 py-0.5 border border-neutral-300 rounded-full bg-neutral-100/50 transition-all tracking-tight ${matchedItem ? 'hover:bg-primary hover:text-white hover:border-transparent' : ''} ${className}`}
             >
                 {id}

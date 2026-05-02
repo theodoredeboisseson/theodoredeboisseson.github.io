@@ -67,7 +67,7 @@ export default function CompetencesContent({ competences, projects }: Competence
                                             <motion.div 
                                                 id={ce.id}
                                                 key={ce.id} 
-                                                className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0 scroll-mt-24"
+                                                className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0 scroll-mt-48!"
                                                 initial={{ opacity: 0, y: 20 }}
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
@@ -130,7 +130,7 @@ export default function CompetencesContent({ competences, projects }: Competence
                                         <motion.div 
                                             id={ac.id}
                                             key={ac.id} 
-                                            className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0 scroll-mt-24"
+                                            className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0 scroll-mt-48!"
                                             initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true }}
