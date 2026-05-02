@@ -11,6 +11,7 @@ export interface ProjectMetadata {
     category: string;
     tags: string[];
     ac_list: string[];
+    ce_list?: string[];
     links?: {
         github?: string;
         demo?: string;
@@ -53,6 +54,7 @@ export function getProjectBySlug(slug: string): ProjectData | null {
         category: data.category,
         tags: data.tags || [],
         ac_list: data.ac_list || [],
+        ce_list: data.ce_list || [],
         links: data.links,
         description: data.description,
         image: data.image,
@@ -82,6 +84,7 @@ export function getProjectSummary(p: ProjectData) {
         date: p.date,
         description: p.description,
         ac_list: p.ac_list,
+        ce_list: p.ce_list,
         image: p.image,
         usedSkills: p.usedSkills,
         filter: p.filter,

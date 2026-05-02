@@ -4,7 +4,13 @@
  */
 import type { ProjectMetadata } from '@/lib/mdx';
 
-export type Project = Pick<ProjectMetadata, 'slug' | 'title' | 'category' | 'date' | 'description' | 'ac_list' | 'image' | 'usedSkills' | 'filter' | 'context'>;
+export type Project = Pick<ProjectMetadata, 'slug' | 'title' | 'category' | 'date' | 'description' | 'ac_list' | 'ce_list' | 'image' | 'usedSkills' | 'filter' | 'context'>;
+
+export interface CE {
+    id: string; // e.g. "CE11"
+    title: string;
+    description: string;
+}
 
 export interface AC {
     id: string; // e.g. "AC11"
@@ -18,6 +24,7 @@ export interface Competence {
     title: string;
     description: string;
     acs: AC[];
+    ces?: CE[];
 }
 
 export interface ProjectCardProps {
@@ -44,7 +51,7 @@ export interface VideoPlayerProps {
     url: string;
 }
 
-export interface ACTooltipProps {
-    acString: string;
+export interface CompetenceTooltipProps {
+    id: string;
     className?: string;
 }

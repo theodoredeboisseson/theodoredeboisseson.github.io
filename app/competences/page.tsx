@@ -1,4 +1,4 @@
-import acData from '@/data/ac_competences.json';
+import competencesData from '@/data/competences.json';
 import { getAllProjects } from '@/lib/mdx';
 import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
 import CompetencesContent from './CompetencesContent';
@@ -7,7 +7,7 @@ import { Competence } from '@/app/types';
 
 
 export default function CompetencesPage() {
-    const competences = acData as Competence[];
+    const competences = competencesData as Competence[];
     const projects = getAllProjects();
 
     return (

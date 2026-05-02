@@ -1,0 +1,119 @@
+[
+  {
+    "id": "C1",
+    "title": "Réaliser",
+    "description": "Adapter des applications sur un ensemble de supports (embarqué, web, mobile, IoT…)",
+    "acs": [
+      {
+        "id": "AC11",
+        "title": "Choisir et implémenter les architectures adaptées",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "Je conçois et mets en place des architectures logicielles répondant aux contraintes métier. Je veille à la scalabilité des solutions."
+      },
+      {
+        "id": "AC12",
+        "title": "Faire évoluer une application existante",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "Je refactor avec méthode le code d'une application existante pour l'optimiser et le simplifier sans régressions."
+      },
+      {
+        "id": "AC13",
+        "title": "Intégrer des solutions dans un environnement de production",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "J'ai pu passer par différentes manières de deployer des applications, pour des applications web et mobiles. Je m'assure de la stabilité de l'environnement."
+      }
+    ],
+    "ces": [
+      {
+        "id": "CE11",
+        "title": "Respecter les règles métiers et l'architecture logicielle",
+        "description": "Application rigoureuse des design patterns et de l'architecture."
+      },
+      {
+        "id": "CE12",
+        "title": "Sécuriser et éco-concevoir",
+        "description": "Intégration des principes de sécurité et de numérique responsable."
+      }
+    ]
+  },
+  {
+    "id": "C2",
+    "title": "Optimiser",
+    "description": "Analyser et optimiser des applications",
+    "acs": [
+      {
+        "id": "AC21",
+        "title": "Anticiper les résultats de diverses métriques (temps d'exécution, occupation mémoire…)",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "Je développe d'abord un code fonctionnel puis je l'optimise pour améliorer sa vitesse d'execution et réduire les ressources consommées."
+      },
+      {
+        "id": "AC22",
+        "title": "Profiler, analyser et justifier le comportement d'un code existant",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "J'utilise des outils de profilage pour identifier les points lents d'un code et optimiser les parties concernées."
+      },
+      {
+        "id": "AC23",
+        "title": "Choisir et utiliser des bibliothèques et méthodes dédiées au domaine d'application",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "Je ne réinvte pas la roue et utilise des librairies adaptées à des besoins spécifiques et code uniquement ce qui n'existe pas déjà."
+      }
+    ],
+    "ces": [
+      {
+        "id": "CE21",
+        "title": "Évaluer la complexité et les performances",
+        "description": "Mesure et justification de la complexité algorithmique."
+      },
+      {
+        "id": "CE22",
+        "title": "Choisir les structures de données appropriées",
+        "description": "Sélection des meilleures structures de données pour optimiser les performances."
+      }
+    ]
+  },
+  {
+    "id": "C6",
+    "title": "Collaborer",
+    "description": "Manager une équipe informatique",
+    "acs": [
+      {
+        "id": "AC61",
+        "title": "Organiser et partager une veille numérique",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "Je mets en place des processus pour retrouver et partager les découvertes techniques avec l'équipe."
+      },
+      {
+        "id": "AC62",
+        "title": "Identifier les enjeux de l'économie de l'innovation numérique",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "Je mesure les impacts des choix technologiques sur les modèles économiques. Je conseille sur la viabilité des solutions proposées."
+      },
+      {
+        "id": "AC63",
+        "title": "Guider la conduite du changement informatique au sein d'une organisation",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "J'aide à l'adoption de nouveaux outils par la rédaction de documentation ou la formation."
+      },
+      {
+        "id": "AC64",
+        "title": "Accompagner le management de projet informatique",
+        "description": "Validation du niveau 3 (BUT3)",
+        "level3": "J'aide à structurer les livrables et la méthodologie de l'équipe projet. J'anticipe les risques de manière collaborative."
+      }
+    ],
+    "ces": [
+      {
+        "id": "CE61",
+        "title": "S'intégrer et collaborer dans une équipe",
+        "description": "Participation active aux rituels et à la vie d'équipe."
+      },
+      {
+        "id": "CE62",
+        "title": "Communiquer efficacement",
+        "description": "Partage clair de l'information avec les parties prenantes."
+      }
+    ]
+  }
+]

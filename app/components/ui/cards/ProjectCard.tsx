@@ -8,7 +8,7 @@ import skillsData from '@/data/skills.json';
 
 import { ProjectCardProps } from '@/app/types';
 import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
-import ACTooltip from '@/app/components/ui/badges/ACTooltip';
+import CompetenceTooltip from '@/app/components/ui/badges/CompetenceTooltip';
 import ContextBadge from '@/app/components/ui/badges/ContextBadge';
 
 export default function ProjectCard({ project }: ProjectCardProps) {
@@ -106,7 +106,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                                 <div className="flex flex-wrap gap-1.5 justify-end mt-2">
                                     {project.ac_list.slice(0, 4).map((ac) => (
                                         <div key={ac}>
-                                            <ACTooltip acString={ac} />
+                                            <CompetenceTooltip id={ac} />
+                                        </div>
+                                    ))}
+                                    {project.ce_list && project.ce_list.slice(0, 4).map((ce) => (
+                                        <div key={ce}>
+                                            <CompetenceTooltip id={ce} />
                                         </div>
                                     ))}
                                 </div>

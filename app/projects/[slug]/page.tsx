@@ -6,7 +6,7 @@ import Image from 'next/image';
 import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
 import KineticLine from '@/app/components/ui/display/KineticLine';
 import { ArrowUpRight, Eye, Clock, Users } from 'lucide-react';
-import ACTooltip from '@/app/components/ui/badges/ACTooltip';
+import CompetenceTooltip from '@/app/components/ui/badges/CompetenceTooltip';
 
 import ImageGallery from '@/app/components/mdx/ImageGallery';
 import TechBadge from '@/app/components/ui/badges/TechBadge';
@@ -102,11 +102,11 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                         </div>
 
                         {/* Centered Meta Info Section */}
-                        <div className="w-full flex flex-col md:flex-row items-center justify-center md:gap-16 gap-8 border-b border-foreground/20 pb-8">
+                        <div className="w-full flex flex-col md:flex-row items-center md:items-start justify-between gap-12 border-b border-foreground/20 pb-8 mt-4">
 
                             {/* Project Links Group */}
                             {(project.links?.demo || project.links?.github) && (
-                                <div className="flex flex-col items-center gap-4">
+                                <div className="flex flex-col items-center md:items-start gap-4 shrink-0 whitespace-nowrap">
                                     <span className="font-mono text-smol uppercase tracking-widest opacity-40">ACCESS</span>
                                     <div className="flex items-center gap-0">
                                         {project.links.demo && (
@@ -133,33 +133,30 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                 </div>
                             )}
 
-                            {/* Separator Line (Desktop) */}
-                            <div className="hidden md:block w-px h-12 bg-foreground/20" />
-
-                            {/* AC List Group */}
-                            {project.ac_list && project.ac_list.length > 0 && (
-                                <div className="flex flex-col items-center gap-4">
-                                    <span className="font-mono text-smol uppercase tracking-widest opacity-40">Validated Skills</span>
-                                    <div className="flex flex-wrap gap-2 justify-center">
-                                        {project.ac_list.map((ac: string) => (
-                                            <ACTooltip className='text-md p-2' key={ac} acString={ac} />
+                            {/* Combined Validation Group (AC & CE) */}
+                            {(project.ac_list?.length > 0 || project.ce_list?.length > 0) && (
+                                <div className="flex flex-col items-center md:items-center gap-4 shrink-0">
+                                    <span className="font-mono text-smol uppercase tracking-widest opacity-40">Validation</span>
+                                    <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                                        {project.ac_list?.map((ac: string) => (
+                                            <CompetenceTooltip className='text-md p-2' key={ac} id={ac} />
+                                        ))}
+                                        {project.ce_list?.map((ce: string) => (
+                                            <CompetenceTooltip className='text-md p-2' key={ce} id={ce} />
                                         ))}
                                     </div>
                                 </div>
                             )}
 
-                            {/* Separator Line (Desktop) */}
-                            <div className="hidden md:block w-px h-12 bg-foreground/20" />
-
                             {/* Meta Info Group */}
                             {(project.duration || project.team_size) && (
-                                <div className="flex flex-col items-center gap-4">
+                                <div className="flex flex-col items-center md:items-end gap-4 shrink-0 whitespace-nowrap">
                                     <span className="font-mono text-smol uppercase tracking-widest opacity-40">Constraints</span>
                                     <div className="flex gap-6 items-center">
                                         {project.duration && (
                                             <div className="flex items-center gap-2 text-label opacity-70">
                                                 <Clock size={14} className="text-primary" />
-                                                <span className="whitespace-nowrap">{project.duration}</span>
+                                                <span>{project.duration}</span>
                                             </div>
                                         )}
                                         {project.team_size && (
