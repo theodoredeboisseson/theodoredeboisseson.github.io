@@ -13,6 +13,7 @@ import TechBadge from '@/app/components/ui/badges/TechBadge';
 import VideoPlayer from '@/app/components/mdx/VideoPlayer';
 import Hyperlink from '@/app/components/mdx/Hyperlink';
 import Spacer from '@/app/components/mdx/Spacer';
+import Separator from '@/app/components/mdx/Separator';
 import ContextBadge from '@/app/components/ui/badges/ContextBadge';
 import type { Metadata } from 'next';
 
@@ -43,6 +44,7 @@ const components = {
     VideoPlayer,
     Hyperlink,
     Spacer,
+    Separator,
 };
 
 export const dynamicParams = false;

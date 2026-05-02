@@ -23,7 +23,7 @@ const KineticLine: React.FC = () => {
                 preserveAspectRatio="none"
                 style={{
                     maskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)'
+                    WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 20%, black 80%, transparent 100%)'
                 }}
             >
                 <motion.line

@@ -3,12 +3,14 @@ title: "PokeCritics"
 description: "Application web communautaire de critiques de Pokémon. Architecture découplée Vue.js (Front) et Symfony/API Platform (Back)."
 date: "2025"
 category: "Développement Web"
+image: "/images/projects/pokecritics/accueil-pokecritics.png"
 tags: ["API Platform"]
 duration: "2 semaines"
 team_size: "4 personnes"
 usedSkills: ["Vue.js", "Symfony", "PHP", "HTML & CSS", "JavaScript", "GitHub"]
 filter: "Tech"
 context: "Scolaire"
+featured: true
 ac_list: ['AC11', 'AC21']
 ce_list: ['CE11', 'CE21', 'CE22', 'CE61']
 ---
@@ -17,15 +19,29 @@ Projet de programmation avancée visant à créer une application web communauta
 
 ### Le Concept
 
-PokeCritics permet aux utilisateurs de consulter des Pokémon et de leur attribuer des notes et commentaires. 
-- **Utilisateurs standards** : création de compte, mise en favoris, proposition de nouveaux Pokémon (en attente de validation) et publication de critiques.
-- **Administrateurs** : validation des propositions, modération des critiques et gestion des comptes utilisateurs.
-- **Visiteurs publics** : consultation libre des Pokémon validés et de leurs critiques.
+PokeCritics permet aux passionnés de Pokémon de noter et commenter chaque créature. L'application propose différents niveaux d'accès :
+- **Utilisateurs standards** : création de compte, gestion des favoris, proposition de nouveaux Pokémon et publication de critiques.
+- **Administrateurs** : validation des propositions, modération des contenus et gestion globale des utilisateurs.
+- **Visiteurs** : consultation libre du catalogue validé et des avis de la communauté.
+
+<Spacer />
+
+<Separator />
+
+<ImageGallery>
+/images/projects/pokecritics/accueil-pokecritics.png | Interface principale : catalogue des Pokémon validés par l'administration
+/images/projects/pokecritics/avis-pikachu.png | Fiche détaillée : système de notation et espace de commentaires communautaire
+/images/projects/pokecritics/mes-favoris-pokecritics.png | Dashboard utilisateur : suivi des Pokémon mis en favoris
+</ImageGallery>
 
 ### Architecture Technique
 
-L'architecture (imposée par les consignes) repose sur la séparation claire :
-- **Le Backend (Serveur)** : Réalisé en **Symfony** avec **API Platform**. Gestion de la base de données via **Doctrine** et sécurisation complète de l'API avec des tokens **JWT**.
-- **Le Frontend (Client)** : Réalisé en **Vue.js** (avec Vite). Le client interroge l'API Symfony pour afficher les données dynamiquement.
+<Separator />
 
-Pour la donnée brute des Pokémon, nous avons optimisé notre temps en nous basant directement sur la fameuse **PokeAPI**, un service externe gratuit répertoriant toutes les créatures, évitant ainsi d'avoir à remplir manuellement notre propre base de données.
+L'architecture repose sur une séparation claire des responsabilités :
+- **Backend** : Réalisé en **Symfony** avec **API Platform**. Nous avons exploité Doctrine pour la persistence et **Spring Security** (JWT) pour la protection des ressources privées.
+- **Frontend** : Une Single Page Application (SPA) en **Vue.js** qui consomme l'API de manière asynchrone.
+
+Pour le catalogue, nous avons intégré la **PokeAPI** externe pour automatiser l'importation des caractéristiques des Pokémon, tout en stockant nos propres données (avis, favoris, propositions) en local.
+
+Cette séparation stricte nous a permis de travailler parallèlement sur les deux parties tout en garantissant une maintenance aisée.

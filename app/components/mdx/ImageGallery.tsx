@@ -146,8 +146,6 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
                 })}
             </div>
 
-            <div className="h-px w-full bg-foreground/5 mt-12" />
-
             {/* Lightbox Rendering */}
             <AnimatePresence>
                 {selectedImage && (
