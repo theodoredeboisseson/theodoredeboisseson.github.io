@@ -43,9 +43,11 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'ArrowLeft') {
+                e.preventDefault();
                 prevProject();
                 setIsPlaying(false);
             } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
                 nextProject();
                 setIsPlaying(false);
             }
@@ -83,9 +85,9 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
     };
 
     return (
-        <Section 
-            id={id} 
-            title="Featured projects" 
+        <Section
+            id={id}
+            title="Featured projects"
             titlePosition="left"
             aside={
                 <Link href="/projects" className="btn-tactical rounded-tr-none hover:translate-x-2 hover:font-bold text-sm hover:text-primary mt-4 md:mt-0">
