@@ -7,19 +7,16 @@
       {
         "id": "AC11",
         "title": "Choisir et implémenter les architectures adaptées",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "Je conçois et mets en place des architectures logicielles répondant aux contraintes métier. Je veille à la scalabilité des solutions."
       },
       {
         "id": "AC12",
         "title": "Faire évoluer une application existante",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "Je refactor avec méthode le code d'une application existante pour l'optimiser et le simplifier sans régressions."
       },
       {
         "id": "AC13",
         "title": "Intégrer des solutions dans un environnement de production",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "J'ai pu passer par différentes manières de deployer des applications, pour des applications web et mobiles. Je m'assure de la stabilité de l'environnement."
       }
     ],
@@ -54,19 +51,16 @@
       {
         "id": "AC21",
         "title": "Anticiper les résultats de diverses métriques (temps d’exécution, occupation mémoire…)",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "Je développe d'abord un code fonctionnel puis je l'optimise pour améliorer sa vitesse d'execution et réduire les ressources consommées."
       },
       {
         "id": "AC22",
         "title": "Profiler, analyser et justifier le comportement d’un code existant",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "J'utilise des outils de profilage pour identifier les points lents d'un code et optimiser les parties concernées."
       },
       {
         "id": "AC23",
         "title": "Choisir et utiliser des bibliothèques et méthodes dédiées au domaine d’application",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "Utilisation pertinente de bibliothèques spécialisées (imagerie, IA, jeux vidéos, parallélisme...) pour répondre aux besoins métiers."
       }
     ],
@@ -101,25 +95,21 @@
       {
         "id": "AC61",
         "title": "Organiser et partager une veille numérique",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "Je mets en place des processus pour retrouver et partager les découvertes techniques avec l'équipe."
       },
       {
         "id": "AC62",
         "title": "Identifier les enjeux de l’économie de l’innovation numérique",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "Je mesure les impacts des choix technologiques sur les modèles économiques et conseille sur la viabilité des solutions."
       },
       {
         "id": "AC63",
         "title": "Guider la conduite du changement informatique au sein d’une organisation",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "J'aide à l'adoption de nouveaux outils par la rédaction de documentation ou la formation des utilisateurs."
       },
       {
         "id": "AC64",
         "title": "Accompagner le management de projet informatique",
-        "description": "Validation du niveau 3 (BUT3)",
         "level3": "J'aide à structurer les livrables et la méthodologie de l'équipe projet en anticipant les risques."
       }
     ],

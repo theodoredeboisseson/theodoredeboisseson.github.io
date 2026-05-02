@@ -65,8 +65,9 @@ export default function CompetencesContent({ competences, projects }: Competence
                                         const linkedProjects = getProjectsForCE(comp, ce);
                                         return (
                                             <motion.div 
+                                                id={ce.id}
                                                 key={ce.id} 
-                                                className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0"
+                                                className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0 scroll-mt-24"
                                                 initial={{ opacity: 0, y: 20 }}
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 viewport={{ once: true }}
@@ -127,8 +128,9 @@ export default function CompetencesContent({ competences, projects }: Competence
                                     const linkedProjects = getProjectsForAC(comp, ac);
                                     return (
                                         <motion.div 
+                                            id={ac.id}
                                             key={ac.id} 
-                                            className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0"
+                                            className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0 scroll-mt-24"
                                             initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
                                             viewport={{ once: true }}
@@ -143,7 +145,7 @@ export default function CompetencesContent({ competences, projects }: Competence
                                                     {ac.title}
                                                 </h3>
                                                 <div className="pl-9">
-                                                    <p className="text-sm font-mono text-primary mb-2 uppercase tracking-tighter opacity-80">
+                                                    <p className="text-sm font-mono text-primary mb-2 tracking-tighter opacity-80">
                                                         Niveau 3 :
                                                     </p>
                                                     <p className="text-base opacity-70 leading-relaxed">
