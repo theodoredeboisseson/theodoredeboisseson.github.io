@@ -41,7 +41,7 @@ export default function Home() {
           <span className="w-2 h-2 bg-primary group-hover:bg-white rounded-none animate-pulse" />
           <span className="font-semibold">Espace Évaluation // Jury BUT</span>
           <span className="hidden md:inline opacity-40 ml-4 group-hover:opacity-80 transition-opacity">
-            Accéder au référentiel des compétences ↗
+            Accéder au portfolio d&#39;apprentissage ↗
           </span>
         </div>
       </Link>

@@ -6,7 +6,7 @@ import CompetencesContent from './CompetencesContent';
 import { Competence } from '@/app/types';
 
 export const metadata: Metadata = {
-    title: 'Validation BUT',
+    title: "Portfolio d'apprentissage",
     description: 'Référentiel des compétences techniques et apprentissages critiques validés (BUT Informatique).',
 };
 
