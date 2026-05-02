@@ -1,33 +1,38 @@
 ---
 title: "SAÉ JiCursum"
-description: "Plateforme PHP pour l'orientation post-IUT, permettant d'évaluer l'admissibilité des étudiants."
-date: "2024"
+description: "Outil d'aide à la décision pour l'équipe pédagogique du département informatique, facilitant les avis de poursuite d'études."
+date: "2024-2025"
 category: "Développement Web"
 image: "/images/projects/jicursum/screenshot-jicursum.webp"
 duration: "4 mois"
 team_size: "3 personnes"
 usedSkills: ["HTML & CSS", "PHP", "MariaDB", "GitLab"]
+tags: ["Bootstrap"]
 filter: "Tech"
 context: "Scolaire"
-ac_list: ['AC11', 'AC12', 'AC64']
-ce_list: ['CE11', 'CE12', 'CE24', 'CE61']
+ac_list: ['AC11', 'AC64']
+ce_list: ['CE11', 'CE12', 'CE14', 'CE24', 'CE61']
 ---
 
-Projet majeur de ma 2ᵉ année de BUT Informatique, réalisé en équipe de 3 personnes sur 3 mois.
-Nous avons développé un site web en **PHP** (front et back-end) pour aider les étudiants à évaluer leur admissibilité à diverses formations après l’IUT.
+Ce projet fut le plus gros de ma 2ᵉ année de BUT Informatique, réalisé en équipe de 3 personnes. Il visait à automatiser une tâche complexe pour les enseignants : l'évaluation des dossiers étudiants pour la poursuite d'études.
+
+### Un outil pour l'équipe pédagogique
+
+Contrairement aux outils de consultation classiques, **JiCursum** est conçu spécifiquement pour les professeurs et l'équipe pédagogique. L'application permet d'agréger les résultats académiques et d'attribuer des avis officiels de poursuite d'études (Favorable, Très Favorable, Sans Avis...) basés sur des critères de pondération configurables.
 
 <Separator />
 
-### Un outil d'aide à la décision
+### Gestion des données et automatisation
 
-L'application repose sur un **modèle de données optimisé** (AC41) capable de stocker les résultats académiques complexes de multiples promotions. J'ai conçu la base de données pour permettre des requêtes efficaces sur l'historique des notes.
-
-Le cœur du projet est l'algorithme d'admissibilité : il **agrège et pondère les notes** selon des critères spécifiques à chaque école cible. Cette logique a nécessité l'implémentation de **structures de données** (AC21) capables de gérer des règles de validation dynamiques.
+L'un des points forts du projet est la gestion fluide des données académiques :
+- **Import SCODOC** : Nous avons développé un module permettant d'importer directement les notes via les fichiers **Excel/CSV** exportés depuis l'outil de scolarité SCODOC, évitant toute saisie manuelle fastidieuse.
+- **Calcul d'admissibilité** : Un moteur de calcul traite les moyennes et les pondère selon les exigences spécifiques des écoles cibles.
+- **Sécurité et Administration** : Pour garantir la confidentialité, la création de compte suit un processus strict : chaque utilisateur doit d'abord soumettre une demande d'inscription qui doit être manuellement validée par un administrateur.
 
 <Separator />
 
-### Visualisation des données
+### Premier pas vers les frameworks
 
-Pour rendre ces informations digestes, nous avons développé un **tableau de bord** permettant à l'étudiant de visualiser son positionnement (AC43). Les résultats sont présentés de manière claire, avec une distinction entre l'admissibilité calculée et l'ajustement potentiel basé sur le "savoir-être".
+Sur le plan technique, ce projet fut ma première occasion d'utiliser un framework CSS : **Bootstrap**. L'utilisation d'une bibliothèque de composants m'a permis d'accélérer considérablement l'écriture des templates et de me concentrer sur la logique métier complexe en PHP, tout en garantissant une interface propre et responsive pour les enseignants.
 
 ![Capture d'écran de JiCursum](/images/projects/jicursum/screenshot-jicursum.webp)
