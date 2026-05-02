@@ -35,7 +35,7 @@ export default function Section({
                         aside
                     ) : (
                         /* Default decorative element */
-                        <div className="flex items-center gap-3 opacity-50">
+                        <div className="hidden md:flex items-center gap-3 opacity-50">
                             <motion.div
                                 initial={{ scale: 0, rotate: -45 }}
                                 whileInView={{ scale: 1, rotate: 45 }}
