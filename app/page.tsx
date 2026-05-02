@@ -11,6 +11,11 @@ import { Project, Experience } from '@/app/types';
 import bioData from '@/data/bio.json';
 import skillsData from '@/data/skills.json';
 import SectionNavigator from "@/app/components/ui/navigation/SectionNavigator";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  description: "Bienvenue sur mon portfolio. Je suis étudiant en informatique, passionné par le développement web et la création numérique. Découvrez mes projets et mon parcours.",
+};
 
 export default function Home() {
   const allProjects = getAllProjects();
@@ -20,9 +25,9 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
-        <SectionNavigator />
+      <SectionNavigator />
 
-        <Hero id="hero"
+      <Hero id="hero"
         title={bioData.hero.title}
         subtitle={bioData.hero.subtitle}
         description={bioData.hero.description}
@@ -40,7 +45,7 @@ export default function Home() {
           </span>
         </div>
       </Link>
-      <AboutSection 
+      <AboutSection
         id="about"
         seeking={bioData.about.seeking}
         languages={bioData.about.languages}

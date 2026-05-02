@@ -1,10 +1,14 @@
+import type { Metadata } from "next";
 import competencesData from '@/data/competences.json';
 import { getAllProjects } from '@/lib/mdx';
 import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
 import CompetencesContent from './CompetencesContent';
-
 import { Competence } from '@/app/types';
 
+export const metadata: Metadata = {
+    title: 'Validation BUT',
+    description: 'Référentiel des compétences techniques et apprentissages critiques validés (BUT Informatique).',
+};
 
 export default function CompetencesPage() {
     const competences = competencesData as Competence[];
@@ -12,12 +16,12 @@ export default function CompetencesPage() {
 
     return (
         <main className="min-h-screen relative bg-background text-foreground py-20 px-4 md:px-12 selection:bg-primary selection:text-background">
-            <ReturnButton 
-                label="Page d'accueil" 
-                className="mb-12" 
+            <ReturnButton
+                label="Page d'accueil"
+                className="mb-12"
             />
 
-            <header 
+            <header
                 className="mb-20 grid grid-cols-1 md:grid-cols-12 gap-6 border-b border-black/10 pb-8"
                 style={{ opacity: 0, animation: 'slide-up 0.6s ease-out 0.2s forwards' }}
             >
@@ -39,12 +43,12 @@ export default function CompetencesPage() {
                 </div>
             </header>
 
-            <CompetencesContent 
-                competences={competences} 
+            <CompetencesContent
+                competences={competences}
                 projects={projects}
             />
 
-            <footer 
+            <footer
                 className="mt-32 pt-8 border-t border-black/10 text-center font-mono text-xs opacity-40"
                 style={{ opacity: 0, animation: 'fade-in 0.8s ease-out forwards' }}
             >

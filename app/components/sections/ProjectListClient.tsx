@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import ProjectCard from '@/app/components/ui/cards/ProjectCard';
-import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
 import TacticalFilter from '@/app/components/ui/navigation/TacticalFilter';
 import { ProjectListClientProps } from '@/app/types';
 

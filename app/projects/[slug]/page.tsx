@@ -14,6 +14,28 @@ import VideoPlayer from '@/app/components/mdx/VideoPlayer';
 import Hyperlink from '@/app/components/mdx/Hyperlink';
 import Spacer from '@/app/components/mdx/Spacer';
 import ContextBadge from '@/app/components/ui/badges/ContextBadge';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const resolvedParams = await params;
+    const project = getProjectBySlug(resolvedParams.slug);
+
+    if (!project) {
+        return {
+            title: 'Projet non trouvé',
+        };
+    }
+
+    return {
+        title: project.title,
+        description: project.description,
+        openGraph: {
+            title: `${project.title}`,
+            description: project.description,
+            images: project.image ? [project.image] : [],
+        },
+    };
+}
 
 const components = {
     ImageGallery,
@@ -102,7 +124,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                         </div>
 
                         {/* Centered Meta Info Section */}
-                        <div className="w-full flex flex-col md:flex-row items-center md:items-start justify-between gap-12 border-b border-foreground/20 pb-8 mt-4">
+                        <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start justify-between gap-12 border-b border-foreground/20 pb-8 mt-4">
 
                             {/* Project Links Group */}
                             {(project.links?.demo || project.links?.github) && (
@@ -135,14 +157,14 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
                             {/* Combined Validation Group (AC & CE) */}
                             {(project.ac_list.length > 0 || (project.ce_list?.length ?? 0) > 0) && (
-                                <div className="flex flex-col items-center md:items-center gap-4 shrink-0">
-                                    <span className="font-mono text-smol uppercase tracking-widest opacity-40">Validation</span>
-                                    <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                                <div className="flex flex-col items-center md:items-center gap-4 flex-1 min-w-0">
+                                    <span className="font-mono text-smol uppercase tracking-widest opacity-40 text-center w-full">Validation</span>
+                                    <div className="flex flex-wrap gap-2 justify-center">
                                         {project.ac_list?.map((ac: string) => (
-                                            <CompetenceTooltip className='text-md p-2' key={ac} id={ac} />
+                                            <CompetenceTooltip key={ac} id={ac} />
                                         ))}
                                         {project.ce_list?.map((ce: string) => (
-                                            <CompetenceTooltip className='text-md p-2' key={ce} id={ce} />
+                                            <CompetenceTooltip key={ce} id={ce} />
                                         ))}
                                     </div>
                                 </div>

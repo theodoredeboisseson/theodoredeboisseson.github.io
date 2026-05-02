@@ -1,13 +1,13 @@
+import type { Metadata } from "next";
 import { getAllProjects, getProjectSummary } from '@/lib/mdx';
 import ProjectListClient from '@/app/components/sections/ProjectListClient';
 import { Project } from '@/app/types';
+import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
 
-export const metadata = {
-    title: 'Projets | Théodore',
+export const metadata: Metadata = {
+    title: 'Projets',
     description: 'Archives des expérimentations numériques et projets techniques.',
 };
-
-import ReturnButton from '@/app/components/ui/navigation/ReturnButton';
 
 export default function ProjectsGalleryPage() {
     const rawProjects = getAllProjects();

@@ -25,8 +25,11 @@ import ScrollToTop from "@/app/components/ui/navigation/ScrollToTop";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://theodoredeboisseson.github.io"),
-  title: "Théodore de Boisseson",
-  description: "Portfolio / Étudiant en Informatique & Créateur Numérique",
+  title: {
+    default: "Théodore de Boisseson | Portfolio",
+    template: "%s | Théodore"
+  },
+  description: "Portfolio de Théodore de Boisseson, étudiant en informatique. Explorez mes projets de développement Full Stack, mes compétences en génie logiciel et mes créations numériques.",
   openGraph: {
     title: "Théodore de Boisseson | Portfolio",
     description: "Portfolio de Théodore de Boisseson - Étudiant en Informatique & Création Numérique",
@@ -34,7 +37,7 @@ export const metadata: Metadata = {
     siteName: "Portfolio de Théodore",
     images: [
       {
-        url: "/images/profile_picture.jpg",
+        url: "/images/hero_bg.jpg",
         width: 1200,
         height: 1200,
         alt: "Théodore de Boisseson",
@@ -47,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Théodore de Boisseson | Portfolio",
     description: "Portfolio de Théodore de Boisseson - Étudiant en Informatique & Création Numérique",
-    images: ["/images/profile_picture.jpg"],
+    images: ["/images/hero_bg.jpg"],
   },
 };
 
