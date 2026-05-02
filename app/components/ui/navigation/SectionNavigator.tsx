@@ -91,7 +91,7 @@ export default function SectionNavigator() {
             </nav>
 
             {/* Mobile: Bottom horizontal bar */}
-            <nav className="xl:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-9999 pointer-events-none">
+            <nav className="xl:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-10050 pointer-events-none">
                 <div className="bg-background backdrop-blur-xs border-x border-[#11111110] border-l-2 border-r-2 px-2 py-2 rounded-2xl shadow-sm pointer-events-auto">
                     <div className="flex flex-row">
                         {sections.map((section, index) => {
