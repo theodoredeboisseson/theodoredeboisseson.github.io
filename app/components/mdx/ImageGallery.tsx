@@ -123,8 +123,8 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
 
                                 {/* Caption Overlay (Bottom Left) */}
                                 {img.alt && (
-                                    <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-20 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none transition-opacity duration-500 group-hover:opacity-40">
-                                        <p className="text-xs md:text-sm font-bold text-white/90 leading-relaxed max-w-[85%] border-l border-primary/50 pl-2 mt-1">
+                                    <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-20 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none">
+                                        <p className="text-xs md:text-sm bg-black/30 rounded-r backdrop-blur-xs font-bold text-white/90 leading-relaxed border-l-2 border-primary/50 px-2 mt-1 w-fit max-w-[85%] transition-all duration-500 group-hover:opacity-40 transform-gpu translate-z-0 will-change-[opacity,transform]">
                                             {img.alt}
                                         </p>
                                     </div>

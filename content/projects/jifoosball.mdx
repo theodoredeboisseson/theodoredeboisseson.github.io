@@ -3,7 +3,7 @@ title: "JiFoosball"
 description: "Application web et mobile pour la Ligue Amateur de Babyfoot Français (LABAF). Gestion de matchs, tournois et carte des bars."
 date: "2025-2026"
 category: "Full Stack"
-tags: ["React Native"]
+image: "/images/projects/jifoosball/accueil-web-jifoosball.png"
 duration: "7 mois"
 team_size: "4 personnes"
 featured: true
@@ -16,22 +16,36 @@ ce_list: ['CE11', 'CE14', 'CE61', 'CE62']
 
 Projet de SAE de 3ᵉ année de BUT Informatique, réalisé pour un vrai client à Paris :
 l'association LABAF (Ligue Amateur de Babyfoot Français).
-Ce gros projet de 6 mois visait à remplacer l'alternance et à livrer un système complet avec une application web et une application mobile.
+Ce projet universitaire est le plus gros de formation du BUT Informatique.
+De grande envergure, il visait à livrer un système complet permettant de gérer des matchs et tournois de babyfoot amateur via une application web et une application mobile offrant les mêmes fonctionnalités.
 
-### Fonctionnalités Clés
+### Un écosystème complet
 
-- **Joueurs & Social** : Gestion de compte, système d'amis, historique des matchs.
-- **Matchs & Tournois** : Création et gestion de matchs amicaux, organisation de tournois.
-- **Cartographie** : Carte interactive des bars équipés de babyfoots, avec possibilité pour les utilisateurs de proposer de nouveaux lieux.
-- **Administration** : Dashboard complet pour gérer les utilisateurs et valider les propositions de bars.
+L'objectif était de créer un outil centralisant toute l'activité de la ligue. Contrairement à beaucoup de projets où les rôles sont séparés par plateforme, nous avons fait le choix d'offrir **exactement les mêmes fonctionnalités sur le web et sur le mobile** :
+- **Omniprésence des fonctionnalités** : Que ce soit sur web ou mobile, un utilisateur peut aussi bien gérer son profil de joueur que modérer des bars ou organiser un tournoi complet s'il en a les droits.
+- **Expérience Unifiée** : Les joueurs peuvent trouver des bars partenaires, lancer des matchs et suivre les tournois depuis n'importe quel support.
+- **Back-end Robuste** : Une API Spring Boot centralisée gérant l'authentification sécurisée, les notifications en temps réel et la logique complexe des tournois pour toutes les plateformes.
+
+### Gestion de tournois complexes
+
+L'un des défis majeurs fut l'implémentation de différents formats de tournois, notamment le **système suisse** pour les phases de poules et les **arbres d'élimination directe** pour les phases finales. Nous avons dû concevoir des algorithmes capables de générer les rencontres automatiquement tout en respectant les contraintes de temps et de nombre de tables disponibles.
+
+<Spacer />
+
+<ImageGallery>
+/images/projects/jifoosball/mobile-jifoosball.png | Vue d'ensemble de l'application mobile LABAF
+/images/projects/jifoosball/match-center-jifoosball.png | Centre de match : matchs à venir, en cours et passés
+/images/projects/jifoosball/map-mobile-jifoosball.png | Carte interactive des babyfoots, vue des bars sur Paris
+/images/projects/jifoosball/swiss-phase-jifoosball.png | Gestion automatisée des tournois : phase de poules en système suisse
+/images/projects/jifoosball/elimination-bracket-jifoosball.png | Génération dynamique de l'arbre de phase d'élimination
+</ImageGallery>
 
 ### Stack Technique
 
-Le système est composé de plusieurs applications communiquant ensemble :
-- **Application Web** : Développée en **React** avec TailwindCSS
-- **Application Mobile** : Développée en **React Native** avec NativeWind
-- **Back-end & API** : Développé en **Kotlin** avec le framework **Spring** et sécurisé via **Spring Security**. Utilise des JWT pour l'authentification
+Le système repose sur une architecture moderne et modulaire :
+- **Frontend Web** : React avec TailwindCSS pour une interface complète, rapide et réactive.
+- **Mobile** : React Native (Expo) avec NativeWind pour une expérience fluide sur iOS et Android.
+- **Backend** : Kotlin avec Spring Boot et Spring Security (JWT).
+- **Base de données** : PostgreSQL pour la persistence des données joueurs, matchs et lieux.
 
-Cette architecture modulaire nous a permis de séparer clairement les responsabilités tout en offrant une expérience fluide sur smartphone comme sur ordinateur.
-Notre équipe de 4 étudiant fut très peu encadrée lors de ce projet et nous avons tout fais nous même, tout en apprenant.
-Car c'est le premier projet sur lequel on a pu apprendre React et Kotlin.
+Cette expérience fut particulièrement formatrice car elle nous a confrontés aux exigences d'un client réel et à la nécessité de maintenir une cohérence totale entre plusieurs plateformes.
