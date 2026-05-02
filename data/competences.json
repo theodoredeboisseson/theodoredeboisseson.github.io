@@ -26,13 +26,23 @@
     "ces": [
       {
         "id": "CE11",
-        "title": "Respecter les règles métiers et l'architecture logicielle",
-        "description": "Application rigoureuse des design patterns et de l'architecture."
+        "title": "En respectant les besoins décrits par le client",
+        "description": "Analyse rigoureuse du cahier des charges et respect des spécifications fonctionnelles."
       },
       {
         "id": "CE12",
-        "title": "Sécuriser et éco-concevoir",
-        "description": "Intégration des principes de sécurité et de numérique responsable."
+        "title": "En appliquant les principes algorithmiques",
+        "description": "Utilisation de structures de données et d'algorithmes performants pour répondre aux exigences de l'application."
+      },
+      {
+        "id": "CE13",
+        "title": "En veillant à la qualité de code et à sa documentation",
+        "description": "Rédaction d'un code propre, commenté et accompagné d'une documentation technique claire."
+      },
+      {
+        "id": "CE14",
+        "title": "En choisissant les ressources techniques appropriées",
+        "description": "Sélection des outils, frameworks et matériels les plus adaptés aux contraintes du projet."
       }
     ]
   },
@@ -43,33 +53,43 @@
     "acs": [
       {
         "id": "AC21",
-        "title": "Anticiper les résultats de diverses métriques (temps d'exécution, occupation mémoire…)",
+        "title": "Anticiper les résultats de diverses métriques (temps d’exécution, occupation mémoire…)",
         "description": "Validation du niveau 3 (BUT3)",
         "level3": "Je développe d'abord un code fonctionnel puis je l'optimise pour améliorer sa vitesse d'execution et réduire les ressources consommées."
       },
       {
         "id": "AC22",
-        "title": "Profiler, analyser et justifier le comportement d'un code existant",
+        "title": "Profiler, analyser et justifier le comportement d’un code existant",
         "description": "Validation du niveau 3 (BUT3)",
         "level3": "J'utilise des outils de profilage pour identifier les points lents d'un code et optimiser les parties concernées."
       },
       {
         "id": "AC23",
-        "title": "Choisir et utiliser des bibliothèques et méthodes dédiées au domaine d'application",
+        "title": "Choisir et utiliser des bibliothèques et méthodes dédiées au domaine d’application",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Je ne réinvte pas la roue et utilise des librairies adaptées à des besoins spécifiques et code uniquement ce qui n'existe pas déjà."
+        "level3": "Utilisation pertinente de bibliothèques spécialisées (imagerie, IA, jeux vidéos, parallélisme...) pour répondre aux besoins métiers."
       }
     ],
     "ces": [
       {
         "id": "CE21",
-        "title": "Évaluer la complexité et les performances",
-        "description": "Mesure et justification de la complexité algorithmique."
+        "title": "En formalisant et modélisant des situations complexes",
+        "description": "Traduction de problèmes métiers complexes en modèles mathématiques ou algorithmiques exploitables."
       },
       {
         "id": "CE22",
-        "title": "Choisir les structures de données appropriées",
-        "description": "Sélection des meilleures structures de données pour optimiser les performances."
+        "title": "En recensant les algorithmes et les structures de données usuels",
+        "description": "Maîtrise d'un catalogue d'algorithmes et de structures de données classiques pour l'optimisation."
+      },
+      {
+        "id": "CE23",
+        "title": "En s'appuyant sur des schémas de raisonnement",
+        "description": "Utilisation de méthodes de raisonnement logique et de preuves pour garantir la correction des solutions."
+      },
+      {
+        "id": "CE24",
+        "title": "En justifiant les choix et validant les résultats",
+        "description": "Démonstration de la pertinence des choix techniques par des tests de performance et des mesures réelles."
       }
     ]
   },
@@ -86,33 +106,43 @@
       },
       {
         "id": "AC62",
-        "title": "Identifier les enjeux de l'économie de l'innovation numérique",
+        "title": "Identifier les enjeux de l’économie de l’innovation numérique",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "Je mesure les impacts des choix technologiques sur les modèles économiques. Je conseille sur la viabilité des solutions proposées."
+        "level3": "Je mesure les impacts des choix technologiques sur les modèles économiques et conseille sur la viabilité des solutions."
       },
       {
         "id": "AC63",
-        "title": "Guider la conduite du changement informatique au sein d'une organisation",
+        "title": "Guider la conduite du changement informatique au sein d’une organisation",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "J'aide à l'adoption de nouveaux outils par la rédaction de documentation ou la formation."
+        "level3": "J'aide à l'adoption de nouveaux outils par la rédaction de documentation ou la formation des utilisateurs."
       },
       {
         "id": "AC64",
         "title": "Accompagner le management de projet informatique",
         "description": "Validation du niveau 3 (BUT3)",
-        "level3": "J'aide à structurer les livrables et la méthodologie de l'équipe projet. J'anticipe les risques de manière collaborative."
+        "level3": "J'aide à structurer les livrables et la méthodologie de l'équipe projet en anticipant les risques."
       }
     ],
     "ces": [
       {
         "id": "CE61",
-        "title": "S'intégrer et collaborer dans une équipe",
-        "description": "Participation active aux rituels et à la vie d'équipe."
+        "title": "En inscrivant sa démarche au sein d'une équipe pluridisciplinaire",
+        "description": "Collaboration active avec des designers, chefs de projet et autres métiers pour une vision globale."
       },
       {
         "id": "CE62",
-        "title": "Communiquer efficacement",
-        "description": "Partage clair de l'information avec les parties prenantes."
+        "title": "En accompagnant la mise en oeuvre des évolutions informatiques",
+        "description": "Soutien technique et pédagogique lors du déploiement de nouvelles fonctionnalités ou systèmes."
+      },
+      {
+        "id": "CE63",
+        "title": "En veillant au respect des contraintes juridiques",
+        "description": "Respect du RGPD, du droit d'auteur et des licences logicielles dans toutes les étapes du développement."
+      },
+      {
+        "id": "CE64",
+        "title": "En développant une communication efficace et collaborative",
+        "description": "Partage d'informations fluide et utilisation d'outils collaboratifs pour la réussite du projet."
       }
     ]
   }

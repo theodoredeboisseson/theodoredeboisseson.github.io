@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { AC, Competence, Project } from '@/app/types';
+import { AC, CE, Competence, Project } from '@/app/types';
 
 interface CompetencesContentProps {
     competences: Competence[];
@@ -12,16 +12,11 @@ interface CompetencesContentProps {
 export default function CompetencesContent({ competences, projects }: CompetencesContentProps) {
 
     const getProjectsForAC = (comp: Competence, ac: AC) => {
-        const acNum = ac.id.replace("AC", ""); // "AC11" -> "11"
+        return projects.filter((p) => p.ac_list?.includes(ac.id));
+    };
 
-        return projects.filter((p) => {
-            if (!p.ac_list) return false;
-            return p.ac_list.some((valString: string) => {
-                const s = valString.toLowerCase();
-
-                return s.includes(`ac${acNum}`) || s.includes(`ac ${acNum}`);
-            });
-        });
+    const getProjectsForCE = (comp: Competence, ce: CE) => {
+        return projects.filter((p) => p.ce_list?.includes(ce.id));
     };
 
     return (
@@ -56,70 +51,135 @@ export default function CompetencesContent({ competences, projects }: Competence
                             </p>
                         </motion.div>
 
-                        {/* Right: AC List */}
-                        <div className="col-span-1 md:col-span-8 flex flex-col gap-8">
-                            {comp.acs.map((ac, acIndex) => {
-                                const linkedProjects = getProjectsForAC(comp, ac);
-                                return (
-                                    <motion.div 
-                                        key={ac.id} 
-                                        className="grid grid-cols-1 md:grid-cols-12 gap-4 border-b border-black/10 pb-6 last:border-0 relative"
-                                        initial={{ opacity: 0, y: 20 }}
-                                        whileInView={{ opacity: 1, y: 0 }}
-                                        viewport={{ once: true }}
-                                        transition={{ duration: 0.4, delay: acIndex * 0.08 }}
-                                    >
-                                        {/* AC ID & Title */}
-                                        <div className="col-span-1 md:col-span-8">
-                                            <h3 className="text-lg font-medium mb-1">
-                                                <span className="font-mono text-xs text-black/40 mr-2 uppercase tracking-tight">
-                                                    {ac.id}
-                                                </span>
-                                                {ac.title}
-                                            </h3>
-                                            {/* Level 3 Placeholder */}
-                                            <div className="pl-8 mt-2">
-                                                <p className="text-sm font-mono text-primary mb-1">
-                                                    Niveau 3 :
-                                                </p>
-                                                <p className="text-sm opacity-70">
-                                                    {ac.level3 !== "À compléter" ? ac.level3 : "En cours de validation via le portfolio et les projets de 3ème année."}
-                                                </p>
-                                            </div>
-                                        </div>
+                        {/* Right Column: AC & CE Lists */}
+                        <div className="col-span-1 md:col-span-8 flex flex-col gap-12">
 
-                                        {/* Linked Projects */}
-                                        <div className="col-span-1 md:col-span-4 flex flex-col items-start md:items-end gap-2">
-                                            {linkedProjects.length > 0 && (
-                                                <span className="text-smol uppercase tracking-widest opacity-40 font-mono">
-                                                    Preuves
-                                                </span>
-                                            )}
-                                            <div className="flex flex-wrap gap-2 justify-start md:justify-end">
-                                                {linkedProjects.map(p => (
-                                                    <motion.div
-                                                        key={p.slug}
-                                                        whileHover={{ scale: 1.05, y: -2 }}
-                                                        whileTap={{ scale: 0.98 }}
-                                                    >
-                                                        <Link
-                                                            href={`/projects/${p.slug}`}
-                                                            className="inline-block px-2 py-1 bg-black/5 hover:bg-primary hover:text-background transition-colors text-xs font-mono rounded-sm"
-                                                        >
-                                                            {p.title} ↗
-                                                        </Link>
-                                                    </motion.div>
-                                                ))}
-                                                {linkedProjects.length === 0 && (
-                                                    <span className="text-xs opacity-30 italic">
-                                                        Aucune preuve liée
+                            {/* CE List */}
+                            {comp.ces && comp.ces.length > 0 && (
+                                <div className="flex flex-col gap-10">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <span className="font-mono text-smol uppercase tracking-widest opacity-40 whitespace-nowrap">Composantes Essentielles</span>
+                                        <div className="h-px bg-black/20 flex-1" />
+                                    </div>
+                                    {comp.ces.map((ce, ceIndex) => {
+                                        const linkedProjects = getProjectsForCE(comp, ce);
+                                        return (
+                                            <motion.div 
+                                                key={ce.id} 
+                                                className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0"
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                viewport={{ once: true }}
+                                                transition={{ duration: 0.4, delay: ceIndex * 0.08 }}
+                                            >
+                                                {/* CE Content (2/3) */}
+                                                <div className="md:col-span-2">
+                                                    <h3 className="text-xl font-medium mb-3 italic flex items-start gap-3">
+                                                        <span className="font-mono text-xs text-black/20 mt-1 shrink-0 not-italic">
+                                                            {ce.id}
+                                                        </span>
+                                                        {ce.title}
+                                                    </h3>
+                                                    <div className="pl-9">
+                                                        <p className="text-base opacity-60 leading-relaxed font-sans">
+                                                            {ce.description}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                {/* Proofs (1/3) */}
+                                                <div className="md:col-span-1 flex flex-col items-start md:items-end gap-3">
+                                                    {linkedProjects.length > 0 && (
+                                                        <span className="text-smol uppercase tracking-widest opacity-40 font-mono text-primary">
+                                                            Preuves
+                                                        </span>
+                                                    )}
+                                                    <div className="flex flex-wrap gap-2 justify-start md:justify-end">
+                                                        {linkedProjects.map(p => (
+                                                            <motion.div
+                                                                key={p.slug}
+                                                                whileHover={{ scale: 1.05, y: -2 }}
+                                                                whileTap={{ scale: 0.98 }}
+                                                            >
+                                                                <Link
+                                                                    href={`/projects/${p.slug}`}
+                                                                    className="inline-block px-3 py-1.5 bg-black/5 hover:bg-primary hover:text-background transition-all text-[11px] font-mono rounded-sm border border-transparent hover:border-primary/20"
+                                                                >
+                                                                    {p.title} ↗
+                                                                </Link>
+                                                            </motion.div>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            </motion.div>
+                                        );
+                                    })}
+                                </div>
+                            )}
+
+                            {/* AC List */}
+                            <div className="flex flex-col gap-10 mt-6">
+                                <div className="flex items-center gap-4 mb-4">
+                                    <span className="font-mono text-smol uppercase tracking-widest opacity-40 whitespace-nowrap">Apprentissages Critiques</span>
+                                    <div className="h-px bg-black/20 flex-1" />
+                                </div>
+                                {comp.acs.map((ac, acIndex) => {
+                                    const linkedProjects = getProjectsForAC(comp, ac);
+                                    return (
+                                        <motion.div 
+                                            key={ac.id} 
+                                            className="grid grid-cols-1 md:grid-cols-3 gap-8 border-b border-black/15 pb-8 last:border-0"
+                                            initial={{ opacity: 0, y: 20 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            viewport={{ once: true }}
+                                            transition={{ duration: 0.4, delay: acIndex * 0.08 }}
+                                        >
+                                            {/* AC Content (2/3) */}
+                                            <div className="md:col-span-2">
+                                                <h3 className="text-xl font-medium mb-3 flex items-start gap-3">
+                                                    <span className="font-mono text-xs text-primary/50 mt-1 shrink-0">
+                                                        {ac.id}
+                                                    </span>
+                                                    {ac.title}
+                                                </h3>
+                                                <div className="pl-9">
+                                                    <p className="text-sm font-mono text-primary mb-2 uppercase tracking-tighter opacity-80">
+                                                        Niveau 3 :
+                                                    </p>
+                                                    <p className="text-base opacity-70 leading-relaxed">
+                                                        {ac.level3 !== "À compléter" ? ac.level3 : "En cours de validation via le portfolio et les projets de 3ème année."}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                            {/* Proofs (1/3) */}
+                                            <div className="md:col-span-1 flex flex-col items-start md:items-end gap-3">
+                                                {linkedProjects.length > 0 && (
+                                                    <span className="text-smol uppercase tracking-widest opacity-40 font-mono text-primary">
+                                                        Preuves
                                                     </span>
                                                 )}
+                                                <div className="flex flex-wrap gap-2 justify-start md:justify-end">
+                                                    {linkedProjects.map(p => (
+                                                        <motion.div
+                                                            key={p.slug}
+                                                            whileHover={{ scale: 1.05, y: -2 }}
+                                                            whileTap={{ scale: 0.98 }}
+                                                        >
+                                                            <Link
+                                                                href={`/projects/${p.slug}`}
+                                                                className="inline-block px-3 py-1.5 bg-black/5 hover:bg-primary hover:text-background transition-all text-[11px] font-mono rounded-sm border border-transparent hover:border-primary/20"
+                                                            >
+                                                                {p.title} ↗
+                                                            </Link>
+                                                        </motion.div>
+                                                    ))}
+                                                </div>
                                             </div>
-                                        </div>
-                                    </motion.div>
-                                );
-                            })}
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
                         </div>
 
                     </div>

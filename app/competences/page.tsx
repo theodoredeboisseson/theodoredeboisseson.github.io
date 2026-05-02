@@ -37,7 +37,6 @@ export default function CompetencesPage() {
                     <p className="mt-4 text-lg max-w-2xl font-light opacity-80">
                         Référentiel des apprentissages critiques validés au cours du BUT Informatique.
                         Chaque compétence est attestée par des projets concrets.
-                        En guise d&#39;auto-evaluation, j&#39;utilise une échelle progressive : <span className="text-primary">Non acquise → En cours d&#39;acquisition → Acquise → Maîtrisée.</span>
                     </p>
                 </div>
             </header>

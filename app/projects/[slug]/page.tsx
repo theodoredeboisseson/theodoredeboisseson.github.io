@@ -134,7 +134,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                             )}
 
                             {/* Combined Validation Group (AC & CE) */}
-                            {(project.ac_list?.length > 0 || project.ce_list?.length > 0) && (
+                            {(project.ac_list.length > 0 || (project.ce_list?.length ?? 0) > 0) && (
                                 <div className="flex flex-col items-center md:items-center gap-4 shrink-0">
                                     <span className="font-mono text-smol uppercase tracking-widest opacity-40">Validation</span>
                                     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
