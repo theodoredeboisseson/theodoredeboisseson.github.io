@@ -37,7 +37,6 @@ export default function SkillSticker({ skill, hasLinkedData, onClick, index = 0,
             whileHover={hasLinkedData ? {
                 y: -8,
                 scale: 1.02,
-                borderColor: primary,
                 borderBottomWidth: '5px',
                 borderRightWidth: diff < -0.1 ? `${sideSize}px` : '1px',
                 borderLeftWidth: diff > 0.1 ? `${sideSize}px` : '1px',
@@ -48,7 +47,7 @@ export default function SkillSticker({ skill, hasLinkedData, onClick, index = 0,
             onClick={onClick}
             className={`
                 relative flex flex-col items-center justify-between aspect-square p-6 rounded-3xl border transition-colors group
-                bg-white/80 border-black/10
+                bg-white/80 border-black/10 hover:border-primary
                 ${hasLinkedData ? 'cursor-pointer hover:shadow-xl' : 'opacity-80'}
             `}
         >

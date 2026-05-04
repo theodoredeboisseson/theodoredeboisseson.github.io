@@ -11,7 +11,7 @@ export default function DynamicIcon({ name, className = "", size, strokeWidth = 
 
     if (name && (name.startsWith('/') || name.includes('.') || name.includes('/'))) {
         const src = name.startsWith('/') ? name : `/icons/${name}`;
-        return <Image src={src} alt={name || 'icon'} width={size || 32} height={size || 32} className={`object-contain ${className}`} />;
+        return <Image src={src} alt={name || 'icon'} width={size || 32} height={size || 32} style={{ height: 'auto' }} className={`object-contain ${className}`} />;
     }
 
     // Lucide lookup
