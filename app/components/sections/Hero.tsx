@@ -28,6 +28,10 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                 />
                 <div className="absolute inset-0 bg-black/30" />
             </motion.div>
+            {/* A few drifting petals echo the cherry blossoms in the photo. */}
+            <div className="hero-petals" aria-hidden="true">
+                {Array.from({ length: 7 }, (_, index) => <span key={index} />)}
+            </div>
 
             {/* Grid Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 container-7xl items-center">

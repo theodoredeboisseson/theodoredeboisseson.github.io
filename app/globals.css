@@ -339,3 +339,45 @@ body {
 .animate-scale-in {
   animation: scale-in 0.5s ease-out forwards;
 }
+
+/* Sparse composited petals over the cherry-blossom hero; no scroll listener or canvas. */
+.hero-petals {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-petals span {
+  position: absolute;
+  top: -8%;
+  left: var(--petal-x);
+  width: 10px;
+  height: 7px;
+  border-radius: 70% 20% 70% 20%;
+  background: #ffe4ea;
+  box-shadow: 0 0 7px #d9426180;
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: petal-fall var(--petal-duration) linear var(--petal-delay) infinite;
+}
+
+.hero-petals span:nth-child(1) { --petal-x: 8%; --petal-duration: 15s; --petal-delay: -3s; }
+.hero-petals span:nth-child(2) { --petal-x: 26%; --petal-duration: 19s; --petal-delay: -11s; }
+.hero-petals span:nth-child(3) { --petal-x: 43%; --petal-duration: 17s; --petal-delay: -7s; }
+.hero-petals span:nth-child(4) { --petal-x: 61%; --petal-duration: 21s; --petal-delay: -17s; }
+.hero-petals span:nth-child(5) { --petal-x: 76%; --petal-duration: 16s; --petal-delay: -5s; }
+.hero-petals span:nth-child(6) { --petal-x: 90%; --petal-duration: 20s; --petal-delay: -13s; }
+.hero-petals span:nth-child(7) { --petal-x: 52%; --petal-duration: 18s; --petal-delay: -15s; }
+
+@keyframes petal-fall {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); opacity: 0; }
+  12% { opacity: .85; }
+  85% { opacity: .85; }
+  100% { transform: translate3d(75px, 110vh, 0) rotate(400deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-petals span { animation: none; will-change: auto; }
+}
