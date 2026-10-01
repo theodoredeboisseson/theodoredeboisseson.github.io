@@ -10,8 +10,6 @@ export interface ProjectMetadata {
     date: string;
     category: string;
     tags: string[];
-    ac_list: string[];
-    ce_list?: string[];
     links?: {
         github?: string;
         demo?: string;
@@ -30,6 +28,17 @@ export interface ProjectData extends ProjectMetadata {
     content: string;
 }
 
+const projectOrder = [
+    'stage-mjc',
+    'jifoosball',
+    'pokecritics',
+    'portfolio-redesign',
+    'jicursum',
+    'nuit-de-l-info',
+    'concours-robotique',
+];
+const projectRank = new Map(projectOrder.map((slug, index) => [slug, index]));
+
 export function getProjectSlugs() {
     if (!fs.existsSync(contentDirectory)) return [];
     return fs.readdirSync(contentDirectory).filter((file) => file.endsWith('.mdx'));
@@ -43,8 +52,6 @@ export function getProjectBySlug(slug: string): ProjectData | null {
 
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
-
-    // Dynamic spacing: convert 3+ newlines into a Spacer component
     const processedContent = content.replace(/\n\n\n+/g, '\n\n<Spacer size="sm" />\n\n');
 
     return {
@@ -53,8 +60,6 @@ export function getProjectBySlug(slug: string): ProjectData | null {
         date: data.date,
         category: data.category,
         tags: data.tags || [],
-        ac_list: data.ac_list || [],
-        ce_list: data.ce_list || [],
         links: data.links,
         description: data.description,
         image: data.image,
@@ -69,11 +74,19 @@ export function getProjectBySlug(slug: string): ProjectData | null {
 }
 
 export function getAllProjects(): ProjectData[] {
-    const slugs = getProjectSlugs();
-    return slugs
+    return getProjectSlugs()
         .map((slug) => getProjectBySlug(slug))
         .filter((project): project is ProjectData => project !== null)
-        .sort((project1, project2) => (project1.date > project2.date ? -1 : 1));
+        .sort((project1, project2) => {
+            const rank1 = projectRank.get(project1.slug);
+            const rank2 = projectRank.get(project2.slug);
+            if (rank1 !== undefined || rank2 !== undefined) {
+                if (rank1 === undefined) return 1;
+                if (rank2 === undefined) return -1;
+                return rank1 - rank2;
+            }
+            return project1.date > project2.date ? -1 : project1.date < project2.date ? 1 : 0;
+        });
 }
 
 export function getProjectSummary(p: ProjectData) {
@@ -83,8 +96,6 @@ export function getProjectSummary(p: ProjectData) {
         category: p.category,
         date: p.date,
         description: p.description,
-        ac_list: p.ac_list,
-        ce_list: p.ce_list,
         image: p.image,
         usedSkills: p.usedSkills,
         filter: p.filter,

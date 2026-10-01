@@ -8,7 +8,6 @@ import skillsData from '@/data/skills.json';
 
 import { ProjectCardProps } from '@/app/types';
 import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
-import CompetenceTooltip from '@/app/components/ui/badges/CompetenceTooltip';
 import ContextBadge from '@/app/components/ui/badges/ContextBadge';
 
 export default function ProjectCard({ project }: ProjectCardProps) {
@@ -73,14 +72,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                 <div className="hidden lg:flex lg:col-span-5 h-full flex-col items-end justify-between text-right pt-0 order-2 self-stretch">
                     <div className="text-label space-y-4 opacity-70 group-hover:opacity-100 transition-opacity duration-500 text-foreground flex flex-col w-full">
                         <div className="flex flex-col">
-                            <span className="font-bold">Context</span>
+                            <span className="font-bold">Contexte</span>
                             <span className="mt-1 flex justify-end">
                                 <ContextBadge context={project.context} />
                             </span>
                         </div>
 
                         <div className="flex flex-col">
-                            <span className="font-bold">Category</span>
+                            <span className="font-bold">Catégorie</span>
                             {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
                             <span>{project.category} // {project.date || '2025'}</span>
                         </div>
@@ -88,7 +87,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                         {/* Skills */}
                         {linkedSkills.length > 0 && (
                             <div className="flex flex-col items-end">
-                                <span className="font-bold mb-1">Stack</span>
+                                <span className="font-bold mb-1">Technologies</span>
                                 <div className="flex flex-wrap gap-2 justify-end">
                                     {linkedSkills.slice(0, 18).map((skill) => (
                                         <div key={skill!.name} title={skill!.name} className="text-foreground/80 hover:text-primary transition-colors">
@@ -99,24 +98,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                             </div>
                         )}
 
-                        {/* ACs */}
-                        {project.ac_list && project.ac_list.length > 0 && (
-                            <div className="flex flex-col items-end">
-                                <span className="font-bold mb-1">But validation</span>
-                                <div className="flex flex-wrap gap-1.5 justify-end mt-2">
-                                    {project.ac_list.slice(0, 4).map((ac) => (
-                                        <div key={ac}>
-                                            <CompetenceTooltip id={ac} />
-                                        </div>
-                                    ))}
-                                    {project.ce_list && project.ce_list.slice(0, 4).map((ce) => (
-                                        <div key={ce}>
-                                            <CompetenceTooltip id={ce} />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
                     </div>
 
                     {/* Tactical link button — desktop */}
@@ -143,7 +124,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
                     {/* Right: tactical btn */}
                     <Link
                         href={`/projects/${project.slug}`}
-                        className="btn-tactical shrink-0 rounded-xl rounded-tl-sm text-[9px] px-3 py-2"
+                        className="btn-tactical shrink-0 rounded-xl rounded-tl-sm text-micro px-3 py-2"
                     >
                         <ArrowUpRight size={11} />
                         <span>Voir</span>

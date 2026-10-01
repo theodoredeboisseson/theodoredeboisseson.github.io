@@ -64,6 +64,8 @@ Les projets sont gérés via des fichiers `.mdx` situés dans `/content/projects
 - Un **Frontmatter** (catégorie, date, stack technique, liens).
 - Des **Composants Custom** (Spacers, Galeries d'images, Lecteurs Vidéo).
 
+L'ordre d'affichage des projets est défini dans `lib/mdx.ts` : les réalisations sélectionnées sont classées par importance, puis les nouveaux projets non classés par date décroissante. Modifier cette liste pour réordonner la page d'accueil et l'index des projets.
+
 ## License
 
 Conçu par **Théodore de Boisseson** (normal c'est mon site).

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Hero from "@/app/components/sections/Hero";
 import AboutSection from "@/app/components/sections/AboutSection";
 import SkillsArsenal from "@/app/components/sections/SkillsArsenal";
@@ -14,7 +13,7 @@ import SectionNavigator from "@/app/components/ui/navigation/SectionNavigator";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  description: "Bienvenue sur mon portfolio. Je suis étudiant en informatique, passionné par le développement web et la création numérique. Découvrez mes projets et mon parcours.",
+  description: "Portfolio de Théodore de Boisseson, développeur full-stack ayant terminé son BUT Informatique. Découvrez mes projets et mon parcours.",
 };
 
 export default function Home() {
@@ -35,16 +34,6 @@ export default function Home() {
         availability={bioData.hero.availability}
       />
 
-      {/* Tactical Bar - Espace Jury */}
-      <Link href="/apprentissage" className="w-full bg-background border-y border-black/5 py-4 overflow-hidden group hover:bg-primary hover:text-white transition-all cursor-pointer">
-        <div className="flex items-center justify-center gap-3 font-mono text-xs uppercase tracking-technical">
-          <span className="w-2 h-2 bg-primary group-hover:bg-white rounded-none animate-pulse" />
-          <span className="font-semibold">Espace Évaluation // Jury BUT</span>
-          <span className="hidden md:inline opacity-40 ml-4 group-hover:opacity-80 transition-opacity">
-            Accéder au portfolio d&#39;apprentissage ↗
-          </span>
-        </div>
-      </Link>
       <AboutSection
         id="about"
         seeking={bioData.about.seeking}
