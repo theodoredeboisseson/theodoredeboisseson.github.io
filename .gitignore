@@ -42,3 +42,6 @@ yarn-error.log*
 next-env.d.ts
 
 /archive
+
+# local portfolio audit notes
+/TODO.md
