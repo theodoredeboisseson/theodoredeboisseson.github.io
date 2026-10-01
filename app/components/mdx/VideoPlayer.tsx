@@ -21,12 +21,12 @@ export default function VideoPlayer({ url }: VideoPlayerProps) {
             {isVideoFile ? (
                 <video controls className="w-full h-full object-cover">
                     <source src={url} />
-                    Your browser does not support the video tag.
+                    Votre navigateur ne prend pas en charge la vidéo.
                 </video>
             ) : (
                 <div className="flex flex-col items-center justify-center w-full h-full text-foreground/40 bg-foreground/[0.02]">
-                    <span className="text-label border border-foreground/20 px-4 py-2 rounded-full group-hover:border-primary group-hover:text-primary transition-colors">Video Placeholder</span>
-                    <span className="font-mono text-smol mt-2 opacity-60">{url}</span>
+                    <span className="text-label border border-foreground/20 px-4 py-2 rounded-full group-hover:border-primary group-hover:text-primary transition-colors">Vidéo indisponible</span>
+                    <span className="text-micro mt-2 opacity-60">{url}</span>
                 </div>
             )}
         </motion.div>

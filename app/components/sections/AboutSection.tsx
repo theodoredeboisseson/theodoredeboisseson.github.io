@@ -116,7 +116,7 @@ export default function AboutSection({ id, seeking, languages, softSkills, hobbi
                                     <span className="text-2xl" aria-hidden="true">{lang.flag}</span>
                                     {lang.name}
                                 </span>
-                                <span className="font-mono text-smol sm:text-xs uppercase tracking-widest text-foreground/50 group-hover/item:text-primary transition-colors">
+                                <span className="text-micro uppercase tracking-widest text-foreground/50 group-hover/item:text-primary transition-colors">
                                     {lang.level}
                                 </span>
                             </li>
@@ -136,7 +136,7 @@ export default function AboutSection({ id, seeking, languages, softSkills, hobbi
                         <div className="p-2 border border-primary/20 rounded-xl bg-background/50">
                             <Brain size={24} />
                         </div>
-                        <h3 className="text-xl md:text-2xl font-bold font-sans uppercase tracking-tight w-fit">Soft Skills</h3>
+                        <h3 className="text-xl md:text-2xl font-bold font-sans uppercase tracking-tight w-fit">Compétences humaines</h3>
                         <div className="hidden lg:block w-px h-12 bg-primary/20 mx-4"></div>
                     </div>
                     <div className="flex flex-wrap justify-between gap-x-4 gap-y-4 w-full">

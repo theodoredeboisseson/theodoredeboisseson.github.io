@@ -47,7 +47,7 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
                         href={`mailto:${contact.email}?subject=${encodeURIComponent(contact.mail_subject)}&body=${encodeURIComponent(contact.mail_body)}`}
                         target="_blank"
                         className="absolute inset-0 z-0"
-                        aria-label="Send email"
+                        aria-label="Envoyer un e-mail"
                     />
 
                     {/* Background Decor */}
@@ -60,14 +60,14 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
 
                     <div className="relative z-10 pointer-events-none">
                         <span className="inline-block px-3 py-1 border border-background/20 group-hover:bg-green-500/50 group-hover:font-bold rounded-full text-xs font-mono uppercase tracking-widest mb-4">
-                            Available for hire
+                            Disponibilité professionnelle
                         </span>
                         <div className="w-12 h-1 bg-primary mb-6 group-hover:w-24 transition-all duration-300"></div>
                     </div>
 
                     <div className="relative z-10 pointer-events-none">
                         <span className="block text-sm md:text-base font-mono opacity-60 mb-2">
-                            SEND A MESSAGE
+                            ENVOYER UN MESSAGE
                         </span>
                         <h3 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight group-hover:opacity-80 transition-opacity duration-300 break-all sm:break-normal">
                             {contact.email.split('@')[0]}<br className="hidden md:block" />@{contact.email.split('@')[1]}
@@ -78,10 +78,10 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
                     <button
                         onClick={handleCopy}
                         className="absolute bottom-8 right-8 z-20 flex items-center justify-center gap-2 group/btn"
-                        aria-label="Copy email address"
+                        aria-label="Copier l’adresse e-mail"
                     >
                         <span className={`text-xs font-mono uppercase tracking-wider transition-all duration-300 ${isCopied ? 'opacity-100 text-green-400' : 'opacity-0 -translate-x-2 group-hover/btn:opacity-60 group-hover/btn:translate-x-0'}`}>
-                            {isCopied ? 'Copié !' : 'Copier l\'email'}
+                            {isCopied ? 'Copié !' : 'Copier l\'adresse'}
                         </span>
                         <div className={`p-3 rounded-full border border-[#F5F5F320] bg-foreground text-background transition-all duration-300 ${isCopied ? 'border-green-400/50 text-green-400' : 'hover:bg-background hover:text-foreground'}`}>
                             {isCopied ? <Check size={20} /> : <Copy size={20} />}
@@ -107,9 +107,9 @@ export default function ContactSection({ id, contact, socials, cvUrl }: ContactP
                                 d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
                                 fill="transparent"
                             />
-                            <text className="font-mono text-[9.5px] font-bold uppercase tracking-technical fill-current text-foreground/40">
+                            <text className="font-mono text-xs font-bold uppercase tracking-technical fill-current text-foreground/40">
                                 <textPath href="#curve">
-                                    DOWNLOAD PDF • VIEW ONLINE •
+                                    TÉLÉCHARGER LE PDF • CONSULTER EN LIGNE •
                                 </textPath>
                             </text>
                         </svg>

@@ -6,7 +6,11 @@ import ProjectCard from '@/app/components/ui/cards/ProjectCard';
 import TacticalFilter from '@/app/components/ui/navigation/TacticalFilter';
 import { ProjectListClientProps } from '@/app/types';
 
-const CATEGORIES = ['All', 'Tech', 'Art'];
+const CATEGORIES = [
+    { label: 'Tout', value: 'All' },
+    { label: 'Technique', value: 'Tech' },
+    { label: 'Création', value: 'Art' },
+];
 
 export default function ProjectListClient({ projects }: ProjectListClientProps) {
     const [activeFilter, setActiveFilter] = useState('All');
@@ -30,14 +34,13 @@ export default function ProjectListClient({ projects }: ProjectListClientProps) 
                         Projets
                         <span className="text-primary text-6xl">.</span>
                     </h1>
-                    {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                    <p className="font-mono text-foreground/60">// Archives & Expérimentations</p>
+                    <p className="font-mono text-foreground/60">Archives et expérimentations</p>
                 </div>
 
-                <TacticalFilter 
-                    options={CATEGORIES}
-                    activeOptions={activeFilter}
-                    onChange={setActiveFilter}
+                <TacticalFilter
+                    options={CATEGORIES.map(category => category.label)}
+                    activeOptions={CATEGORIES.find(category => category.value === activeFilter)?.label ?? 'Tout'}
+                    onChange={label => setActiveFilter(CATEGORIES.find(category => category.label === label)?.value ?? 'All')}
                     mode="radio"
                 />
             </motion.div>
@@ -72,7 +75,7 @@ export default function ProjectListClient({ projects }: ProjectListClientProps) 
                         animate={{ opacity: 1 }}
                         className="text-center py-20 opacity-50 font-mono"
                     >
-                        No projects found in this category.
+                        Aucun projet ne correspond à cette catégorie.
                     </motion.div>
                 )}
             </div>

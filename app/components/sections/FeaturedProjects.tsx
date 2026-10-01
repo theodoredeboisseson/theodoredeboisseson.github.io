@@ -87,11 +87,11 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
     return (
         <Section
             id={id}
-            title="Featured projects"
+            title="Projets sélectionnés"
             titlePosition="left"
             aside={
                 <Link href="/projects" className="btn-tactical rounded-tr-none hover:translate-x-2 hover:font-bold text-sm hover:text-primary mt-4 md:mt-0">
-                    Index
+                    Voir tous les projets
                     <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </Link>
             }
@@ -173,7 +173,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
                             key={idx}
                             onClick={() => handleSegmentClick(idx)}
                             className="flex-1 h-full flex items-center group cursor-pointer outline-none"
-                            aria-label={`Go to project ${idx + 1}`}
+                            aria-label={`Voir le projet ${idx + 1}`}
                         >
                             <div className="relative w-full h-1 rounded-full overflow-hidden bg-foreground/20 group-hover:bg-foreground/40 transition-colors duration-300">
                                 {idx === currentIndex && (
@@ -196,7 +196,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
                     <button
                         onClick={handleManualPrev}
                         className="button-icon"
-                        aria-label="Previous Project (Left Arrow)"
+                        aria-label="Projet précédent (flèche gauche)"
                     >
                         <ArrowLeft size={16} />
                     </button>
@@ -205,7 +205,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
                     <button
                         onClick={togglePlay}
                         className="p-3 rounded-full hover:bg-[#11111108] border border-[#11111110] hover:border-[#11111130] border-b-[3px] text-foreground/60 hover:text-foreground transition-all duration-300 outline-none"
-                        aria-label={isPlaying ? "Pause autoplay" : "Start autoplay"}
+                        aria-label={isPlaying ? "Mettre en pause le défilement automatique" : "Lancer le défilement automatique"}
                     >
                         {isPlaying ? <Pause size={20} fill="currentColor" className="opacity-50" /> : <Play size={20} fill="currentColor" className="opacity-50" />}
                     </button>
@@ -214,7 +214,7 @@ export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps
                     <button
                         onClick={handleManualNext}
                         className="button-icon"
-                        aria-label="Next Project (Right Arrow)"
+                        aria-label="Projet suivant (flèche droite)"
                     >
                         <ArrowRight size={16} />
                     </button>

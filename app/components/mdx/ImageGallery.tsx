@@ -84,8 +84,8 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
         return (
             <div className="w-full p-4 bg-red-500/10 border border-red-500/20 rounded-xl my-8">
                 <p className="font-mono text-xs text-red-500 whitespace-pre-wrap">
-                    Gallery error: No images received.
-                    Props: {JSON.stringify({ hasImages: !!images, hasChildren: !!children })}
+                    Galerie indisponible : aucune image reçue.
+                    Paramètres : {JSON.stringify({ hasImages: !!images, hasChildren: !!children })}
                 </p>
             </div>
         );
@@ -153,12 +153,12 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-100 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-12 cursor-grab     "
+                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-12 cursor-grab"
                         onClick={() => setSelectedImage(null)}
                     >
                         {/* Close button */}
                         <button
-                            className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-110 cursor-pointer"
+                            className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 cursor-pointer"
                             onClick={() => setSelectedImage(null)}
                         >
                             <X size={32} strokeWidth={1.5} />
@@ -190,7 +190,7 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
                                     className="mt-8 max-w-2xl text-center"
                                 >
                                     <div className="flex flex-col items-center gap-1">
-                                        <span className="text-smol font-mono uppercase tracking-[0.4em] text-primary">Content Identification</span>
+                                        <span className="text-micro uppercase tracking-[0.3em] text-primary">Légende de l’image</span>
                                         <div className="h-px w-12 bg-primary/30 mb-2" />
                                         <p className="text-white/80 text-lg md:text-xl font-medium tracking-tight">
                                             {selectedImage.alt}

@@ -98,7 +98,11 @@ html {
 }
 
 @utility text-label {
-  @apply pattern-technical text-smol sm:text-xs;
+  @apply pattern-technical text-xs sm:text-sm;
+}
+
+@utility text-micro {
+  @apply font-mono text-xs leading-snug sm:text-sm;
 }
 
 @utility text-serif-italic {
@@ -106,7 +110,7 @@ html {
 }
 
 @utility text-smol {
-  @apply text-[10px];
+  @apply text-xs sm:text-sm;
 }
 
 /* 
