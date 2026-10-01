@@ -48,7 +48,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
                 {/* Bottom Metadata */}
                 {showMetadata && (
                     <div className="font-mono text-micro tracking-widest uppercase opacity-80">
-                        Lieu // Montpellier
+                        Location // Montpellier
                     </div>
                 )}
 

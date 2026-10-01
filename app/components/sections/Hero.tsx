@@ -42,7 +42,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                             transition={{ delay: 0.5, duration: 1.0, ease }}
                             className="font-mono text-xs uppercase font-bold tracking-technical mb-4 text-primary"
                         >
-                            Édition 01 — 2026
+                            Issue 01 — 2026
                         </motion.span>
 
                         {/* Title - Letter by Letter */}
@@ -111,7 +111,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                             <div className="flex flex-col items-start gap-1">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                    <span className="font-mono text-xs uppercase text-black font-bold">Ouvert aux opportunités</span>
+                                    <span className="font-mono text-xs uppercase text-black font-bold">Open to work</span>
                                 </div>
                                 {availability && (
                                     <span className="font-mono text-xs uppercase text-black/70 pl-4">{availability}</span>
@@ -129,7 +129,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                 transition={{ delay: 4.0, duration: 1 }}
                 className="absolute bottom-12 left-6 md:left-24 font-mono text-smol tracking-widest hidden md:block opacity-60 z-10"
             >
-                DÉFILER POUR EXPLORER ↓
+                SCROLL TO EXPLORE ↓
             </motion.div>
         </section >
     );
