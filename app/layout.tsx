@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     default: "Théodore de Boisseson | Portfolio",
     template: "%s | Théodore"
   },
-  description: "Portfolio de Théodore de Boisseson, étudiant en informatique. Explorez mes projets de développement Full Stack, mes compétences en génie logiciel et mes créations numériques.",
+  description: "Portfolio de Théodore de Boisseson, développeur full-stack à Montpellier. Explorez mes projets web et mobile, mes compétences en génie logiciel et mes créations numériques.",
   openGraph: {
     title: "Théodore de Boisseson | Portfolio",
-    description: "Portfolio de Théodore de Boisseson - Étudiant en Informatique & Création Numérique",
+    description: "Portfolio de Théodore de Boisseson - Développeur full-stack & création numérique",
     url: "https://theodoredeboisseson.github.io",
     siteName: "Portfolio de Théodore",
     images: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Théodore de Boisseson | Portfolio",
-    description: "Portfolio de Théodore de Boisseson - Étudiant en Informatique & Création Numérique",
+    description: "Portfolio de Théodore de Boisseson - Développeur full-stack & création numérique",
     images: ["/images/hero_bg.jpg"],
   },
 };
@@ -71,13 +71,13 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Théodore de Boisseson",
-              "jobTitle": "Étudiant en Informatique & Création Numérique",
+              "jobTitle": "Développeur full-stack",
               "url": "https://theodoredeboisseson.github.io",
               "sameAs": [
                 "https://github.com/theodoredeboisseson",
                 "https://www.linkedin.com/in/theodoredeboisseson/"
               ],
-              "description": "Portfolio de Théodore de Boisseson - Étudiant en Informatique et Création Numérique basé à Montpellier.",
+              "description": "Portfolio de Théodore de Boisseson, développeur full-stack basé à Montpellier.",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Montpellier",

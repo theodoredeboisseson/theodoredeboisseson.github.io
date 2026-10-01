@@ -16,11 +16,11 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1.5, ease }}
-                className="absolute inset-0 z-10001 blur-xs"
+                className="absolute inset-0 z-0 blur-xs"
             >
                 <Image
                     src="/images/hero_bg.jpg"
-                    alt="Hero Background"
+                    alt=""
                     fill
                     className="object-cover"
                     priority
@@ -33,7 +33,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 container-7xl items-center">
 
                 {/* Left Col: Title & Intro */}
-                <div className="lg:col-span-8 flex flex-col gap-6 relative z-10002">
+                <div className="lg:col-span-8 flex flex-col gap-6 relative z-10">
                     <div className="flex flex-col">
                         {/* Issue Text - Slides in */}
                         <motion.span
@@ -42,7 +42,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                             transition={{ delay: 0.5, duration: 1.0, ease }}
                             className="font-mono text-xs uppercase font-bold tracking-technical mb-4 text-primary"
                         >
-                            Issue 01 — 2026
+                            Édition 01 — 2026
                         </motion.span>
 
                         {/* Title - Letter by Letter */}
@@ -88,7 +88,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                 </div>
 
                 {/* Right Col: Image - Reveals itself */}
-                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-4/5 lg:aspect-3/4 max-w-[320px] sm:max-w-100 lg:max-w-none mx-auto z-10002">
+                <div className="lg:col-span-4 relative w-full mt-12 lg:mt-0 aspect-4/5 lg:aspect-3/4 max-w-[320px] sm:max-w-100 lg:max-w-none mx-auto z-10">
                     <motion.div
                         initial={{ clipPath: "inset(100% 0 0 0)", opacity: 0 }}
                         animate={{ clipPath: "inset(0 0 0 0)", opacity: 1 }}
@@ -111,10 +111,10 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                             <div className="flex flex-col items-start gap-1">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                    <span className="font-mono text-smol uppercase text-black font-bold">Open to work</span>
+                                    <span className="font-mono text-xs uppercase text-black font-bold">Ouvert aux opportunités</span>
                                 </div>
                                 {availability && (
-                                    <span className="font-mono text-[9px] uppercase text-black/60 pl-4">{availability}</span>
+                                    <span className="font-mono text-xs uppercase text-black/70 pl-4">{availability}</span>
                                 )}
                             </div>
                         </motion.div>
@@ -127,9 +127,9 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 4.0, duration: 1 }}
-                className="absolute bottom-12 left-6 md:left-24 font-mono text-smol tracking-widest hidden md:block opacity-60 z-10002"
+                className="absolute bottom-12 left-6 md:left-24 font-mono text-smol tracking-widest hidden md:block opacity-60 z-10"
             >
-                SCROLL TO EXPLORE ↓
+                DÉFILER POUR EXPLORER ↓
             </motion.div>
         </section >
     );
