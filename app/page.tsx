@@ -41,12 +41,12 @@ export default function Home() {
         softSkills={bioData.about.soft_skills}
         hobbies={bioData.about.hobbies}
       />
+      <FeaturedProjects id="projects" projects={featuredProjects} />
       <SkillsArsenal
         id="arsenal"
         projects={allProjects}
         skills={skillsData}
       />
-      <FeaturedProjects id="projects" projects={featuredProjects} />
       <FormationSection id="formation" education={bioData.education} />
       <ExperienceSection id="experience" experiences={bioData.experiences as Experience[]} skills={skillsData} projects={allProjects} />
       <ContactSection

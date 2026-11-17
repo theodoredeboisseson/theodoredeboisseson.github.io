@@ -1,226 +1,36 @@
-'use client';
-
-import { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence, PanInfo } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowUpRight, Play, Pause, ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import ProjectCard from '@/app/components/ui/cards/ProjectCard';
-import Section from '@/app/components/ui/containers/Section';
+import styles from '@/app/components/ui/cards/ProjectCard.module.css';
+import type { FeaturedProjectsProps } from '@/app/types';
 
-import { FeaturedProjectsProps } from '@/app/types';
-
-export default function FeaturedProjects({ id, projects }: FeaturedProjectsProps) {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(true);
-    const [windowWidth, setWindowWidth] = useState(0);
-
-    useEffect(() => {
-        const update = () => setWindowWidth(window.innerWidth);
-        update();
-        window.addEventListener('resize', update);
-        return () => window.removeEventListener('resize', update);
-    }, []);
-
-    const nextProject = useCallback(() => {
-        setCurrentIndex((prev) => (prev + 1) % projects.length);
-    }, [projects.length]);
-
-    const prevProject = useCallback(() => {
-        setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
-    }, [projects.length]);
-
-    const handleManualNext = () => {
-        nextProject();
-        setIsPlaying(false);
-    };
-
-    const handleManualPrev = () => {
-        prevProject();
-        setIsPlaying(false);
-    };
-
-    // Keyboard navigation
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                prevProject();
-                setIsPlaying(false);
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                nextProject();
-                setIsPlaying(false);
-            }
-        };
-
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [nextProject, prevProject]);
-
-    // Auto-play effect
-    useEffect(() => {
-        if (!isPlaying) return;
-        const interval = setInterval(nextProject, 10 * 1000);
-        return () => clearInterval(interval);
-    }, [isPlaying, nextProject]);
-
-    const handleSegmentClick = (index: number) => {
-        setCurrentIndex(index);
-        setIsPlaying(false); // Pause on interaction
-    };
-
-    const togglePlay = () => setIsPlaying(!isPlaying);
-
-    const handleDragEnd = (_: unknown, info: PanInfo) => {
-        const swipe = info.offset.x;
-        const velocity = info.velocity.x;
-
-        if (swipe < -100 || velocity < -500) {
-            nextProject();
-            setIsPlaying(false);
-        } else if (swipe > 100 || velocity > 500) {
-            prevProject();
-            setIsPlaying(false);
-        }
-    };
-
+export default function FeaturedProjects({ id = 'projects', projects }: FeaturedProjectsProps) {
     return (
-        <Section
-            id={id}
-            title="Projets sélectionnés"
-            titlePosition="left"
-            aside={
-                <Link href="/projects" className="btn-tactical rounded-tr-none hover:translate-x-2 hover:font-bold text-sm hover:text-primary mt-4 md:mt-0">
-                    Voir tous les projets
-                    <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </Link>
-            }
-            className="w-full py-0 px-3 md:px-6 lg:px-12 overflow-hidden"
-        >
-            {/* Carousel Container */}
-            <div className="relative w-full h-75 sm:h-92.5 md:h-110 lg:h-110 flex items-center justify-center overflow-visible mt-4 md:mt-8">
-                <div className="absolute w-full h-full flex items-center justify-center">
-                    <AnimatePresence initial={false} mode='popLayout'>
-                        {projects.map((project, index) => {
-                            const length = projects.length;
-                            let offset = (index - currentIndex + length) % length;
-                            if (offset > length / 2) offset -= length;
-                            if (offset < -length / 2) offset += length;
-
-                            const isCenter = offset === 0;
-                            const isVisible = Math.abs(offset) <= 1;
-
-                            if (!isVisible) return null;
-
-                            const zIndex = isCenter ? 20 : 10;
-                            const scale = isCenter ? 1 : 0.72;
-                            const opacity = isCenter ? 1 : 0.3;
-                            const rotateY = offset * 10; // Subtle 3D rotation
-                            // On large screens the card has a metadata column on the right (~33%),
-                            // so a smaller offset keeps the side card from overlapping it.
-                            const xOffset = offset * (windowWidth >= 1024 ? 42 : 55);
-
-                            return (
-                                <motion.div
-                                    key={project.slug}
-                                    className="absolute w-full px-4 md:px-0 md:w-[85%] lg:w-[75%] max-w-6xl touch-none"
-                                    initial={false}
-                                    animate={{
-                                        x: `${xOffset}%`,
-                                        scale: scale,
-                                        opacity: opacity,
-                                        zIndex: zIndex,
-                                        rotateY: rotateY,
-                                        filter: isCenter ? 'blur(0px)' : 'blur(10px)',
-                                    }}
-                                    transition={{
-                                        type: "spring",
-                                        stiffness: 260,
-                                        damping: 30,
-                                        mass: 1
-                                    }}
-                                    drag={isCenter ? "x" : false}
-                                    dragConstraints={{ left: 0, right: 0 }}
-                                    dragElastic={0.2}
-                                    onDragEnd={handleDragEnd}
-                                    onClick={() => !isCenter && handleSegmentClick(index)}
-                                    style={{
-                                        cursor: isCenter ? 'grab' : 'pointer',
-                                        perspective: "1000px"
-                                    }}
-                                    whileTap={isCenter ? { cursor: 'grabbing' } : {}}
-                                >
-                                    <div className={`${isCenter ? 'pointer-events-auto' : 'pointer-events-none'}`}>
-                                        <ProjectCard project={project} index={index} />
-                                    </div>
-                                    {!isCenter && (
-                                        <div className="absolute inset-0 z-30" />
-                                    )}
-                                </motion.div>
-                            );
-                        })}
-                    </AnimatePresence>
+        <section id={id} aria-labelledby={`${id}-title`} className="w-full py-12 md:py-16 fluid-padding">
+            <div className="container-7xl">
+                <div className="mb-8 flex flex-col items-start justify-between gap-6 border-b border-foreground/20 pb-6 md:mb-12 lg:flex-row lg:items-end">
+                    <h2 id={`${id}-title`} className="section-title">Projets sélectionnés</h2>
+                    <Link
+                        href="/projects"
+                        className="inline-flex min-h-11 shrink-0 items-center gap-2 border-b border-primary/50 py-2 font-mono text-xs uppercase tracking-wide text-foreground hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-foreground"
+                    >
+                        Tous les projets
+                        <ArrowUpRight size={16} aria-hidden="true" />
+                    </Link>
                 </div>
+
+                {projects.length > 0 ? (
+                    <ul role="list" className={styles.grid}>
+                        {projects.map((project, index) => (
+                            <li key={project.slug}>
+                                <ProjectCard project={project} index={index} />
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p className="py-8 text-foreground/75">Aucun projet sélectionné pour le moment. Retrouvez les autres réalisations dans l’index.</p>
+                )}
             </div>
-
-            {/* Controls */}
-            <div className="w-full max-w-md mx-auto px-6 flex flex-col items-center gap-6 z-20 relative pb-6 md:pb-10">
-
-                {/* Segments */}
-                <div className="flex gap-2 w-full h-8 items-center">
-                    {projects.map((_, idx) => (
-                        <button
-                            key={idx}
-                            onClick={() => handleSegmentClick(idx)}
-                            className="flex-1 h-full flex items-center group cursor-pointer outline-none"
-                            aria-label={`Voir le projet ${idx + 1}`}
-                        >
-                            <div className="relative w-full h-1 rounded-full overflow-hidden bg-foreground/20 group-hover:bg-foreground/40 transition-colors duration-300">
-                                {idx === currentIndex && (
-                                    <div
-                                        className="absolute top-0 left-0 h-full bg-primary w-full origin-left"
-                                        style={{
-                                            animation: 'progress 6s linear forwards',
-                                            animationPlayState: isPlaying ? 'running' : 'paused'
-                                        }}
-                                    />
-                                )}
-                            </div>
-                        </button>
-                    ))}
-                </div>
-
-                {/* Main Controls Row */}
-                <div className="flex items-center gap-4">
-                    {/* Left Key */}
-                    <button
-                        onClick={handleManualPrev}
-                        className="button-icon"
-                        aria-label="Projet précédent (flèche gauche)"
-                    >
-                        <ArrowLeft size={16} />
-                    </button>
-
-                    {/* Play/Pause */}
-                    <button
-                        onClick={togglePlay}
-                        className="p-3 rounded-full hover:bg-[#11111108] border border-[#11111110] hover:border-[#11111130] border-b-[3px] text-foreground/60 hover:text-foreground transition-all duration-300 outline-none"
-                        aria-label={isPlaying ? "Mettre en pause le défilement automatique" : "Lancer le défilement automatique"}
-                    >
-                        {isPlaying ? <Pause size={20} fill="currentColor" className="opacity-50" /> : <Play size={20} fill="currentColor" className="opacity-50" />}
-                    </button>
-
-                    {/* Right Key */}
-                    <button
-                        onClick={handleManualNext}
-                        className="button-icon"
-                        aria-label="Projet suivant (flèche droite)"
-                    >
-                        <ArrowRight size={16} />
-                    </button>
-                </div>
-
-            </div>
-        </Section>
+        </section>
     );
 }
