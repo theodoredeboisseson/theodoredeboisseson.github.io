@@ -22,7 +22,7 @@ export function SectionIcon({ onClick, section, active, isMobile }: SectionIconP
             onClick={onClick}
             className={`group rounded-xl relative hover:bg-[#11111108] transition-all
             duration-500 ease-out outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground flex items-center justify-center
-            touch-manipulation ${isMobile ? 'w-10 h-10' : 'w-12 h-12'}`}
+            touch-manipulation ${isMobile ? 'size-11 md:size-10' : 'w-12 h-12'}`}
             aria-label={section.label}
         >
             {/* Active indicator background */}

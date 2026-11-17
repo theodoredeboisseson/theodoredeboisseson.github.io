@@ -37,7 +37,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 container-7xl items-center">
 
                 {/* Left Col: Title & Intro */}
-                <div className="lg:col-span-8 flex flex-col gap-6 relative z-10">
+                <div className="hero-intro lg:col-span-8 flex flex-col gap-6 relative z-10">
                     <div className="flex flex-col">
                         {/* Issue Text - Slides in */}
                         <motion.span
@@ -67,7 +67,7 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                         className="motion-reducible h-px w-full bg-white opacity-20 origin-left"
                     />
 
-                    <div className="flex flex-row relative mt-4">
+                    <div className="hero-description flex flex-row relative mt-4">
                         {/* Vertical Line - Grows Down */}
                         <motion.div
                             initial={{ scaleY: 0 }}

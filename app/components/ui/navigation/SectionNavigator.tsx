@@ -89,10 +89,10 @@ export default function SectionNavigator() {
                 </div>
             </nav>
 
-            {/* Mobile: Bottom horizontal bar */}
-            <nav className="xl:hidden fixed bottom-8 left-1/2 -translate-x-1/2 z-30 pointer-events-none">
-                <div className="bg-background backdrop-blur-xs border-x border-[#11111110] border-l-2 border-r-2 px-2 py-2 rounded-2xl shadow-sm pointer-events-auto">
-                    <div className="flex flex-row">
+            {/* Phones: docked bar; tablets: floating bar */}
+            <nav className="section-navigator xl:hidden fixed inset-x-0 bottom-0 z-30 pointer-events-none md:inset-x-auto md:bottom-8 md:left-1/2 md:-translate-x-1/2">
+                <div className="bg-background backdrop-blur-xs border-t border-[#11111110] px-2 pt-2 pb-[max(0.5rem,env(safe-area-inset-bottom))] rounded-t-2xl shadow-sm pointer-events-auto md:border-t-0 md:border-x md:border-l-2 md:border-r-2 md:pb-2 md:rounded-2xl">
+                    <div className="section-navigator-row flex flex-row justify-evenly md:justify-start">
                         {sections.map((section, index) => {
                             const isNextToActive = index === activeIndex || index === activeIndex - 1;
 
@@ -107,7 +107,7 @@ export default function SectionNavigator() {
                                     {index < sections.length - 1 && (
                                         <motion.div
                                             layout
-                                            className={`bg-foreground w-px opacity-20 rounded-full transition-all duration-500 ease-out ${isNextToActive
+                                            className={`section-navigator-separator hidden md:block bg-foreground w-px opacity-20 rounded-full transition-all duration-500 ease-out ${isNextToActive
                                                 ? 'h-5 mx-3'
                                                 : 'h-3 mx-1'
                                                 }`}

@@ -12,7 +12,30 @@
 }
 
 html {
-  @apply overflow-x-hidden scroll-smooth;
+  @apply overflow-x-hidden scroll-smooth scroll-pb-28 xl:scroll-pb-0;
+}
+
+/* Keep the introduction above the navigation in shallow landscape viewports. */
+@media (width < 80rem) and (height <= 31.25rem) and (orientation: landscape) {
+  .section-navigator {
+    inset-inline: 0;
+    bottom: 0;
+    translate: none;
+  }
+
+  .section-navigator > div {
+    border-width: 1px 0 0;
+    border-radius: 1rem 1rem 0 0;
+    padding-bottom: max(.5rem, env(safe-area-inset-bottom));
+  }
+
+  .section-navigator-row { justify-content: space-evenly; }
+  .section-navigator-separator { display: none; }
+  .section-navigator button { width: 2.75rem; height: 2.75rem; }
+
+  #hero { padding-top: 1rem; }
+  #hero .hero-intro { gap: 1rem; }
+  #hero .hero-description { margin-top: 0; }
 }
 
 /* Offset anchor links to account for fixed header */
