@@ -115,11 +115,10 @@ export default function Hero({ id, title, subtitle, description, profileImage, a
                             <div className="flex flex-col items-start gap-1">
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                    <span className="font-mono text-xs uppercase text-black font-bold">Open to work</span>
+                                    {availability && (
+                                        <span className="font-mono text-xs uppercase text-black font-bold">{availability}</span>
+                                    )}
                                 </div>
-                                {availability && (
-                                    <span className="font-mono text-xs uppercase text-black/70 pl-4">{availability}</span>
-                                )}
                             </div>
                         </motion.div>
                     </motion.div>

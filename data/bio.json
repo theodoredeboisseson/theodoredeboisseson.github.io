@@ -2,13 +2,13 @@
     "hero": {
         "title": "THÉODORE",
         "subtitle": "DÉVELOPPEUR FULL-STACK",
-        "description": "Basé à Montpellier. BUT Informatique terminé en 2026. Je conçois des applications web et mobiles, et crée des projets numériques sur mon temps libre.",
-        "availability": "Dispo dès nov. 2026"
+        "description": "Développeur full-stack basé à Montpellier, spécialisé dans les interfaces complexes et la visualisation de données. Référent frontend au sein du projet Genomint au CIRAD.",
+        "availability": "En poste au CIRAD jusqu’au 11 décembre"
     },
     "about": {
         "seeking": {
             "title": "Recherche",
-            "description": "À la recherche d'un **CDD (3 à 6 mois) ou CDI** à partir de **novembre 2026** sur **Montpellier**. Intéressé par les **Startups** et les **ESN**. Ouvert sur le rôle (Front, Back ou Full-stack) avec une forte appétence pour les écosystèmes **React** et **Spring / Kotlin**."
+            "description": "À la recherche d'un **CDD (3 à 6 mois) ou CDI** sur **Montpellier**, après mon CDD au CIRAD qui se termine le **11 décembre 2026**. Intéressé par les **Startups** et les **ESN**. Ouvert sur le rôle (Front, Back ou Full-stack) avec une forte appétence pour les écosystèmes **React** et **Spring / Kotlin**."
         },
         "languages": [
             {
@@ -45,34 +45,13 @@
             "Créativité"
         ],
         "hobbies": [
-            {
-                "name": "Jeux Vidéo (Compétitif, Souls-like)",
-                "icon": "Gamepad2"
-            },
-            {
-                "name": "Dessin",
-                "icon": "Pencil"
-            },
-            {
-                "name": "Piano",
-                "icon": "Music"
-            },
-            {
-                "name": "Photographie",
-                "icon": "Camera"
-            },
-            {
-                "name": "Modélisation 3D",
-                "icon": "Box"
-            },
-            {
-                "name": "Kung-Fu",
-                "icon": "Hand"
-            },
-            {
-                "name": "Automobile",
-                "icon": "Car"
-            }
+            { "name": "Jeux Vidéo (Compétitif, Souls-like)", "icon": "Gamepad2" },
+            { "name": "Dessin", "icon": "Pencil" },
+            { "name": "Piano", "icon": "Music" },
+            { "name": "Photographie", "icon": "Camera" },
+            { "name": "Modélisation 3D", "icon": "Box" },
+            { "name": "Kung-Fu", "icon": "Hand" },
+            { "name": "Automobile", "icon": "Car" }
         ]
     },
     "experiences": [
