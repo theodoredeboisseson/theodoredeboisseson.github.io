@@ -12,8 +12,7 @@ import {
     Music,
     Camera,
     Box,
-    Car,
-    Hand,
+    Wrench,
     LucideIcon
 } from 'lucide-react';
 
@@ -27,8 +26,7 @@ const iconMap: Record<string, LucideIcon> = {
     Music,
     Camera,
     Box,
-    Car,
-    Hand,
+    Wrench,
     Sparkles
 };
 

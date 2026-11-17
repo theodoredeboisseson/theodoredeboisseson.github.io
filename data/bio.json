@@ -50,8 +50,7 @@
             { "name": "Piano", "icon": "Music" },
             { "name": "Photographie", "icon": "Camera" },
             { "name": "Modélisation 3D", "icon": "Box" },
-            { "name": "Kung-Fu", "icon": "Hand" },
-            { "name": "Automobile", "icon": "Car" }
+            { "name": "Automobile & mécanique", "icon": "Wrench" }
         ]
     },
     "experiences": [
