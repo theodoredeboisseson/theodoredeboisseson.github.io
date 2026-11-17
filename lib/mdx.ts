@@ -15,7 +15,10 @@ export interface ProjectMetadata {
         demo?: string;
     };
     description: string;
+    contribution?: string;
+    status?: 'in-progress' | 'completed';
     image?: string;
+    imageAlt?: string;
     duration?: string;
     team_size?: string;
     featured?: boolean;
@@ -29,8 +32,9 @@ export interface ProjectData extends ProjectMetadata {
 }
 
 const projectOrder = [
-    'stage-mjc',
+    'genomint',
     'jifoosball',
+    'stage-mjc',
     'pokecritics',
     'portfolio-redesign',
     'jicursum',
@@ -62,7 +66,10 @@ export function getProjectBySlug(slug: string): ProjectData | null {
         tags: data.tags || [],
         links: data.links,
         description: data.description,
+        contribution: data.contribution,
+        status: data.status,
         image: data.image,
+        imageAlt: data.imageAlt,
         duration: data.duration,
         team_size: data.team_size,
         featured: data.featured || false,
@@ -96,7 +103,10 @@ export function getProjectSummary(p: ProjectData) {
         category: p.category,
         date: p.date,
         description: p.description,
+        contribution: p.contribution,
+        status: p.status,
         image: p.image,
+        imageAlt: p.imageAlt,
         usedSkills: p.usedSkills,
         filter: p.filter,
         context: p.context

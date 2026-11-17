@@ -1,0 +1,93 @@
+---
+title: "Genomint"
+description: "Explorer un graphe scientifique et comparer des données génomiques dans une même interface."
+contribution: "Référent frontend : expérience d’exploration, panneaux et visualisations ; développement du backend back-gkg."
+date: "2026"
+category: "Application scientifique"
+status: "in-progress"
+context: "Professionnel"
+image: "/images/projects/genomint/explorer.webp"
+imageAlt: "GKG Explorer : filtres génomiques à gauche, graphe au centre, tableau et détails d’un gène à droite."
+duration: "Depuis avril 2026"
+team_size: "Projet collaboratif"
+featured: true
+usedSkills: ["React", "TypeScript", "Python", "FastAPI", "Neo4j", "Cypher"]
+tags: ["Visualisation de données", "Design system"]
+filter: "Tech"
+---
+
+## Un outil d’exploration pour la recherche
+
+Genomint permet d’explorer le **Ganoderma Knowledge Graph**, un graphe de connaissances utilisé dans le contexte de la recherche au CIRAD sur des champignons responsables de maladies du palmier à huile. L’application réunit un explorateur de données, des vues de génomique comparative, des exports et un assistant IA.
+
+Le défi qui m’intéresse particulièrement : rendre ces données complexes manipulables dans une interface claire, tout en conservant les informations nécessaires à leur interprétation. Le visiteur doit pouvoir comprendre ce qu’il regarde, ajuster son espace de travail et passer d’une vue d’ensemble au détail d’un gène.
+
+## Mon rôle, du stage au CDD
+
+J’ai commencé à travailler sur le projet pendant un **stage de 16 semaines, du 20 avril au 7 août 2026**. Je le poursuis en **CDD depuis le 16 septembre 2026**, avec un contrat prolongé jusqu’au **11 décembre 2026**.
+
+Je suis le **référent frontend au sein de l’équipe**. J’ai pris en charge une grande partie de la conception du GKG Explorer, de son design et de ses interactions, ainsi que le développement du backend `back-gkg`. Mon travail couvre notamment le système de panneaux, les tableaux, les filtres, les visualisations, Graph Query, l’accueil, la refonte de l’administration, le sélecteur de bases et l’état des services.
+
+Le projet est collectif. **Alexis Robin** a réalisé le service `core-ai`, la mise en place des VPS de développement et de production avec leur CI/CD, les outils de formatage et de lint, ainsi que SonarQube. **Michel Gomes** a contribué à certaines visualisations et à certaines parties des filtres du GKG. J’ai également apporté des améliorations aux visualisations existantes ; je ne suis donc pas l’auteur initial de chacune d’elles.
+
+## 1. Donner la main sur l’espace de travail
+
+Un même parcours peut mobiliser des filtres, un graphe, un tableau et plusieurs vues scientifiques. Leur donner simultanément la même place surcharge l’écran et détourne l’attention de la tâche en cours.
+
+J’ai conçu un système de **panneaux repliables, dépliables, fermables, redimensionnables et utilisables en plein écran**. L’utilisateur organise son espace selon ce qu’il veut examiner. Les sous-menus regroupent les actions secondaires, et des aides activables accompagnent les fonctionnalités qui demandent davantage de contexte.
+
+Le compromis consiste à réduire la densité sans rendre les actions introuvables. Les commandes récurrentes conservent des comportements et des repères visuels cohérents dans toute l’application.
+
+<ProjectFigure
+    src="/images/projects/genomint/explorer.webp"
+    alt="Un gène sélectionné dans le tableau de GKG Explorer, à côté des filtres, du graphe et du panneau de détails."
+    caption="GKG Explorer, le 16 novembre 2026 : filtres à gauche, graphe au centre, tableau à droite et fiche du gène dans un panneau redimensionné."
+    width="1800"
+    height="1126"
+/>
+
+## 2. Rendre les visualisations lisibles
+
+J’ai travaillé sur le design system, les palettes partagées et la cohérence de l’interface autour de **Material You**. Les contrastes, la taille des éléments et la hiérarchie typographique doivent aider à distinguer les commandes, les états et les données scientifiques.
+
+Les couleurs de l’interface et celles des données remplissent des rôles différents. Les palettes et les légendes doivent permettre de suivre les mêmes catégories d’une vue à l’autre. J’ai amélioré les visualisations avec cette cohérence en tête, en portant attention à leur dimensionnement et aux indices qui rendent une action compréhensible.
+
+Le mouvement a également une fonction : **faire comprendre un changement d’état**. Je travaille les durées et les transitions pour accompagner une ouverture de panneau ou une modification de l’espace de travail. Les infobulles apportent une explication au moment où elle est utile, tandis que les informations indispensables restent visibles.
+
+Ces choix répondent à un objectif de lisibilité. Ils ne remplacent pas une évaluation auprès des utilisateurs ni l’interprétation scientifique des données : les légendes, les unités et les limites des vues restent nécessaires.
+
+<ProjectFigure
+    src="/images/projects/genomint/visualization.webp"
+    alt="Un détail de Variation Tube Map en plein écran : trois chemins colorés, des segments annotés et leur légende."
+    caption="Un détail de Variation Tube Map en plein écran. Les chemins, les segments et leur direction disposent de repères distincts ; la légende reste à portée de lecture."
+    width="1800"
+    height="1126"
+/>
+
+## 3. Relier l’interface aux données
+
+Ma contribution au backend `back-gkg` accompagne la conception du frontend : requêtes, filtres, sélection de la source et consultation des données doivent former un parcours cohérent. Les vues génomiques peuvent montrer des coordonnées et des contextes différents ; l’interface doit conserver ces distinctions plutôt que donner une impression trompeuse d’équivalence.
+
+Un exemple de parcours documenté consiste à **sélectionner un gène, inspecter sa fiche et exporter la ligne correspondante en CSV**. Les actions du tableau, la sélection et le résultat téléchargé doivent correspondre au même contexte.
+
+<ProjectFigure
+    src="/images/projects/genomint/export.webp"
+    alt="Le menu d’export distingue les entités sélectionnées de l’ensemble des résultats, avec un export CSV dans chaque groupe."
+    caption="L’export part du tableau et distingue la sélection courante de tous les résultats filtrés. Ici, un gène a été coché avant l’ouverture du menu."
+    width="1800"
+    height="1126"
+/>
+
+## Une architecture collaborative
+
+Le frontend **React et TypeScript** communique avec deux services. `back-gkg`, développé en **Python avec FastAPI**, porte l’exploration du graphe **Neo4j**, ses requêtes Cypher et les opérations sur les données. `core-ai`, réalisé par Alexis, gère les conversations et orchestre le runtime Pi pour l’assistant IA.
+
+PostgreSQL conserve notamment les conversations et les comptes ; une bibliothèque Python partagée rassemble l’infrastructure commune. Je participe aujourd’hui aussi à l’organisation GitLab, à l’évolution des CI et à l’exploitation des environnements, en continuité avec les fondations mises en place par Alexis.
+
+## Faire évoluer le produit sans perdre ses repères
+
+Pour encadrer le travail avec les agents, je maintiens des règles de dépôt compactes et des skills pour les actions répétitives. Les contrôles de types, de lint, de code inutilisé et les tests complètent la revue des changements. Leur rôle est de rendre les régressions détectables et de vérifier un comportement, pas seulement de produire une interface qui semble correcte.
+
+Genomint est **en cours d’évolution**. Cette étude de cas présente mes contributions et trois captures de l’application prises le 16 novembre 2026. Les fonctionnalités disponibles dépendent de la version et de la source de données ; la présence d’une vue ou d’un résultat ne constitue pas une conclusion biologique validée.
+
+Ce projet concentre ce que j’aime construire : des applications où l’interface, les données et l’architecture se répondent, avec une attention particulière à l’espace, à la lecture et à l’usage.

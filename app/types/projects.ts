@@ -4,7 +4,7 @@
 import type { ProjectMetadata } from '@/lib/mdx';
 import { BaseSectionProps } from './common';
 
-export type Project = Pick<ProjectMetadata, 'slug' | 'title' | 'category' | 'date' | 'description' | 'image' | 'usedSkills' | 'filter' | 'context'>;
+export type Project = Pick<ProjectMetadata, 'slug' | 'title' | 'category' | 'date' | 'description' | 'contribution' | 'status' | 'image' | 'imageAlt' | 'usedSkills' | 'filter' | 'context'>;
 
 export interface ProjectCardProps {
     project: Project;

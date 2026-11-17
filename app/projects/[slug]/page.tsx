@@ -13,6 +13,7 @@ import VideoPlayer from '@/app/components/mdx/VideoPlayer';
 import Hyperlink from '@/app/components/mdx/Hyperlink';
 import Spacer from '@/app/components/mdx/Spacer';
 import Separator from '@/app/components/mdx/Separator';
+import ProjectFigure from '@/app/components/mdx/ProjectFigure';
 import ContextBadge from '@/app/components/ui/badges/ContextBadge';
 import type { Metadata } from 'next';
 
@@ -33,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
 }
 
-const components = { ImageGallery, TechBadge, VideoPlayer, Hyperlink, Spacer, Separator };
+const components = { ImageGallery, TechBadge, VideoPlayer, Hyperlink, Spacer, Separator, ProjectFigure };
 
 export const dynamicParams = false;
 
@@ -59,8 +60,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                     <div className="lg:col-span-4 order-2 lg:order-1">
                         {project.image ? (
-                            <div className="relative w-full aspect-video lg:aspect-square overflow-hidden rounded-sm bg-black/5">
-                                <Image src={project.image} alt={project.title} fill className="object-cover opacity-90" />
+                            <div className="relative w-full aspect-video lg:aspect-[4/3] overflow-hidden rounded-sm bg-black/5">
+                                <Image src={project.image} alt={project.imageAlt ?? `Aperçu du projet ${project.title}`} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-contain" />
                                 <div className="absolute inset-0 ring-1 ring-inset ring-black/5 pointer-events-none" />
                             </div>
                         ) : (
@@ -78,9 +79,13 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                         <div className="max-w-2xl mb-8">
                             <p className="font-mono text-sm md:text-base leading-relaxed opacity-80 border-l-[0.5px] border-primary pl-6">{project.description}</p>
                         </div>
+                        {project.contribution && <div className="mb-8 max-w-2xl">
+                            <p className="mb-2 font-mono text-xs uppercase tracking-widest text-foreground/70">Ma contribution</p>
+                            <p className="text-base leading-relaxed text-foreground/85">{project.contribution}</p>
+                        </div>}
                         <div className="w-full flex items-center justify-center gap-4 mb-4">
                             <div className="h-px bg-foreground/20 flex-1" />
-                            <h3 className="text-sm font-bold tracking-widest uppercase mt-1">Spécifications techniques</h3>
+                            <h2 className="text-sm font-bold tracking-widest uppercase mt-1">Spécifications techniques</h2>
                             <div className="h-px bg-foreground/20 flex-1" />
                         </div>
                         <div className="w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start justify-between gap-12 border-b border-foreground/20 pb-8 mt-4">
@@ -94,9 +99,9 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                 </div>
                             )}
                             {(project.duration || project.team_size) && (
-                                <div className="flex flex-col items-center md:items-end gap-4 shrink-0 whitespace-nowrap">
+                                <div className="flex min-w-0 max-w-full flex-col items-center md:items-end gap-4">
                                     <span className="font-mono text-smol uppercase tracking-widest opacity-40">Envergure</span>
-                                    <div className="flex gap-6 items-center">
+                                    <div className="flex max-w-full flex-wrap items-center justify-center gap-x-6 gap-y-3 md:justify-end">
                                         {project.duration && <div className="flex items-center gap-2 text-label opacity-70"><Clock size={14} className="text-primary" /><span>{project.duration}</span></div>}
                                         {project.team_size && <div className="flex items-center gap-2 text-label opacity-70"><Users size={14} className="text-primary" /><span>{project.team_size}</span></div>}
                                     </div>

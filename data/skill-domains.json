@@ -6,6 +6,7 @@
         "context": "Référent frontend, je travaille l’organisation de l’espace, les repères d’action et les aides contextuelles. JiFoosball prolonge cette pratique sur le web et le mobile.",
         "skills": ["React", "TypeScript"],
         "projects": [
+            { "slug": "genomint", "label": "Voir Genomint" },
             { "slug": "jifoosball", "label": "Voir JiFoosball" }
         ]
     },
@@ -16,6 +17,7 @@
         "context": "J’apporte des améliorations à l’ensemble des visualisations. Michel Gomes a contribué à certaines vues et à certaines parties des filtres.",
         "skills": ["React", "TypeScript", "Neo4j"],
         "projects": [
+            { "slug": "genomint", "label": "Voir Genomint et le GKG Explorer" }
         ]
     },
     {
@@ -25,6 +27,7 @@
         "context": "D’autres besoins, d’autres services : Django/Wagtail pour la publication à la MJC, Kotlin/Spring pour les matchs et tournois de JiFoosball.",
         "skills": ["Python", "FastAPI", "Neo4j", "Cypher"],
         "projects": [
+            { "slug": "genomint", "label": "Voir Genomint" },
             { "slug": "jifoosball", "label": "Voir JiFoosball" },
             { "slug": "stage-mjc", "label": "Voir le site MJC" }
         ]
@@ -36,6 +39,7 @@
         "context": "Les VPS, la CI/CD initiale, les outils de lint/format et SonarQube ont été mis en place par Alexis.",
         "skills": ["TypeScript", "GitLab", "Docker"],
         "projects": [
+            { "slug": "genomint", "label": "Voir Genomint" },
             { "slug": "stage-mjc", "label": "Voir la réalisation MJC" }
         ]
     }
