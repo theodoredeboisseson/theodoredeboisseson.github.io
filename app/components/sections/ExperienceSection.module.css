@@ -1,4 +1,6 @@
 .section {
+    --timeline-start: oklch(97.2% 0.006 70);
+    --timeline-end: oklch(94.2% 0.02 355);
     --track-accent: #9b3152;
     --track-soft: #f1dce4;
     --track-muted: #63545c;
@@ -16,6 +18,7 @@
 }
 
 .educationTrack {
+    --timeline-end: oklch(94.6% 0.018 315);
     --track-accent: #713b68;
     --track-soft: #e9dfeb;
 }
@@ -62,7 +65,8 @@
     padding: 1.25rem;
     border: 1px solid color-mix(in srgb, var(--track-accent) 30%, transparent);
     border-radius: 0.25rem 1.5rem 0.25rem 0.25rem;
-    background: linear-gradient(125deg, var(--surface-paper, #f7f4ef) 45%, var(--track-soft));
+    background-color: var(--surface-paper, #f7f4ef);
+    background-image: linear-gradient(125deg in oklch, var(--timeline-start), var(--timeline-end));
 }
 
 .scale {
