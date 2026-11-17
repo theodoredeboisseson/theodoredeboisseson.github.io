@@ -1,135 +1,153 @@
-'use client';
-
-import { motion } from 'framer-motion';
 import Link from 'next/link';
+import type { CSSProperties } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import KineticLine from '@/app/components/ui/display/KineticLine';
-import TechBadge from '@/app/components/ui/badges/TechBadge';
 import Section from '@/app/components/ui/containers/Section';
-import { ExperienceSectionProps } from '@/app/types';
+import type { Experience, ExperienceSectionProps } from '@/app/types';
+import { formatExperienceDate, getTimelineLayout } from '@/lib/experience-dates';
+import styles from './ExperienceSection.module.css';
 
-export default function ExperienceSection({ id, experiences, skills, projects }: ExperienceSectionProps) {
+const statusLabels: Record<Experience['status'], string> = {
+    current: 'En cours',
+    completed: 'Terminé',
+    upcoming: 'À venir',
+};
+
+function Status({ status }: { status: Experience['status'] }) {
     return (
-        <Section id={id} title="Expériences" className="container-7xl px-6">
-            <div className="relative">
-                {/* Visual Line on the left */}
-                <div className="absolute -left-4 md:-left-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
-                    <KineticLine />
-                </div>
+        <span className={status === 'current' ? styles.currentStatus : styles.status}>
+            {status === 'current' && <span className={styles.statusDot} aria-hidden="true" />}
+            {statusLabels[status]}
+        </span>
+    );
+}
 
-                <div className="flex flex-col space-y-16 ml-4">
-                    {experiences.map((item, index) => {
-                        // Resolve skill IDs: from linked project if available, otherwise from skill_ids
-                        const linkedProject = item.project_slug
-                            ? projects.find(p => p.slug === item.project_slug)
-                            : null;
+function Period({ start, end }: { start: string; end: string }) {
+    return (
+        <p className={styles.period}>
+            <time dateTime={start}>{formatExperienceDate(start)}</time>
+            <span aria-hidden="true">→</span>
+            <span className={styles.srOnly}>au</span>
+            <time dateTime={end}>{formatExperienceDate(end)}</time>
+        </p>
+    );
+}
 
-                        const skillNames = linkedProject?.usedSkills ?? item.skills ?? [];
-                        const resolvedSkills = skillNames
-                            .map(name => skills.find(s => s.name === name))
-                            .filter(Boolean);
+interface TimelineItem {
+    id: string;
+    label: string;
+    start_date: string;
+    end_date: string;
+    current: boolean;
+}
 
+function Timeline({ items, label }: { items: TimelineItem[]; label: string }) {
+    const { years, segments } = getTimelineLayout(items);
 
-                        return (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.2 }}
+    return (
+        <div className={styles.timeline} style={{ '--year-count': years.length || 1 } as CSSProperties}>
+            <p className={styles.scale}>{label}</p>
+            <div className={styles.axis} aria-hidden="true">
+                {years.map(year => <span key={year}>{year}</span>)}
+            </div>
+            <ol className={styles.timelineItems} role="list">
+                {items.map((item, index) => (
+                    <li key={item.id} className={item.current ? styles.activeSegment : undefined}>
+                        <a href={`#${item.id}`} className={styles.timelineLink}>
+                            <span className={styles.timelineLabel}>
+                                <span>{item.label}</span>
+                                {item.current && <Status status="current" />}
+                            </span>
+                            <span className={styles.yearRange}>
+                                <time dateTime={item.start_date}>{formatExperienceDate(item.start_date)}</time>
+                                <span aria-hidden="true">→</span>
+                                <span className={styles.srOnly}>au</span>
+                                <time dateTime={item.end_date}>{formatExperienceDate(item.end_date)}</time>
+                            </span>
+                            <span className={styles.rail} aria-hidden="true">
+                                <span
+                                    className={styles.segment}
+                                    style={{
+                                        '--segment-start': `${segments[index].start}%`,
+                                        '--segment-width': `${segments[index].width}%`,
+                                    } as CSSProperties}
+                                />
+                            </span>
+                        </a>
+                    </li>
+                ))}
+            </ol>
+            <p className={styles.timelineHint}>Chaque segment est une période distincte. Détails ci-dessous.</p>
+        </div>
+    );
+}
+
+export default function ExperienceSection({ id, experiences, education }: ExperienceSectionProps) {
+    const sortedExperiences = [...experiences].sort((first, second) => second.start_date.localeCompare(first.start_date));
+    const sortedEducation = [...education].sort((first, second) => second.start_date.localeCompare(first.start_date));
+    const experienceItems = sortedExperiences.map((item, index) => ({
+        ...item, id: `${id}-experience-${index}`, label: `${item.company} · ${item.type}`, current: item.status === 'current',
+    }));
+    const educationItems = sortedEducation.map((item, index) => ({
+        ...item, id: `${id}-formation-${index}`, label: item.degree,
+    }));
+
+    return (
+        <Section id={id} title="Parcours" className={`container-7xl px-4 sm:px-6 ${styles.section}`}>
+            <div className={styles.tracks}>
+                <div className={styles.track}>
+                    <div className={styles.trackHeading}>
+                        <h3 className={styles.trackTitle}>Expériences</h3>
+                        <span className={styles.trackIndex} aria-hidden="true">01 / Terrain</span>
+                    </div>
+                    <Timeline items={experienceItems} label="Échelle des missions" />
+                    <ol className={styles.entries} role="list">
+                        {experienceItems.map(item => (
+                            <li
+                                key={item.id}
+                                id={item.id}
+                                tabIndex={-1}
+                                className={`${styles.entry} ${item.current ? styles.currentEntry : ''}`}
                             >
-                                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start relative">
-
-                                    {/* Period — left column, large serif */}
-                                    <div className="md:col-span-4 lg:col-span-3">
-                                        <span className="text-serif-italic text-4xl md:text-6xl lg:text-7xl text-primary block leading-none">
-                                            {item.period.split('–')[0].trim()}
-                                        </span>
-                                        <span className="text-serif-italic text-2xl md:text-4xl text-primary/50 block leading-none mt-1">
-                                            — {item.period.split('–')[1]?.trim()}
-                                        </span>
-                                    </div>
-
-                                    {/* Content — right column */}
-                                    <div className="md:col-span-8 lg:col-span-9 pt-4 md:pt-2 flex flex-col justify-center">
-
-                                        {/* Badges row */}
-                                        <div className="flex items-center gap-3 mb-3 flex-wrap">
-                                            <span className="font-mono text-xs uppercase tracking-widest text-primary border border-primary/30 px-2 py-0.5 rounded-sm">
-                                                {item.type}
-                                            </span>
-                                            {item.status === 'current' ? (
-                                                <span className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-primary font-bold">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse inline-block" />
-                                                    En cours
-                                                </span>
-                                            ) : item.status === 'upcoming' ? (
-                                                <span className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-green-600 dark:text-green-400">
-                                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
-                                                    À venir
-                                                </span>
-                                            ) : (
-                                                <span className="font-mono text-xs uppercase tracking-widest text-foreground/40">
-                                                    Terminé
-                                                </span>
-                                            )}
-                                        </div>
-
-                                        {/* Title */}
-                                        <h3 className="text-2xl md:text-4xl font-bold font-sans uppercase tracking-tight mb-1">
-                                            {item.title}
-                                        </h3>
-
-                                        {/* Company / Location */}
-                                        <p className="text-xl font-sans text-foreground/60 mb-4">
-                                            {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                                            {item.company} // {item.location}
-                                        </p>
-
-                                        {/* Description */}
-                                        <p className="font-mono text-sm opacity-60 max-w-xl border-l-2 border-primary/50 pl-4 py-1 mb-2">
-                                            {item.description}
-                                        </p>
-
-                                        {/* Skills pills */}
-                                        {resolvedSkills.length > 0 && (
-                                            <div className="mb-5 -mt-2">
-                                                <TechBadge
-                                                    badges={(resolvedSkills as import('@/app/types').Skill[]).map(skill => ({
-                                                        label: skill.name,
-                                                        icon: skill.icon
-                                                    }))}
-                                                />
-                                            </div>
-                                        )}
-
-                                        {/* Link to project if exists */}
-                                        {item.project_slug && (
-                                            <Link
-                                                href={`/projects/${item.project_slug}`}
-                                                className="group inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-primary hover:text-primary/70 transition-colors w-fit"
-                                            >
-                                                Voir le projet
-                                                <ArrowUpRight
-                                                    size={14}
-                                                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
-                                                />
-                                            </Link>
-                                        )}
-                                    </div>
+                                <div className={styles.entryMeta}>
+                                    <span className={styles.contractType}>{item.type}</span>
+                                    <Status status={item.status} />
                                 </div>
-
-                                {/* Separator */}
-                                <div className="mt-16 w-full flex justify-center">
-                                    <div className="w-[85%] h-px bg-border/50" />
-                                </div>
-                            </motion.div>
-                        );
-                    })}
+                                <h4 className={styles.company}>{item.company}</h4>
+                                <p className={styles.location}>{item.location}</p>
+                                <Period start={item.start_date} end={item.end_date} />
+                                <h5 className={styles.role}>{item.title}</h5>
+                                <p className={styles.description}>{item.description}</p>
+                                {item.project_slug && (
+                                    <Link href={`/projects/${item.project_slug}`} className={styles.projectLink}>
+                                        {item.project_slug === 'genomint' ? 'Découvrir Genomint' : 'Voir le projet MJC'}
+                                        <ArrowUpRight size={16} aria-hidden="true" />
+                                    </Link>
+                                )}
+                            </li>
+                        ))}
+                    </ol>
                 </div>
-
-                <div className="absolute -right-4 md:-right-12 top-0 bottom-0 w-24 hidden md:block opacity-50 pointer-events-none">
-                    <KineticLine />
+                <div className={`${styles.track} ${styles.educationTrack}`}>
+                    <div className={styles.trackHeading}>
+                        <h3 className={styles.trackTitle}>Formation</h3>
+                        <span className={styles.trackIndex} aria-hidden="true">02 / Études</span>
+                    </div>
+                    <Timeline items={educationItems} label="Échelle pluriannuelle" />
+                    <ol className={styles.entries} role="list">
+                        {educationItems.map(item => (
+                            <li key={item.id} id={item.id} tabIndex={-1} className={styles.entry}>
+                                <div className={styles.entryMeta}>
+                                    <span className={styles.contractType}>Promotion {item.year}</span>
+                                    {item.current && <Status status="current" />}
+                                </div>
+                                <h4 className={styles.company}>{item.degree}</h4>
+                                <p className={styles.location}>{item.school} · {item.location}</p>
+                                <Period start={item.start_date} end={item.end_date} />
+                                <p className={styles.role}>{item.details}</p>
+                                <p className={styles.description}>{item.description}</p>
+                            </li>
+                        ))}
+                    </ol>
                 </div>
             </div>
         </Section>

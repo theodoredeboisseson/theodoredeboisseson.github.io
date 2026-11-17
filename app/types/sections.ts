@@ -2,9 +2,10 @@
  * Page Section Types
  * Props for major page segments (Hero, About, Experience, etc.)
  */
-import {BaseSectionProps} from './common';
-import {Skill} from './skills';
-import React, {ReactNode} from "react";
+import type { BaseSectionProps } from './common';
+import type { Skill } from './skills';
+import React, { ReactNode } from "react";
+import type { ProjectData } from '@/lib/mdx';
 
 export interface HeroProps extends BaseSectionProps {
     id: string;
@@ -32,8 +33,9 @@ export interface Experience {
 
 export interface ExperienceSectionProps extends BaseSectionProps {
     experiences: Experience[];
+    education: Education[];
     skills: Skill[];
-    projects: import('@/lib/mdx').ProjectData[];
+    projects: ProjectData[];
 }
 
 export interface Education {
@@ -48,9 +50,6 @@ export interface Education {
     current: boolean;
 }
 
-export interface FormationSectionProps extends BaseSectionProps {
-    education: Education[];
-}
 
 export interface ContactProps extends BaseSectionProps {
     contact: {

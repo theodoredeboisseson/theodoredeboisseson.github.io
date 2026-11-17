@@ -2,7 +2,6 @@ import Hero from "@/app/components/sections/Hero";
 import AboutSection from "@/app/components/sections/AboutSection";
 import SkillsArsenal from "@/app/components/sections/SkillsArsenal";
 import FeaturedProjects from "@/app/components/sections/FeaturedProjects";
-import FormationSection from "@/app/components/sections/FormationSection";
 import ExperienceSection from "@/app/components/sections/ExperienceSection";
 import ContactSection from "@/app/components/sections/ContactSection";
 import { getAllProjects, getProjectSummary } from "@/lib/mdx";
@@ -47,8 +46,7 @@ export default function Home() {
         projects={allProjects}
         skills={skillsData}
       />
-      <FormationSection id="formation" education={bioData.education} />
-      <ExperienceSection id="experience" experiences={bioData.experiences as Experience[]} skills={skillsData} projects={allProjects} />
+      <ExperienceSection id="parcours" education={bioData.education} experiences={bioData.experiences as Experience[]} skills={skillsData} projects={allProjects} />
       <ContactSection
         id="contact"
         contact={bioData.contact}

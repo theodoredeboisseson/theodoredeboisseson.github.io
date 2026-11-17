@@ -1,17 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Briefcase, FolderGit2, GraduationCap, Home, Mail, Toolbox, User } from 'lucide-react';
+import { Briefcase, FolderGit2, Home, Mail, Toolbox, User } from 'lucide-react';
 import { SectionIcon } from "./SectionIcon";
 import { motion } from "framer-motion";
 
 const sections = [
     { id: 'hero', label: 'Théodore', icon: Home },
     { id: 'about', label: 'À propos', icon: User },
-    { id: 'arsenal', label: 'Arsenal', icon: Toolbox },
     { id: 'projects', label: 'Projets', icon: FolderGit2 },
-    { id: 'formation', label: 'Formation', icon: GraduationCap },
-    { id: 'experience', label: 'Expérience', icon: Briefcase },
+    { id: 'arsenal', label: 'Compétences', icon: Toolbox },
+    { id: 'parcours', label: 'Parcours', icon: Briefcase },
     { id: 'contact', label: 'Contact', icon: Mail },
 ];
 
