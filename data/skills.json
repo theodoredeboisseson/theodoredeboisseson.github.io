@@ -3,210 +3,216 @@
         "name": "Next.js",
         "category": "Frameworks",
         "icon": "nextjs.svg",
-        "comfortLevel": 5,
-        "description": "Utilisé comme base de ce portfolio pour sa performance et la puissance de son App Router (SSR/SSG)."
+        "description": "Structure de ce portfolio avec l’App Router ; développement du frontend web de JiFoosball."
     },
     {
         "name": "Blender",
         "category": "Art",
         "icon": "blender.svg",
-        "comfortLevel": 2,
         "description": "Modélisation 3D et animation. Petits projets personnels pour mon propre plaisir."
     },
     {
         "name": "Piano",
         "category": "Art",
         "icon": "Music",
-        "comfortLevel": 2,
         "description": "Pratique en autodidacte depuis 2024. Participe à des masterclass occasionnelles. Amateur de la musique impressioniste ainsi que de films et séries."
     },
     {
         "name": "HTML & CSS",
         "category": "Languages",
         "icon": "HTML5.svg",
-        "comfortLevel": 4,
-        "description": "Étant très souvent le développeur front-end des projects scolaire, j'ai une certaine expertise dans ce domaine, notamment en CSS. Presque toujours le web-  designer du groupe, j'ai appris à créer des interfaces graphiques complexes à la volée très rapidement."
+        "description": "Construction de mises en page responsives et d’interactions visuelles pour mes interfaces web."
     },
     {
         "name": "JavaScript",
         "category": "Languages",
         "icon": "JavaScript.svg",
-        "comfortLevel": 3,
         "description": "Langage coeur de ma stack front-end, principalement exploité à travers des frameworks modernes."
     },
     {
         "name": "PHP",
         "category": "Languages",
         "icon": "php.svg",
-        "comfortLevel": 4,
         "description": "Premier langage back-end appris. Utilisé pour construire divers petits modèles de conception MVC complets."
     },
     {
         "name": "Java",
         "category": "Languages",
         "icon": "java.svg",
-        "comfortLevel": 4,
         "description": "Apprentissage des fondations de la programmation orientée objet stricte et de l'architecture logicielle classique."
     },
     {
         "name": "MariaDB",
         "category": "Databases",
         "icon": "mariadb-blue.svg",
-        "comfortLevel": 3,
         "description": "Gestion de bases de données relationnelles SQL."
     },
     {
         "name": "C++",
         "category": "Languages",
         "icon": "c++.svg",
-        "comfortLevel": 2,
         "description": "Programmation système et dans mon cas la logique embarquée (Arduino)."
     },
     {
         "name": "JetBrains",
         "category": "Tools",
         "icon": "jetbrains.svg",
-        "comfortLevel": 3,
-        "description": "Ma suite d'outils quotidiens préférée pour garantir un développement fluide et un refactoring efficace. Je connais et exploite l'outil souvent mieux que mes camarades."
+        "description": "Environnements de développement pour naviguer dans le code, le vérifier et mener des refactorings."
     },
     {
         "name": "Agile Scrum",
         "category": "Methods",
         "icon": "scrum.svg",
-        "comfortLevel": 3,
         "description": "Méthodologie de gestion de projet itérative et collaborative. L'utilisation de tableaux Kanban est devenue automatique."
     },
     {
         "name": "Docker",
         "category": "Devops",
         "icon": "docker.svg",
-        "comfortLevel": 4,
-        "description": "Mise en place systématique de conteneurs pour standardiser mes environnements et faciliter les grosses mises en production."
+        "description": "Conteneurisation du site MJC et de ses services pour préparer le développement et la mise en production.",
+        "documentationUrl": "https://docs.docker.com/"
     },
     {
         "name": "GitLab",
         "category": "Devops",
         "icon": "gitlab.svg",
-        "comfortLevel": 4,
-        "description": "Outil standard utilisé à l'IUT. Pour le versioning d'équipe et la création de pipelines CI/CD."
+        "description": "Organisation du travail, revue des MR et évolution des pipelines CI de Genomint. Leur mise en place initiale a été réalisée par Alexis.",
+        "documentationUrl": "https://docs.gitlab.com/"
     },
     {
         "name": "GitHub",
         "category": "Devops",
         "icon": "github-mark.svg",
-        "comfortLevel": 4,
         "description": "Hébergement principal de mon code. Vitrine open-source pour mon portfolio et mes expérimentations personnelles."
     },
     {
         "name": "TypeScript",
         "category": "Languages",
         "icon": "typescript.svg",
-        "comfortLevel": 4,
-        "description": "Surcouche de sécurité que j'apprécie de plus en plus. Utilisé avec Next.js pour ce portfolio et d'autres applications React."
+        "description": "Typage des interfaces React de Genomint, du frontend JiFoosball et de ce portfolio.",
+        "documentationUrl": "https://www.typescriptlang.org/"
     },
     {
         "name": "Tailwind CSS",
         "category": "Frameworks",
         "icon": "tailwind.svg",
-        "comfortLevel": 5,
-        "description": "Mon outil de stylisation favori, me permettant de concevoir des interfaces utilisateur très rapidement. Je l'utilise pour la quasi-totalité de mes projets depuis la nuit de l'info 2024 où j'ai découvert le framework."
+        "description": "Mise en page et styles du portfolio, de JiFoosball et du site MJC à partir d’utilitaires CSS."
     },
     {
         "name": "Photographie",
         "category": "Art",
         "icon": "Camera",
-        "comfortLevel": 2,
         "description": "Apprends la prise de vue, la retouche Lightroom, la composition ou juste prend du plaisir avec un Canon EOS 650D depuis Avril 2025."
     },
     {
         "name": "Kotlin",
         "category": "Languages",
         "icon": "kotlin.svg",
-        "comfortLevel": 4,
-        "description": "Mon langage back-end favori. Découverte en autodidacte sur le projet JiFoosball, j'ai pu y créer une architecture back-end solide."
+        "description": "Développement du backend de JiFoosball avec Spring Boot : matchs, tournois et droits des utilisateurs.",
+        "documentationUrl": "https://kotlinlang.org/"
     },
     {
         "name": "Antigravity",
         "category": "Tools",
         "icon": "antigravity.svg",
-        "comfortLevel": 3,
         "description": "Agent d'intelligence artificielle agissant comme pair-programmer. Découverte de l'outil lors de la création de ce portfolio."
     },
     {
         "name": "Vue.js",
         "category": "Frameworks",
         "icon": "vuejs.svg",
-        "comfortLevel": 3,
         "description": "Framework front-end alternatif très apprécié pour prototyper avec une réactivité et une légèreté maximales. Appris lors de la Nuit de l'Info 2025 puis en cours à l'IUT."
     },
     {
         "name": "Symfony",
         "category": "Frameworks",
         "icon": "symfony.svg",
-        "comfortLevel": 3,
         "description": "Exploité spécialement avec API Platform pour créer facilement des endpoints REST structurés."
     },
     {
         "name": "Python",
         "category": "Languages",
         "icon": "python.svg",
-        "comfortLevel": 2,
-        "description": "Langage couteau suisse, utilisé pour le développement web fullstack avec le framework Django lors de la refonte du site de la MJC."
+        "description": "Développement de back-gkg avec FastAPI pour Genomint ; refonte du site MJC avec Django et Wagtail.",
+        "documentationUrl": "https://docs.python.org/3/"
+    },
+    {
+        "name": "FastAPI",
+        "category": "Frameworks",
+        "icon": "Zap",
+        "description": "Services de back-gkg reliant l’interface Genomint à l’exploration du graphe et aux requêtes Neo4j.",
+        "documentationUrl": "https://fastapi.tiangolo.com/"
+    },
+    {
+        "name": "Django",
+        "category": "Frameworks",
+        "icon": "Server",
+        "description": "Développement du site MJC en Python, avec Wagtail pour la gestion des contenus.",
+        "documentationUrl": "https://www.djangoproject.com/"
+    },
+    {
+        "name": "Wagtail",
+        "category": "Frameworks",
+        "icon": "PanelsTopLeft",
+        "description": "CMS du site MJC : modèles de pages et interface de publication pour l’équipe.",
+        "documentationUrl": "https://wagtail.org/"
     },
     {
         "name": "React",
         "category": "Frameworks",
         "icon": "react.svg",
-        "comfortLevel": 5,
-        "description": "Mon framework front-end favori pour la composition d'interfaces interactives sur le support web mais également mobile (React Native)."
+        "description": "Conception de l’exploration dans Genomint : panneaux, filtres et vues coordonnées ; interfaces web et mobile de JiFoosball.",
+        "documentationUrl": "https://react.dev/"
     },
     {
         "name": "Neo4j",
         "category": "Databases",
         "icon": "neo4j.svg",
-        "comfortLevel": 0,
-        "description": "Base de données orientée graphe. À venir lors de mon stage au CIRAD. J'apprendrais Neo4J combiné à des requêtes Cypher."
+        "description": "Exploration du Ganoderma Knowledge Graph dans Genomint, avec des requêtes Cypher et leur intégration dans back-gkg.",
+        "documentationUrl": "https://neo4j.com/docs/"
+    },
+    {
+        "name": "Cypher",
+        "category": "Languages",
+        "icon": "Network",
+        "description": "Requêtes du graphe Neo4j dans back-gkg pour rechercher, filtrer et relier les données explorées dans Genomint.",
+        "documentationUrl": "https://neo4j.com/docs/cypher-manual/current/"
     },
     {
         "name": "Spring",
         "category": "Frameworks",
         "icon": "spring.svg",
-        "comfortLevel": 3,
-        "description": "Écosystème puissant pour le développement d'applications d'entreprise et de microservices robustes avec Java/Kotlin."
+        "description": "API de JiFoosball en Kotlin : règles métier, authentification et échanges avec les clients web et mobile.",
+        "documentationUrl": "https://spring.io/projects/spring-boot"
     },
     {
         "name": "PostgreSQL",
         "category": "Databases",
         "icon": "postgresql.svg",
-        "comfortLevel": 3,
-        "description": "Basse de données relationnelle puissante et extensible, utilisée pour sa fiabilité et ses fonctionnalités avancées."
+        "description": "Base de données relationnelle utilisée pour le site de la MJC."
     },
     {
         "name": "Nginx",
         "category": "Devops",
         "icon": "nginx.svg",
-        "comfortLevel": 2,
         "description": "Serveur web haute performance utilisé pour le proxy inverse, la gestion du SSL et le routage des requêtes."
     },
     {
         "name": "OVH",
         "category": "Devops",
         "icon": "ovh.svg",
-        "comfortLevel": 3,
         "description": "Gestion d'hébergement, noms de domaine et serveurs VPS pour le déploiement de mes projets personnels."
     },
     {
         "name": "Linux",
         "category": "Tools",
         "icon": "linux.svg",
-        "comfortLevel": 4,
-        "description": "Système d'exploitation privilégié pour le développement et la mise en production. Maitrisé via des distributions comme Ubuntu, Kubuntu et Fedora.."
+        "description": "Environnement de développement et d’exploitation des serveurs ; usage d’Ubuntu, Kubuntu et Fedora."
     },
     {
         "name": "WSL",
         "category": "Tools",
         "icon": "Terminal",
-        "comfortLevel": 4,
         "description": "Sous système Linux sur Windows permettant un workflow de développement fluide proche de Linux. J'ai longement utilisé WSL2 pour mes projets en général."
     }
 ]

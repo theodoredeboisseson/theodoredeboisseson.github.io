@@ -1,6 +1,5 @@
 /**
- * Skills and Arsenal Types
- * Technical stack, stickers, and drawer interaction types.
+ * Skills catalogue, practice domains, and shared badges.
  */
 import { BaseSectionProps } from './common';
 
@@ -8,8 +7,8 @@ export interface Skill {
     name: string;
     category: string;
     icon: string;
-    comfortLevel: number;
     description: string;
+    documentationUrl?: string;
 }
 
 export interface SkillsArsenalProps extends BaseSectionProps {
@@ -17,19 +16,13 @@ export interface SkillsArsenalProps extends BaseSectionProps {
     skills: Skill[];
 }
 
-export interface SkillDrawerProps {
-    isOpen: boolean;
-    onClose: () => void;
-    selectedSkill: Skill | null;
-    projects: import('@/lib/mdx').ProjectData[];
-}
-
-export interface SkillStickerProps {
-    skill: Skill;
-    hasLinkedData: boolean;
-    onClick: () => void;
-    index?: number;
-    cols?: number;
+export interface SkillDomain {
+    id: string;
+    title: string;
+    description: string;
+    context: string;
+    skills: string[];
+    projects: { slug: string; label: string }[];
 }
 
 export interface Badge {

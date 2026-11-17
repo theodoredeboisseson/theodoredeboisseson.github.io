@@ -1,220 +1,107 @@
-'use client';
-
-import {motion} from 'framer-motion';
-import {useState, useEffect, useRef} from 'react';
-import {ChevronDown} from 'lucide-react';
-import SkillDrawer from '@/app/components/ui/overlays/SkillDrawer';
-import SkillSticker from '@/app/components/ui/cards/SkillSticker';
-import TacticalFilter from '@/app/components/ui/navigation/TacticalFilter';
-
+import Link from 'next/link';
+import { ArrowUpRight } from 'lucide-react';
 import Section from '@/app/components/ui/containers/Section';
-import {Skill, SkillsArsenalProps} from '@/app/types';
+import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
+import type { SkillDomain, SkillsArsenalProps } from '@/app/types';
+import skillDomainsData from '@/data/skill-domains.json';
+import styles from './SkillsArsenal.module.css';
 
-export default function SkillsArsenal({id, projects, skills}: SkillsArsenalProps) {
-    const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
-    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-    const [cols, setCols] = useState(5);
-    const [isCollapsed, setIsCollapsed] = useState(true);
-    const [extraHeight, setExtraHeight] = useState(0);
-    const extraContainerRef = useRef<HTMLDivElement>(null);
+const domains: SkillDomain[] = skillDomainsData;
 
-    useEffect(() => {
-        const updateCols = () => {
-            if (window.innerWidth < 640) setCols(2);
-            else if (window.innerWidth < 768) setCols(3);
-            else if (window.innerWidth < 1024) setCols(3);
-            else if (window.innerWidth < 1280) setCols(4);
-            else setCols(5);
-        };
-        updateCols();
-        window.addEventListener('resize', updateCols);
-        return () => window.removeEventListener('resize', updateCols);
-    }, []);
-
-    // Get unique categories from skills
-    const categories = Array.from(new Set(skills.map(skill => skill.category))).sort();
-
-    const toggleCategory = (category: string) => {
-        setSelectedCategories(prev =>
-            prev.includes(category)
-                ? prev.filter(c => c !== category)
-                : [...prev, category]
-        );
-    };
-
-    const filteredSkills = skills.filter(skill =>
-        selectedCategories.length === 0 || selectedCategories.includes(skill.category)
-    ).sort((a, b) => {
-        // Sort by comfort level descending, then alphabetically
-        if (b.comfortLevel !== a.comfortLevel) {
-            return b.comfortLevel - a.comfortLevel;
-        }
-        return a.name.localeCompare(b.name);
-    });
-
-    // Split skills into initial (2 rows) and extra
-    const initialCount = cols * 2;
-    const initialSkills = filteredSkills.slice(0, initialCount);
-    const extraSkills = filteredSkills.slice(initialCount);
-
-    const handleSkillClick = (skill: Skill) => {
-        // Check if skill has linked projects or description
-        const hasLinkedData = projects.some(p => p.usedSkills?.includes(skill.name)) || skill.description;
-
-        if (hasLinkedData) {
-            setSelectedSkill(skill);
-            setIsDrawerOpen(true);
-        }
-    };
-
-    // Measure the extra skills container height for smooth animation
-    useEffect(() => {
-        if (extraContainerRef.current) {
-            setExtraHeight(extraContainerRef.current.scrollHeight);
-        }
-    }, [extraSkills.length, cols]);
-
+export default function SkillsArsenal({ id, skills }: SkillsArsenalProps) {
     return (
-        <>
-            <Section id={id} title="Arsenal" className="w-full fluid-padding"
-                aside={
-                    <div className="text-right mt-4 md:mt-0">
-                        <span className="block text-label text-foreground/50">
-                            TOOLKIT // 2026
-                        </span>
-                        <span className="block text-serif-italic text-lg text-foreground/80">
-                            Selected tools &amp; technologies
-                        </span>
-                    </div>
-                }
-            >
-                {/* Legend & Filters */}
-                <div
-                    className="container-7xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                    {/* Legend */}
-                    <div
-                        className="flex items-center gap-3 text-label text-foreground/50 border border-foreground/5 bg-foreground/5 px-4 py-2 rounded-full shrink-0">
-                        <span>Jauge</span>
-                        <div className="flex gap-1 w-16 items-center">
-                            <div className="h-1 flex-1 bg-foreground/60 rounded-full"/>
-                            <div className="h-1 flex-1 bg-foreground/60 rounded-full"/>
-                            <div className="h-1 flex-1 bg-foreground/60 rounded-full"/>
-                            <div className="h-1 flex-1 bg-foreground/10 rounded-full"/>
-                            <div className="h-1 flex-1 bg-foreground/10 rounded-full"/>
-                        </div>
-                        <span>= Niveau de Confort</span>
-                    </div>
+        <Section
+            id={id}
+            title="Compétences"
+            className="w-full fluid-padding"
+            aside={
+                <p className="text-serif-italic text-lg text-foreground/70 md:text-right">
+                    Interfaces, données et services
+                </p>
+            }
+        >
+            <div className="container-7xl">
+                <p className="mb-10 max-w-3xl text-lg leading-relaxed text-foreground/80 sm:text-xl">
+                    Mon point d’entrée : l’interface et l’expérience d’exploration.
+                    Je relie ce travail aux services applicatifs et aux pratiques
+                    qui permettent de faire évoluer le produit.
+                </p>
 
-                    <div className="flex items-center gap-3 flex-wrap">
-                        {/* Category filters */}
-                        <TacticalFilter 
-                            options={['All', ...categories]}
-                            activeOptions={selectedCategories}
-                            onChange={(opt) => opt === 'All' ? setSelectedCategories([]) : toggleCategory(opt)}
-                            mode="checkbox"
-                        />
-                    </div>
-                </div>
-
-                {/* Grid container */}
-                <div className="container-7xl py-6">
-                    <motion.div
-                        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4"
-                    >
-                        {/* Always show initial row */}
-                        {initialSkills.map((skill, index) => (
-                            <motion.div
-                                key={skill.name}
-                                initial={{opacity: 0, y: 20}}
-                                whileInView={{opacity: 1, y: 0}}
-                                viewport={{once: true}}
-                                transition={{
-                                    duration: 0.5,
-                                    delay: (index % cols) * 0.05 + Math.floor(index / cols) * 0.08
-                                }}
+                <div className={styles.grid}>
+                    {domains.map((domain, index) => (
+                        <article
+                            key={domain.id}
+                            aria-labelledby={`skill-domain-${domain.id}`}
+                            className={styles.domain}
+                            data-domain={domain.id}
+                        >
+                            <p aria-hidden="true" className={styles.ordinal}>
+                                {String(index + 1).padStart(2, '0')}
+                                <span />
+                            </p>
+                            <h3
+                                id={`skill-domain-${domain.id}`}
+                                className={styles.title}
                             >
-                                <SkillSticker
-                                    skill={skill}
-                                    index={index}
-                                    cols={cols}
-                                    hasLinkedData={Boolean(projects.some(p => p.usedSkills?.includes(skill.name)) || skill.description)}
-                                    onClick={() => handleSkillClick(skill)}
-                                />
-                            </motion.div>
-                        ))}
-                    </motion.div>
+                                {domain.title}
+                            </h3>
+                            <p className={styles.description}>
+                                {domain.description}
+                            </p>
+                            <p className={styles.context}>
+                                {domain.context}
+                            </p>
 
-                    {/* Extra skills — always in DOM, height animates smoothly */}
-                    {extraSkills.length > 0 && (
-                        <div ref={extraContainerRef} className="overflow-hidden">
-                            <motion.div
-                                animate={{
-                                    maxHeight: isCollapsed ? 0 : extraHeight,
-                                    opacity: isCollapsed ? 0 : 1
-                                }}
-                                initial={false}
-                                transition={{
-                                    maxHeight: { type: 'spring', stiffness: 60, damping: 22 },
-                                    opacity: { duration: 0.25 }
-                                }}
-                            >
-                                <div
-                                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 pt-4">
-                                    {extraSkills.map((skill, index) => {
-                                        const overallIndex = initialSkills.length + index;
+                            <div className={styles.tools}>
+                                <p className={styles.label}>Outils</p>
+                                <ul role="list" className={styles.toolList}>
+                                    {domain.skills.map(name => {
+                                        const skill = skills.find(item => item.name === name);
                                         return (
-                                            <SkillSticker
-                                                key={skill.name}
-                                                skill={skill}
-                                                index={overallIndex}
-                                                cols={cols}
-                                                hasLinkedData={Boolean(projects.some(p => p.usedSkills?.includes(skill.name)) || skill.description)}
-                                                onClick={() => handleSkillClick(skill)}
-                                            />
+                                            <li key={name}>
+                                                {skill?.documentationUrl ? (
+                                                    <a
+                                                        href={skill.documentationUrl}
+                                                        className={styles.tool}
+                                                    >
+                                                        <span className={styles.toolIcon} data-skill={name} aria-hidden="true">
+                                                            <DynamicIcon name={skill.icon} category={skill.category} size={26} />
+                                                        </span>
+                                                        {name}
+                                                    </a>
+                                                ) : (
+                                                    <span className={styles.tool}>
+                                                        {skill && (
+                                                            <span className={styles.toolIcon} data-skill={name} aria-hidden="true">
+                                                                <DynamicIcon name={skill.icon} category={skill.category} size={26} />
+                                                            </span>
+                                                        )}
+                                                        {name}
+                                                    </span>
+                                                )}
+                                            </li>
                                         );
                                     })}
-                                </div>
-                            </motion.div>
-                        </div>
-                    )}
+                                </ul>
+                            </div>
 
-                    {/* Centered Toggle Button */}
-                    {filteredSkills.length > initialCount && (
-                        <div
-                            className="mt-12 flex justify-center"
-                        >
-                            <button
-                                onClick={() => setIsCollapsed(prev => !prev)}
-                                className="btn-tactical rounded-xl gap-2 hover:gap-5 px-8 py-4 bg-foreground/5 hover:bg-foreground hover:text-background border-tech-border-dim group overflow-hidden relative"
-                                aria-label={isCollapsed ? 'Afficher plus' : 'Réduire'}
-                            >
-                                <motion.div
-                                    className="flex items-center gap-2"
-                                    animate={{y: 0}}
-                                    key={isCollapsed ? 'collapsed' : 'expanded'}
-                                >
-                                    <span>{isCollapsed ? `Voir les ${extraSkills.length} outils restants` : 'Réduire'}</span>
-                                    <motion.span
-                                        animate={{rotate: isCollapsed ? 0 : 180}}
-                                        transition={{duration: 0.3}}
-                                        className="inline-flex"
-                                    >
-                                        <ChevronDown size={14}/>
-                                    </motion.span>
-                                </motion.div>
-                            </button>
-                        </div>
-                    )}
+                            <ul role="list" className={styles.projects}>
+                                {domain.projects.map(project => (
+                                    <li key={project.slug}>
+                                        <Link
+                                            href={`/projects/${project.slug}`}
+                                            className={styles.projectLink}
+                                        >
+                                            {project.label}
+                                            <ArrowUpRight size={16} aria-hidden="true" className="shrink-0" />
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </article>
+                    ))}
                 </div>
-            </Section>
-
-            <SkillDrawer
-                isOpen={isDrawerOpen}
-                onClose={() => setIsDrawerOpen(false)}
-                selectedSkill={selectedSkill}
-                projects={projects}
-            />
-        </>
+            </div>
+        </Section>
     );
 }

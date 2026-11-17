@@ -6,6 +6,9 @@
   --color-primary: #d94261;
   --color-text: #111111;
   --color-border: #11111120;
+  --surface-ink: #20191d;
+  --surface-wine: #39232c;
+  --surface-paper: #f7f4ef;
 }
 
 html {

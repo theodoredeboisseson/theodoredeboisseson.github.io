@@ -1,0 +1,42 @@
+[
+    {
+        "id": "interfaces",
+        "title": "Concevoir des interfaces complexes",
+        "description": "Sur Genomint, je structure l’exploration avec un design system Material You, des panneaux redimensionnables ou en plein écran et des animations qui expliquent les changements d’état.",
+        "context": "Référent frontend, je travaille l’organisation de l’espace, les repères d’action et les aides contextuelles. JiFoosball prolonge cette pratique sur le web et le mobile.",
+        "skills": ["React", "TypeScript"],
+        "projects": [
+            { "slug": "jifoosball", "label": "Voir JiFoosball" }
+        ]
+    },
+    {
+        "id": "donnees",
+        "title": "Rendre les données lisibles",
+        "description": "Dans le GKG Explorer de Genomint, je travaille la hiérarchie des vues scientifiques, les palettes partagées, les tableaux et les filtres pour relier les résultats à leur contexte.",
+        "context": "J’apporte des améliorations à l’ensemble des visualisations. Michel Gomes a contribué à certaines vues et à certaines parties des filtres.",
+        "skills": ["React", "TypeScript", "Neo4j"],
+        "projects": [
+        ]
+    },
+    {
+        "id": "services",
+        "title": "Construire des services applicatifs",
+        "description": "Je développe back-gkg pour relier l’exploration de Genomint aux requêtes du graphe, avec des services Python/FastAPI et Neo4j/Cypher.",
+        "context": "D’autres besoins, d’autres services : Django/Wagtail pour la publication à la MJC, Kotlin/Spring pour les matchs et tournois de JiFoosball.",
+        "skills": ["Python", "FastAPI", "Neo4j", "Cypher"],
+        "projects": [
+            { "slug": "jifoosball", "label": "Voir JiFoosball" },
+            { "slug": "stage-mjc", "label": "Voir le site MJC" }
+        ]
+    },
+    {
+        "id": "qualite",
+        "title": "Faire évoluer un logiciel en confiance",
+        "description": "Je vérifie les évolutions avec les types, les tests, le lint et la revue. Je maintiens les règles et skills des agents, les CI GitLab et l’exploitation actuelle des VPS de Genomint.",
+        "context": "Les VPS, la CI/CD initiale, les outils de lint/format et SonarQube ont été mis en place par Alexis.",
+        "skills": ["TypeScript", "GitLab", "Docker"],
+        "projects": [
+            { "slug": "stage-mjc", "label": "Voir la réalisation MJC" }
+        ]
+    }
+]

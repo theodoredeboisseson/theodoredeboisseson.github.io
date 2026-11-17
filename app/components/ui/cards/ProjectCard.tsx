@@ -11,13 +11,7 @@ import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
 import ContextBadge from '@/app/components/ui/badges/ContextBadge';
 
 export default function ProjectCard({ project }: ProjectCardProps) {
-    const linkedSkills = (project.usedSkills?.map(name => skillsData.find(s => s.name === name)).filter(Boolean) || [])
-        .sort((a, b) => {
-            if (b!.comfortLevel !== a!.comfortLevel) {
-                return b!.comfortLevel - a!.comfortLevel;
-            }
-            return a!.name.localeCompare(b!.name);
-        });
+    const linkedSkills = project.usedSkills?.map(name => skillsData.find(skill => skill.name === name)).filter(Boolean) ?? [];
 
     return (
         <motion.article
