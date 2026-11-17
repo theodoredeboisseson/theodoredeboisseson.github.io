@@ -17,7 +17,7 @@ export default function Section({
         <section id={id} className={`py-12 md:py-16 ${className}`}>
             {/* Section Header */}
             <motion.div
-                className={`container-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12`}
+                className="motion-reducible container-7xl mx-auto px-4 md:px-6 mb-8 md:mb-12"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
@@ -41,7 +41,7 @@ export default function Section({
                                 whileInView={{ scale: 1, rotate: 45 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.3, duration: 0.4 }}
-                                className="w-2 h-2 mx-5 border border-primary"
+                                className="motion-reducible w-2 h-2 mx-5 border border-primary"
                             />
                         </div>
                     )}

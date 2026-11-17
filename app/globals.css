@@ -440,5 +440,16 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
   .ambient-signals span { animation: none; opacity: .18; }
+
+  #hero .motion-reducible { clip-path: none !important; }
+
+  /* Keep server/client markup identical; override Motion's inline entrance styles. */
+  .motion-reducible,
+  .animated-text > span {
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }

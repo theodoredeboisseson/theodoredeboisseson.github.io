@@ -22,10 +22,11 @@ export default function AnimatedText({
     const ease: [number, number, number, number] = [0.25, 0.1, 0.25, 1.0]; // Premium smooth easing
 
     return (
-        <Tag className={`${className} overflow-visible flex flex-wrap`}>
+        <Tag aria-label={text} className={`animated-text ${className} overflow-visible flex flex-wrap`}>
             {letters.map((letter, i) => (
                 <motion.span
                     key={i}
+                    aria-hidden="true"
                     initial={{ y: 100, opacity: 0, rotate: 5 }}
                     whileInView={{ y: 0, opacity: 1, rotate: 0 }}
                     viewport={{ once }}
@@ -41,6 +42,7 @@ export default function AnimatedText({
             ))}
             {showDot && (
                 <motion.span
+                    aria-hidden="true"
                     initial={{ scale: 0, opacity: 0 }}
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once }}

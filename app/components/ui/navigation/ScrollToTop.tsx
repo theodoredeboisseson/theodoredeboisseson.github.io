@@ -17,7 +17,7 @@ export default function ScrollToTop() {
     }, []);
 
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     };
 
     return (
@@ -29,7 +29,7 @@ export default function ScrollToTop() {
                     exit={{ opacity: 0, scale: 0.8, y: 20 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
                     onClick={scrollToTop}
-                    className="hidden md:flex fixed bottom-6 right-6 z-30 button transition-colors! transform hover:scale-110 hover:text-white hover:bg-primary size-16 rounded-2xl bg-background/80 backdrop-blur-sm shadow-lg shadow-black/5"
+                    className="motion-reducible hidden md:flex fixed bottom-6 right-6 z-30 button transition-colors! transform hover:scale-110 hover:text-white hover:bg-primary size-16 rounded-2xl focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground bg-background/80 backdrop-blur-sm shadow-lg shadow-black/5"
                     aria-label="Remonter en haut"
                 >
                     <ChevronUp strokeWidth={2} size={32} />

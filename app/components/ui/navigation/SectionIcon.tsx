@@ -20,8 +20,8 @@ export function SectionIcon({ onClick, section, active, isMobile }: SectionIconP
         <motion.button
             layout
             onClick={onClick}
-            className={`group rounded-xl relative hover:bg-[#11111108] transition-all 
-            duration-500 ease-out outline-none flex items-center justify-center 
+            className={`group rounded-xl relative hover:bg-[#11111108] transition-all
+            duration-500 ease-out outline-none focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-2 focus-visible:outline-foreground flex items-center justify-center
             touch-manipulation ${isMobile ? 'w-10 h-10' : 'w-12 h-12'}`}
             aria-label={section.label}
         >
@@ -44,7 +44,7 @@ export function SectionIcon({ onClick, section, active, isMobile }: SectionIconP
 
             {/* Tooltip (desktop only) */}
             {!isMobile && (
-                <span className="absolute left-full ml-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap">
+                <span className="absolute left-full ml-4 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap">
                     <span className="bg-foreground text-background text-sm font-mono uppercase tracking-widest px-3 py-1.5 rounded-md shadow-xl shadow-[#0000001A]">
                         {section.label}
                     </span>
