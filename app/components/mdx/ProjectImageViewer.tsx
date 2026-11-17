@@ -53,7 +53,7 @@ export default function ProjectImageViewer({ children }: { children: ReactNode }
                     lightbox = new Lightbox({
                         pswpModule: PhotoSwipe,
                         mainClass: styles.viewer,
-                        bgOpacity: 0.97,
+                        bgOpacity: 1,
                         showHideAnimationType: reduceMotion ? 'none' : 'fade',
                         showAnimationDuration: reduceMotion ? 0 : 180,
                         hideAnimationDuration: reduceMotion ? 0 : 150,
@@ -66,24 +66,42 @@ export default function ProjectImageViewer({ children }: { children: ReactNode }
                         arrowNextTitle: 'Image suivante',
                         errorMsg: 'Impossible de charger cette image.',
                         indexIndicatorSep: ' / ',
-                        paddingFn: ({ x, y }) => ({
-                            top: 64, bottom: y <= 450 ? 64 : 112,
+                        paddingFn: ({ x }) => ({
+                            top: 64,
+                            bottom: Math.max(64, (lightbox?.pswp?.element?.querySelector<HTMLElement>('[data-project-caption]')?.offsetHeight ?? 0) + 32),
                             left: x < 768 ? 16 : 72, right: x < 768 ? 16 : 72,
                         }),
                     });
                     lightbox.on('uiRegister', () => {
                         const pswp = lightbox?.pswp;
+                        pswp?.element?.setAttribute('aria-label', 'Visionneuse d’images');
+                        pswp?.on('keydown', ({ originalEvent }) => {
+                            if (originalEvent.key !== 'Tab' || originalEvent.ctrlKey || originalEvent.altKey || originalEvent.metaKey || !pswp.element) return;
+                            const controls = Array.from(pswp.element.querySelectorAll<HTMLElement>('button:not(:disabled), a[href], [tabindex="0"]'))
+                                .filter(control => control.getClientRects().length > 0);
+                            const first = controls[0];
+                            const last = controls.at(-1);
+                            const active = document.activeElement;
+                            if (originalEvent.shiftKey ? active === first || active === pswp.element : active === last) {
+                                originalEvent.preventDefault();
+                                (originalEvent.shiftKey ? last : first)?.focus();
+                            }
+                        });
                         pswp?.ui?.registerElement({
                             name: 'project-caption',
                             className: styles.caption,
                             appendTo: 'root',
                             isButton: false,
                             onInit(element) {
+                                element.setAttribute('data-project-caption', '');
                                 element.setAttribute('aria-live', 'polite');
                                 element.setAttribute('aria-atomic', 'true');
                                 const update = () => {
                                     element.textContent = pswp.currSlide?.data.caption || pswp.currSlide?.data.alt || '';
                                     element.hidden = !element.textContent;
+                                    requestAnimationFrame(() => {
+                                        if (pswp.isOpen) pswp.updateSize(true);
+                                    });
                                 };
                                 pswp.on('change', update);
                                 update();

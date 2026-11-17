@@ -69,9 +69,12 @@
     left: max(1.5rem, env(safe-area-inset-left));
     width: fit-content;
     max-width: 64rem;
-    max-height: 4.5rem;
+    max-height: min(30dvh, 12rem);
     margin-inline: auto;
     overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) transparent;
     color: var(--surface-paper, #f7f4ef);
     font-size: .9375rem;
     line-height: 1.5;
