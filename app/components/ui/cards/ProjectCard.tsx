@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useId } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import DynamicIcon from '@/app/components/ui/display/DynamicIcon';
@@ -7,11 +8,17 @@ import type { ProjectCardProps } from '@/app/types';
 import styles from './ProjectCard.module.css';
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
+    const titleId = useId();
     const technologies = project.usedSkills?.slice(0, 4) ?? [];
     const isMainProject = project.slug === 'genomint';
 
     return (
-        <article className={styles.card} data-project={project.slug}>
+        <Link
+            href={`/projects/${project.slug}`}
+            className={styles.card}
+            data-project={project.slug}
+            aria-labelledby={titleId}
+        >
             <div className={styles.scene}>
                 <div className={styles.sceneLabel}>
                     <span>{isMainProject ? 'Projet majeur' : project.category}</span>
@@ -61,7 +68,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
 
                 <div className={styles.introduction}>
-                    <h3 className={`${styles.title} font-serif`}>
+                    <h3 id={titleId} className={`${styles.title} font-serif`}>
                         {project.title}
                     </h3>
                     <p className={styles.description}>{project.description}</p>
@@ -94,12 +101,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                         </ul>
                     )}
 
-                    <Link href={`/projects/${project.slug}`} className={styles.action}>
-                        <span>Voir le projet<span className="sr-only"> : {project.title}</span></span>
+                    <div className={styles.action}>
+                        <span>Voir le projet</span>
                         <span className={styles.actionArrow}><ArrowUpRight size={18} aria-hidden="true" /></span>
-                    </Link>
+                    </div>
                 </div>
             </div>
-        </article>
+        </Link>
     );
 }

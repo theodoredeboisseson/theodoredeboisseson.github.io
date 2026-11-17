@@ -29,6 +29,7 @@
     border-radius: 1.5rem .5rem 1.5rem .5rem;
     background: var(--card-surface);
     color: var(--surface-paper, #f7f4ef);
+    text-decoration: none;
     box-shadow: 0 8px 20px #20191d12;
     transition: transform 220ms ease, border-color 220ms ease;
 }
@@ -390,12 +391,12 @@
     border-color: var(--card-accent);
 }
 
-.action:focus-visible {
+.card:focus-visible {
     outline: 2px solid var(--card-accent);
     outline-offset: 5px;
 }
 
-.action:active .actionArrow {
+.card:active .actionArrow {
     transform: scale(.92);
 }
 
@@ -460,7 +461,7 @@
     .mobilePreview,
     .actionArrow,
     .card:hover .actionArrow,
-    .action:active .actionArrow {
+    .card:active .actionArrow {
         transition: none;
         transform: none;
     }
