@@ -16,6 +16,7 @@ import Separator from '@/app/components/mdx/Separator';
 import ProjectFigure from '@/app/components/mdx/ProjectFigure';
 import ProjectImageViewer from '@/app/components/mdx/ProjectImageViewer';
 import ProjectImageLink from '@/app/components/mdx/ProjectImageLink';
+import ProjectMarkdownImage from '@/app/components/mdx/ProjectMarkdownImage';
 import ContextBadge from '@/app/components/ui/badges/ContextBadge';
 import type { Metadata } from 'next';
 
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
 }
 
-const components = { ImageGallery, TechBadge, VideoPlayer, Hyperlink, Spacer, Separator, ProjectFigure };
+const components = { ImageGallery, TechBadge, VideoPlayer, Hyperlink, Spacer, Separator, ProjectFigure, img: ProjectMarkdownImage };
 
 export const dynamicParams = false;
 

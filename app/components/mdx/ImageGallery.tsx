@@ -1,24 +1,10 @@
-'use client';
 import Image from 'next/image';
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
-
-import { ImageGalleryProps } from '@/app/types';
+import React from 'react';
+import type { ImageGalleryProps } from '@/app/types';
+import ProjectImageLink from './ProjectImageLink';
+import ImageGalleryItem from './ImageGalleryItem';
 
 export default function ImageGallery({ images, alts, children }: ImageGalleryProps) {
-    const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string } | null>(null);
-
-    // Disable scroll when lightbox is open
-    useEffect(() => {
-        if (selectedImage) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'unset';
-        }
-        return () => { document.body.style.overflow = 'unset'; };
-    }, [selectedImage]);
-
     // Enhanced parsing logic
     let finalImages: { src: string; alt: string }[] = [];
 
@@ -80,128 +66,40 @@ export default function ImageGallery({ images, alts, children }: ImageGalleryPro
         }
     }
 
-    if (finalImages.length === 0) {
-        return (
-            <div className="w-full p-4 bg-red-500/10 border border-red-500/20 rounded-xl my-8">
-                <p className="font-mono text-xs text-red-500 whitespace-pre-wrap">
-                    Galerie indisponible : aucune image reçue.
-                    Paramètres : {JSON.stringify({ hasImages: !!images, hasChildren: !!children })}
-                </p>
-            </div>
-        );
-    }
 
-    const normalizedImages = finalImages;
+    if (finalImages.length === 0) return <p className="my-8 text-foreground/70">Galerie indisponible : aucune image reçue.</p>;
 
     return (
         <div className="w-full my-16 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8">
-                {normalizedImages.map((img, idx) => {
-                    // First image spans 2 columns if total count is odd
-                    const isBig = idx === 0 && normalizedImages.length % 2 !== 0;
-
+                {finalImages.map((img, index) => {
+                    const isBig = index === 0 && finalImages.length % 2 !== 0;
                     return (
-                        <motion.div
-                            key={idx}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            className={`group hover:-translate-y-1 transition-transform relative flex flex-col gap-4 ${isBig ? 'md:col-span-2' : ''}`}
-                        >
-                            <div
-                                className={`relative overflow-hidden rounded-sm bg-foreground/5 border-[0.5px] border-foreground/10 cursor-pointer ${isBig ? 'aspect-video' : 'aspect-4/3'}`}
-                                onClick={() => setSelectedImage(img)}
+                        <ImageGalleryItem key={img.src + index} index={index} isBig={isBig}>
+                            <ProjectImageLink
+                                src={img.src}
+                                alt={img.alt}
+                                caption={img.alt}
+                                className={'relative overflow-hidden rounded-sm bg-foreground/5 border-[0.5px] border-foreground/10 ' + (isBig ? 'aspect-video' : 'aspect-4/3')}
                             >
-                                <Image
-                                    src={img.src}
-                                    alt={img.alt}
-                                    fill
-                                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                />
-
-                                {/* Caption Overlay (Bottom Left) */}
+                                <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:transform-none" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                                 {img.alt && (
                                     <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-20 bg-linear-to-t from-black/60 via-black/10 to-transparent pointer-events-none">
-                                        <p className="text-xs md:text-sm bg-black/30 rounded-r backdrop-blur-xs font-bold text-white/90 leading-relaxed border-l-2 border-primary/50 px-2 mt-1 w-fit max-w-[85%] transition-all duration-500 group-hover:opacity-40 transform-gpu translate-z-0 will-change-[opacity,transform]">
+                                        <p className="text-xs md:text-sm bg-black/30 rounded-r backdrop-blur-xs font-bold text-white/90 leading-relaxed border-l-2 border-primary/50 px-2 mt-1 w-fit max-w-[85%]">
                                             {img.alt}
                                         </p>
                                     </div>
                                 )}
-
-                                {/* Technical Corner Decorations */}
-                                <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-white/30 pointer-events-none" />
-                                <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-white/30 pointer-events-none" />
-
-                                {/* Corner Number */}
-                                <div className="absolute top-4 right-4">
-                                    <span className="font-mono text-sm text-white/60 bg-black/60 px-1.5 py-0.5 backdrop-blur-sm rounded-xs border border-white/10 select-none">
-                                        N° {String(idx + 1).padStart(2, '0')}
-                                    </span>
-                                </div>
-                            </div>
-                        </motion.div>
+                                <div aria-hidden="true" className="absolute top-3 left-3 w-4 h-4 border-t border-l border-white/30 pointer-events-none" />
+                                <div aria-hidden="true" className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-white/30 pointer-events-none" />
+                                <span aria-hidden="true" className="absolute top-4 right-4 font-mono text-sm text-white/60 bg-black/60 px-1.5 py-0.5 backdrop-blur-sm rounded-xs border border-white/10">
+                                    N° {String(index + 1).padStart(2, '0')}
+                                </span>
+                            </ProjectImageLink>
+                        </ImageGalleryItem>
                     );
                 })}
             </div>
-
-            {/* Lightbox Rendering */}
-            <AnimatePresence>
-                {selectedImage && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 backdrop-blur-sm p-4 md:p-12 cursor-grab"
-                        onClick={() => setSelectedImage(null)}
-                    >
-                        {/* Close button */}
-                        <button
-                            className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-50 cursor-pointer"
-                            onClick={() => setSelectedImage(null)}
-                        >
-                            <X size={32} strokeWidth={1.5} />
-                        </button>
-
-                        <motion.div
-                            initial={{ scale: 0.9, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                            className="relative w-full h-full flex flex-col items-center justify-center pointer-events-none"
-                        >
-                            <div className="relative w-full h-full max-w-7xl max-h-[80vh]">
-                                <Image
-                                    src={selectedImage.src}
-                                    alt={selectedImage.alt}
-                                    fill
-                                    className="object-contain"
-                                    priority
-                                />
-                            </div>
-
-                            {/* Lightbox Caption */}
-                            {selectedImage.alt && (
-                                <motion.div
-                                    initial={{ y: 20, opacity: 0 }}
-                                    animate={{ y: 0, opacity: 1 }}
-                                    transition={{ delay: 0.2 }}
-                                    className="mt-8 max-w-2xl text-center"
-                                >
-                                    <div className="flex flex-col items-center gap-1">
-                                        <span className="text-micro uppercase tracking-[0.3em] text-primary">Légende de l’image</span>
-                                        <div className="h-px w-12 bg-primary/30 mb-2" />
-                                        <p className="text-white/80 text-lg md:text-xl font-medium tracking-tight">
-                                            {selectedImage.alt}
-                                        </p>
-                                    </div>
-                                </motion.div>
-                            )}
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </div>
     );
 }
