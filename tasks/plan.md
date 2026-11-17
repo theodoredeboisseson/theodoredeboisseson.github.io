@@ -79,3 +79,97 @@ Nommer les navigateurs réellement testés et toute limite. Ne pas présenter le
 4. Une intégration centrale règle les détails de couleur, le rythme et les régressions avant validation finale.
 
 Les fichiers de styles et les contrats partagés ont un seul responsable pendant la phase parallèle. Implémentation et corrections des revues terminées ; aucune publication effectuée.
+
+
+---
+
+# Suite V2 — Interactions et finitions après revue utilisateur
+
+17 novembre 2026. **Plan approuvé ; PhotoSwipe retenu à la demande utilisateur. Implémentation en cours.** Suite au retour utilisateur sur les cartes, les images des fiches, les deux frises, les repères latéraux et les hobbies. Les chapitres précédents décrivent la refonte déjà terminée.
+
+## 1. Donner un vrai lien à toute la carte de projet
+
+Remplacer le lien limité au CTA par un lien natif Next couvrant toute la carte. Le CTA « Voir le projet » devient un élément visuel de ce même lien. Utiliser le titre du projet comme nom accessible pour éviter une annonce regroupant tout le texte de la carte.
+
+Acceptation :
+- Clic sur la scène, le titre, le texte, les badges ou les espaces de la carte : même fiche projet.
+- Un seul arrêt de Tab par carte, focus visible sur toute sa surface ; Entrée, clic milieu et ouverture dans un nouvel onglet fonctionnent nativement.
+- Aucun lien ou bouton imbriqué dans le lien principal ; rendu des huit cartes et de leurs technologies préservé.
+
+Fichiers : `ProjectCard.tsx`, `ProjectCard.module.css`. Taille S. Vérification : structure HTML, navigation réelle et focus sur accueil/index. Dépendance : aucune.
+
+## 2. Un seul visualiseur d’images pour chaque fiche
+
+### Recherche et choix recommandé
+
+Bibliothèques examinées sur leurs documentations officielles et leurs métadonnées npm :
+- **Yet Another React Lightbox 3.33.1**, publié le 14 novembre 2026, licence MIT. Les peer dependencies déclarent React/React DOM 19. Les plugins Zoom, Captions et Counter couvrent les besoins sans autre package fonctionnel. Styles et icônes personnalisables, exemple officiel de chargement différé sous Next.js.
+- **PhotoSwipe 5.4.4**, licence MIT, avec l’intégration React `react-photoswipe-gallery` 4.1.2 examinée. Moteur solide, mais intégration impérative ou adaptateur React à prévoir, et dimensions explicites demandées pour chaque image.
+
+Choix utilisateur : **PhotoSwipe 5.4.4**, directement avec son moteur JavaScript. Un contrôleur React limité à la page réunira les ancres des images dans un catalogue commun, dans l’ordre du document. Le visualiseur chargera les fichiers statiques originaux ; les aperçus conservent Next Image. Les dimensions intrinsèques seront lues à la génération des pages, sans télécharger toutes les images au premier clic.
+
+Sources :
+- https://yet-another-react-lightbox.com/documentation
+- https://yet-another-react-lightbox.com/plugins/zoom
+- https://yet-another-react-lightbox.com/customization
+- https://yet-another-react-lightbox.com/examples/nextjs
+- https://photoswipe.com/getting-started/
+- https://registry.npmjs.org/yet-another-react-lightbox
+- https://registry.npmjs.org/photoswipe
+- https://registry.npmjs.org/react-photoswipe-gallery
+
+### Expérience et intégration
+
+Le code actuel a deux comportements séparés : `ImageGallery` crée une modale propre à chaque galerie, et `ProjectFigure` affiche un lien texte vers le fichier. Les remplacer par un visualiseur commun à toute la fiche :
+- Couverture, figures Genomint, toutes les `ImageGallery` d’une page et images Markdown intégrées au même ensemble.
+- Ordre de lecture du document. Même fichier présent plusieurs fois : une seule entrée, avec la légende la plus pertinente ; chaque déclencheur ouvre la bonne entrée et récupère ensuite le focus.
+- Ouverture directement depuis l’image, à la souris, au toucher et au clavier. Curseur de zoom et indice discret sur l’image ; suppression du lien visible « Agrandir l’image ».
+- Image entière, zoom/dézoom, déplacement dans l’image zoomée, pincement et double-tap ; navigation précédente/suivante par boutons, flèches clavier et balayage.
+- Compteur et légende lisibles, contrôles en français. Fermer par bouton ou Échap ; focus contenu dans le visualiseur puis restauré au déclencheur ; scroll de la page correctement rétabli.
+- Fond encre sobre, boutons et accents rose/papier, icônes Lucide et typographies du portfolio. Contrôles tactiles suffisamment grands et animation adaptée à `prefers-reduced-motion`.
+- Chargement différé du moteur à la première ouverture, préchargement limité aux images voisines. Conserver le rendu serveur des pages et la politique MDX `blockJS`.
+
+Découpage :
+1. **Moteur commun** : portée DOM par fiche, ancres progressives, dimensions intrinsèques à la génération, moteur PhotoSwipe chargé à la demande, styles et dépendances. Fichiers probables : nouveau contrôleur `ProjectImageViewer.tsx` et lien `ProjectImageLink.tsx`, module CSS, `package.json`, `package-lock.json`. Taille M.
+2. **Couverture et figures** : raccordement de la route projet et de `ProjectFigure` ; conservation des dimensions littérales MDX et adaptation du test réel compilation MDX → Next Image. Taille M, 3–5 fichiers. Dépendance : moteur commun.
+3. **Anciennes galeries et Markdown** : raccordement de `ImageGallery` et du composant MDX `img`, suppression de l’ancienne modale, vérification des pages à plusieurs galeries et des doublons. Taille M, 3–5 fichiers. Dépendance : moteur et raccordement de la route.
+
+Acceptation : la galerie partagée traverse toutes les images de la fiche depuis n’importe quel déclencheur ; les images seules et les doublons fonctionnent ; couverture et miniatures gardent leurs bonnes dimensions.
+
+Vérification : Genomint, JiFoosball, Portfolio (plusieurs galeries et doublons), JiCursum (Markdown) et une fiche avec couverture seule. Vérifier image initiale, ordre, zoom, navigation, fermeture, focus, scroll et absence de saut de mise en page ; conserver une régression ciblée sur les dimensions MDX et l’ordre/déduplication du catalogue. Clavier réel et tactile en émulation ; nommer les navigateurs effectivement contrôlés.
+
+## 3. Adoucir les dégradés des deux chronologies en OKLCH
+
+La surface `.timeline` mélange actuellement papier et teinte rose/lilas dans un `linear-gradient` sans espace d’interpolation explicite. Revoir les couleurs, les stops et l’intensité, avec des variables locales en OKLCH et une interpolation `in oklch`.
+
+Acceptation : transition très douce, luminosité proche entre les extrémités, chroma faible ; deux nuances distinctes pour Expériences et Formation. Garder un fond papier utilisable si le dégradé n’est pas pris en charge. Dates, segments, badge vert et frises mobiles conservent leur lisibilité.
+
+Fichier : `ExperienceSection.module.css`. Taille S. Vérification : comparer les deux surfaces à 375, 768 et 1440 px ; contrôler les contrastes du texte et du statut actif. Dépendance : aucune.
+
+## 4. Rendre les repères du cadre discrets
+
+Supprimer le fond opaque et la bordure de `.frame-metadata`, atténuer la couleur du texte. Conserver le texte vertical dans la marge et sa présence seulement à partir de 1440 px.
+
+Acceptation : aucun cartouche blanc autour de « Portfolio // … » ou « Location // Montpellier » ; texte discret sur papier, surfaces colorées et footer, sans empiéter sur les contenus. Les coins du cadre gardent leur dessin.
+
+Fichiers : `app/globals.css` ; `TechnicalFrame.tsx` uniquement si la classe doit évoluer. Taille S. Vérification : vues desktop du héros, des projets et du footer ; absence des libellés sous 1440 px. Dépendance : aucune.
+
+## 5. Actualiser les hobbies
+
+Retirer Kung-Fu. Remplacer Automobile par **« Automobile & mécanique »**, avec l’icône Lucide `Wrench`. Mettre à jour les données et la table d’icônes propre à `AboutSection`, puis retirer les imports devenus inutiles.
+
+Acceptation : une seule ligne Automobile & mécanique, avec une clé/outil reconnaissable ; Kung-Fu absent et aucun pictogramme de remplacement générique. Le bento reste équilibré sur mobile.
+
+Fichiers : `data/bio.json`, `AboutSection.tsx`. Taille S. Vérification : contrôle des données, rendu et lint ciblé. Dépendance : aucune.
+
+## Ordre, contrôles et commits
+
+1. Carte entièrement cliquable.
+2. Visualiseur commun, puis raccordements des figures/couverture et des anciennes galeries/Markdown.
+3. Dégradés OKLCH.
+4. Repères latéraux.
+5. Hobbies.
+
+Un commit par sujet ; le visualiseur peut occuper les trois commits correspondant à ses étapes compilables. Répartir les tests avec les changements qu’ils vérifient. Les validations finales incluent tests ciblés, lint, TypeScript, build/export statique et contrôle visuel/interactif à 320, 375, 768, 1024, 1440 px ainsi qu’en paysage 812 × 375. Vérifier aussi les interactions clavier et le mouvement réduit.
+
+Ce plan est approuvé. Réaliser puis vérifier les étapes et créer des commits ciblés ; conserver les sources des recherches et le bilan de validation.
