@@ -85,7 +85,7 @@ Les fichiers de styles et les contrats partagés ont un seul responsable pendant
 
 # Suite V2 — Interactions et finitions après revue utilisateur
 
-17 novembre 2026. **Plan approuvé ; PhotoSwipe retenu à la demande utilisateur. Implémentation en cours.** Suite au retour utilisateur sur les cartes, les images des fiches, les deux frises, les repères latéraux et les hobbies. Les chapitres précédents décrivent la refonte déjà terminée.
+17 novembre 2026. **Implémentation et vérifications terminées ; rendu validé par l’utilisateur. PhotoSwipe retenu.** Suite au retour utilisateur sur les cartes, les images des fiches, les deux frises, les repères latéraux et les hobbies. Les chapitres précédents décrivent la refonte déjà terminée.
 
 ## 1. Donner un vrai lien à toute la carte de projet
 
@@ -120,13 +120,13 @@ Sources :
 
 ### Expérience et intégration
 
-Le code actuel a deux comportements séparés : `ImageGallery` crée une modale propre à chaque galerie, et `ProjectFigure` affiche un lien texte vers le fichier. Les remplacer par un visualiseur commun à toute la fiche :
+Avant ce lot, le code avait deux comportements séparés : `ImageGallery` crée une modale propre à chaque galerie, et `ProjectFigure` affiche un lien texte vers le fichier. Ils sont remplacés par un visualiseur commun à toute la fiche :
 - Couverture, figures Genomint, toutes les `ImageGallery` d’une page et images Markdown intégrées au même ensemble.
 - Ordre de lecture du document. Même fichier présent plusieurs fois : une seule entrée, avec la légende la plus pertinente ; chaque déclencheur ouvre la bonne entrée et récupère ensuite le focus.
 - Ouverture directement depuis l’image, à la souris, au toucher et au clavier. Curseur de zoom et indice discret sur l’image ; suppression du lien visible « Agrandir l’image ».
 - Image entière, zoom/dézoom, déplacement dans l’image zoomée, pincement et double-tap ; navigation précédente/suivante par boutons, flèches clavier et balayage.
 - Compteur et légende lisibles, contrôles en français. Fermer par bouton ou Échap ; focus contenu dans le visualiseur puis restauré au déclencheur ; scroll de la page correctement rétabli.
-- Fond encre sobre, boutons et accents rose/papier, icônes Lucide et typographies du portfolio. Contrôles tactiles suffisamment grands et animation adaptée à `prefers-reduced-motion`.
+- Fond encre sobre, boutons et accents rose/papier, iconographie PhotoSwipe harmonisée et typographies du portfolio ; loupe Lucide sur les déclencheurs. Contrôles tactiles suffisamment grands et animation adaptée à `prefers-reduced-motion`.
 - Chargement différé du moteur à la première ouverture, préchargement limité aux images voisines. Conserver le rendu serveur des pages et la politique MDX `blockJS`.
 
 Découpage :
@@ -172,4 +172,4 @@ Fichiers : `data/bio.json`, `AboutSection.tsx`. Taille S. Vérification : contr�
 
 Un commit par sujet ; le visualiseur peut occuper les trois commits correspondant à ses étapes compilables. Répartir les tests avec les changements qu’ils vérifient. Les validations finales incluent tests ciblés, lint, TypeScript, build/export statique et contrôle visuel/interactif à 320, 375, 768, 1024, 1440 px ainsi qu’en paysage 812 × 375. Vérifier aussi les interactions clavier et le mouvement réduit.
 
-Ce plan est approuvé. Réaliser puis vérifier les étapes et créer des commits ciblés ; conserver les sources des recherches et le bilan de validation.
+Lot implémenté, vérifié et commité par sujet. Les dimensions sont lues au build avec image-size 2.1.0 (dépendance de développement) ; le moteur PhotoSwipe est chargé à la première ouverture. Bilan : tasks/verification-interactions.md. Le rendu a été validé par l’utilisateur ; aucune publication réalisée à ce stade.

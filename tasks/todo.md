@@ -102,53 +102,53 @@ Vérification : critères de `tasks/plan.md` et rapport daté de V2. Taille S/M.
 
 # Suite V2 — Revue utilisateur du 17 novembre 2026
 
-**Plan approuvé ; implémentation en cours avec PhotoSwipe.** Détails, sources de recherche et critères d’acceptation dans la section correspondante de `tasks/plan.md`.
+**Terminé et vérifié avec PhotoSwipe ; rendu validé par l’utilisateur.** Détails, sources de recherche et critères d’acceptation dans la section correspondante de `tasks/plan.md`.
 
 ## 1. Cartes de projets
 
-- [ ] Transformer la carte entière en lien natif, avec un seul arrêt de Tab et un nom accessible court.
-- [ ] Vérifier clic depuis toutes les zones, focus, Entrée et ouverture dans un nouvel onglet sur accueil/index.
+- [x] Transformer la carte entière en lien natif, avec un seul arrêt de Tab et un nom accessible court.
+- [x] Vérifier clic depuis toutes les zones, focus, Entrée et ouverture dans un nouvel onglet sur accueil/index.
 
 ## 2A. Moteur partagé du visualiseur
 
-- [ ] Intégrer PhotoSwipe 5.4.4, son zoom, une légende personnalisée et son compteur, avec chargement différé.
-- [ ] Préparer un registre commun par fiche, ordonné et dédupliqué.
-- [ ] Personnaliser fond, contrôles, icônes et libellés pour le portfolio.
-- [ ] Vérifier zoom, gestes, fermeture, focus, scroll et mouvement réduit.
+- [x] Intégrer PhotoSwipe 5.4.4, son zoom, une légende personnalisée et son compteur, avec chargement différé.
+- [x] Préparer un registre commun par fiche, ordonné et dédupliqué.
+- [x] Personnaliser fond, contrôles, icônes et libellés pour le portfolio.
+- [x] Vérifier zoom, gestes, fermeture, focus, scroll et mouvement réduit.
 
 ## 2B. Couverture et figures Genomint
 
-- [ ] Brancher la couverture et toutes les figures sur le même visualiseur, ouvert à l’image cliquée.
-- [ ] Supprimer le lien visible « Agrandir l’image » ; garder légendes et dimensions MDX littérales.
-- [ ] Adapter la régression compilation MDX → Next Image, sans désactiver `blockJS`.
-- [ ] Vérifier ordre, doublons et retour du focus au bon déclencheur.
+- [x] Brancher la couverture et toutes les figures sur le même visualiseur, ouvert à l’image cliquée.
+- [x] Supprimer le lien visible « Agrandir l’image » ; garder légendes et dimensions MDX littérales.
+- [x] Adapter la régression compilation MDX → Next Image, sans désactiver `blockJS`.
+- [x] Vérifier ordre, doublons et retour du focus au bon déclencheur.
 
 ## 2C. Galeries existantes et Markdown
 
-- [ ] Raccorder toutes les `ImageGallery` et images Markdown au registre de la fiche.
-- [ ] Retirer l’ancienne modale locale de `ImageGallery`.
-- [ ] Vérifier JiFoosball, Portfolio (plusieurs galeries/doublons), JiCursum et une couverture seule.
+- [x] Raccorder toutes les `ImageGallery` et images Markdown au registre de la fiche.
+- [x] Retirer l’ancienne modale locale de `ImageGallery`.
+- [x] Vérifier JiFoosball, Portfolio (plusieurs galeries/doublons), JiCursum et une couverture seule.
 
 ## 3. Chronologies
 
-- [ ] Refaire les deux fonds avec des teintes et une interpolation OKLCH, peu saturées et progressives.
-- [ ] Contrôler contraste, badge actif, fallback et rendu des frises desktop/mobile.
+- [x] Refaire les deux fonds avec des teintes et une interpolation OKLCH, peu saturées et progressives.
+- [x] Contrôler contraste, badge actif, fallback et rendu des frises desktop/mobile.
 
 ## 4. Cadre
 
-- [ ] Retirer fond opaque et bordure des métadonnées latérales ; atténuer le texte.
-- [ ] Vérifier héros, projets et footer à 1440 px et la disparition des libellés aux largeurs inférieures.
+- [x] Retirer fond opaque et bordure des métadonnées latérales ; atténuer le texte.
+- [x] Vérifier héros, projets et footer à 1440 px et la disparition des libellés aux largeurs inférieures.
 
 ## 5. Hobbies
 
-- [ ] Retirer Kung-Fu et afficher Automobile & mécanique avec `Wrench`.
-- [ ] Mettre à jour la table d’icônes et retirer les imports inutiles.
-- [ ] Vérifier le bento sur mobile.
+- [x] Retirer Kung-Fu et afficher Automobile & mécanique avec `Wrench`.
+- [x] Mettre à jour la table d’icônes et retirer les imports inutiles.
+- [x] Vérifier le bento sur mobile.
 
 ## Validation et sauvegarde
 
-- [ ] Après cartes/visualiseur : parcours clavier et tactile, tests ciblés et TypeScript.
-- [ ] À la fin : lint, tests, build/export, vues 320/375/768/1024/1440 et paysage 812 × 375.
-- [ ] Contrôler les nouvelles interactions en mouvement réduit et nommer les navigateurs réellement testés.
-- [ ] Créer des commits par sujet, avec les tests correspondants ; étapes séparées pour le visualiseur.
-- [ ] Mettre à jour le bilan avec résultats et limites.
+- [x] Après cartes/visualiseur : parcours clavier et tactile, tests ciblés et TypeScript.
+- [x] À la fin : lint, tests, build/export, vues 320/375/768/1024/1440 et paysage 812 × 375.
+- [x] Contrôler les nouvelles interactions en mouvement réduit et nommer les navigateurs réellement testés.
+- [x] Créer des commits par sujet, avec les tests correspondants ; étapes séparées pour le visualiseur.
+- [x] Mettre à jour le bilan avec résultats et limites.
