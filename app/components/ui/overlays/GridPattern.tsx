@@ -58,6 +58,10 @@ export default function GridPattern() {
                     mask="url(#gridMask)"
                 />
             </svg>
+            {/* Tiny drifting signals keep the light background alive without tracking scroll. */}
+            <div className="ambient-signals">
+                {Array.from({ length: 8 }, (_, index) => <span key={index} />)}
+            </div>
         </div>
     );
 }

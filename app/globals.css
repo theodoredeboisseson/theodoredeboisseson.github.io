@@ -384,3 +384,61 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .hero-petals span { animation: none; will-change: auto; }
 }
+
+/* A low-contrast moving layer for the paper-like sections. */
+.ambient-signals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ambient-signals span {
+  position: absolute;
+  left: var(--signal-x);
+  top: var(--signal-y);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  box-shadow: 0 0 10px 3px color-mix(in srgb, var(--color-primary), transparent 65%);
+  opacity: 0;
+  animation: signal-drift var(--signal-duration) ease-in-out var(--signal-delay) infinite alternate;
+}
+
+.ambient-signals span:nth-child(1) { --signal-x: 8%; --signal-y: 20%; --signal-duration: 12s; --signal-delay: -2s; }
+.ambient-signals span:nth-child(2) { --signal-x: 22%; --signal-y: 75%; --signal-duration: 16s; --signal-delay: -9s; }
+.ambient-signals span:nth-child(3) { --signal-x: 38%; --signal-y: 12%; --signal-duration: 14s; --signal-delay: -6s; }
+.ambient-signals span:nth-child(4) { --signal-x: 53%; --signal-y: 82%; --signal-duration: 18s; --signal-delay: -13s; }
+.ambient-signals span:nth-child(5) { --signal-x: 69%; --signal-y: 28%; --signal-duration: 15s; --signal-delay: -4s; }
+.ambient-signals span:nth-child(6) { --signal-x: 84%; --signal-y: 64%; --signal-duration: 17s; --signal-delay: -11s; }
+.ambient-signals span:nth-child(7) { --signal-x: 94%; --signal-y: 14%; --signal-duration: 13s; --signal-delay: -8s; }
+.ambient-signals span:nth-child(8) { --signal-x: 5%; --signal-y: 92%; --signal-duration: 19s; --signal-delay: -15s; }
+
+@keyframes signal-drift {
+  from { transform: translate3d(-8px, 12px, 0); opacity: .14; }
+  to { transform: translate3d(14px, -24px, 0); opacity: .52; }
+}
+
+/* Layered gradients and engraved lines instead of a large image download. */
+.footer-atmosphere {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 85% 9%, rgba(217, 66, 97, .23), transparent 46%),
+    radial-gradient(ellipse at 6% 85%, rgba(217, 66, 97, .13), transparent 48%),
+    repeating-linear-gradient(115deg, transparent 0 36px, rgba(255, 255, 255, .045) 37px, transparent 38px),
+    linear-gradient(140deg, #101010 15%, #1e1519 55%, #111 100%);
+}
+
+.footer-atmosphere::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .5;
+  background: radial-gradient(circle at 80% 52%, transparent 0 118px, rgba(255, 255, 255, .06) 119px 120px, transparent 121px 174px, rgba(255, 255, 255, .04) 175px 176px, transparent 177px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-signals span { animation: none; opacity: .18; }
+}

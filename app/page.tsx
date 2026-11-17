@@ -4,6 +4,7 @@ import SkillsArsenal from "@/app/components/sections/SkillsArsenal";
 import FeaturedProjects from "@/app/components/sections/FeaturedProjects";
 import ExperienceSection from "@/app/components/sections/ExperienceSection";
 import ContactSection from "@/app/components/sections/ContactSection";
+import SiteFooter from "@/app/components/sections/SiteFooter";
 import { getAllProjects, getProjectSummary } from "@/lib/mdx";
 import { Project, Experience } from '@/app/types';
 import bioData from '@/data/bio.json';
@@ -53,6 +54,7 @@ export default function Home() {
         socials={bioData.socials}
         cvUrl={bioData.cv_file}
       />
+      <SiteFooter email={bioData.contact.email} github={bioData.socials.github} linkedin={bioData.socials.linkedin} cvUrl={bioData.cv_file} />
     </main>
   );
 }
