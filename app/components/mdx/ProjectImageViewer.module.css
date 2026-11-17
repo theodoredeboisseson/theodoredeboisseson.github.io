@@ -1,0 +1,106 @@
+.scope :global(a[data-project-image]) {
+    position: relative;
+    display: block;
+    cursor: zoom-in;
+    text-decoration: none;
+}
+
+.scope :global(a[data-project-image]:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 4px;
+}
+
+.scope :global([data-image-zoom]) {
+    position: absolute;
+    right: .75rem;
+    bottom: .75rem;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid #20191d20;
+    border-radius: .5rem .125rem .5rem .125rem;
+    background: var(--surface-paper, #f7f4ef);
+    color: var(--surface-ink, #20191d);
+    opacity: 0;
+    transform: translateY(3px);
+    transition: opacity 160ms ease, transform 160ms ease;
+    pointer-events: none;
+}
+
+.scope :global(a[data-project-image]:hover [data-image-zoom]),
+.scope :global(a[data-project-image]:focus-visible [data-image-zoom]) {
+    opacity: 1;
+    transform: none;
+}
+
+.viewer {
+    --pswp-bg: var(--surface-ink, #20191d);
+    --pswp-placeholder-bg: #30262c;
+    --pswp-icon-color: var(--surface-paper, #f7f4ef);
+    --pswp-icon-color-secondary: #39232c;
+    --pswp-icon-stroke-width: 0;
+    color: var(--surface-paper, #f7f4ef);
+    font-family: var(--font-sans), sans-serif;
+}
+
+.viewer :global(.pswp__button:focus-visible) {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -4px;
+}
+
+.viewer :global(.pswp__button:hover) {
+    --pswp-icon-color: var(--color-primary);
+}
+
+.viewer :global(.pswp__counter) {
+    font-family: var(--font-mono), monospace;
+    font-size: .8125rem;
+    letter-spacing: .08em;
+    text-shadow: none;
+    opacity: .85;
+}
+
+.caption {
+    position: absolute;
+    right: max(1.5rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    left: max(1.5rem, env(safe-area-inset-left));
+    width: fit-content;
+    max-width: 64rem;
+    max-height: 4.5rem;
+    margin-inline: auto;
+    overflow-y: auto;
+    color: var(--surface-paper, #f7f4ef);
+    font-size: .9375rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+@media (hover: none) {
+    .scope :global([data-image-zoom]) {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-height: 450px) {
+    .caption {
+        bottom: max(.5rem, env(safe-area-inset-bottom));
+        max-height: 3rem;
+        font-size: .8125rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scope :global([data-image-zoom]) {
+        transition: none;
+        transform: none;
+    }
+
+    .viewer :global(.pswp__container),
+    .viewer :global(.pswp__zoom-wrap) {
+        transition-duration: 0ms !important;
+    }
+}
