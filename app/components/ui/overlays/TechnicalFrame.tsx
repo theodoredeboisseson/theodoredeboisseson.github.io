@@ -8,7 +8,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
     return (
         <div
             style={{ height: '100dvh' }}
-            className={`pointer-events-none fixed inset-x-0 top-0 z-30 flex flex-col justify-between p-1 md:p-4 mix-blend-difference text-white opacity-90 ${className}`}
+            className={`pointer-events-none fixed inset-x-0 top-0 z-30 flex flex-col justify-between p-1 md:p-4 text-foreground/40 ${className}`}
         >
             {/* Top Row */}
             <div className="flex w-full items-start justify-between">
@@ -20,7 +20,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
 
                 {/* Top Metadata */}
                 {showMetadata && (
-                    <div className="font-mono text-micro tracking-widest uppercase opacity-80">
+                    <div className="frame-metadata absolute right-4 top-16 font-mono text-micro tracking-widest uppercase">
                         Portfolio // {currentYear}
                     </div>
                 )}
@@ -47,7 +47,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
 
                 {/* Bottom Metadata */}
                 {showMetadata && (
-                    <div className="font-mono text-micro tracking-widest uppercase opacity-80">
+                    <div className="frame-metadata absolute right-4 bottom-28 font-mono text-micro tracking-widest uppercase">
                         Location // Montpellier
                     </div>
                 )}

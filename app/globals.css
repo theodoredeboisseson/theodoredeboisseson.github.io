@@ -11,6 +11,23 @@
   --surface-paper: #f7f4ef;
 }
 
+.frame-metadata {
+  display: none;
+  writing-mode: vertical-rl;
+  padding: .25rem .5rem;
+  border: 1px solid var(--color-border);
+  border-radius: .125rem;
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+@media (min-width: 1440px) {
+  .frame-metadata {
+    display: block;
+  }
+}
+
 html {
   @apply overflow-x-hidden scroll-smooth scroll-pb-28 xl:scroll-pb-0;
 }
