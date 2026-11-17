@@ -18,6 +18,8 @@ export interface HeroProps extends BaseSectionProps {
 
 export interface Experience {
     period: string;
+    start_date: string;
+    end_date: string;
     title: string;
     company: string;
     location: string;
@@ -35,6 +37,8 @@ export interface ExperienceSectionProps extends BaseSectionProps {
 }
 
 export interface Education {
+    start_date: string;
+    end_date: string;
     year: string;
     degree: string;
     school: string;

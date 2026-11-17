@@ -45,34 +45,65 @@
             "Créativité"
         ],
         "hobbies": [
-            { "name": "Jeux Vidéo (Compétitif, Souls-like)", "icon": "Gamepad2" },
-            { "name": "Dessin", "icon": "Pencil" },
-            { "name": "Piano", "icon": "Music" },
-            { "name": "Photographie", "icon": "Camera" },
-            { "name": "Modélisation 3D", "icon": "Box" },
-            { "name": "Kung-Fu", "icon": "Hand" },
-            { "name": "Automobile", "icon": "Car" }
+            {
+                "name": "Jeux Vidéo (Compétitif, Souls-like)",
+                "icon": "Gamepad2"
+            },
+            {
+                "name": "Dessin",
+                "icon": "Pencil"
+            },
+            {
+                "name": "Piano",
+                "icon": "Music"
+            },
+            {
+                "name": "Photographie",
+                "icon": "Camera"
+            },
+            {
+                "name": "Modélisation 3D",
+                "icon": "Box"
+            },
+            {
+                "name": "Kung-Fu",
+                "icon": "Hand"
+            },
+            {
+                "name": "Automobile",
+                "icon": "Car"
+            }
         ]
     },
     "experiences": [
         {
-            "period": "Avr – Août 2026",
-            "title": "Développeur Full-Stack / IA",
+            "period": "16 septembre – 11 décembre 2026",
+            "start_date": "2026-09-16",
+            "end_date": "2026-12-11",
+            "title": "Référent frontend · Genomint",
             "company": "CIRAD",
             "location": "Montpellier, FR",
-            "type": "Stage",
+            "type": "CDD",
             "status": "current",
-            "description": "Développement en binôme d'une API REST intégrant des LLMs (RAG) pour interroger en langage naturel une base de données graphe Neo4j. Interface utilisateur en React.",
-            "project_slug": null,
-            "skills": [
-                "React",
-                "Neo4j",
-                "JavaScript",
-                "TypeScript"
-            ]
+            "description": "Poursuite de Genomint : conception et évolution des interfaces complexes, du système de panneaux et des visualisations scientifiques. Contribution au backend back-gkg.",
+            "project_slug": "genomint"
+        },
+        {
+            "period": "20 avril – 7 août 2026",
+            "start_date": "2026-04-20",
+            "end_date": "2026-08-07",
+            "title": "Référent frontend · Genomint",
+            "company": "CIRAD",
+            "location": "Montpellier, FR",
+            "type": "Stage de 16 semaines",
+            "status": "completed",
+            "description": "En binôme, conception de l'expérience d'exploration du graphe génomique : parcours utilisateur, interactions et organisation de l'interface.",
+            "project_slug": "genomint"
         },
         {
             "period": "Jan – Avr 2025",
+            "start_date": "2025-01",
+            "end_date": "2025-04",
             "title": "Développeur Full-Stack",
             "company": "MJC Mauguio-Carnon",
             "location": "Mauguio, FR",
@@ -85,7 +116,9 @@
     "education": [
         {
             "year": "2026",
+            "start_date": "2023-09",
             "degree": "BUT Informatique",
+            "end_date": "2026-08",
             "school": "IUT Montpellier-Sète",
             "details": "Parcours Réalisation d'Applications (RACDV)",
             "location": "Montpellier, FR",
@@ -94,7 +127,9 @@
         },
         {
             "year": "2023",
+            "start_date": "2020-09",
             "degree": "Baccalauréat STI2D",
+            "end_date": "2023-06",
             "school": "Lycée Victor Hugo",
             "details": "Mention Très Bien",
             "location": "Lunel, FR",
