@@ -14,12 +14,8 @@
 .frame-metadata {
   display: none;
   writing-mode: vertical-rl;
-  padding: .25rem .5rem;
-  border: 1px solid var(--color-border);
-  border-radius: .125rem;
-  background: var(--background);
-  color: var(--foreground);
-  font-weight: 500;
+  color: inherit;
+  font-weight: 400;
 }
 
 @media (min-width: 1440px) {

@@ -6,7 +6,7 @@ export default function TechnicalFrame({ className = "", showMetadata = true }: 
     const currentYear = new Date().getFullYear();
 
     return (
-        <div
+        <div aria-hidden="true"
             style={{ height: '100dvh' }}
             className={`pointer-events-none fixed inset-x-0 top-0 z-30 flex flex-col justify-between p-1 md:p-4 text-foreground/40 ${className}`}
         >
